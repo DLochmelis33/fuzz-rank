@@ -10,6 +10,8 @@ sootup-jimple-frontend = { group = "org.soot-oss", name = "sootup.jimple.parser"
 sootup-callgraph = { group = "org.soot-oss", name = "sootup.callgraph", version.ref = "sootup" }
 sootup-analysis = { group = "org.soot-oss", name = "sootup.analysis", version.ref = "sootup" }
 sootup-qilin = { group = "org.soot-oss", name = "sootup.qilin", version.ref = "sootup" }
+slf4j-api = { group = "org.slf4j", name = "slf4j-api", version = "2.0.12" }
+logback-classic = { group = "ch.qos.logback", name = "logback-classic", version = "1.5.0" }
 
 [plugins]
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version = "2.0.21" }

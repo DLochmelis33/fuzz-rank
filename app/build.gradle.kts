@@ -17,8 +17,14 @@ dependencies {
     implementation(libs.sootup.callgraph)
     implementation(libs.sootup.analysis)
     implementation(libs.sootup.qilin)
+    implementation(libs.slf4j.api)
+    implementation(libs.logback.classic)
 }
 
 application {
-    mainClass = "org.research.plan.MainKt"
+    mainClass = "org.jetbrains.research.MainKt"
+}
+
+tasks.withType<JavaExec> {
+    systemProperty("projectDir", project.projectDir.absolutePath)
 }
