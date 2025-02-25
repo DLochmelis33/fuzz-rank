@@ -23,7 +23,7 @@ dependencies {
 }
 
 application {
-    mainClass = "org.jetbrains.research.MainKt"
+    mainClass = "me.dl33.fuzzrank.MainKt"
 }
 
 tasks.withType<JavaExec> {
