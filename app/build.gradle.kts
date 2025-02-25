@@ -19,6 +19,7 @@ dependencies {
     implementation(libs.sootup.qilin)
     implementation(libs.slf4j.api)
     implementation(libs.logback.classic)
+    implementation(libs.javaparser)
 }
 
 application {

@@ -12,6 +12,7 @@ sootup-analysis = { group = "org.soot-oss", name = "sootup.analysis", version.re
 sootup-qilin = { group = "org.soot-oss", name = "sootup.qilin", version.ref = "sootup" }
 slf4j-api = { group = "org.slf4j", name = "slf4j-api", version = "2.0.12" }
 logback-classic = { group = "ch.qos.logback", name = "logback-classic", version = "1.5.0" }
+javaparser = { group = "com.github.javaparser", name = "javaparser-symbol-solver-core", version = "3.26.3" }
 
 [plugins]
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version = "2.0.21" }
