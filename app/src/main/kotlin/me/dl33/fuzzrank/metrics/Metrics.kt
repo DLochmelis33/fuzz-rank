@@ -11,7 +11,8 @@ import java.nio.file.Path
  * @param parameters Number of parameters of this function.
  * TODO: "the number of variables prepared by the function as parameters of function calls" is is this same?
  * @param calleeParameters Total number of parameters of other functions called from this function.
- * @param nestedControlStructures The number of nested control structures pairs
+ * TODO: currently does not include constructors
+ * @param nestedControlStructuresPairs The number of nested control structures **pairs**
  * (as in, count each pair where one structure is nested in the other).
  * @param maxNestingOfControlStructures Maximum nesting level of control structures.
  * @param maxControlDependentControlStructures TODO ????? not explained in Leopard
@@ -33,7 +34,7 @@ data class Metrics(
     var parameters: Int = MISSING_VALUE,
     var calleeParameters: Int = MISSING_VALUE,
     // skipping pointer arithmetic
-    var nestedControlStructures: Int = MISSING_VALUE,
+    var nestedControlStructuresPairs: Int = MISSING_VALUE,
     var maxNestingOfControlStructures: Int = MISSING_VALUE,
     var maxControlDependentControlStructures: Int = MISSING_VALUE,
     var maxDataDependentControlStructures: Int = MISSING_VALUE,
