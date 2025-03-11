@@ -20,7 +20,17 @@ public class LinkedList {
     private static Node tail(Node head) {
         Node it;
 
-        for (it = head; it != null && it.next != null; it = it.next) {}
+        for (it = head; it != null && it.next != null; it = it.next) {
+            for(int i = 0; i < 5; i++) {
+                for(int j = 0; j < 5; j++) {
+                }
+            }
+        }
+
+        for(int i = 0; i < 5; i++) {
+            for(int j = 0; j < 5; j++) {
+            }
+        }
 
         return it;
     }
