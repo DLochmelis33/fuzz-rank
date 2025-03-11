@@ -47,6 +47,7 @@ object CFGCalc {
 
             val parameterTypes = this.signature.parameterTypes
             val parameterString = parameterTypes.joinToString(", ") { type ->
+                type
                 when (type) {
                     is ClassType -> type.fullyQualifiedName
                     is PrimitiveType -> type.name

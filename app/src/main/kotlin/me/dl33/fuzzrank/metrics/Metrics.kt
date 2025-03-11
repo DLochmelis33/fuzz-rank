@@ -21,7 +21,7 @@ data class Metrics(
 /**
  * Uniquely describes a method in the following format:
  *
- * `classFQN#methodName(paramFQN, paramFQN)`
+ * `classFQN#methodName(paramSignature, paramSignature)`
  */
 @JvmInline
 value class UnifiedMethodDescriptor(val fqnSig: String) {

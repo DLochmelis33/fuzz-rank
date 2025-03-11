@@ -15,6 +15,7 @@ import com.github.javaparser.symbolsolver.resolution.typesolvers.CombinedTypeSol
 import com.github.javaparser.symbolsolver.resolution.typesolvers.JarTypeSolver
 import com.github.javaparser.utils.SourceRoot
 import java.nio.file.Path
+import kotlin.io.path.Path
 import kotlin.jvm.optionals.getOrNull
 
 object ASTCalc {
@@ -67,19 +68,13 @@ object ASTCalc {
         get() {
             // TODO
             val declaringClass = this.parentNode.getOrNull() as? ClassOrInterfaceDeclaration
-            val declaringClassName = declaringClass?.fullyQualifiedName?.getOrNull() ?: ""
+            val declaringClassFQN = declaringClass?.fullyQualifiedName?.getOrNull() ?: ""
 
             val methodName = this.nameAsString
 
-            val paramsString = this.signature.parameterTypes.joinToString(", ") {
-                when {
-                    it.isClassOrInterfaceType -> it.asClassOrInterfaceType()!!.nameWithScope
-                    it.isPrimitiveType -> it.asPrimitiveType()!!.toString()
-                    else -> error("ast: wtf is $it")
-                }
-            }
+            val paramsDescriptor = this.toDescriptor().trim { !(it == ')' || it == '(') }
 
-            return UnifiedMethodDescriptor("$declaringClassName#$methodName($paramsString)")
+            return UnifiedMethodDescriptor("$declaringClassFQN#$methodName$paramsDescriptor")
         }
 
     private class LoopVisitor : VoidVisitorAdapter<() -> Unit>() {
