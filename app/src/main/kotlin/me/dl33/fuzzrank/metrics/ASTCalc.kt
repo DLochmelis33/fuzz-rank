@@ -6,6 +6,7 @@ import com.github.javaparser.ast.Node
 import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration
 import com.github.javaparser.ast.body.InitializerDeclaration
 import com.github.javaparser.ast.body.MethodDeclaration
+import com.github.javaparser.ast.expr.MethodCallExpr
 import com.github.javaparser.ast.stmt.ForEachStmt
 import com.github.javaparser.ast.stmt.ForStmt
 import com.github.javaparser.ast.stmt.WhileStmt
@@ -49,7 +50,12 @@ object ASTCalc {
         val visitor = object : VoidVisitorAdapter<MetricsMap>() {
             override fun visit(n: MethodDeclaration, metricsMap: MetricsMap) {
                 super.visit(n, metricsMap)
-                visitMethodEntryPoint(n, n.unifiedMethodDescriptor, metricsMap)
+                val descriptor = n.unifiedMethodDescriptor
+                val metrics = metricsMap.getOrPut(descriptor) { Metrics() }
+
+                metrics.parameters = n.parameters.size
+
+                visitMethodEntryPoint(n, descriptor, metrics)
             }
 
             // TODO: ctors
@@ -61,19 +67,23 @@ object ASTCalc {
             private fun visitMethodEntryPoint(
                 n: Node,
                 methodDescriptor: UnifiedMethodDescriptor,
-                metricsMap: MetricsMap
+                metrics: Metrics
             ) {
-                val metrics = metricsMap.getOrPut(methodDescriptor) { Metrics() }
-
                 val loopAccumulator = LoopVisitor.Accumulator()
                 n.accept(LoopVisitor() ,loopAccumulator)
 
+                // CD2: loop structures
                 metrics.loopCount = loopAccumulator.totalCnt
                 metrics.nestedLoopCount = loopAccumulator.nestedCnt
                 // one loop ==> no nesting ==> 0 max nesting
                 metrics.maxNestingOfLoops = max(0, loopAccumulator.depthCnt.maxValue - 1)
 
-                println("$methodDescriptor => $loopAccumulator")
+                // VD1: dependency
+                val calleeParametersCnt = IntCnt()
+                n.accept(InvocationVisitor(), calleeParametersCnt)
+                metrics.calleeParameters = calleeParametersCnt.value
+
+                println("$methodDescriptor => \t $metrics")
             }
         }
         cu.accept(visitor, metricsMap)
@@ -102,6 +112,13 @@ object ASTCalc {
         override fun visit(n: ForEachStmt, acc: Accumulator) = visitLoopNode(acc) { super.visit(n, acc) }
 
         override fun visit(n: WhileStmt, acc: Accumulator) = visitLoopNode(acc) { super.visit(n, acc) }
+    }
+
+    class InvocationVisitor : VoidVisitorAdapter<IntCnt>() {
+        override fun visit(n: MethodCallExpr, arg: IntCnt) {
+            arg.value += n.arguments.size
+            super.visit(n, arg)
+        }
     }
 }
 

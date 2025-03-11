@@ -9,13 +9,14 @@ import java.nio.file.Path
  * @param maxNestingOfLoops Maximum nesting level of loops.
  *
  * @param parameters Number of parameters of this function.
+ * TODO: "the number of variables prepared by the function as parameters of function calls" is is this same?
  * @param calleeParameters Total number of parameters of other functions called from this function.
  * @param nestedControlStructures The number of nested control structures pairs
  * (as in, count each pair where one structure is nested in the other).
  * @param maxNestingOfControlStructures Maximum nesting level of control structures.
- * @param maxControlDependentControlStructures ????? not explained in Leopard TODO
- * @param maxDataDependentControlStructures ????? anything that depends on function params OR captured vars?
- * also what does 'max' mean? does poisoning of expressions count? TODO
+ * @param maxControlDependentControlStructures TODO ????? not explained in Leopard
+ * @param maxDataDependentControlStructures TODO ????? anything that depends on function params OR captured vars?
+ * also what does 'max' mean? does poisoning of expressions count?
  * @param ifWithoutElseCount How many `if`-s are missing `else`.
  * @param variablesInControlPredicates How many of the declared variables are used in predicates of control structures.
  */
