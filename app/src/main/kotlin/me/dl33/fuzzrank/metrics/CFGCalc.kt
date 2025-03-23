@@ -1,8 +1,10 @@
 package me.dl33.fuzzrank.metrics
 
 import sootup.core.inputlocation.AnalysisInputLocation
+import sootup.core.types.ArrayType
 import sootup.core.types.ClassType
 import sootup.core.types.PrimitiveType
+import sootup.core.types.Type
 import sootup.java.bytecode.inputlocation.JavaClassPathAnalysisInputLocation
 import sootup.java.core.JavaSootMethod
 import sootup.java.core.views.JavaView
@@ -17,6 +19,7 @@ object CFGCalc {
 
         val allClasses = view.classes
         for (sootClass in allClasses) {
+            println("analysing $sootClass")
             for (method in sootClass.methods) {
                 val stmtGraph = method.body.stmtGraph
 
@@ -34,7 +37,9 @@ object CFGCalc {
                 }
                 val cyclomaticComplexity = E - N + 2
 
-                println("${method.unifiedMethodDescriptor} ==> $cyclomaticComplexity")
+                val methodDesc = method.unifiedMethodDescriptor
+                val metrics = metricsMap.getOrPut(methodDesc) { Metrics() }
+                metrics.cyclomatic = cyclomaticComplexity
             }
         }
     }
@@ -47,14 +52,22 @@ object CFGCalc {
 
             val parameterTypes = this.signature.parameterTypes
             val parameterString = parameterTypes.joinToString(", ") { type ->
-                type
-                when (type) {
-                    is ClassType -> type.fullyQualifiedName
-                    is PrimitiveType -> type.name
-                    else -> error("cfg: wtf is $type")
-                }
+                type.unifiedName
             }
 
-            return UnifiedMethodDescriptor("$classFQN#$methodName($parameterString)")
+            return UnifiedMethodDescriptor("$classFQN::$methodName($parameterString)".replace("$", "."))
+        }
+
+    private val Type.unifiedName: String
+        get() {
+            // on CFG level generics are fortunately gone
+            // OTOH they have to match AST naming BRUH
+            // in bytecode generics are reduced to VARIOUS objects (ex. extends String)
+            return when (this) {
+                is ClassType -> fullyQualifiedName
+                is PrimitiveType -> name
+                is ArrayType -> elementType.unifiedName + "[]"
+                else -> TODO("not yet supported type $this")
+            }
         }
 }

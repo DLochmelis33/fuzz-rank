@@ -64,7 +64,7 @@ object ASTCalc {
 
                 metrics.parameters = n.parameters.size
 
-                visitMethodEntryPoint(n, descriptor, metrics)
+                visitMethodEntryPoint(n, metrics)
             }
 
             // TODO: ctors
@@ -75,7 +75,6 @@ object ASTCalc {
 
             private fun visitMethodEntryPoint(
                 n: Node,
-                methodDescriptor: UnifiedMethodDescriptor,
                 metrics: Metrics
             ) {
                 val loopAccumulator = LoopVisitor.Accumulator()
@@ -101,8 +100,6 @@ object ASTCalc {
 //                metrics.maxDataDependentControlStructures = TODO()
                 metrics.ifWithoutElseCount = controlAcc.ifWithoutElseCnt
                 metrics.variablesInControlPredicates = controlAcc.variablesInPredicates.size
-
-                println("\n$methodDescriptor\n$metrics")
             }
         }
         cu.accept(visitor, metricsMap)
@@ -248,13 +245,12 @@ object ASTCalc {
 
 private val MethodDeclaration.unifiedMethodDescriptor: UnifiedMethodDescriptor
     get() {
-        // TODO
         val declaringClass = this.parentNode.getOrNull() as? ClassOrInterfaceDeclaration
         val declaringClassFQN = declaringClass?.fullyQualifiedName?.getOrNull() ?: ""
 
         val methodName = this.nameAsString
 
-        val paramsDescriptor = this.toDescriptor().trim { !(it == ')' || it == '(') }
+        val paramsString = this.parameters.joinToString(", ") { it.resolve().describeType() }
 
-        return UnifiedMethodDescriptor("$declaringClassFQN#$methodName$paramsDescriptor")
+        return UnifiedMethodDescriptor("$declaringClassFQN::$methodName($paramsString)")
     }

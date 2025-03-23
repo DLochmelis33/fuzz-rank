@@ -12,4 +12,31 @@ fun main() {
     val listJar = projectA.resolve("list/build/libs/list.jar")
 
     val metricsMap = Metrics.calculate(listSource, listJar)
+    metricsMap.forEach { method, metrics ->
+        println("metrics for $method:")
+        if (metrics.analysedCFG && metrics.analysedAST) {
+            println(metrics)
+        } else {
+            val status = when {
+                metrics.analysedCFG -> "CFG only"
+                metrics.analysedAST -> "AST only"
+                else -> "WTF"
+            }
+            println("INCOMPLETE: $status")
+        }
+        println()
+    }
+
+    val onlyAST = metricsMap
+        .filterValues { it.analysedAST && !it.analysedCFG }
+        .keys
+        .joinToString("\n - ", prefix = " - ")
+    val onlyCFG = metricsMap
+        .filterValues { !it.analysedAST && it.analysedCFG }
+        .keys
+        .joinToString("\n - ", prefix = " - ")
+    println("only AST:\n$onlyAST")
+    println("only CFG:\n$onlyCFG")
 }
+
+

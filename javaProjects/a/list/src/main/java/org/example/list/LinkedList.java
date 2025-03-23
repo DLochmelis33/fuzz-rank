@@ -73,6 +73,8 @@ public class LinkedList {
             index--;
         }
 
+        OrderedPair pair = new OrderedPair(index, it.data);
+
         if (it == null) {
             throw new IndexOutOfBoundsException("Index is out of range");
         }
@@ -87,5 +89,28 @@ public class LinkedList {
         Node(String data) {
             this.data = data;
         }
+    }
+
+    private static class OrderedPair<V extends String, K> {
+
+        private K key;
+        private V value;
+
+        public OrderedPair(K key, V value) {
+            this.key = key;
+            this.value = value;
+        }
+
+        public K getKey(String s, K k, V v, int i) {
+            return key;
+        }
+
+        public V getValue(K key) {
+            return value;
+        }
+
+        public K getKey() { return key; }
+
+        public V getValue() { return value; }
     }
 }

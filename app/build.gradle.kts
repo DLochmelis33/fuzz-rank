@@ -9,6 +9,8 @@ repositories {
 }
 
 dependencies {
+    implementation(kotlin("reflect"))
+
     implementation(libs.sootup.core)
     implementation(libs.sootup.java.core)
     implementation(libs.sootup.java.sourcecode.frontend)

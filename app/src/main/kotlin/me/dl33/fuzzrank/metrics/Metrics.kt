@@ -1,6 +1,9 @@
 package me.dl33.fuzzrank.metrics
 
 import java.nio.file.Path
+import kotlin.reflect.KProperty
+import kotlin.reflect.full.memberProperties
+import kotlin.reflect.full.primaryConstructor
 
 /**
  * @param cyclomatic Standard cyclomatic complexity.
@@ -51,12 +54,26 @@ data class Metrics(
             return metricsMap
         }
     }
+
+
+    override fun toString(): String {
+        val propNames = this::class.primaryConstructor!!.parameters.map { it.name }.toSet()
+        val primaryProps = this::class.memberProperties.filter { it.name in propNames }
+        return primaryProps.joinToString("\n - ", prefix = " - ") { prop ->
+            "${prop.name} = ${prop.getter.call(this)}"
+        }
+    }
+
+    val analysedCFG get() = cyclomatic != MISSING_VALUE
+    val analysedAST get() = parameters != MISSING_VALUE
 }
 
 /**
  * Uniquely describes a method in the following format:
  *
- * `classFQN#methodName(paramSignature, paramSignature)`
+ * `classFQN::methodName(paramFQN, paramFQN)`
+ *
+ * In case of generic types and other nonsense where paramFQN is unavailable, anything goes :D
  */
 @JvmInline
 value class UnifiedMethodDescriptor(val fqnSig: String) {
@@ -68,7 +85,7 @@ value class UnifiedMethodDescriptor(val fqnSig: String) {
     override fun toString(): String = fqnSig
 
     companion object {
-        private val regex = Regex(".+#.+\\(.*\\)")
+        private val regex = Regex(".+::.+\\(.*\\)")
     }
 }
 
