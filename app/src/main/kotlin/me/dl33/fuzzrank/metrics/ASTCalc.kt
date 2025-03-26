@@ -96,8 +96,14 @@ object ASTCalc {
                 n.accept(ControlStructVisitor(), controlAcc)
                 metrics.nestedControlStructuresPairs = controlAcc.totalNestedPairsCnt
                 metrics.maxNestingOfControlStructures = max(0, controlAcc.depth.maxValue - 1)
-//                metrics.maxControlDependentControlStructures = TODO()
-//                metrics.maxDataDependentControlStructures = TODO()
+
+                // cheating: in 90% of cases control structures are data-dependent
+                // exceptions to this rule are like `for(direction in Direction.values())`
+                // so for now let's consider all structures control-dependent
+                metrics.maxDataDependentControlStructures = controlAcc.totalControlStmts
+                // TODO: I think we can calculate it for real without a full dataflow analysis
+                // thanks to SootUp `stmt.getUses()`
+
                 metrics.ifWithoutElseCount = controlAcc.ifWithoutElseCnt
                 metrics.variablesInControlPredicates = controlAcc.variablesInPredicates.size
             }
@@ -155,8 +161,10 @@ object ASTCalc {
             val depth: DepthCnt = DepthCnt(),
             var ifWithoutElseCnt: Int = 0,
             val variablesInPredicates: MutableSet<Node> = mutableSetOf(),
+            var totalControlStmts: Int = 0,
         ) {
             fun updateNestedCnt() {
+                totalControlStmts++
                 // we are calculating pairs, so for each struct we add all outer structs
                 val depth = depth.currentValue
                 if (depth > 0) {

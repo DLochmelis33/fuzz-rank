@@ -113,4 +113,21 @@ public class LinkedList {
 
         public V getValue() { return value; }
     }
+
+    public void fibonacci(int[] res, int n) {
+        if(n <= 0) {
+            return;
+        }
+        res[0] = 0;
+        res[1] = 1;
+        if (n > 1) {
+            if (n == 3) {
+                res[2] = 1;
+                return;
+            }
+            for (int i = 2; i < n; i++) {
+                res[i] = res[i - 1] + res[i - 2];
+            }
+        }
+    }
 }

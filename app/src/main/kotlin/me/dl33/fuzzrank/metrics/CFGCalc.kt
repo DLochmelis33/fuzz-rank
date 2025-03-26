@@ -1,6 +1,8 @@
 package me.dl33.fuzzrank.metrics
 
+import sootup.core.graph.BasicBlock
 import sootup.core.inputlocation.AnalysisInputLocation
+import sootup.core.jimple.common.stmt.Stmt
 import sootup.core.types.ArrayType
 import sootup.core.types.ClassType
 import sootup.core.types.PrimitiveType
@@ -21,27 +23,70 @@ object CFGCalc {
         for (sootClass in allClasses) {
             println("analysing $sootClass")
             for (method in sootClass.methods) {
-                val stmtGraph = method.body.stmtGraph
-
-                // cyclomatic complexity = #edges - #nodes + #components
-                // sootup guarantees 1 component per method body CANNOT FUCKING CONFIRM I LOST ITTTTT
-                // that makes sense at least
-                // but wiki says +2
-                // and checking it for paths manually confirms 2
-
-                var E = 0
-                var N = 0
-                stmtGraph.blocks.forEach { stmt ->
-                    E += stmt.successors.size
-                    N++
-                }
-                val cyclomaticComplexity = E - N + 2
 
                 val methodDesc = method.unifiedMethodDescriptor
                 val metrics = metricsMap.getOrPut(methodDesc) { Metrics() }
-                metrics.cyclomatic = cyclomaticComplexity
+                with(metrics) {
+                    cyclomatic = calcCyclomaticComplexity(method)
+                    maxControlDependentControlStructures = calcControlDependentControlStructures(method)
+                }
             }
         }
+    }
+
+    private fun calcCyclomaticComplexity(method: JavaSootMethod): Int {
+        val stmtGraph = method.body.stmtGraph
+
+        // cyclomatic complexity = #edges - #nodes + #components
+        // sootup guarantees 1 component per method body CANNOT FUCKING CONFIRM I LOST ITTTTT
+        // that makes sense at least
+        // but wiki says +2
+        // and checking it for paths manually confirms +2
+
+        var E = 0
+        var N = 0
+        stmtGraph.blocks.forEach { stmt ->
+            E += stmt.successors.size
+            N++
+        }
+        return E - N + 2
+    }
+
+    private fun calcControlDependentControlStructures(method: JavaSootMethod): Int {
+        // select a control structure node from graph and throw it out
+        // run DFS trying to reach a terminal node
+        // if possible, then there exists a path that avoids selected node ==> it is control-dependent
+        // if not, then this node is unavoidable ==> it is not control-dependent
+        // (technically also there are unreachable nodes, they are not dependent, but they are dead code anyway)
+
+        val stmtGraph = method.body.stmtGraph
+        val controlStmts = mutableSetOf<Stmt>()
+        for (stmt in stmtGraph.stmts) {
+            // "control structure" <==> more than one successor
+            if (stmt.expectedSuccessorCount > 1) controlStmts += stmt
+        }
+        var controlDependentControlStmts = 0
+        for (selectedStmt in controlStmts) {
+            // dfs
+            var stack = ArrayDeque<Stmt>().apply { add(stmtGraph.startingStmt) }
+            val visited = mutableSetOf<Stmt>()
+            dfs@ while (stack.isNotEmpty()) {
+                val currentStmt = stack.removeFirst()
+                visited += currentStmt
+                val nextStmts = stmtGraph.successors(currentStmt)
+                if (nextStmts.isEmpty()) {
+                    // terminal node reached, selectedStmt is control-dependent
+                    controlDependentControlStmts++
+                    break@dfs
+                }
+                next@ for (nextStmt in nextStmts) {
+                    if (nextStmt in visited) continue@next
+                    if (nextStmt == selectedStmt) continue@next
+                    stack.addLast(nextStmt)
+                }
+            }
+        }
+        return controlDependentControlStmts
     }
 
     private val JavaSootMethod.unifiedMethodDescriptor: UnifiedMethodDescriptor
