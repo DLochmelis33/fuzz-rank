@@ -2,6 +2,7 @@ package me.dl33.fuzzrank.metrics
 
 import sootup.core.graph.BasicBlock
 import sootup.core.inputlocation.AnalysisInputLocation
+import sootup.core.jimple.common.stmt.JIfStmt
 import sootup.core.jimple.common.stmt.Stmt
 import sootup.core.types.ArrayType
 import sootup.core.types.ClassType
@@ -29,6 +30,7 @@ object CFGCalc {
                 with(metrics) {
                     cyclomatic = calcCyclomaticComplexity(method)
                     maxControlDependentControlStructures = calcControlDependentControlStructures(method)
+                    maxDataDependentControlStructures = calcDataDependentControlStructures(method)
                 }
             }
         }
@@ -87,6 +89,21 @@ object CFGCalc {
             }
         }
         return controlDependentControlStmts
+    }
+
+    private fun calcDataDependentControlStructures(method: JavaSootMethod): Int {
+        // I think we need a "taint analysis" for this...
+        // ... but we have `stmt.getUses()`, which we can repeatedly use, and this should be enough!
+        // NOOOO `uses` means "which Value-s this expression uses"
+        // still this is probably still doable if we first associate all nodes with its uses... meh?
+        // TODO: that
+
+//        val paramVars = method.body.parameterLocals
+//        val a = paramVars.first()
+//        method.body.stmts.first() as JIfStmt
+
+//        val stmtGraph = method.body.stmtGraph
+        return Metrics.MISSING_VALUE
     }
 
     private val JavaSootMethod.unifiedMethodDescriptor: UnifiedMethodDescriptor
