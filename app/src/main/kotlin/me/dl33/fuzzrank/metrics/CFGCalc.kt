@@ -1,8 +1,6 @@
 package me.dl33.fuzzrank.metrics
 
-import sootup.core.graph.BasicBlock
 import sootup.core.inputlocation.AnalysisInputLocation
-import sootup.core.jimple.common.stmt.JIfStmt
 import sootup.core.jimple.common.stmt.Stmt
 import sootup.core.types.ArrayType
 import sootup.core.types.ClassType

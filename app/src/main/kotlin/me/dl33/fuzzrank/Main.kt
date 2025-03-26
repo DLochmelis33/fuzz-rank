@@ -1,6 +1,5 @@
 package me.dl33.fuzzrank
 
-import me.dl33.fuzzrank.metrics.MethodWithMetrics
 import me.dl33.fuzzrank.metrics.Metrics
 import me.dl33.fuzzrank.metrics.binAndRank
 import kotlin.io.path.Path
