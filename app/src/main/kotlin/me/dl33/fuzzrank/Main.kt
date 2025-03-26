@@ -1,6 +1,8 @@
 package me.dl33.fuzzrank
 
+import me.dl33.fuzzrank.metrics.MethodWithMetrics
 import me.dl33.fuzzrank.metrics.Metrics
+import me.dl33.fuzzrank.metrics.binAndRank
 import kotlin.io.path.Path
 
 fun main() {
@@ -37,6 +39,13 @@ fun main() {
         .joinToString("\n - ", prefix = " - ")
     println("only AST:\n$onlyAST")
     println("only CFG:\n$onlyCFG")
+
+    val ranked = metricsMap.binAndRank()
+    println("\nranking of methods:")
+    val rankedStr = ranked.joinToString("\n - ", prefix = " - ") { (method, metrics) ->
+        "$method = (${metrics.complexityScore} / ${metrics.vulnerabilityScore})"
+    }
+    println(rankedStr)
 }
 
 

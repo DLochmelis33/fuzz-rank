@@ -1,7 +1,7 @@
 package me.dl33.fuzzrank.metrics
 
 import java.nio.file.Path
-import kotlin.reflect.KProperty
+import kotlin.collections.indices
 import kotlin.reflect.full.memberProperties
 import kotlin.reflect.full.primaryConstructor
 
@@ -45,7 +45,7 @@ data class Metrics(
     var variablesInControlPredicates: Int = MISSING_VALUE,
 ) {
     companion object {
-        const val MISSING_VALUE = -1
+        const val MISSING_VALUE = -1_000_000 // not too much to overflow, but for sure more than any metric
 
         fun calculate(sourcesDir: Path, jar: Path): MetricsMap {
             val metricsMap = MetricsMap()
@@ -66,6 +66,22 @@ data class Metrics(
 
     val analysedCFG get() = cyclomatic != MISSING_VALUE
     val analysedAST get() = parameters != MISSING_VALUE
+
+    val complexityScore
+        get() = (cyclomatic + loopCount + nestedLoopCount + maxNestingOfLoops)
+            .takeUnless { it < 0 } ?: error("some metrics for complexity score are missing!\n$this")
+
+    val vulnerabilityScore
+        get() = (parameters
+                + calleeParameters
+                + nestedControlStructuresPairs
+                + maxNestingOfControlStructures
+                + maxControlDependentControlStructures
+                + maxDataDependentControlStructures
+                + ifWithoutElseCount
+                + variablesInControlPredicates)
+            .takeUnless { it < 0 }
+            ?: error("some metrics for vulnerability score are missing!\n$this")
 }
 
 /**
@@ -89,6 +105,53 @@ value class UnifiedMethodDescriptor(val fqnSig: String) {
     }
 }
 
+data class MethodWithMetrics(val method: UnifiedMethodDescriptor, val metrics: Metrics)
+
 typealias MetricsMap = MutableMap<UnifiedMethodDescriptor, Metrics>
 
 fun MetricsMap(): MetricsMap = mutableMapOf()
+
+/**
+ * @return list of [MethodWithMetrics], ordered with most vulnerable methods first.
+ */
+fun MetricsMap.binAndRank(): Sequence<MethodWithMetrics> {
+
+    val binning = this
+        .filter { (_, metrics) -> metrics.analysedCFG && metrics.analysedAST }
+        .map { MethodWithMetrics(it.key, it.value) }
+        .groupBy { (_, metrics) -> metrics.complexityScore }
+        .mapValues { (_, group) -> group.sortedByDescending { (_, metrics) -> metrics.vulnerabilityScore } }
+
+    // just like the paper says:
+    // emit the first function from each bin, then second from each, and so on
+    // treat functions with same score equally, so maybe >1 function from bin per round
+    return sequence {
+        val ptrs = MutableList(binning.size) { 0 }
+        val bins = binning.entries.sortedBy { it.key }.map { it.value }
+
+        rounds@ for (k in 1..Int.MAX_VALUE) {
+            // k is not necessary, it just indicates round number
+            var yielded = false
+            bins@ for (i in bins.indices) {
+                val bin = bins[i]
+                // repeat only if next method has same score
+                sameScore@ while (ptrs[i] in bin.indices) {
+                    val result = bin[ptrs[i]]
+                    yield(result)
+                    yielded = true
+                    ptrs[i]++
+                    if (ptrs[i] in bin.indices) {
+                        val nextResult = bin[ptrs[i]]
+                        if (nextResult.metrics.vulnerabilityScore == result.metrics.vulnerabilityScore) {
+                            continue@sameScore
+                        }
+                    }
+                    break@sameScore
+                }
+            }
+            if (!yielded) {
+                break@rounds
+            }
+        }
+    }
+}
