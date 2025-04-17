@@ -48,7 +48,7 @@ object CFGCalc {
         var E = 0
         var N = 0
         stmtGraph.blocks.forEach { stmt ->
-            E += stmt.successors.size
+            E += stmt.successors.size + stmt.exceptionalSuccessors.size
             N++
         }
         return E - N + 2

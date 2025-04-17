@@ -13,7 +13,7 @@ fun main() {
     val thisProjectDir = Path(System.getProperty("projectDir")!!.toString())
     val javaProjectsDir = thisProjectDir.parent.resolve("javaProjects")
 
-    val (source, jar) = cbor_java(javaProjectsDir)
+    val (source, jar) = word_wrap(javaProjectsDir)
 
     val metricsMap = Metrics.calculate(source, jar)
     metricsMap.forEach { method, metrics ->

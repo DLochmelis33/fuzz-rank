@@ -15,3 +15,10 @@ fun cbor_java(projectsDir: Path): Pair<Path, Path> {
     val jar = project.resolve("target/cbor-0.9.jar")
     return source to jar
 }
+
+fun word_wrap(projectsDir: Path): Pair<Path, Path> {
+    val project = projectsDir.resolve("word-wrap")
+    val source = project.resolve("src/main/java/")
+    val jar = project.resolve("target/word-wrap-0.1.14-SNAPSHOT.jar")
+    return source to jar
+}
