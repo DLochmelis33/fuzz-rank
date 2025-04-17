@@ -119,6 +119,7 @@ fun MetricsMap.binAndRank(): Sequence<MethodWithMetrics> {
     val binning = this
         .filter { (_, metrics) -> metrics.analysedCFG && metrics.analysedAST }
         .map { MethodWithMetrics(it.key, it.value) }
+        .filterNot { it.metrics.complexityScore + it.metrics.vulnerabilityScore <= 1 }
         .groupBy { (_, metrics) -> metrics.complexityScore }
         .mapValues { (_, group) -> group.sortedByDescending { (_, metrics) -> metrics.vulnerabilityScore } }
 

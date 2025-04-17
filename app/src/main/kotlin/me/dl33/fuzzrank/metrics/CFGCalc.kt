@@ -22,6 +22,8 @@ object CFGCalc {
         for (sootClass in allClasses) {
             println("analysing $sootClass")
             for (method in sootClass.methods) {
+                // cannot calculate anything for abstract methods
+                if (method.isAbstract) continue
 
                 val methodDesc = method.unifiedMethodDescriptor
                 val metrics = metricsMap.getOrPut(methodDesc) { Metrics() }
@@ -107,7 +109,7 @@ object CFGCalc {
     private val JavaSootMethod.unifiedMethodDescriptor: UnifiedMethodDescriptor
         get() {
             // TODO
-            val classFQN = this.declaringClassType.fullyQualifiedName
+            val classFQN = this.declaringClassType.fullyQualifiedName.takeUnless { it.isEmpty() } ?: "<unknown>"
             val methodName = this.name
 
             val parameterTypes = this.signature.parameterTypes

@@ -4,20 +4,13 @@ import com.github.javaparser.ParserConfiguration
 import com.github.javaparser.ast.CompilationUnit
 import com.github.javaparser.ast.Node
 import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration
-import com.github.javaparser.ast.body.InitializerDeclaration
+import com.github.javaparser.ast.body.ConstructorDeclaration
 import com.github.javaparser.ast.body.MethodDeclaration
 import com.github.javaparser.ast.expr.ConditionalExpr
 import com.github.javaparser.ast.expr.MethodCallExpr
 import com.github.javaparser.ast.expr.NameExpr
 import com.github.javaparser.ast.expr.SwitchExpr
-import com.github.javaparser.ast.stmt.BreakStmt
-import com.github.javaparser.ast.stmt.ContinueStmt
-import com.github.javaparser.ast.stmt.DoStmt
-import com.github.javaparser.ast.stmt.ForEachStmt
-import com.github.javaparser.ast.stmt.ForStmt
-import com.github.javaparser.ast.stmt.IfStmt
-import com.github.javaparser.ast.stmt.SwitchStmt
-import com.github.javaparser.ast.stmt.WhileStmt
+import com.github.javaparser.ast.stmt.*
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter
 import com.github.javaparser.resolution.UnsolvedSymbolException
 import com.github.javaparser.symbolsolver.JavaSymbolSolver
@@ -59,6 +52,9 @@ object ASTCalc {
         val visitor = object : VoidVisitorAdapter<MetricsMap>() {
             override fun visit(n: MethodDeclaration, metricsMap: MetricsMap) {
                 super.visit(n, metricsMap)
+
+                if (n.isAbstract) return
+
                 val descriptor = n.unifiedMethodDescriptor
                 val metrics = metricsMap.getOrPut(descriptor) { Metrics() }
 
@@ -68,9 +64,14 @@ object ASTCalc {
             }
 
             // TODO: ctors
-            override fun visit(n: InitializerDeclaration, arg: MetricsMap) {
-                super.visit(n, arg)
-                // TODO
+            override fun visit(n: ConstructorDeclaration, metricsMap: MetricsMap) {
+                super.visit(n, metricsMap)
+                val descriptor = n.unifiedMethodDescriptor
+                val metrics = metricsMap.getOrPut(descriptor) { Metrics() }
+
+                metrics.parameters = n.parameters.size
+
+                visitMethodEntryPoint(n, metrics)
             }
 
             private fun visitMethodEntryPoint(
@@ -254,11 +255,23 @@ object ASTCalc {
 private val MethodDeclaration.unifiedMethodDescriptor: UnifiedMethodDescriptor
     get() {
         val declaringClass = this.parentNode.getOrNull() as? ClassOrInterfaceDeclaration
-        val declaringClassFQN = declaringClass?.fullyQualifiedName?.getOrNull() ?: ""
+        val declaringClassFQN = declaringClass?.fullyQualifiedName?.getOrNull() ?: "<unknown>"
 
         val methodName = this.nameAsString
 
         val paramsString = this.parameters.joinToString(", ") { it.resolve().describeType() }
+
+        return UnifiedMethodDescriptor("$declaringClassFQN::$methodName($paramsString)")
+    }
+
+private val ConstructorDeclaration.unifiedMethodDescriptor: UnifiedMethodDescriptor
+    get() {
+        val declaringClass = this.parentNode.getOrNull() as? ClassOrInterfaceDeclaration
+        val declaringClassFQN = declaringClass?.fullyQualifiedName?.getOrNull() ?: "<unknown>"
+
+        val methodName = "<init>"
+
+        val paramsString = this. parameters.joinToString(", ") { it.resolve().describeType() }
 
         return UnifiedMethodDescriptor("$declaringClassFQN::$methodName($paramsString)")
     }
