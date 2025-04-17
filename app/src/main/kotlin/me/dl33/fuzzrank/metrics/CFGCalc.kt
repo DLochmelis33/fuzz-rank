@@ -6,7 +6,7 @@ import sootup.core.types.ArrayType
 import sootup.core.types.ClassType
 import sootup.core.types.PrimitiveType
 import sootup.core.types.Type
-import sootup.java.bytecode.inputlocation.JavaClassPathAnalysisInputLocation
+import sootup.java.bytecode.frontend.inputlocation.JavaClassPathAnalysisInputLocation
 import sootup.java.core.JavaSootMethod
 import sootup.java.core.views.JavaView
 import java.nio.file.Path

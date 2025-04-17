@@ -17,7 +17,7 @@ dependencies {
     implementation(libs.sootup.java.bytecode.frontend)
     implementation(libs.sootup.jimple.frontend)
     implementation(libs.sootup.callgraph)
-    implementation(libs.sootup.analysis)
+//    implementation(libs.sootup.analysis)
     implementation(libs.sootup.qilin)
     implementation(libs.slf4j.api)
     implementation(libs.logback.classic)
