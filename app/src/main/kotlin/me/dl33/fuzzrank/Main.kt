@@ -23,8 +23,8 @@ fun main() {
     val onlyCFG = metricsMap
         .filterValues { !it.analysedAST && it.analysedCFG }
         .keys
-    println("only AST:\n${onlyAST.joinToString("\n - ", prefix = " - ")}")
-    println("only CFG:\n${onlyCFG.joinToString("\n - ", prefix = " - ")}")
+//    println("\nonly AST:\n${onlyAST.joinToString("\n - ", prefix = " - ")}")
+//    println("\nonly CFG:\n${onlyCFG.joinToString("\n - ", prefix = " - ")}")
 
     val ranked = metricsMap.binAndRank().toList()
     println("\nranking of methods:")

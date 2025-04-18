@@ -2,10 +2,13 @@ package me.dl33.fuzzrank.metrics
 
 import com.github.javaparser.ParserConfiguration
 import com.github.javaparser.ast.CompilationUnit
+import com.github.javaparser.ast.ImportDeclaration
 import com.github.javaparser.ast.Node
+import com.github.javaparser.ast.NodeList
 import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration
 import com.github.javaparser.ast.body.ConstructorDeclaration
 import com.github.javaparser.ast.body.MethodDeclaration
+import com.github.javaparser.ast.body.Parameter
 import com.github.javaparser.ast.expr.ConditionalExpr
 import com.github.javaparser.ast.expr.MethodCallExpr
 import com.github.javaparser.ast.expr.NameExpr
@@ -13,6 +16,7 @@ import com.github.javaparser.ast.expr.SwitchExpr
 import com.github.javaparser.ast.stmt.*
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter
 import com.github.javaparser.resolution.UnsolvedSymbolException
+import com.github.javaparser.resolution.types.ResolvedType
 import com.github.javaparser.symbolsolver.JavaSymbolSolver
 import com.github.javaparser.symbolsolver.resolution.typesolvers.CombinedTypeSolver
 import com.github.javaparser.symbolsolver.resolution.typesolvers.JarTypeSolver
@@ -21,6 +25,7 @@ import com.github.javaparser.utils.SourceRoot
 import me.dl33.fuzzrank.DepthCnt
 import me.dl33.fuzzrank.IntCnt
 import java.nio.file.Path
+import java.util.Optional
 import kotlin.jvm.optionals.getOrNull
 import kotlin.math.max
 
@@ -251,42 +256,44 @@ object ASTCalc {
     }
 }
 
-// TODO: code duplication (fix is ugly too)
+private fun makeDescriptor(
+    parentNode: Optional<Node>,
+    methodName: String,
+    parameters: NodeList<Parameter>,
+): UnifiedMethodDescriptor {
+    val declaringClass = parentNode.getOrNull() as? ClassOrInterfaceDeclaration
+    val declaringClassFQN = declaringClass?.fullyQualifiedName?.getOrNull() ?: "<unknown>"
+
+    val paramsString = parameters.joinToString(", ") {
+        try {
+            val type = it.resolve().type
+
+            if (type.isTypeVariable) {
+                val tp = type.asTypeParameter()
+                when {
+                    tp.isUnbounded -> "java.lang.Object"
+                    tp.hasUpperBound() -> tp.upperBound.describeOptimized()
+                    else -> "<generic>"
+                }
+            } else {
+                type.describeOptimized()
+            }
+        } catch (_: UnsolvedSymbolException) {
+            // method probably uses something from a library not included in the JAR, nothing we can do
+            "<unresolved>"
+        }
+    }
+
+    return UnifiedMethodDescriptor("$declaringClassFQN::$methodName($paramsString)")
+}
 
 private val MethodDeclaration.unifiedMethodDescriptor: UnifiedMethodDescriptor
-    get() {
-        val declaringClass = this.parentNode.getOrNull() as? ClassOrInterfaceDeclaration
-        val declaringClassFQN = declaringClass?.fullyQualifiedName?.getOrNull() ?: "<unknown>"
-
-        val methodName = this.nameAsString
-
-        val paramsString = this.parameters.joinToString(", ") {
-            try {
-                it.resolve().describeType()
-            } catch (_: UnsolvedSymbolException) {
-                // method probably uses something from a library not included in the JAR, nothing we can do
-                "<unresolved>"
-            }
-        }
-
-        return UnifiedMethodDescriptor("$declaringClassFQN::$methodName($paramsString)")
-    }
+    get() = makeDescriptor(parentNode, nameAsString, parameters)
 
 private val ConstructorDeclaration.unifiedMethodDescriptor: UnifiedMethodDescriptor
-    get() {
-        val declaringClass = this.parentNode.getOrNull() as? ClassOrInterfaceDeclaration
-        val declaringClassFQN = declaringClass?.fullyQualifiedName?.getOrNull() ?: "<unknown>"
+    get() = makeDescriptor(parentNode, "<init>", parameters)
 
-        val methodName = "<init>"
-
-        val paramsString = this.parameters.joinToString(", ") {
-            try {
-                it.resolve().describeType()
-            } catch (_: UnsolvedSymbolException) {
-                // method probably uses something from a library not included in the JAR, nothing we can do
-                "<unresolved>"
-            }
-        }
-
-        return UnifiedMethodDescriptor("$declaringClassFQN::$methodName($paramsString)")
-    }
+private fun ResolvedType.describeOptimized() = describe()
+    // in bytecode...
+    .takeWhile { it != '<' } // ...generics will be erased
+    .replace("...", "[]") // ...variadics will be arrays
