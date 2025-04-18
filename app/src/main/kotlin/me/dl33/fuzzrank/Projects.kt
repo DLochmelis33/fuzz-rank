@@ -36,3 +36,10 @@ fun the_algorithms(projectsDir: Path): Pair<Path, Path> {
     val jar = project.resolve("target/Java-1.0-SNAPSHOT.jar")
     return source to jar
 }
+
+fun jsoup(projectsDir: Path): Pair<Path, Path> {
+    val project = projectsDir.resolve("jsoup")
+    val source = project.resolve("src/main/java/")
+    val jar = project.resolve("target/jsoup-1.20.1-SNAPSHOT.jar")
+    return source to jar
+}
