@@ -14,9 +14,9 @@ import com.github.javaparser.ast.stmt.*
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter
 import com.github.javaparser.resolution.UnsolvedSymbolException
 import com.github.javaparser.symbolsolver.JavaSymbolSolver
-import com.github.javaparser.symbolsolver.resolution.typesolvers.ClassLoaderTypeSolver
 import com.github.javaparser.symbolsolver.resolution.typesolvers.CombinedTypeSolver
 import com.github.javaparser.symbolsolver.resolution.typesolvers.JarTypeSolver
+import com.github.javaparser.symbolsolver.resolution.typesolvers.ReflectionTypeSolver
 import com.github.javaparser.utils.SourceRoot
 import me.dl33.fuzzrank.DepthCnt
 import me.dl33.fuzzrank.IntCnt
@@ -31,15 +31,14 @@ object ASTCalc {
 
         val sourceRoot = SourceRoot(sourcesDir)
         val typeSolver = CombinedTypeSolver().apply {
-            add(ClassLoaderTypeSolver(ASTCalc::class.java.classLoader))
+            add(ReflectionTypeSolver())
             add(JarTypeSolver(jar))
         }
         val symbolResolver = JavaSymbolSolver(typeSolver)
-        val parserConfiguration = ParserConfiguration().apply {
-            setSymbolResolver(symbolResolver)
-        }
+        val parserConfiguration = ParserConfiguration()
+            .setSymbolResolver(symbolResolver)
+            .setLanguageLevel(ParserConfiguration.LanguageLevel.JAVA_21)
 
-//        val parseResults = sourceRoot.tryToParse("", symbolResolver)
         val callback = SourceRoot.Callback { _, _, parseResult ->
             val cu = parseResult.result.get()
             handleCompilationUnit(cu, metricsMap)
@@ -252,6 +251,8 @@ object ASTCalc {
     }
 }
 
+// TODO: code duplication (fix is ugly too)
+
 private val MethodDeclaration.unifiedMethodDescriptor: UnifiedMethodDescriptor
     get() {
         val declaringClass = this.parentNode.getOrNull() as? ClassOrInterfaceDeclaration
@@ -259,7 +260,14 @@ private val MethodDeclaration.unifiedMethodDescriptor: UnifiedMethodDescriptor
 
         val methodName = this.nameAsString
 
-        val paramsString = this.parameters.joinToString(", ") { it.resolve().describeType() }
+        val paramsString = this.parameters.joinToString(", ") {
+            try {
+                it.resolve().describeType()
+            } catch (_: UnsolvedSymbolException) {
+                // method probably uses something from a library not included in the JAR, nothing we can do
+                "<unresolved>"
+            }
+        }
 
         return UnifiedMethodDescriptor("$declaringClassFQN::$methodName($paramsString)")
     }
@@ -271,7 +279,14 @@ private val ConstructorDeclaration.unifiedMethodDescriptor: UnifiedMethodDescrip
 
         val methodName = "<init>"
 
-        val paramsString = this. parameters.joinToString(", ") { it.resolve().describeType() }
+        val paramsString = this.parameters.joinToString(", ") {
+            try {
+                it.resolve().describeType()
+            } catch (_: UnsolvedSymbolException) {
+                // method probably uses something from a library not included in the JAR, nothing we can do
+                "<unresolved>"
+            }
+        }
 
         return UnifiedMethodDescriptor("$declaringClassFQN::$methodName($paramsString)")
     }

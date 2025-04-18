@@ -11,4 +11,4 @@ plugins {
 }
 
 rootProject.name = "a"
-include("app", "list", "utilities")
+include("app", "list", "utilities", "kaprekar")

@@ -13,23 +13,23 @@ fun main() {
     val thisProjectDir = Path(System.getProperty("projectDir")!!.toString())
     val javaProjectsDir = thisProjectDir.parent.resolve("javaProjects")
 
-    val (source, jar) = a_kaprekar(javaProjectsDir)
+    val (source, jar) = the_algorithms(javaProjectsDir)
 
     val metricsMap = Metrics.calculate(source, jar)
-    metricsMap.forEach { method, metrics ->
-        println("metrics for $method:")
-        if (metrics.analysedCFG && metrics.analysedAST) {
-            println(metrics)
-        } else {
-            val status = when {
-                metrics.analysedCFG -> "CFG only"
-                metrics.analysedAST -> "AST only"
-                else -> "WTF"
-            }
-            println("INCOMPLETE: $status")
-        }
-        println()
-    }
+//    metricsMap.forEach { method, metrics ->
+//        println("metrics for $method:")
+//        if (metrics.analysedCFG && metrics.analysedAST) {
+//            println(metrics)
+//        } else {
+//            val status = when {
+//                metrics.analysedCFG -> "CFG only"
+//                metrics.analysedAST -> "AST only"
+//                else -> "WTF"
+//            }
+//            println("INCOMPLETE: $status")
+//        }
+//        println()
+//    }
 
     val onlyAST = metricsMap
         .filterValues { it.analysedAST && !it.analysedCFG }

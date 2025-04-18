@@ -20,7 +20,6 @@ object CFGCalc {
 
         val allClasses = view.classes
         for (sootClass in allClasses) {
-            println("analysing $sootClass")
             for (method in sootClass.methods) {
                 // cannot calculate anything for abstract methods
                 if (method.isAbstract) continue
