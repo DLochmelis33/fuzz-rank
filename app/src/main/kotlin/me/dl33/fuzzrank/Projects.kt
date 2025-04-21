@@ -57,3 +57,10 @@ fun snowflake_jdbc(projectsDir: Path): Pair<Path, Path> {
     val jar = project.resolve("target/snowflake-jdbc-thin.jar")
     return source to jar
 }
+
+fun dataframe_ec(projectsDir: Path): Pair<Path, Path> {
+    val project = projectsDir.resolve("dataframe-ec")
+    val source = project.resolve("src/main/java/")
+    val jar = project.resolve("target/dataframe-ec-1.4.0-SNAPSHOT.jar")
+    return source to jar
+}
