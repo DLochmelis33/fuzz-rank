@@ -23,8 +23,8 @@ object CFGCalc {
             if (skipFQNsStartingWith.any { sootClass.name.startsWith(it) }) continue
             for (method in sootClass.methods) {
 
-                // cannot calculate anything for abstract methods
-                if (method.isAbstract) continue
+                // cannot calculate anything for abstract or native methods
+                if (!method.isConcrete) continue
 
                 val methodDesc = method.unifiedMethodDescriptor
                 val metrics = metricsMap.getOrPut(methodDesc) { Metrics() }

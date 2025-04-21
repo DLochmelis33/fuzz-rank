@@ -13,8 +13,12 @@ fun main() {
     val thisProjectDir = Path(System.getProperty("projectDir")!!.toString())
     val javaProjectsDir = thisProjectDir.parent.resolve("javaProjects")
 
-    val (source, jar) = the_algorithms(javaProjectsDir)
-    val metricsMap = Metrics.calculate(source, jar, setOf("org.traccar.protobuf"))
+    val (source, jar) = snowflake_jdbc(javaProjectsDir)
+    val metricsMap = Metrics.calculate(
+        source,
+        jar,
+        setOf("org.traccar.protobuf", "net.snowflake.client.jdbc.internal")
+    )
 
     val onlyAST = metricsMap
         .filterValues { it.analysedAST && !it.analysedCFG }

@@ -50,3 +50,10 @@ fun traccar(projectsDir: Path): Pair<Path, Path> {
     val jar = project.resolve("target/tracker-server.jar")
     return source to jar
 }
+
+fun snowflake_jdbc(projectsDir: Path): Pair<Path, Path> {
+    val project = projectsDir.resolve("snowflake-jdbc")
+    val source = project.resolve("src/main/java/")
+    val jar = project.resolve("target/snowflake-jdbc-thin.jar")
+    return source to jar
+}

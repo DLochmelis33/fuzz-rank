@@ -67,7 +67,7 @@ object ASTCalc {
         override fun visit(n: MethodDeclaration, metricsMap: MetricsMap) {
             super.visit(n, metricsMap)
 
-            if (n.isAbstract) return
+            if (n.isAbstract || n.isNative) return
 
             val descriptor = n.unifiedMethodDescriptor
             val metrics = metricsMap.getOrPut(descriptor) { Metrics() }
