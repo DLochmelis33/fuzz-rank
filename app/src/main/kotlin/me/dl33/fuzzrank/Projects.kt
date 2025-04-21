@@ -43,3 +43,10 @@ fun jsoup(projectsDir: Path): Pair<Path, Path> {
     val jar = project.resolve("target/jsoup-1.20.1-SNAPSHOT.jar")
     return source to jar
 }
+
+fun traccar(projectsDir: Path): Pair<Path, Path> {
+    val project = projectsDir.resolve("traccar")
+    val source = project.resolve("src/main/java/")
+    val jar = project.resolve("target/tracker-server.jar")
+    return source to jar
+}

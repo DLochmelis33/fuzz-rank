@@ -47,10 +47,10 @@ data class Metrics(
     companion object {
         const val MISSING_VALUE = -1_000_000 // not too much to overflow, but for sure more than any metric
 
-        fun calculate(sourcesDir: Path, jar: Path): MetricsMap {
+        fun calculate(sourcesDir: Path, jar: Path, skipFQNsStartingWith: Set<String>): MetricsMap {
             val metricsMap = MetricsMap()
-            CFGCalc.calc(jar, metricsMap)
-            ASTCalc.calc(sourcesDir, jar, metricsMap)
+            CFGCalc.calc(jar, metricsMap, skipFQNsStartingWith)
+            ASTCalc.calc(sourcesDir, jar, metricsMap, skipFQNsStartingWith)
             return metricsMap
         }
     }

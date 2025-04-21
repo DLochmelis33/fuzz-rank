@@ -2,7 +2,6 @@ package me.dl33.fuzzrank.metrics
 
 import com.github.javaparser.ParserConfiguration
 import com.github.javaparser.ast.CompilationUnit
-import com.github.javaparser.ast.ImportDeclaration
 import com.github.javaparser.ast.Node
 import com.github.javaparser.ast.NodeList
 import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration
@@ -31,10 +30,9 @@ import kotlin.math.max
 
 object ASTCalc {
 
-    fun calc(sourcesDir: Path, jar: Path, metricsMap: MetricsMap) {
+    fun calc(sourcesDir: Path, jar: Path, metricsMap: MetricsMap, skipFQNsStartingWith: Set<String>) {
         println("\ncalculating AST metrics for $sourcesDir")
 
-        val sourceRoot = SourceRoot(sourcesDir)
         val typeSolver = CombinedTypeSolver().apply {
             add(ReflectionTypeSolver())
             add(JarTypeSolver(jar))
@@ -44,76 +42,85 @@ object ASTCalc {
             .setSymbolResolver(symbolResolver)
             .setLanguageLevel(ParserConfiguration.LanguageLevel.JAVA_21)
 
+        val sourceRoot = SourceRoot(sourcesDir, parserConfiguration)
         val callback = SourceRoot.Callback { _, _, parseResult ->
             val cu = parseResult.result.get()
-            handleCompilationUnit(cu, metricsMap)
+            handleCompilationUnit(cu, metricsMap, skipFQNsStartingWith)
             SourceRoot.Callback.Result.DONT_SAVE
         }
         sourceRoot.parse("", parserConfiguration, callback)
     }
 
-    private fun handleCompilationUnit(cu: CompilationUnit, metricsMap: MetricsMap) {
-        val visitor = object : VoidVisitorAdapter<MetricsMap>() {
-            override fun visit(n: MethodDeclaration, metricsMap: MetricsMap) {
-                super.visit(n, metricsMap)
-
-                if (n.isAbstract) return
-
-                val descriptor = n.unifiedMethodDescriptor
-                val metrics = metricsMap.getOrPut(descriptor) { Metrics() }
-
-                metrics.parameters = n.parameters.size
-
-                visitMethodEntryPoint(n, metrics)
-            }
-
-            // TODO: ctors
-            override fun visit(n: ConstructorDeclaration, metricsMap: MetricsMap) {
-                super.visit(n, metricsMap)
-                val descriptor = n.unifiedMethodDescriptor
-                val metrics = metricsMap.getOrPut(descriptor) { Metrics() }
-
-                metrics.parameters = n.parameters.size
-
-                visitMethodEntryPoint(n, metrics)
-            }
-
-            private fun visitMethodEntryPoint(
-                n: Node,
-                metrics: Metrics
-            ) {
-                val loopAccumulator = LoopVisitor.Accumulator()
-                n.accept(LoopVisitor(), loopAccumulator)
-
-                // CD2: loop structures
-                metrics.loopCount = loopAccumulator.totalCnt
-                metrics.nestedLoopCount = loopAccumulator.nestedCnt
-                // one loop ==> no nesting ==> 0 max nesting
-                metrics.maxNestingOfLoops = max(0, loopAccumulator.depthCnt.maxValue - 1)
-
-                // VD1: dependency
-                val calleeParametersCnt = IntCnt()
-                n.accept(InvocationVisitor(), calleeParametersCnt)
-                metrics.calleeParameters = calleeParametersCnt.value
-
-                // VD3: control structures
-                val controlAcc = ControlStructVisitor.Accumulator()
-                n.accept(ControlStructVisitor(), controlAcc)
-                metrics.nestedControlStructuresPairs = controlAcc.totalNestedPairsCnt
-                metrics.maxNestingOfControlStructures = max(0, controlAcc.depth.maxValue - 1)
-
-                // cheating: in 90% of cases control structures are data-dependent
-                // exceptions to this rule are like `for(direction in Direction.values())`
-                // so for now let's consider all structures control-dependent
-                metrics.maxDataDependentControlStructures = controlAcc.totalControlStmts
-                // TODO: I think we can calculate it for real without a full dataflow analysis
-                // thanks to SootUp `stmt.getUses()`
-
-                metrics.ifWithoutElseCount = controlAcc.ifWithoutElseCnt
-                metrics.variablesInControlPredicates = controlAcc.variablesInPredicates.size
-            }
+    private fun handleCompilationUnit(
+        cu: CompilationUnit,
+        metricsMap: MetricsMap,
+        skipFQNsStartingWith: Set<String>
+    ) {
+        cu.packageDeclaration.getOrNull()?.let { p ->
+            if (skipFQNsStartingWith.any { p.nameAsString.startsWith(it) }) return@handleCompilationUnit
         }
+        val visitor = MethodVisitor()
         cu.accept(visitor, metricsMap)
+    }
+
+    private class MethodVisitor : VoidVisitorAdapter<MetricsMap>() {
+        override fun visit(n: MethodDeclaration, metricsMap: MetricsMap) {
+            super.visit(n, metricsMap)
+
+            if (n.isAbstract) return
+
+            val descriptor = n.unifiedMethodDescriptor
+            val metrics = metricsMap.getOrPut(descriptor) { Metrics() }
+
+            metrics.parameters = n.parameters.size
+
+            visitMethodEntryPoint(n, metrics)
+        }
+
+        override fun visit(n: ConstructorDeclaration, metricsMap: MetricsMap) {
+            super.visit(n, metricsMap)
+            val descriptor = n.unifiedMethodDescriptor
+            val metrics = metricsMap.getOrPut(descriptor) { Metrics() }
+
+            metrics.parameters = n.parameters.size
+
+            visitMethodEntryPoint(n, metrics)
+        }
+
+        private fun visitMethodEntryPoint(
+            n: Node,
+            metrics: Metrics
+        ) {
+            val loopAccumulator = LoopVisitor.Accumulator()
+            n.accept(LoopVisitor(), loopAccumulator)
+
+            // CD2: loop structures
+            metrics.loopCount = loopAccumulator.totalCnt
+            metrics.nestedLoopCount = loopAccumulator.nestedCnt
+            // one loop ==> no nesting ==> 0 max nesting
+            metrics.maxNestingOfLoops = max(0, loopAccumulator.depthCnt.maxValue - 1)
+
+            // VD1: dependency
+            val calleeParametersCnt = IntCnt()
+            n.accept(InvocationVisitor(), calleeParametersCnt)
+            metrics.calleeParameters = calleeParametersCnt.value
+
+            // VD3: control structures
+            val controlAcc = ControlStructVisitor.Accumulator()
+            n.accept(ControlStructVisitor(), controlAcc)
+            metrics.nestedControlStructuresPairs = controlAcc.totalNestedPairsCnt
+            metrics.maxNestingOfControlStructures = max(0, controlAcc.depth.maxValue - 1)
+
+            // cheating: in 90% of cases control structures are data-dependent
+            // exceptions to this rule are like `for(direction in Direction.values())`
+            // so for now let's consider all structures control-dependent
+            metrics.maxDataDependentControlStructures = controlAcc.totalControlStmts
+            // TODO: I think we can calculate it for real without a full dataflow analysis
+            // thanks to SootUp `stmt.getUses()`
+
+            metrics.ifWithoutElseCount = controlAcc.ifWithoutElseCnt
+            metrics.variablesInControlPredicates = controlAcc.variablesInPredicates.size
+        }
     }
 
     private class LoopVisitor : VoidVisitorAdapter<LoopVisitor.Accumulator>() {
@@ -269,18 +276,30 @@ private fun makeDescriptor(
             val type = it.resolve().type
 
             if (type.isTypeVariable) {
+                // TODO: T[]
                 val tp = type.asTypeParameter()
                 when {
                     tp.isUnbounded -> "java.lang.Object"
-                    tp.hasUpperBound() -> tp.upperBound.describeOptimized()
+                    tp.hasUpperBound() -> tp.upperBound.describeUnified()
                     else -> "<generic>"
                 }
             } else {
-                type.describeOptimized()
+                type.describeUnified()
             }
         } catch (_: UnsolvedSymbolException) {
-            // method probably uses something from a library not included in the JAR, nothing we can do
-            "<unresolved>"
+            // method probably uses something from a library not included in the JAR
+            // attempt to manually match it to imports
+            val typeRawString = it.typeAsString
+            val cu = it.findCompilationUnit().get()
+            val matchingImport = cu.imports.filter { i ->
+                if (i.isAsterisk) return@filter false
+                i.nameAsString.endsWith(".$typeRawString")
+            }.singleOrNull() // we should fail in case of duplicates
+            if (matchingImport == null) {
+                "<unresolved>"
+            } else {
+                matchingImport.nameAsString
+            }
         }
     }
 
@@ -293,7 +312,7 @@ private val MethodDeclaration.unifiedMethodDescriptor: UnifiedMethodDescriptor
 private val ConstructorDeclaration.unifiedMethodDescriptor: UnifiedMethodDescriptor
     get() = makeDescriptor(parentNode, "<init>", parameters)
 
-private fun ResolvedType.describeOptimized() = describe()
+private fun ResolvedType.describeUnified() = describe()
     // in bytecode...
     .takeWhile { it != '<' } // ...generics will be erased
     .replace("...", "[]") // ...variadics will be arrays

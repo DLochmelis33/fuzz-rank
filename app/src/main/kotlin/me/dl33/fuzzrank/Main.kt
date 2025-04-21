@@ -7,15 +7,14 @@ import java.io.PrintStream
 import kotlin.io.path.Path
 
 fun main() {
-//    val out = PrintStream(File("out.txt").outputStream())
-//    System.setOut(out)
+    val out = PrintStream(File("a.out").outputStream())
+    System.setOut(out)
 
     val thisProjectDir = Path(System.getProperty("projectDir")!!.toString())
     val javaProjectsDir = thisProjectDir.parent.resolve("javaProjects")
 
-    val (source, jar) = jsoup(javaProjectsDir)
-
-    val metricsMap = Metrics.calculate(source, jar)
+    val (source, jar) = traccar(javaProjectsDir)
+    val metricsMap = Metrics.calculate(source, jar, setOf("org.traccar.protobuf"))
 
     val onlyAST = metricsMap
         .filterValues { it.analysedAST && !it.analysedCFG }
@@ -23,15 +22,15 @@ fun main() {
     val onlyCFG = metricsMap
         .filterValues { !it.analysedAST && it.analysedCFG }
         .keys
-//    println("\nonly AST:\n${onlyAST.joinToString("\n - ", prefix = " - ")}")
-//    println("\nonly CFG:\n${onlyCFG.joinToString("\n - ", prefix = " - ")}")
+    println("\nonly AST:\n${onlyAST.joinToString("\n - ", prefix = " - ")}")
+    println("\nonly CFG:\n${onlyCFG.joinToString("\n - ", prefix = " - ")}")
 
     val ranked = metricsMap.binAndRank().toList()
     println("\nranking of methods:")
     val rankedStr = ranked.joinToString("\n - ", prefix = " - ") { (method, metrics) ->
         "$method = (${metrics.complexityScore} / ${metrics.vulnerabilityScore})"
     }
-    println(rankedStr)
+//    println(rankedStr)
 
     println("\ntotal / ranked / only AST / only CFG = ${metricsMap.size} / ${ranked.size} / ${onlyAST.size} / ${onlyCFG.size}")
 }

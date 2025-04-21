@@ -13,14 +13,16 @@ import java.nio.file.Path
 import kotlin.io.path.absolutePathString
 
 object CFGCalc {
-    fun calc(jar: Path, metricsMap: MetricsMap) {
+    fun calc(jar: Path, metricsMap: MetricsMap, skipFQNsStartingWith: Set<String>) {
         println("\ncalculating CFG metrics for $jar")
         val inputLocation: AnalysisInputLocation = JavaClassPathAnalysisInputLocation(jar.absolutePathString())
         val view = JavaView(inputLocation)
 
         val allClasses = view.classes
         for (sootClass in allClasses) {
+            if (skipFQNsStartingWith.any { sootClass.name.startsWith(it) }) continue
             for (method in sootClass.methods) {
+
                 // cannot calculate anything for abstract methods
                 if (method.isAbstract) continue
 
