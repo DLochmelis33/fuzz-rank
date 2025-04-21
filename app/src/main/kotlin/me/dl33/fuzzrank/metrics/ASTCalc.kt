@@ -273,10 +273,15 @@ private fun makeDescriptor(
 
     val paramsString = parameters.joinToString(", ") {
         try {
-            val type = it.resolve().type
+            var type = it.resolve().type
+            var nestedArrayCnt = 0
+            while (type.isArray) {
+                type = type.asArrayType().componentType
+                nestedArrayCnt++
+            }
+            val arraySuffix = "[]".repeat(nestedArrayCnt)
 
             if (type.isTypeVariable) {
-                // TODO: T[]
                 val tp = type.asTypeParameter()
                 when {
                     tp.isUnbounded -> "java.lang.Object"
@@ -285,7 +290,8 @@ private fun makeDescriptor(
                 }
             } else {
                 type.describeUnified()
-            }
+            } + arraySuffix
+
         } catch (_: UnsolvedSymbolException) {
             // method probably uses something from a library not included in the JAR
             // attempt to manually match it to imports
