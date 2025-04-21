@@ -2,6 +2,7 @@ package me.dl33.fuzzrank.metrics
 
 import sootup.core.inputlocation.AnalysisInputLocation
 import sootup.core.jimple.common.stmt.Stmt
+import sootup.core.signatures.MethodSignature
 import sootup.core.types.ArrayType
 import sootup.core.types.ClassType
 import sootup.core.types.PrimitiveType
@@ -11,6 +12,7 @@ import sootup.java.core.JavaSootMethod
 import sootup.java.core.views.JavaView
 import java.nio.file.Path
 import kotlin.io.path.absolutePathString
+import kotlin.math.sign
 
 object CFGCalc {
     fun calc(jar: Path, metricsMap: MetricsMap, skipFQNsStartingWith: Set<String>) {
@@ -107,30 +109,40 @@ object CFGCalc {
         return Metrics.MISSING_VALUE
     }
 
-    private val JavaSootMethod.unifiedMethodDescriptor: UnifiedMethodDescriptor
-        get() {
-            // TODO
-            val classFQN = this.declaringClassType.fullyQualifiedName.takeUnless { it.isEmpty() } ?: "<unknown>"
-            val methodName = this.name
-
-            val parameterTypes = this.signature.parameterTypes
-            val parameterString = parameterTypes.joinToString(", ") { type ->
-                type.unifiedName
-            }
-
-            return UnifiedMethodDescriptor("$classFQN::$methodName($parameterString)".replace("$", "."))
-        }
-
-    private val Type.unifiedName: String
-        get() {
-            // on CFG level generics are fortunately gone
-            // OTOH they have to match AST naming BRUH
-            // in bytecode generics are reduced to VARIOUS objects (ex. extends String)
-            return when (this) {
-                is ClassType -> fullyQualifiedName
-                is PrimitiveType -> name
-                is ArrayType -> elementType.unifiedName + "[]"
-                else -> TODO("not yet supported type $this")
-            }
-        }
+    private val JavaSootMethod.unifiedMethodDescriptor get() = signature.unifiedMethodDescriptor
 }
+
+val MethodSignature.unifiedMethodDescriptor: UnifiedMethodDescriptor
+    get() {
+        // TODO
+        val classFQN = this.declClassType.fullyQualifiedName.takeUnless { it.isEmpty() } ?: "<unknown>"
+        val methodName = this.name
+
+        val parameterTypes = this.parameterTypes
+        val parameterString = parameterTypes.joinToString(", ") { type ->
+            type.unifiedName
+        }
+
+        return UnifiedMethodDescriptor("$classFQN::$methodName($parameterString)".replace("$", ".")).also { desc ->
+            signaturesMap[desc] = this
+        }
+    }
+
+private val Type.unifiedName: String
+    get() {
+        // on CFG level generics are fortunately gone
+        // OTOH they have to match AST naming BRUH
+        // in bytecode generics are reduced to VARIOUS objects (ex. extends String)
+        return when (this) {
+            is ClassType -> fullyQualifiedName
+            is PrimitiveType -> name
+            is ArrayType -> elementType.unifiedName + "[]"
+            else -> TODO("not yet supported type $this")
+        }
+    }
+
+private val signaturesMap = mutableMapOf<UnifiedMethodDescriptor, MethodSignature>()
+
+val UnifiedMethodDescriptor.sootSignature
+    get() = signaturesMap[this]
+        ?: error("method $this was not discovered during any CFG analysis")
