@@ -35,7 +35,7 @@ object BraindeadWithSkippingStrategy : CallgraphAnalysisStrategy {
 
         fun MethodSignature.updateReachableMethods() {
             if (this@updateReachableMethods in reachableMethods) return
-            // plain old dfs
+            // plain old bfs
             val queue = ArrayDeque<MethodSignature>()
             queue.add(this@updateReachableMethods)
             while (queue.isNotEmpty()) {
