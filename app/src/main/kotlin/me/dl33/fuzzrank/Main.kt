@@ -3,6 +3,7 @@ package me.dl33.fuzzrank
 import me.dl33.fuzzrank.callgraph.BraindeadWithSkippingStrategy
 import me.dl33.fuzzrank.callgraph.CallgraphAnalyzer
 import me.dl33.fuzzrank.callgraph.MinCoverStrategy
+import me.dl33.fuzzrank.callgraph.MinCoverWeightedStrategy
 import me.dl33.fuzzrank.metrics.Metrics
 import me.dl33.fuzzrank.metrics.binAndRank
 import java.io.File
@@ -16,7 +17,7 @@ fun main() {
     val thisProjectDir = Path(System.getProperty("projectDir")!!.toString())
     val javaProjectsDir = thisProjectDir.parent.resolve("javaProjects")
 
-    val (source, jar) = snowflake_jdbc(javaProjectsDir)
+    val (source, jar) = traccar(javaProjectsDir)
     val metricsMap = Metrics.calculate(
         source,
         jar,
@@ -46,4 +47,9 @@ fun main() {
     val strategicEntryPoints = CallgraphAnalyzer.applyStrategy(jar, interesting, MinCoverStrategy)
     println("strategic size: ${strategicEntryPoints.size}")
 //    println(strategicEntryPoints.joinToString("\n"))
+
+    val a = CallgraphAnalyzer.applyStrategy(jar, interesting, MinCoverStrategy)
+    val b = CallgraphAnalyzer.applyStrategy(jar, interesting, MinCoverWeightedStrategy)
+    val diff = a.union(b).minus(a.intersect(b))
+    println("a / b / diff = ${a.size} / ${b.size} / ${diff.size} ($diff)")
 }
