@@ -2,4 +2,8 @@
 .idea/
 build/
 */wala.properties
-.kotlin
+.kotlin/
+tmp/
+dataset/
+__pycache__/
+gitbug_setup.log
