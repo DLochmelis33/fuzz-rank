@@ -4,13 +4,75 @@ import me.dl33.fuzzrank.callgraph.BraindeadWithSkippingStrategy
 import me.dl33.fuzzrank.callgraph.CallgraphAnalyzer
 import me.dl33.fuzzrank.callgraph.MinCoverStrategy
 import me.dl33.fuzzrank.callgraph.MinCoverWeightedStrategy
+import me.dl33.fuzzrank.metrics.ASTCalc
+import me.dl33.fuzzrank.metrics.CFGCalc
 import me.dl33.fuzzrank.metrics.Metrics
+import me.dl33.fuzzrank.metrics.MetricsMap
 import me.dl33.fuzzrank.metrics.binAndRank
-import java.io.File
-import java.io.PrintStream
 import kotlin.io.path.Path
+import kotlin.io.path.createParentDirectories
+import kotlin.io.path.writeText
+import kotlin.math.roundToInt
 
-fun main() {
+fun main() = mainnn(
+    arrayOf(
+        "assertj",
+        "tmp/rankings",
+        "C:/Users/dloch/prog/maga/thesis/fuzz-rank/dataset\\assertj-vavr-cd521160aa\\src\\main\\java",
+        "C:/Users/dloch/prog/maga/thesis/fuzz-rank/dataset\\assertj-vavr-cd521160aa\\target\\classes",
+        "0.1",
+    )
+)
+
+fun mainnn(args: Array<String>) {
+    val projectName = args[0]
+    val workdir = Path(args[1])
+    val sourcesDir = Path(args[2])
+    val classesDir = Path(args[3])
+    val topK = args[4].toDouble()
+
+    val metricsMap = MetricsMap()
+    val skipFQNs = setOf("org.traccar.protobuf", "net.snowflake.client.jdbc.internal")
+    CFGCalc.calcJar(classesDir, metricsMap, skipFQNs)
+    ASTCalc.calc(sourcesDir, classesDir, metricsMap, skipFQNs)
+
+    val ranked = metricsMap.binAndRank().toList()
+    val interesting = ranked.take((ranked.size * topK).roundToInt())
+
+    val strategies = listOf(
+        BraindeadWithSkippingStrategy,
+        MinCoverStrategy,
+        MinCoverWeightedStrategy,
+    )
+    val resultsStr = strategies.map { s ->
+        val entryPoints = CallgraphAnalyzer.applyStrategy(classesDir, interesting.map { it.method }, s)
+        """
+        {
+            "strategy": "${s.name}",
+            "entryPoints": [${entryPoints.joinToString(",") { "\"$it\"" }}]
+        }
+        """.trim()
+    }
+    val finalJson = """
+{
+    "projectName": "$projectName",
+    "topK": $topK,
+    "methodsTotal": ${metricsMap.size},
+    "methodsRanked": ${ranked.size},
+    "results": [
+        ${resultsStr.joinToString(",\n\t\t")}
+    ]
+}
+    """.trimIndent()
+
+    val outputFile = workdir.resolve("$projectName.json")
+    outputFile.createParentDirectories()
+    println("writing result into $outputFile")
+    outputFile.writeText(finalJson)
+}
+
+
+fun maina() {
 //    val out = PrintStream(File("a.out").outputStream())
 //    System.setOut(out)
 

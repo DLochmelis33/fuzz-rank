@@ -4,10 +4,18 @@ import subprocess
 from os import path
 
 
-def get_run_command(target_name, module):
-    if module is None:
-        return ["./gradlew", ":test", "--tests", target_name, "-PenableTests=true"]
-    return ["./gradlew", f":{module}:test", "--tests", target_name, "-PenableTests=true"]
+# def get_run_command(target_name, module):
+#     if module is None:
+#         return ["./gradlew", ":test", "--tests", target_name, "-PenableTests=true"]
+#     return ["./gradlew", f":{module}:test", "--tests", target_name, "-PenableTests=true"]
+
+
+def get_run_command(target_name, module) -> list[str]:
+    jazzer_home = os.environ['JAZZ_HOME']
+    if not jazzer_home:
+        raise KeyError('jazz home missing')
+    jazzer_binary = jazzer_home + "/jazzer"
+    return [jazzer_binary, f'--autofuzz={target_name}']
 
 
 def run_target(target_name, home_dir, logs_dir, jacoco_exec_dir, module = None):

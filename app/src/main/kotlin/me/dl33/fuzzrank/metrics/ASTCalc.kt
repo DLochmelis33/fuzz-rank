@@ -19,6 +19,7 @@ import com.github.javaparser.resolution.types.ResolvedType
 import com.github.javaparser.symbolsolver.JavaSymbolSolver
 import com.github.javaparser.symbolsolver.resolution.typesolvers.CombinedTypeSolver
 import com.github.javaparser.symbolsolver.resolution.typesolvers.JarTypeSolver
+import com.github.javaparser.symbolsolver.resolution.typesolvers.JavaParserTypeSolver
 import com.github.javaparser.symbolsolver.resolution.typesolvers.ReflectionTypeSolver
 import com.github.javaparser.utils.SourceRoot
 import me.dl33.fuzzrank.DepthCnt
@@ -35,7 +36,8 @@ object ASTCalc {
 
         val typeSolver = CombinedTypeSolver().apply {
             add(ReflectionTypeSolver())
-            add(JarTypeSolver(jar))
+            add(JavaParserTypeSolver(sourcesDir))
+//            add(JarTypeSolver(jar))
         }
         val symbolResolver = JavaSymbolSolver(typeSolver)
         val parserConfiguration = ParserConfiguration()

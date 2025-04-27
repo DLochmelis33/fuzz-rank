@@ -40,4 +40,6 @@ interface CallgraphAnalysisStrategy {
         callgraph: CallGraph,
         interestingMethods: List<UnifiedMethodDescriptor>,
     ): List<UnifiedMethodDescriptor>
+
+    val name get() = this::class.simpleName!!
 }

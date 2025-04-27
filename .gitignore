@@ -7,3 +7,5 @@ tmp/
 dataset/
 __pycache__/
 gitbug_setup.log
+experiments/workdir/
+k-f-scripts/

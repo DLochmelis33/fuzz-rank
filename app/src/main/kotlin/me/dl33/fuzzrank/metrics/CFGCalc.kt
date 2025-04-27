@@ -7,7 +7,9 @@ import sootup.core.types.ArrayType
 import sootup.core.types.ClassType
 import sootup.core.types.PrimitiveType
 import sootup.core.types.Type
+import sootup.java.bytecode.frontend.inputlocation.ClassFileBasedAnalysisInputLocation
 import sootup.java.bytecode.frontend.inputlocation.JavaClassPathAnalysisInputLocation
+import sootup.java.bytecode.frontend.inputlocation.PathBasedAnalysisInputLocation
 import sootup.java.core.JavaSootMethod
 import sootup.java.core.views.JavaView
 import java.nio.file.Path
@@ -15,10 +17,21 @@ import kotlin.io.path.absolutePathString
 import kotlin.math.sign
 
 object CFGCalc {
-    fun calc(jar: Path, metricsMap: MetricsMap, skipFQNsStartingWith: Set<String>) {
+//    fun calcClasses(classes: Path, metricsMap: MetricsMap, skipFQNsStartingWith: Set<String>) {
+//        println("\ncalculating CFG metrics for $classes")
+//        val inputLocation = ClassFileBasedAnalysisInputLocation()
+//        val view = JavaView(inputLocation)
+//        calc(view, metricsMap, skipFQNsStartingWith)
+//    }
+
+    fun calcJar(jar: Path, metricsMap: MetricsMap, skipFQNsStartingWith: Set<String>) {
         println("\ncalculating CFG metrics for $jar")
-        val inputLocation: AnalysisInputLocation = JavaClassPathAnalysisInputLocation(jar.absolutePathString())
+        val inputLocation = JavaClassPathAnalysisInputLocation(jar.absolutePathString())
         val view = JavaView(inputLocation)
+        calc(view, metricsMap, skipFQNsStartingWith)
+    }
+
+    fun calc(view: JavaView, metricsMap: MetricsMap, skipFQNsStartingWith: Set<String>) {
 
         val allClasses = view.classes
         for (sootClass in allClasses) {
