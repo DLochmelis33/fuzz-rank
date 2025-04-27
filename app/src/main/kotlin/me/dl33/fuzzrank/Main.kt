@@ -33,7 +33,7 @@ fun mainnn(args: Array<String>) {
 
     val metricsMap = MetricsMap()
     val skipFQNs = setOf("org.traccar.protobuf", "net.snowflake.client.jdbc.internal")
-    CFGCalc.calcJar(classesDir, metricsMap, skipFQNs)
+    CFGCalc.calc(classesDir, metricsMap, skipFQNs)
     ASTCalc.calc(sourcesDir, classesDir, metricsMap, skipFQNs)
 
     val ranked = metricsMap.binAndRank().toList()

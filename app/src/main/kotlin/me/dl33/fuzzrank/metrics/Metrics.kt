@@ -49,7 +49,7 @@ data class Metrics(
 
         fun calculate(sourcesDir: Path, jar: Path, skipFQNsStartingWith: Set<String>): MetricsMap {
             val metricsMap = MetricsMap()
-            CFGCalc.calcJar(jar, metricsMap, skipFQNsStartingWith)
+            CFGCalc.calc(jar, metricsMap, skipFQNsStartingWith)
             ASTCalc.calc(sourcesDir, jar, metricsMap, skipFQNsStartingWith)
             return metricsMap
         }
