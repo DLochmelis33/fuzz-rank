@@ -1,0 +1,277 @@
+[
+    {
+        "strategyName": "SimpleStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "org.fusesource.jansi.io.AnsiProcessor::optionInt(java.util.ArrayList, int)",
+            "org.fusesource.jansi.internal.OSInfo::translateOSNameToFolderName(java.lang.String)",
+            "org.fusesource.jansi.AnsiRenderer::render(java.lang.String, java.lang.Appendable)"
+        ]
+    },
+    {
+        "strategyName": "SimpleStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "org.fusesource.jansi.io.AnsiProcessor::optionInt(java.util.ArrayList, int)",
+            "org.fusesource.jansi.internal.OSInfo::translateOSNameToFolderName(java.lang.String)",
+            "org.fusesource.jansi.AnsiRenderer::render(java.lang.String, java.lang.Appendable)",
+            "org.fusesource.jansi.io.WindowsAnsiProcessor::processEraseScreen(int)",
+            "org.fusesource.jansi.io.WindowsAnsiProcessor::processEraseLine(int)",
+            "org.fusesource.jansi.Ansi::_appendEscapeSequence(char, java.lang.Object[])",
+            "org.fusesource.jansi.AnsiRenderer::render(org.fusesource.jansi.Ansi, java.lang.String[])",
+            "org.fusesource.jansi.io.WindowsAnsiProcessor::processSetAttribute(int)",
+            "org.fusesource.jansi.internal.JansiLoader::loadJansiNativeLibrary()",
+            "org.fusesource.jansi.AnsiConsole::getBoolean(java.lang.String)",
+            "org.fusesource.jansi.internal.Kernel32::readConsoleKeyInput(long, int, boolean)",
+            "org.fusesource.jansi.internal.Kernel32::readConsoleInputHelper(long, int, boolean)",
+            "org.fusesource.jansi.AnsiMain::testAnsi(boolean)",
+            "org.fusesource.jansi.io.ColorsAnsiProcessor::processEscapeCommand(java.util.ArrayList, int)"
+        ]
+    },
+    {
+        "strategyName": "SimpleStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "org.fusesource.jansi.io.AnsiProcessor::optionInt(java.util.ArrayList, int)",
+            "org.fusesource.jansi.internal.OSInfo::translateOSNameToFolderName(java.lang.String)",
+            "org.fusesource.jansi.AnsiRenderer::render(java.lang.String, java.lang.Appendable)",
+            "org.fusesource.jansi.io.WindowsAnsiProcessor::processEraseScreen(int)",
+            "org.fusesource.jansi.io.WindowsAnsiProcessor::processEraseLine(int)",
+            "org.fusesource.jansi.Ansi::_appendEscapeSequence(char, java.lang.Object[])",
+            "org.fusesource.jansi.AnsiRenderer::render(org.fusesource.jansi.Ansi, java.lang.String[])",
+            "org.fusesource.jansi.io.WindowsAnsiProcessor::processSetAttribute(int)",
+            "org.fusesource.jansi.internal.JansiLoader::loadJansiNativeLibrary()",
+            "org.fusesource.jansi.AnsiConsole::getBoolean(java.lang.String)",
+            "org.fusesource.jansi.internal.Kernel32::readConsoleKeyInput(long, int, boolean)",
+            "org.fusesource.jansi.internal.Kernel32::readConsoleInputHelper(long, int, boolean)",
+            "org.fusesource.jansi.AnsiMain::testAnsi(boolean)",
+            "org.fusesource.jansi.io.ColorsAnsiProcessor::processEscapeCommand(java.util.ArrayList, int)",
+            "org.fusesource.jansi.AnsiMain::main(java.lang.String[])",
+            "org.fusesource.jansi.io.AnsiOutputStream::write(int)",
+            "org.fusesource.jansi.AnsiConsole::ansiStream(boolean)",
+            "org.fusesource.jansi.internal.JansiLoader::extractAndLoadLibraryFile(java.lang.String, java.lang.String, java.lang.String)",
+            "org.fusesource.jansi.io.AnsiProcessor::processEscapeCommand(java.util.ArrayList, int)",
+            "org.fusesource.jansi.io.AnsiProcessor::optionInt(java.util.ArrayList, int, int)",
+            "org.fusesource.jansi.internal.OSInfo::main(java.lang.String[])",
+            "org.fusesource.jansi.internal.OSInfo::resolveArmArchType()",
+            "org.fusesource.jansi.internal.JansiLoader::readNBytes(java.io.InputStream, byte[])",
+            "org.fusesource.jansi.io.AnsiProcessor::processOperatingSystemCommand(java.util.ArrayList)",
+            "org.fusesource.jansi.internal.JansiLoader::cleanup()",
+            "org.fusesource.jansi.io.AnsiOutputStream::processEscapeCommand(int)",
+            "org.fusesource.jansi.io.AnsiOutputStream::<init>(java.io.OutputStream, org.fusesource.jansi.io.AnsiOutputStream.WidthSupplier, org.fusesource.jansi.AnsiMode, org.fusesource.jansi.io.AnsiProcessor, org.fusesource.jansi.AnsiType, org.fusesource.jansi.AnsiColors, java.nio.charset.Charset, org.fusesource.jansi.io.AnsiOutputStream.IoRunnable, org.fusesource.jansi.io.AnsiOutputStream.IoRunnable, boolean)"
+        ]
+    },
+    {
+        "strategyName": "SimpleStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "org.fusesource.jansi.io.AnsiProcessor::optionInt(java.util.ArrayList, int)",
+            "org.fusesource.jansi.internal.OSInfo::translateOSNameToFolderName(java.lang.String)",
+            "org.fusesource.jansi.AnsiRenderer::render(java.lang.String, java.lang.Appendable)",
+            "org.fusesource.jansi.io.WindowsAnsiProcessor::processEraseScreen(int)",
+            "org.fusesource.jansi.io.WindowsAnsiProcessor::processEraseLine(int)",
+            "org.fusesource.jansi.Ansi::_appendEscapeSequence(char, java.lang.Object[])",
+            "org.fusesource.jansi.AnsiRenderer::render(org.fusesource.jansi.Ansi, java.lang.String[])",
+            "org.fusesource.jansi.io.WindowsAnsiProcessor::processSetAttribute(int)",
+            "org.fusesource.jansi.internal.JansiLoader::loadJansiNativeLibrary()",
+            "org.fusesource.jansi.AnsiConsole::getBoolean(java.lang.String)",
+            "org.fusesource.jansi.internal.Kernel32::readConsoleKeyInput(long, int, boolean)",
+            "org.fusesource.jansi.internal.Kernel32::readConsoleInputHelper(long, int, boolean)",
+            "org.fusesource.jansi.AnsiMain::testAnsi(boolean)",
+            "org.fusesource.jansi.io.ColorsAnsiProcessor::processEscapeCommand(java.util.ArrayList, int)",
+            "org.fusesource.jansi.AnsiMain::main(java.lang.String[])",
+            "org.fusesource.jansi.io.AnsiOutputStream::write(int)",
+            "org.fusesource.jansi.AnsiConsole::ansiStream(boolean)",
+            "org.fusesource.jansi.internal.JansiLoader::extractAndLoadLibraryFile(java.lang.String, java.lang.String, java.lang.String)",
+            "org.fusesource.jansi.io.AnsiProcessor::processEscapeCommand(java.util.ArrayList, int)",
+            "org.fusesource.jansi.io.AnsiProcessor::optionInt(java.util.ArrayList, int, int)",
+            "org.fusesource.jansi.internal.OSInfo::main(java.lang.String[])",
+            "org.fusesource.jansi.internal.OSInfo::resolveArmArchType()",
+            "org.fusesource.jansi.internal.JansiLoader::readNBytes(java.io.InputStream, byte[])",
+            "org.fusesource.jansi.io.AnsiProcessor::processOperatingSystemCommand(java.util.ArrayList)",
+            "org.fusesource.jansi.internal.JansiLoader::cleanup()",
+            "org.fusesource.jansi.io.AnsiOutputStream::processEscapeCommand(int)",
+            "org.fusesource.jansi.io.AnsiOutputStream::<init>(java.io.OutputStream, org.fusesource.jansi.io.AnsiOutputStream.WidthSupplier, org.fusesource.jansi.AnsiMode, org.fusesource.jansi.io.AnsiProcessor, org.fusesource.jansi.AnsiType, org.fusesource.jansi.AnsiColors, java.nio.charset.Charset, org.fusesource.jansi.io.AnsiOutputStream.IoRunnable, org.fusesource.jansi.io.AnsiOutputStream.IoRunnable, boolean)",
+            "org.fusesource.jansi.io.WindowsAnsiProcessor::processInsertLine(int)",
+            "org.fusesource.jansi.io.WindowsAnsiProcessor::processDeleteLine(int)",
+            "org.fusesource.jansi.internal.OSInfo::getArchName()",
+            "org.fusesource.jansi.io.FastBufferedOutputStream::write(byte[], int, int)",
+            "org.fusesource.jansi.internal.JansiLoader::contentsEquals(java.io.InputStream, java.io.InputStream)",
+            "org.fusesource.jansi.io.Colors::roundColor(int, int[], int)",
+            "org.fusesource.jansi.io.AnsiOutputStream::uninstall()",
+            "org.fusesource.jansi.AnsiMain::diagnoseTty(boolean)",
+            "org.fusesource.jansi.io.AnsiOutputStream::processOperatingSystemCommand()",
+            "org.fusesource.jansi.io.AnsiOutputStream::processCharsetSelect()",
+            "org.fusesource.jansi.io.WindowsAnsiProcessor::processCursorTo(int, int)",
+            "org.fusesource.jansi.internal.JansiLoader::loadNativeLibrary(java.io.File)",
+            "org.fusesource.jansi.io.AnsiProcessor::getNextOptionInt(java.util.Iterator)",
+            "org.fusesource.jansi.internal.JansiLoader::join(java.util.List, java.lang.String)",
+            "org.fusesource.jansi.AnsiMain::writeFileContent(java.io.File)",
+            "org.fusesource.jansi.Ansi::cursor(int, int)",
+            "org.fusesource.jansi.io.Colors::roundColor(int, int)",
+            "org.fusesource.jansi.Ansi::flushAttributes()",
+            "org.fusesource.jansi.io.WindowsAnsiProcessor::processSetBackgroundColorExt(int, int, int)",
+            "org.fusesource.jansi.io.WindowsAnsiProcessor::processSetForegroundColorExt(int, int, int)",
+            "org.fusesource.jansi.internal.JansiLoader::getVersion()",
+            "org.fusesource.jansi.Ansi::bgRgb(int, int, int)",
+            "org.fusesource.jansi.Ansi::fgRgb(int, int, int)",
+            "org.fusesource.jansi.WindowsSupport::getErrorMessage(int)",
+            "org.fusesource.jansi.io.WindowsAnsiProcessor::applyAttribute()",
+            "org.fusesource.jansi.io.WindowsAnsiProcessor::getConsoleInfo()",
+            "org.fusesource.jansi.Ansi::cursorLeft(int)"
+        ]
+    },
+    {
+        "strategyName": "SimpleWithSkippingStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "org.fusesource.jansi.io.AnsiProcessor::optionInt(java.util.ArrayList, int)",
+            "org.fusesource.jansi.internal.OSInfo::translateOSNameToFolderName(java.lang.String)",
+            "org.fusesource.jansi.AnsiRenderer::render(java.lang.String, java.lang.Appendable)"
+        ]
+    },
+    {
+        "strategyName": "SimpleWithSkippingStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "org.fusesource.jansi.io.AnsiProcessor::optionInt(java.util.ArrayList, int)",
+            "org.fusesource.jansi.internal.OSInfo::translateOSNameToFolderName(java.lang.String)",
+            "org.fusesource.jansi.AnsiRenderer::render(java.lang.String, java.lang.Appendable)",
+            "org.fusesource.jansi.io.WindowsAnsiProcessor::processEraseScreen(int)",
+            "org.fusesource.jansi.io.WindowsAnsiProcessor::processEraseLine(int)",
+            "org.fusesource.jansi.io.WindowsAnsiProcessor::processSetAttribute(int)",
+            "org.fusesource.jansi.AnsiConsole::getBoolean(java.lang.String)",
+            "org.fusesource.jansi.internal.Kernel32::readConsoleKeyInput(long, int, boolean)",
+            "org.fusesource.jansi.AnsiMain::testAnsi(boolean)",
+            "org.fusesource.jansi.io.ColorsAnsiProcessor::processEscapeCommand(java.util.ArrayList, int)"
+        ]
+    },
+    {
+        "strategyName": "SimpleWithSkippingStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "org.fusesource.jansi.io.AnsiProcessor::optionInt(java.util.ArrayList, int)",
+            "org.fusesource.jansi.internal.OSInfo::translateOSNameToFolderName(java.lang.String)",
+            "org.fusesource.jansi.AnsiRenderer::render(java.lang.String, java.lang.Appendable)",
+            "org.fusesource.jansi.io.WindowsAnsiProcessor::processEraseScreen(int)",
+            "org.fusesource.jansi.io.WindowsAnsiProcessor::processEraseLine(int)",
+            "org.fusesource.jansi.io.WindowsAnsiProcessor::processSetAttribute(int)",
+            "org.fusesource.jansi.AnsiConsole::getBoolean(java.lang.String)",
+            "org.fusesource.jansi.internal.Kernel32::readConsoleKeyInput(long, int, boolean)",
+            "org.fusesource.jansi.AnsiMain::testAnsi(boolean)",
+            "org.fusesource.jansi.io.ColorsAnsiProcessor::processEscapeCommand(java.util.ArrayList, int)",
+            "org.fusesource.jansi.AnsiMain::main(java.lang.String[])",
+            "org.fusesource.jansi.io.AnsiOutputStream::write(int)",
+            "org.fusesource.jansi.internal.OSInfo::main(java.lang.String[])"
+        ]
+    },
+    {
+        "strategyName": "SimpleWithSkippingStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "org.fusesource.jansi.io.AnsiProcessor::optionInt(java.util.ArrayList, int)",
+            "org.fusesource.jansi.internal.OSInfo::translateOSNameToFolderName(java.lang.String)",
+            "org.fusesource.jansi.AnsiRenderer::render(java.lang.String, java.lang.Appendable)",
+            "org.fusesource.jansi.io.WindowsAnsiProcessor::processEraseScreen(int)",
+            "org.fusesource.jansi.io.WindowsAnsiProcessor::processEraseLine(int)",
+            "org.fusesource.jansi.io.WindowsAnsiProcessor::processSetAttribute(int)",
+            "org.fusesource.jansi.AnsiConsole::getBoolean(java.lang.String)",
+            "org.fusesource.jansi.internal.Kernel32::readConsoleKeyInput(long, int, boolean)",
+            "org.fusesource.jansi.AnsiMain::testAnsi(boolean)",
+            "org.fusesource.jansi.io.ColorsAnsiProcessor::processEscapeCommand(java.util.ArrayList, int)",
+            "org.fusesource.jansi.AnsiMain::main(java.lang.String[])",
+            "org.fusesource.jansi.io.AnsiOutputStream::write(int)",
+            "org.fusesource.jansi.internal.OSInfo::main(java.lang.String[])",
+            "org.fusesource.jansi.io.FastBufferedOutputStream::write(byte[], int, int)",
+            "org.fusesource.jansi.Ansi::cursor(int, int)",
+            "org.fusesource.jansi.Ansi::cursorLeft(int)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "org.fusesource.jansi.io.AnsiOutputStream::write(int)",
+            "org.fusesource.jansi.Ansi::render(java.lang.String)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "org.fusesource.jansi.io.AnsiOutputStream::write(int)",
+            "org.fusesource.jansi.AnsiMain::main(java.lang.String[])",
+            "org.fusesource.jansi.internal.Kernel32::readConsoleKeyInput(long, int, boolean)",
+            "org.fusesource.jansi.Ansi::render(java.lang.String)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "org.fusesource.jansi.io.AnsiOutputStream::write(int)",
+            "org.fusesource.jansi.AnsiMain::main(java.lang.String[])",
+            "org.fusesource.jansi.internal.Kernel32::readConsoleKeyInput(long, int, boolean)",
+            "org.fusesource.jansi.Ansi::render(java.lang.String)",
+            "org.fusesource.jansi.internal.OSInfo::main(java.lang.String[])"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "org.fusesource.jansi.io.AnsiOutputStream::write(int)",
+            "org.fusesource.jansi.AnsiMain::main(java.lang.String[])",
+            "org.fusesource.jansi.internal.Kernel32::readConsoleKeyInput(long, int, boolean)",
+            "org.fusesource.jansi.Ansi::render(java.lang.String)",
+            "org.fusesource.jansi.internal.OSInfo::main(java.lang.String[])",
+            "org.fusesource.jansi.io.FastBufferedOutputStream::write(byte[], int, int)",
+            "org.fusesource.jansi.Ansi::cursor(int, int)",
+            "org.fusesource.jansi.Ansi::cursorMove(int, int)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "org.fusesource.jansi.internal.OSInfo::main(java.lang.String[])",
+            "org.fusesource.jansi.Ansi::render(java.lang.String)",
+            "org.fusesource.jansi.io.AnsiOutputStream::write(int)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "org.fusesource.jansi.io.AnsiOutputStream::write(int)",
+            "org.fusesource.jansi.Ansi::render(java.lang.String)",
+            "org.fusesource.jansi.internal.Kernel32::readConsoleKeyInput(long, int, boolean)",
+            "org.fusesource.jansi.AnsiMain::main(java.lang.String[])"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "org.fusesource.jansi.io.AnsiOutputStream::write(int)",
+            "org.fusesource.jansi.AnsiMain::main(java.lang.String[])",
+            "org.fusesource.jansi.internal.Kernel32::readConsoleKeyInput(long, int, boolean)",
+            "org.fusesource.jansi.Ansi::render(java.lang.String)",
+            "org.fusesource.jansi.internal.OSInfo::main(java.lang.String[])"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "org.fusesource.jansi.io.AnsiOutputStream::write(int)",
+            "org.fusesource.jansi.AnsiMain::main(java.lang.String[])",
+            "org.fusesource.jansi.io.FastBufferedOutputStream::write(byte[], int, int)",
+            "org.fusesource.jansi.Ansi::cursor(int, int)",
+            "org.fusesource.jansi.internal.Kernel32::readConsoleKeyInput(long, int, boolean)",
+            "org.fusesource.jansi.Ansi::cursorMove(int, int)",
+            "org.fusesource.jansi.Ansi::render(java.lang.String)",
+            "org.fusesource.jansi.internal.OSInfo::main(java.lang.String[])"
+        ]
+    }
+]

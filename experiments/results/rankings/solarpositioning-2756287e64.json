@@ -1,0 +1,126 @@
+[
+    {
+        "strategyName": "SimpleStrategy",
+        "topK": 0.01,
+        "entryPoints": []
+    },
+    {
+        "strategyName": "SimpleStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "net.e175.klaus.solarpositioning.SPA::calculateGeocentricSunRightAscension(double, double, double)",
+            "net.e175.klaus.solarpositioning.SPA::calculateSolarPosition(java.time.ZonedDateTime, double, double, double, double)"
+        ]
+    },
+    {
+        "strategyName": "SimpleStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "net.e175.klaus.solarpositioning.SPA::calculateGeocentricSunRightAscension(double, double, double)",
+            "net.e175.klaus.solarpositioning.SPA::calculateSolarPosition(java.time.ZonedDateTime, double, double, double, double)",
+            "net.e175.klaus.solarpositioning.SPA::calculateSolarPosition(java.time.ZonedDateTime, double, double, double, double, double, double)",
+            "net.e175.klaus.solarpositioning.JulianDate::calcJulianDate(java.time.LocalDateTime)"
+        ]
+    },
+    {
+        "strategyName": "SimpleStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "net.e175.klaus.solarpositioning.SPA::calculateGeocentricSunRightAscension(double, double, double)",
+            "net.e175.klaus.solarpositioning.SPA::calculateSolarPosition(java.time.ZonedDateTime, double, double, double, double)",
+            "net.e175.klaus.solarpositioning.SPA::calculateSolarPosition(java.time.ZonedDateTime, double, double, double, double, double, double)",
+            "net.e175.klaus.solarpositioning.JulianDate::calcJulianDate(java.time.LocalDateTime)",
+            "net.e175.klaus.solarpositioning.AzimuthZenithAngle::equals(java.lang.Object)",
+            "net.e175.klaus.solarpositioning.SPA::calculateTopocentricSolarPosition(double, double, double, double, double)",
+            "net.e175.klaus.solarpositioning.SPA::calculateLBRTerms(double, double[][][])",
+            "net.e175.klaus.solarpositioning.Grena3::calculateSolarPosition(java.time.ZonedDateTime, double, double, double, double, double)"
+        ]
+    },
+    {
+        "strategyName": "SimpleWithSkippingStrategy",
+        "topK": 0.01,
+        "entryPoints": []
+    },
+    {
+        "strategyName": "SimpleWithSkippingStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "net.e175.klaus.solarpositioning.SPA::calculateGeocentricSunRightAscension(double, double, double)",
+            "net.e175.klaus.solarpositioning.SPA::calculateSolarPosition(java.time.ZonedDateTime, double, double, double, double)"
+        ]
+    },
+    {
+        "strategyName": "SimpleWithSkippingStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "net.e175.klaus.solarpositioning.SPA::calculateGeocentricSunRightAscension(double, double, double)",
+            "net.e175.klaus.solarpositioning.SPA::calculateSolarPosition(java.time.ZonedDateTime, double, double, double, double)"
+        ]
+    },
+    {
+        "strategyName": "SimpleWithSkippingStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "net.e175.klaus.solarpositioning.SPA::calculateGeocentricSunRightAscension(double, double, double)",
+            "net.e175.klaus.solarpositioning.SPA::calculateSolarPosition(java.time.ZonedDateTime, double, double, double, double)",
+            "net.e175.klaus.solarpositioning.AzimuthZenithAngle::equals(java.lang.Object)",
+            "net.e175.klaus.solarpositioning.Grena3::calculateSolarPosition(java.time.ZonedDateTime, double, double, double, double, double)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.01,
+        "entryPoints": []
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "net.e175.klaus.solarpositioning.SPA::calculateSolarPosition(java.time.ZonedDateTime, double, double, double, double)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "net.e175.klaus.solarpositioning.SPA::calculateSolarPosition(java.time.ZonedDateTime, double, double, double, double)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "net.e175.klaus.solarpositioning.SPA::calculateSolarPosition(java.time.ZonedDateTime, double, double, double, double)",
+            "net.e175.klaus.solarpositioning.AzimuthZenithAngle::equals(java.lang.Object)",
+            "net.e175.klaus.solarpositioning.Grena3::calculateSolarPosition(java.time.ZonedDateTime, double, double, double)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.01,
+        "entryPoints": []
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "net.e175.klaus.solarpositioning.SPA::calculateSolarPosition(java.time.ZonedDateTime, double, double, double, double)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "net.e175.klaus.solarpositioning.SPA::calculateSolarPosition(java.time.ZonedDateTime, double, double, double, double)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "net.e175.klaus.solarpositioning.SPA::calculateSolarPosition(java.time.ZonedDateTime, double, double, double, double)",
+            "net.e175.klaus.solarpositioning.AzimuthZenithAngle::equals(java.lang.Object)",
+            "net.e175.klaus.solarpositioning.Grena3::calculateSolarPosition(java.time.ZonedDateTime, double, double, double)"
+        ]
+    }
+]

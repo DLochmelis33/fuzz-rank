@@ -1,0 +1,159 @@
+[
+    {
+        "strategyName": "SimpleStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "com.sun.tools.xjc.addon.xew.Candidate::<init>(com.sun.codemodel.JDefinedClass, com.sun.tools.xjc.model.CClassInfo, com.sun.codemodel.JFieldVar, java.util.Collection, com.sun.codemodel.JClass, com.sun.codemodel.JClass)"
+        ]
+    },
+    {
+        "strategyName": "SimpleStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "com.sun.tools.xjc.addon.xew.Candidate::<init>(com.sun.codemodel.JDefinedClass, com.sun.tools.xjc.model.CClassInfo, com.sun.codemodel.JFieldVar, java.util.Collection, com.sun.codemodel.JClass, com.sun.codemodel.JClass)",
+            "com.sun.tools.xjc.addon.xew.config.GlobalConfiguration::writeSummary(java.lang.String)",
+            "com.sun.tools.xjc.addon.xew.CommonUtils::copyAnnotationMemberValue(com.sun.codemodel.JAnnotationUse, java.lang.String, java.lang.String, com.sun.codemodel.JAnnotationUse)",
+            "com.sun.tools.xjc.addon.xew.XmlElementWrapperPlugin::renameFactoryMethod(com.sun.codemodel.JDefinedClass, java.lang.String, java.lang.String)"
+        ]
+    },
+    {
+        "strategyName": "SimpleStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "com.sun.tools.xjc.addon.xew.Candidate::<init>(com.sun.codemodel.JDefinedClass, com.sun.tools.xjc.model.CClassInfo, com.sun.codemodel.JFieldVar, java.util.Collection, com.sun.codemodel.JClass, com.sun.codemodel.JClass)",
+            "com.sun.tools.xjc.addon.xew.config.GlobalConfiguration::writeSummary(java.lang.String)",
+            "com.sun.tools.xjc.addon.xew.CommonUtils::copyAnnotationMemberValue(com.sun.codemodel.JAnnotationUse, java.lang.String, java.lang.String, com.sun.codemodel.JAnnotationUse)",
+            "com.sun.tools.xjc.addon.xew.XmlElementWrapperPlugin::renameFactoryMethod(com.sun.codemodel.JDefinedClass, java.lang.String, java.lang.String)",
+            "com.sun.tools.xjc.addon.xew.XmlElementWrapperPlugin::moveInnerClassToParent(com.sun.tools.xjc.outline.Outline, com.sun.tools.xjc.addon.xew.Candidate)",
+            "com.sun.tools.xjc.addon.xew.config.AbstractConfigurablePlugin::parseArgument(com.sun.tools.xjc.Options, java.lang.String[], int)",
+            "com.sun.tools.xjc.addon.xew.config.GlobalConfiguration::isClassIncluded(java.lang.String)"
+        ]
+    },
+    {
+        "strategyName": "SimpleStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "com.sun.tools.xjc.addon.xew.Candidate::<init>(com.sun.codemodel.JDefinedClass, com.sun.tools.xjc.model.CClassInfo, com.sun.codemodel.JFieldVar, java.util.Collection, com.sun.codemodel.JClass, com.sun.codemodel.JClass)",
+            "com.sun.tools.xjc.addon.xew.config.GlobalConfiguration::writeSummary(java.lang.String)",
+            "com.sun.tools.xjc.addon.xew.CommonUtils::copyAnnotationMemberValue(com.sun.codemodel.JAnnotationUse, java.lang.String, java.lang.String, com.sun.codemodel.JAnnotationUse)",
+            "com.sun.tools.xjc.addon.xew.XmlElementWrapperPlugin::renameFactoryMethod(com.sun.codemodel.JDefinedClass, java.lang.String, java.lang.String)",
+            "com.sun.tools.xjc.addon.xew.XmlElementWrapperPlugin::moveInnerClassToParent(com.sun.tools.xjc.outline.Outline, com.sun.tools.xjc.addon.xew.Candidate)",
+            "com.sun.tools.xjc.addon.xew.config.AbstractConfigurablePlugin::parseArgument(com.sun.tools.xjc.Options, java.lang.String[], int)",
+            "com.sun.tools.xjc.addon.xew.config.GlobalConfiguration::isClassIncluded(java.lang.String)",
+            "com.sun.tools.xjc.addon.xew.XmlElementWrapperPlugin::moveClassLevelUp(com.sun.tools.xjc.outline.Outline, com.sun.codemodel.JDefinedClass)",
+            "com.sun.tools.xjc.addon.xew.XmlElementWrapperPlugin::deleteCandidates(com.sun.tools.xjc.outline.Outline, java.util.Collection)",
+            "com.sun.tools.xjc.addon.xew.XmlElementWrapperPlugin::createScopedFactoryMethods(com.sun.codemodel.JCodeModel, com.sun.codemodel.JDefinedClass, java.util.Collection, com.sun.codemodel.JDefinedClass, com.sun.codemodel.JClass, com.sun.codemodel.JClass, com.sun.codemodel.JClass)",
+            "com.sun.tools.xjc.addon.xew.config.GlobalConfiguration::readControlFile(java.lang.String)",
+            "com.sun.tools.xjc.addon.xew.XmlElementWrapperPlugin::findCandidateClasses(com.sun.tools.xjc.outline.Outline, com.sun.codemodel.JClass, com.sun.codemodel.JClass)",
+            "com.sun.tools.xjc.addon.xew.XmlElementWrapperPlugin::runInternal(com.sun.tools.xjc.outline.Outline)",
+            "com.sun.tools.xjc.addon.xew.CommonUtils::getAnnotationMember(com.sun.codemodel.JAnnotationUse, java.lang.String)"
+        ]
+    },
+    {
+        "strategyName": "SimpleWithSkippingStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "com.sun.tools.xjc.addon.xew.Candidate::<init>(com.sun.codemodel.JDefinedClass, com.sun.tools.xjc.model.CClassInfo, com.sun.codemodel.JFieldVar, java.util.Collection, com.sun.codemodel.JClass, com.sun.codemodel.JClass)"
+        ]
+    },
+    {
+        "strategyName": "SimpleWithSkippingStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "com.sun.tools.xjc.addon.xew.Candidate::<init>(com.sun.codemodel.JDefinedClass, com.sun.tools.xjc.model.CClassInfo, com.sun.codemodel.JFieldVar, java.util.Collection, com.sun.codemodel.JClass, com.sun.codemodel.JClass)",
+            "com.sun.tools.xjc.addon.xew.config.GlobalConfiguration::writeSummary(java.lang.String)",
+            "com.sun.tools.xjc.addon.xew.CommonUtils::copyAnnotationMemberValue(com.sun.codemodel.JAnnotationUse, java.lang.String, java.lang.String, com.sun.codemodel.JAnnotationUse)",
+            "com.sun.tools.xjc.addon.xew.XmlElementWrapperPlugin::renameFactoryMethod(com.sun.codemodel.JDefinedClass, java.lang.String, java.lang.String)"
+        ]
+    },
+    {
+        "strategyName": "SimpleWithSkippingStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "com.sun.tools.xjc.addon.xew.Candidate::<init>(com.sun.codemodel.JDefinedClass, com.sun.tools.xjc.model.CClassInfo, com.sun.codemodel.JFieldVar, java.util.Collection, com.sun.codemodel.JClass, com.sun.codemodel.JClass)",
+            "com.sun.tools.xjc.addon.xew.config.GlobalConfiguration::writeSummary(java.lang.String)",
+            "com.sun.tools.xjc.addon.xew.CommonUtils::copyAnnotationMemberValue(com.sun.codemodel.JAnnotationUse, java.lang.String, java.lang.String, com.sun.codemodel.JAnnotationUse)",
+            "com.sun.tools.xjc.addon.xew.XmlElementWrapperPlugin::renameFactoryMethod(com.sun.codemodel.JDefinedClass, java.lang.String, java.lang.String)",
+            "com.sun.tools.xjc.addon.xew.XmlElementWrapperPlugin::moveInnerClassToParent(com.sun.tools.xjc.outline.Outline, com.sun.tools.xjc.addon.xew.Candidate)",
+            "com.sun.tools.xjc.addon.xew.config.AbstractConfigurablePlugin::parseArgument(com.sun.tools.xjc.Options, java.lang.String[], int)",
+            "com.sun.tools.xjc.addon.xew.config.GlobalConfiguration::isClassIncluded(java.lang.String)"
+        ]
+    },
+    {
+        "strategyName": "SimpleWithSkippingStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "com.sun.tools.xjc.addon.xew.Candidate::<init>(com.sun.codemodel.JDefinedClass, com.sun.tools.xjc.model.CClassInfo, com.sun.codemodel.JFieldVar, java.util.Collection, com.sun.codemodel.JClass, com.sun.codemodel.JClass)",
+            "com.sun.tools.xjc.addon.xew.config.GlobalConfiguration::writeSummary(java.lang.String)",
+            "com.sun.tools.xjc.addon.xew.CommonUtils::copyAnnotationMemberValue(com.sun.codemodel.JAnnotationUse, java.lang.String, java.lang.String, com.sun.codemodel.JAnnotationUse)",
+            "com.sun.tools.xjc.addon.xew.XmlElementWrapperPlugin::renameFactoryMethod(com.sun.codemodel.JDefinedClass, java.lang.String, java.lang.String)",
+            "com.sun.tools.xjc.addon.xew.XmlElementWrapperPlugin::moveInnerClassToParent(com.sun.tools.xjc.outline.Outline, com.sun.tools.xjc.addon.xew.Candidate)",
+            "com.sun.tools.xjc.addon.xew.config.AbstractConfigurablePlugin::parseArgument(com.sun.tools.xjc.Options, java.lang.String[], int)",
+            "com.sun.tools.xjc.addon.xew.config.GlobalConfiguration::isClassIncluded(java.lang.String)",
+            "com.sun.tools.xjc.addon.xew.XmlElementWrapperPlugin::deleteCandidates(com.sun.tools.xjc.outline.Outline, java.util.Collection)",
+            "com.sun.tools.xjc.addon.xew.XmlElementWrapperPlugin::createScopedFactoryMethods(com.sun.codemodel.JCodeModel, com.sun.codemodel.JDefinedClass, java.util.Collection, com.sun.codemodel.JDefinedClass, com.sun.codemodel.JClass, com.sun.codemodel.JClass, com.sun.codemodel.JClass)",
+            "com.sun.tools.xjc.addon.xew.XmlElementWrapperPlugin::findCandidateClasses(com.sun.tools.xjc.outline.Outline, com.sun.codemodel.JClass, com.sun.codemodel.JClass)",
+            "com.sun.tools.xjc.addon.xew.XmlElementWrapperPlugin::runInternal(com.sun.tools.xjc.outline.Outline)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "com.sun.tools.xjc.addon.xew.config.AbstractConfigurablePlugin::run(com.sun.tools.xjc.outline.Outline, com.sun.tools.xjc.Options, org.xml.sax.ErrorHandler)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "com.sun.tools.xjc.addon.xew.config.AbstractConfigurablePlugin::run(com.sun.tools.xjc.outline.Outline, com.sun.tools.xjc.Options, org.xml.sax.ErrorHandler)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "com.sun.tools.xjc.addon.xew.config.AbstractConfigurablePlugin::run(com.sun.tools.xjc.outline.Outline, com.sun.tools.xjc.Options, org.xml.sax.ErrorHandler)",
+            "com.sun.tools.xjc.addon.xew.config.AbstractConfigurablePlugin::parseArgument(com.sun.tools.xjc.Options, java.lang.String[], int)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "com.sun.tools.xjc.addon.xew.config.AbstractConfigurablePlugin::run(com.sun.tools.xjc.outline.Outline, com.sun.tools.xjc.Options, org.xml.sax.ErrorHandler)",
+            "com.sun.tools.xjc.addon.xew.config.AbstractConfigurablePlugin::parseArgument(com.sun.tools.xjc.Options, java.lang.String[], int)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "com.sun.tools.xjc.addon.xew.config.AbstractConfigurablePlugin::run(com.sun.tools.xjc.outline.Outline, com.sun.tools.xjc.Options, org.xml.sax.ErrorHandler)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "com.sun.tools.xjc.addon.xew.config.AbstractConfigurablePlugin::run(com.sun.tools.xjc.outline.Outline, com.sun.tools.xjc.Options, org.xml.sax.ErrorHandler)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "com.sun.tools.xjc.addon.xew.config.AbstractConfigurablePlugin::run(com.sun.tools.xjc.outline.Outline, com.sun.tools.xjc.Options, org.xml.sax.ErrorHandler)",
+            "com.sun.tools.xjc.addon.xew.config.AbstractConfigurablePlugin::parseArgument(com.sun.tools.xjc.Options, java.lang.String[], int)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "com.sun.tools.xjc.addon.xew.config.AbstractConfigurablePlugin::run(com.sun.tools.xjc.outline.Outline, com.sun.tools.xjc.Options, org.xml.sax.ErrorHandler)",
+            "com.sun.tools.xjc.addon.xew.config.AbstractConfigurablePlugin::parseArgument(com.sun.tools.xjc.Options, java.lang.String[], int)"
+        ]
+    }
+]

@@ -1,0 +1,328 @@
+[
+    {
+        "strategyName": "SimpleStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "com.whatsapp.api.impl.WhatsappBusinessCloudApi::uploadMedia(java.lang.String, java.lang.String, com.whatsapp.api.domain.media.FileType, byte[])",
+            "com.whatsapp.api.WhatsappApiServiceGenerator::createService(java.lang.Class, java.lang.String, java.lang.String)"
+        ]
+    },
+    {
+        "strategyName": "SimpleStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "com.whatsapp.api.impl.WhatsappBusinessCloudApi::uploadMedia(java.lang.String, java.lang.String, com.whatsapp.api.domain.media.FileType, byte[])",
+            "com.whatsapp.api.WhatsappApiServiceGenerator::createService(java.lang.Class, java.lang.String, java.lang.String)",
+            "com.whatsapp.api.exception.WhatsappApiException::getMessage()",
+            "com.whatsapp.api.impl.WhatsappBusinessManagementApi::retrieveTemplates(java.lang.String, int, java.lang.String)",
+            "com.whatsapp.api.domain.messages.Action::addSection(com.whatsapp.api.domain.messages.Section)",
+            "com.whatsapp.api.domain.messages.Action::addButton(com.whatsapp.api.domain.messages.Button)",
+            "com.whatsapp.api.domain.messages.Component::addParameter(com.whatsapp.api.domain.messages.Parameter)",
+            "com.whatsapp.api.domain.messages.Contact::addEmails(com.whatsapp.api.domain.messages.Email)"
+        ]
+    },
+    {
+        "strategyName": "SimpleStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "com.whatsapp.api.impl.WhatsappBusinessCloudApi::uploadMedia(java.lang.String, java.lang.String, com.whatsapp.api.domain.media.FileType, byte[])",
+            "com.whatsapp.api.WhatsappApiServiceGenerator::createService(java.lang.Class, java.lang.String, java.lang.String)",
+            "com.whatsapp.api.exception.WhatsappApiException::getMessage()",
+            "com.whatsapp.api.impl.WhatsappBusinessManagementApi::retrieveTemplates(java.lang.String, int, java.lang.String)",
+            "com.whatsapp.api.domain.messages.Action::addSection(com.whatsapp.api.domain.messages.Section)",
+            "com.whatsapp.api.domain.messages.Action::addButton(com.whatsapp.api.domain.messages.Button)",
+            "com.whatsapp.api.domain.messages.Component::addParameter(com.whatsapp.api.domain.messages.Parameter)",
+            "com.whatsapp.api.domain.messages.Contact::addEmails(com.whatsapp.api.domain.messages.Email)",
+            "com.whatsapp.api.domain.messages.Contact::addUrls(com.whatsapp.api.domain.messages.Url)",
+            "com.whatsapp.api.domain.messages.Contact::addPhones(com.whatsapp.api.domain.messages.Phone)",
+            "com.whatsapp.api.domain.messages.ContactMessage::addContacts(com.whatsapp.api.domain.messages.Contact)",
+            "com.whatsapp.api.domain.messages.Section::addProductItem(com.whatsapp.api.domain.messages.Product)",
+            "com.whatsapp.api.domain.messages.Section::addRow(com.whatsapp.api.domain.messages.Row)",
+            "com.whatsapp.api.domain.messages.TemplateMessage::addComponent(com.whatsapp.api.domain.messages.Component)",
+            "com.whatsapp.api.domain.templates.ButtonComponent::addButton(com.whatsapp.api.domain.templates.Button)",
+            "com.whatsapp.api.domain.templates.MessageTemplate::addComponent(com.whatsapp.api.domain.templates.Component)"
+        ]
+    },
+    {
+        "strategyName": "SimpleStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "com.whatsapp.api.impl.WhatsappBusinessCloudApi::uploadMedia(java.lang.String, java.lang.String, com.whatsapp.api.domain.media.FileType, byte[])",
+            "com.whatsapp.api.WhatsappApiServiceGenerator::createService(java.lang.Class, java.lang.String, java.lang.String)",
+            "com.whatsapp.api.exception.WhatsappApiException::getMessage()",
+            "com.whatsapp.api.impl.WhatsappBusinessManagementApi::retrieveTemplates(java.lang.String, int, java.lang.String)",
+            "com.whatsapp.api.domain.messages.Action::addSection(com.whatsapp.api.domain.messages.Section)",
+            "com.whatsapp.api.domain.messages.Action::addButton(com.whatsapp.api.domain.messages.Button)",
+            "com.whatsapp.api.domain.messages.Component::addParameter(com.whatsapp.api.domain.messages.Parameter)",
+            "com.whatsapp.api.domain.messages.Contact::addEmails(com.whatsapp.api.domain.messages.Email)",
+            "com.whatsapp.api.domain.messages.Contact::addUrls(com.whatsapp.api.domain.messages.Url)",
+            "com.whatsapp.api.domain.messages.Contact::addPhones(com.whatsapp.api.domain.messages.Phone)",
+            "com.whatsapp.api.domain.messages.ContactMessage::addContacts(com.whatsapp.api.domain.messages.Contact)",
+            "com.whatsapp.api.domain.messages.Section::addProductItem(com.whatsapp.api.domain.messages.Product)",
+            "com.whatsapp.api.domain.messages.Section::addRow(com.whatsapp.api.domain.messages.Row)",
+            "com.whatsapp.api.domain.messages.TemplateMessage::addComponent(com.whatsapp.api.domain.messages.Component)",
+            "com.whatsapp.api.domain.templates.ButtonComponent::addButton(com.whatsapp.api.domain.templates.Button)",
+            "com.whatsapp.api.domain.templates.MessageTemplate::addComponent(com.whatsapp.api.domain.templates.Component)",
+            "com.whatsapp.api.domain.templates.Example::addHeaderTextExample(java.lang.String[])",
+            "com.whatsapp.api.domain.templates.Example::addBodyTextExamples(java.lang.String[])",
+            "com.whatsapp.api.domain.templates.Example::addHeaderHandleExample(java.lang.String[])",
+            "com.whatsapp.api.domain.templates.MessageTemplate::addComponents(com.whatsapp.api.domain.templates.Component[])",
+            "com.whatsapp.api.impl.WhatsappBusinessManagementApi::retrieveTemplates(java.lang.String, java.lang.String)",
+            "com.whatsapp.api.impl.WhatsappBusinessManagementApi::retrieveTemplates(java.lang.String, int)",
+            "com.whatsapp.api.impl.WhatsappBusinessManagementApi::updateMessageTemplate(java.lang.String, java.lang.String, com.whatsapp.api.domain.templates.MessageTemplate)",
+            "com.whatsapp.api.domain.messages.Contact::addAddresses(com.whatsapp.api.domain.messages.Address)",
+            "com.whatsapp.api.impl.WhatsappBusinessCloudApi::sendMessage(java.lang.String, com.whatsapp.api.domain.messages.Message)",
+            "com.whatsapp.api.impl.WhatsappBusinessManagementApi::deleteMessageTemplate(java.lang.String, java.lang.String)",
+            "com.whatsapp.api.impl.WhatsappBusinessManagementApi::createMessageTemplate(java.lang.String, com.whatsapp.api.domain.templates.MessageTemplate)",
+            "com.whatsapp.api.WhatsappApiServiceGenerator::createService(java.lang.Class, java.lang.String)",
+            "com.whatsapp.api.domain.webhook.WebHook::constructEvent(java.lang.String)",
+            "com.whatsapp.api.impl.WhatsappBusinessCloudApi::deleteMedia(java.lang.String)",
+            "com.whatsapp.api.impl.WhatsappBusinessCloudApi::downloadMediaFile(java.lang.String)",
+            "com.whatsapp.api.impl.WhatsappBusinessCloudApi::retrieveMediaUrl(java.lang.String)"
+        ]
+    },
+    {
+        "strategyName": "SimpleWithSkippingStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "com.whatsapp.api.impl.WhatsappBusinessCloudApi::uploadMedia(java.lang.String, java.lang.String, com.whatsapp.api.domain.media.FileType, byte[])",
+            "com.whatsapp.api.WhatsappApiServiceGenerator::createService(java.lang.Class, java.lang.String, java.lang.String)"
+        ]
+    },
+    {
+        "strategyName": "SimpleWithSkippingStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "com.whatsapp.api.impl.WhatsappBusinessCloudApi::uploadMedia(java.lang.String, java.lang.String, com.whatsapp.api.domain.media.FileType, byte[])",
+            "com.whatsapp.api.WhatsappApiServiceGenerator::createService(java.lang.Class, java.lang.String, java.lang.String)",
+            "com.whatsapp.api.exception.WhatsappApiException::getMessage()",
+            "com.whatsapp.api.impl.WhatsappBusinessManagementApi::retrieveTemplates(java.lang.String, int, java.lang.String)",
+            "com.whatsapp.api.domain.messages.Action::addSection(com.whatsapp.api.domain.messages.Section)",
+            "com.whatsapp.api.domain.messages.Action::addButton(com.whatsapp.api.domain.messages.Button)",
+            "com.whatsapp.api.domain.messages.Component::addParameter(com.whatsapp.api.domain.messages.Parameter)",
+            "com.whatsapp.api.domain.messages.Contact::addEmails(com.whatsapp.api.domain.messages.Email)"
+        ]
+    },
+    {
+        "strategyName": "SimpleWithSkippingStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "com.whatsapp.api.impl.WhatsappBusinessCloudApi::uploadMedia(java.lang.String, java.lang.String, com.whatsapp.api.domain.media.FileType, byte[])",
+            "com.whatsapp.api.WhatsappApiServiceGenerator::createService(java.lang.Class, java.lang.String, java.lang.String)",
+            "com.whatsapp.api.exception.WhatsappApiException::getMessage()",
+            "com.whatsapp.api.impl.WhatsappBusinessManagementApi::retrieveTemplates(java.lang.String, int, java.lang.String)",
+            "com.whatsapp.api.domain.messages.Action::addSection(com.whatsapp.api.domain.messages.Section)",
+            "com.whatsapp.api.domain.messages.Action::addButton(com.whatsapp.api.domain.messages.Button)",
+            "com.whatsapp.api.domain.messages.Component::addParameter(com.whatsapp.api.domain.messages.Parameter)",
+            "com.whatsapp.api.domain.messages.Contact::addEmails(com.whatsapp.api.domain.messages.Email)",
+            "com.whatsapp.api.domain.messages.Contact::addUrls(com.whatsapp.api.domain.messages.Url)",
+            "com.whatsapp.api.domain.messages.Contact::addPhones(com.whatsapp.api.domain.messages.Phone)",
+            "com.whatsapp.api.domain.messages.ContactMessage::addContacts(com.whatsapp.api.domain.messages.Contact)",
+            "com.whatsapp.api.domain.messages.Section::addProductItem(com.whatsapp.api.domain.messages.Product)",
+            "com.whatsapp.api.domain.messages.Section::addRow(com.whatsapp.api.domain.messages.Row)",
+            "com.whatsapp.api.domain.messages.TemplateMessage::addComponent(com.whatsapp.api.domain.messages.Component)",
+            "com.whatsapp.api.domain.templates.ButtonComponent::addButton(com.whatsapp.api.domain.templates.Button)",
+            "com.whatsapp.api.domain.templates.MessageTemplate::addComponent(com.whatsapp.api.domain.templates.Component)"
+        ]
+    },
+    {
+        "strategyName": "SimpleWithSkippingStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "com.whatsapp.api.impl.WhatsappBusinessCloudApi::uploadMedia(java.lang.String, java.lang.String, com.whatsapp.api.domain.media.FileType, byte[])",
+            "com.whatsapp.api.WhatsappApiServiceGenerator::createService(java.lang.Class, java.lang.String, java.lang.String)",
+            "com.whatsapp.api.exception.WhatsappApiException::getMessage()",
+            "com.whatsapp.api.impl.WhatsappBusinessManagementApi::retrieveTemplates(java.lang.String, int, java.lang.String)",
+            "com.whatsapp.api.domain.messages.Action::addSection(com.whatsapp.api.domain.messages.Section)",
+            "com.whatsapp.api.domain.messages.Action::addButton(com.whatsapp.api.domain.messages.Button)",
+            "com.whatsapp.api.domain.messages.Component::addParameter(com.whatsapp.api.domain.messages.Parameter)",
+            "com.whatsapp.api.domain.messages.Contact::addEmails(com.whatsapp.api.domain.messages.Email)",
+            "com.whatsapp.api.domain.messages.Contact::addUrls(com.whatsapp.api.domain.messages.Url)",
+            "com.whatsapp.api.domain.messages.Contact::addPhones(com.whatsapp.api.domain.messages.Phone)",
+            "com.whatsapp.api.domain.messages.ContactMessage::addContacts(com.whatsapp.api.domain.messages.Contact)",
+            "com.whatsapp.api.domain.messages.Section::addProductItem(com.whatsapp.api.domain.messages.Product)",
+            "com.whatsapp.api.domain.messages.Section::addRow(com.whatsapp.api.domain.messages.Row)",
+            "com.whatsapp.api.domain.messages.TemplateMessage::addComponent(com.whatsapp.api.domain.messages.Component)",
+            "com.whatsapp.api.domain.templates.ButtonComponent::addButton(com.whatsapp.api.domain.templates.Button)",
+            "com.whatsapp.api.domain.templates.MessageTemplate::addComponent(com.whatsapp.api.domain.templates.Component)",
+            "com.whatsapp.api.domain.templates.Example::addHeaderTextExample(java.lang.String[])",
+            "com.whatsapp.api.domain.templates.Example::addBodyTextExamples(java.lang.String[])",
+            "com.whatsapp.api.domain.templates.Example::addHeaderHandleExample(java.lang.String[])",
+            "com.whatsapp.api.domain.templates.MessageTemplate::addComponents(com.whatsapp.api.domain.templates.Component[])",
+            "com.whatsapp.api.impl.WhatsappBusinessManagementApi::retrieveTemplates(java.lang.String, java.lang.String)",
+            "com.whatsapp.api.impl.WhatsappBusinessManagementApi::retrieveTemplates(java.lang.String, int)",
+            "com.whatsapp.api.impl.WhatsappBusinessManagementApi::updateMessageTemplate(java.lang.String, java.lang.String, com.whatsapp.api.domain.templates.MessageTemplate)",
+            "com.whatsapp.api.domain.messages.Contact::addAddresses(com.whatsapp.api.domain.messages.Address)",
+            "com.whatsapp.api.impl.WhatsappBusinessCloudApi::sendMessage(java.lang.String, com.whatsapp.api.domain.messages.Message)",
+            "com.whatsapp.api.impl.WhatsappBusinessManagementApi::deleteMessageTemplate(java.lang.String, java.lang.String)",
+            "com.whatsapp.api.impl.WhatsappBusinessManagementApi::createMessageTemplate(java.lang.String, com.whatsapp.api.domain.templates.MessageTemplate)",
+            "com.whatsapp.api.WhatsappApiServiceGenerator::createService(java.lang.Class, java.lang.String)",
+            "com.whatsapp.api.domain.webhook.WebHook::constructEvent(java.lang.String)",
+            "com.whatsapp.api.impl.WhatsappBusinessCloudApi::deleteMedia(java.lang.String)",
+            "com.whatsapp.api.impl.WhatsappBusinessCloudApi::downloadMediaFile(java.lang.String)",
+            "com.whatsapp.api.impl.WhatsappBusinessCloudApi::retrieveMediaUrl(java.lang.String)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "com.whatsapp.api.impl.WhatsappBusinessCloudApi::uploadMedia(java.lang.String, java.lang.String, com.whatsapp.api.domain.media.FileType, byte[])",
+            "com.whatsapp.api.WhatsappApiFactory::newBusinessCloudApi()"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "com.whatsapp.api.impl.WhatsappBusinessCloudApi::uploadMedia(java.lang.String, java.lang.String, com.whatsapp.api.domain.media.FileType, byte[])",
+            "com.whatsapp.api.exception.WhatsappApiException::getMessage()",
+            "com.whatsapp.api.impl.WhatsappBusinessManagementApi::retrieveTemplates(java.lang.String, int, java.lang.String)",
+            "com.whatsapp.api.domain.messages.Action::addSection(com.whatsapp.api.domain.messages.Section)",
+            "com.whatsapp.api.domain.messages.Action::addButton(com.whatsapp.api.domain.messages.Button)",
+            "com.whatsapp.api.domain.messages.Component::addParameter(com.whatsapp.api.domain.messages.Parameter)",
+            "com.whatsapp.api.domain.messages.Contact::addEmails(com.whatsapp.api.domain.messages.Email)",
+            "com.whatsapp.api.WhatsappApiFactory::newBusinessCloudApi()"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "com.whatsapp.api.impl.WhatsappBusinessCloudApi::uploadMedia(java.lang.String, java.lang.String, com.whatsapp.api.domain.media.FileType, byte[])",
+            "com.whatsapp.api.exception.WhatsappApiException::getMessage()",
+            "com.whatsapp.api.impl.WhatsappBusinessManagementApi::retrieveTemplates(java.lang.String, int, java.lang.String)",
+            "com.whatsapp.api.domain.messages.Action::addSection(com.whatsapp.api.domain.messages.Section)",
+            "com.whatsapp.api.domain.messages.Action::addButton(com.whatsapp.api.domain.messages.Button)",
+            "com.whatsapp.api.domain.messages.Component::addParameter(com.whatsapp.api.domain.messages.Parameter)",
+            "com.whatsapp.api.domain.messages.Contact::addEmails(com.whatsapp.api.domain.messages.Email)",
+            "com.whatsapp.api.domain.messages.Contact::addUrls(com.whatsapp.api.domain.messages.Url)",
+            "com.whatsapp.api.domain.messages.Contact::addPhones(com.whatsapp.api.domain.messages.Phone)",
+            "com.whatsapp.api.domain.messages.ContactMessage::addContacts(com.whatsapp.api.domain.messages.Contact)",
+            "com.whatsapp.api.domain.messages.Section::addProductItem(com.whatsapp.api.domain.messages.Product)",
+            "com.whatsapp.api.domain.messages.Section::addRow(com.whatsapp.api.domain.messages.Row)",
+            "com.whatsapp.api.domain.messages.TemplateMessage::addComponent(com.whatsapp.api.domain.messages.Component)",
+            "com.whatsapp.api.domain.templates.ButtonComponent::addButton(com.whatsapp.api.domain.templates.Button)",
+            "com.whatsapp.api.domain.templates.MessageTemplate::addComponent(com.whatsapp.api.domain.templates.Component)",
+            "com.whatsapp.api.WhatsappApiFactory::newBusinessCloudApi()"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "com.whatsapp.api.WhatsappApiFactory::newBusinessCloudApi()",
+            "com.whatsapp.api.impl.WhatsappBusinessCloudApi::uploadMedia(java.lang.String, java.lang.String, com.whatsapp.api.domain.media.FileType, byte[])",
+            "com.whatsapp.api.exception.WhatsappApiException::getMessage()",
+            "com.whatsapp.api.impl.WhatsappBusinessManagementApi::retrieveTemplates(java.lang.String, int, java.lang.String)",
+            "com.whatsapp.api.domain.messages.Action::addSection(com.whatsapp.api.domain.messages.Section)",
+            "com.whatsapp.api.domain.messages.Action::addButton(com.whatsapp.api.domain.messages.Button)",
+            "com.whatsapp.api.domain.messages.Component::addParameter(com.whatsapp.api.domain.messages.Parameter)",
+            "com.whatsapp.api.domain.messages.Contact::addEmails(com.whatsapp.api.domain.messages.Email)",
+            "com.whatsapp.api.domain.messages.Contact::addUrls(com.whatsapp.api.domain.messages.Url)",
+            "com.whatsapp.api.domain.messages.Contact::addPhones(com.whatsapp.api.domain.messages.Phone)",
+            "com.whatsapp.api.domain.messages.ContactMessage::addContacts(com.whatsapp.api.domain.messages.Contact)",
+            "com.whatsapp.api.domain.messages.Section::addProductItem(com.whatsapp.api.domain.messages.Product)",
+            "com.whatsapp.api.domain.messages.Section::addRow(com.whatsapp.api.domain.messages.Row)",
+            "com.whatsapp.api.domain.messages.TemplateMessage::addComponent(com.whatsapp.api.domain.messages.Component)",
+            "com.whatsapp.api.domain.templates.ButtonComponent::addButton(com.whatsapp.api.domain.templates.Button)",
+            "com.whatsapp.api.domain.templates.MessageTemplate::addComponent(com.whatsapp.api.domain.templates.Component)",
+            "com.whatsapp.api.domain.templates.Example::addHeaderTextExample(java.lang.String[])",
+            "com.whatsapp.api.domain.templates.Example::addBodyTextExamples(java.lang.String[])",
+            "com.whatsapp.api.domain.templates.Example::addHeaderHandleExample(java.lang.String[])",
+            "com.whatsapp.api.domain.templates.MessageTemplate::addComponents(com.whatsapp.api.domain.templates.Component[])",
+            "com.whatsapp.api.impl.WhatsappBusinessManagementApi::retrieveTemplates(java.lang.String, java.lang.String)",
+            "com.whatsapp.api.impl.WhatsappBusinessManagementApi::retrieveTemplates(java.lang.String, int)",
+            "com.whatsapp.api.impl.WhatsappBusinessManagementApi::updateMessageTemplate(java.lang.String, java.lang.String, com.whatsapp.api.domain.templates.MessageTemplate)",
+            "com.whatsapp.api.domain.messages.Contact::addAddresses(com.whatsapp.api.domain.messages.Address)",
+            "com.whatsapp.api.impl.WhatsappBusinessCloudApi::sendMessage(java.lang.String, com.whatsapp.api.domain.messages.Message)",
+            "com.whatsapp.api.impl.WhatsappBusinessManagementApi::deleteMessageTemplate(java.lang.String, java.lang.String)",
+            "com.whatsapp.api.impl.WhatsappBusinessManagementApi::createMessageTemplate(java.lang.String, com.whatsapp.api.domain.templates.MessageTemplate)",
+            "com.whatsapp.api.domain.webhook.WebHook::constructEvent(java.lang.String)",
+            "com.whatsapp.api.impl.WhatsappBusinessCloudApi::deleteMedia(java.lang.String)",
+            "com.whatsapp.api.impl.WhatsappBusinessCloudApi::downloadMediaFile(java.lang.String)",
+            "com.whatsapp.api.impl.WhatsappBusinessCloudApi::retrieveMediaUrl(java.lang.String)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "com.whatsapp.api.WhatsappApiFactory::newBusinessCloudApi()",
+            "com.whatsapp.api.impl.WhatsappBusinessCloudApi::uploadMedia(java.lang.String, java.lang.String, com.whatsapp.api.domain.media.FileType, byte[])"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "com.whatsapp.api.domain.messages.Action::addSection(com.whatsapp.api.domain.messages.Section)",
+            "com.whatsapp.api.domain.messages.Action::addButton(com.whatsapp.api.domain.messages.Button)",
+            "com.whatsapp.api.domain.messages.Component::addParameter(com.whatsapp.api.domain.messages.Parameter)",
+            "com.whatsapp.api.domain.messages.Contact::addEmails(com.whatsapp.api.domain.messages.Email)",
+            "com.whatsapp.api.exception.WhatsappApiException::getMessage()",
+            "com.whatsapp.api.impl.WhatsappBusinessManagementApi::retrieveTemplates(java.lang.String, int, java.lang.String)",
+            "com.whatsapp.api.WhatsappApiFactory::newBusinessCloudApi()",
+            "com.whatsapp.api.impl.WhatsappBusinessCloudApi::uploadMedia(java.lang.String, java.lang.String, com.whatsapp.api.domain.media.FileType, byte[])"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "com.whatsapp.api.domain.messages.Action::addSection(com.whatsapp.api.domain.messages.Section)",
+            "com.whatsapp.api.domain.messages.Action::addButton(com.whatsapp.api.domain.messages.Button)",
+            "com.whatsapp.api.domain.messages.Component::addParameter(com.whatsapp.api.domain.messages.Parameter)",
+            "com.whatsapp.api.domain.messages.Contact::addEmails(com.whatsapp.api.domain.messages.Email)",
+            "com.whatsapp.api.domain.messages.Contact::addUrls(com.whatsapp.api.domain.messages.Url)",
+            "com.whatsapp.api.domain.messages.Contact::addPhones(com.whatsapp.api.domain.messages.Phone)",
+            "com.whatsapp.api.domain.messages.ContactMessage::addContacts(com.whatsapp.api.domain.messages.Contact)",
+            "com.whatsapp.api.domain.messages.Section::addProductItem(com.whatsapp.api.domain.messages.Product)",
+            "com.whatsapp.api.domain.messages.Section::addRow(com.whatsapp.api.domain.messages.Row)",
+            "com.whatsapp.api.domain.messages.TemplateMessage::addComponent(com.whatsapp.api.domain.messages.Component)",
+            "com.whatsapp.api.domain.templates.ButtonComponent::addButton(com.whatsapp.api.domain.templates.Button)",
+            "com.whatsapp.api.domain.templates.MessageTemplate::addComponent(com.whatsapp.api.domain.templates.Component)",
+            "com.whatsapp.api.exception.WhatsappApiException::getMessage()",
+            "com.whatsapp.api.impl.WhatsappBusinessManagementApi::retrieveTemplates(java.lang.String, int, java.lang.String)",
+            "com.whatsapp.api.WhatsappApiFactory::newBusinessCloudApi()",
+            "com.whatsapp.api.impl.WhatsappBusinessCloudApi::uploadMedia(java.lang.String, java.lang.String, com.whatsapp.api.domain.media.FileType, byte[])"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "com.whatsapp.api.domain.messages.Contact::addAddresses(com.whatsapp.api.domain.messages.Address)",
+            "com.whatsapp.api.domain.messages.Action::addSection(com.whatsapp.api.domain.messages.Section)",
+            "com.whatsapp.api.domain.messages.Action::addButton(com.whatsapp.api.domain.messages.Button)",
+            "com.whatsapp.api.domain.messages.Component::addParameter(com.whatsapp.api.domain.messages.Parameter)",
+            "com.whatsapp.api.domain.messages.Contact::addEmails(com.whatsapp.api.domain.messages.Email)",
+            "com.whatsapp.api.domain.messages.Contact::addUrls(com.whatsapp.api.domain.messages.Url)",
+            "com.whatsapp.api.domain.messages.Contact::addPhones(com.whatsapp.api.domain.messages.Phone)",
+            "com.whatsapp.api.domain.messages.ContactMessage::addContacts(com.whatsapp.api.domain.messages.Contact)",
+            "com.whatsapp.api.domain.messages.Section::addProductItem(com.whatsapp.api.domain.messages.Product)",
+            "com.whatsapp.api.domain.messages.Section::addRow(com.whatsapp.api.domain.messages.Row)",
+            "com.whatsapp.api.domain.messages.TemplateMessage::addComponent(com.whatsapp.api.domain.messages.Component)",
+            "com.whatsapp.api.domain.templates.ButtonComponent::addButton(com.whatsapp.api.domain.templates.Button)",
+            "com.whatsapp.api.domain.templates.MessageTemplate::addComponent(com.whatsapp.api.domain.templates.Component)",
+            "com.whatsapp.api.domain.webhook.WebHook::constructEvent(java.lang.String)",
+            "com.whatsapp.api.domain.templates.Example::addHeaderTextExample(java.lang.String[])",
+            "com.whatsapp.api.domain.templates.Example::addBodyTextExamples(java.lang.String[])",
+            "com.whatsapp.api.domain.templates.Example::addHeaderHandleExample(java.lang.String[])",
+            "com.whatsapp.api.domain.templates.MessageTemplate::addComponents(com.whatsapp.api.domain.templates.Component[])",
+            "com.whatsapp.api.WhatsappApiFactory::newBusinessCloudApi()",
+            "com.whatsapp.api.exception.WhatsappApiException::getMessage()",
+            "com.whatsapp.api.impl.WhatsappBusinessManagementApi::updateMessageTemplate(java.lang.String, java.lang.String, com.whatsapp.api.domain.templates.MessageTemplate)",
+            "com.whatsapp.api.impl.WhatsappBusinessCloudApi::sendMessage(java.lang.String, com.whatsapp.api.domain.messages.Message)",
+            "com.whatsapp.api.impl.WhatsappBusinessManagementApi::deleteMessageTemplate(java.lang.String, java.lang.String)",
+            "com.whatsapp.api.impl.WhatsappBusinessManagementApi::createMessageTemplate(java.lang.String, com.whatsapp.api.domain.templates.MessageTemplate)",
+            "com.whatsapp.api.impl.WhatsappBusinessCloudApi::deleteMedia(java.lang.String)",
+            "com.whatsapp.api.impl.WhatsappBusinessCloudApi::retrieveMediaUrl(java.lang.String)",
+            "com.whatsapp.api.impl.WhatsappBusinessManagementApi::retrieveTemplates(java.lang.String, java.lang.String)",
+            "com.whatsapp.api.impl.WhatsappBusinessManagementApi::retrieveTemplates(java.lang.String, int, java.lang.String)",
+            "com.whatsapp.api.impl.WhatsappBusinessManagementApi::retrieveTemplates(java.lang.String, int)",
+            "com.whatsapp.api.impl.WhatsappBusinessCloudApi::uploadMedia(java.lang.String, java.lang.String, com.whatsapp.api.domain.media.FileType, byte[])",
+            "com.whatsapp.api.impl.WhatsappBusinessCloudApi::downloadMediaFile(java.lang.String)"
+        ]
+    }
+]

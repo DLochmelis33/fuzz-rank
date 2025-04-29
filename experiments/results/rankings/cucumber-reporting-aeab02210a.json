@@ -1,0 +1,251 @@
+[
+    {
+        "strategyName": "SimpleStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "net.masterthought.cucumber.Trends::limitItems(int)",
+            "net.masterthought.cucumber.json.deserializers.TagsDeserializer::deserialize(com.fasterxml.jackson.databind.JsonNode, net.masterthought.cucumber.Configuration)"
+        ]
+    },
+    {
+        "strategyName": "SimpleStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "net.masterthought.cucumber.Trends::limitItems(int)",
+            "net.masterthought.cucumber.json.deserializers.TagsDeserializer::deserialize(com.fasterxml.jackson.databind.JsonNode, net.masterthought.cucumber.Configuration)",
+            "net.masterthought.cucumber.Trends::addBuild(java.lang.String, net.masterthought.cucumber.Reportable)",
+            "net.masterthought.cucumber.generators.StepsOverviewPage::prepareReport()",
+            "net.masterthought.cucumber.generators.AbstractPage::buildGeneralParameters()",
+            "net.masterthought.cucumber.json.deserializers.CommentsDeserializer::deserialize(com.fasterxml.jackson.databind.JsonNode, net.masterthought.cucumber.Configuration)",
+            "net.masterthought.cucumber.ReportParser::parseClassificationsFiles(java.util.List)",
+            "net.masterthought.cucumber.json.Feature::calculateSteps()",
+            "net.masterthought.cucumber.generators.FailuresOverviewPage::collectFailures()",
+            "net.masterthought.cucumber.reducers.ReportFeatureWithRetestMerger::updateElements(net.masterthought.cucumber.json.Feature, net.masterthought.cucumber.json.Element[])"
+        ]
+    },
+    {
+        "strategyName": "SimpleStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "net.masterthought.cucumber.Trends::limitItems(int)",
+            "net.masterthought.cucumber.json.deserializers.TagsDeserializer::deserialize(com.fasterxml.jackson.databind.JsonNode, net.masterthought.cucumber.Configuration)",
+            "net.masterthought.cucumber.Trends::addBuild(java.lang.String, net.masterthought.cucumber.Reportable)",
+            "net.masterthought.cucumber.generators.StepsOverviewPage::prepareReport()",
+            "net.masterthought.cucumber.generators.AbstractPage::buildGeneralParameters()",
+            "net.masterthought.cucumber.json.deserializers.CommentsDeserializer::deserialize(com.fasterxml.jackson.databind.JsonNode, net.masterthought.cucumber.Configuration)",
+            "net.masterthought.cucumber.ReportParser::parseClassificationsFiles(java.util.List)",
+            "net.masterthought.cucumber.json.Feature::calculateSteps()",
+            "net.masterthought.cucumber.generators.FailuresOverviewPage::collectFailures()",
+            "net.masterthought.cucumber.reducers.ReportFeatureWithRetestMerger::updateElements(net.masterthought.cucumber.json.Feature, net.masterthought.cucumber.json.Element[])",
+            "net.masterthought.cucumber.ReportBuilder::saveTrends(net.masterthought.cucumber.Trends, java.io.File)",
+            "net.masterthought.cucumber.generators.AbstractPage::generateReport()",
+            "net.masterthought.cucumber.ReportResult::processFeature(net.masterthought.cucumber.json.Feature)",
+            "net.masterthought.cucumber.ReportBuilder::loadTrends(java.io.File)",
+            "net.masterthought.cucumber.json.Embedding::getExtension()",
+            "net.masterthought.cucumber.ReportParser::parseForFeature(java.lang.String)",
+            "net.masterthought.cucumber.ReportBuilder::copyStaticResources()",
+            "net.masterthought.cucumber.ReportBuilder::copyCustomResources(java.lang.String, java.io.File)",
+            "net.masterthought.cucumber.generators.TagsOverviewPage::generateTagValues(java.util.List)",
+            "net.masterthought.cucumber.reducers.ReportFeatureWithRetestMerger::find(net.masterthought.cucumber.json.Element[], net.masterthought.cucumber.json.Element)",
+            "net.masterthought.cucumber.ReportResult::processTag(net.masterthought.cucumber.json.Tag, net.masterthought.cucumber.json.Element, net.masterthought.cucumber.json.support.Status)"
+        ]
+    },
+    {
+        "strategyName": "SimpleStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "net.masterthought.cucumber.Trends::limitItems(int)",
+            "net.masterthought.cucumber.json.deserializers.TagsDeserializer::deserialize(com.fasterxml.jackson.databind.JsonNode, net.masterthought.cucumber.Configuration)",
+            "net.masterthought.cucumber.Trends::addBuild(java.lang.String, net.masterthought.cucumber.Reportable)",
+            "net.masterthought.cucumber.generators.StepsOverviewPage::prepareReport()",
+            "net.masterthought.cucumber.generators.AbstractPage::buildGeneralParameters()",
+            "net.masterthought.cucumber.json.deserializers.CommentsDeserializer::deserialize(com.fasterxml.jackson.databind.JsonNode, net.masterthought.cucumber.Configuration)",
+            "net.masterthought.cucumber.ReportParser::parseClassificationsFiles(java.util.List)",
+            "net.masterthought.cucumber.json.Feature::calculateSteps()",
+            "net.masterthought.cucumber.generators.FailuresOverviewPage::collectFailures()",
+            "net.masterthought.cucumber.reducers.ReportFeatureWithRetestMerger::updateElements(net.masterthought.cucumber.json.Feature, net.masterthought.cucumber.json.Element[])",
+            "net.masterthought.cucumber.ReportBuilder::saveTrends(net.masterthought.cucumber.Trends, java.io.File)",
+            "net.masterthought.cucumber.generators.AbstractPage::generateReport()",
+            "net.masterthought.cucumber.ReportResult::processFeature(net.masterthought.cucumber.json.Feature)",
+            "net.masterthought.cucumber.ReportBuilder::loadTrends(java.io.File)",
+            "net.masterthought.cucumber.json.Embedding::getExtension()",
+            "net.masterthought.cucumber.ReportParser::parseForFeature(java.lang.String)",
+            "net.masterthought.cucumber.ReportBuilder::copyStaticResources()",
+            "net.masterthought.cucumber.ReportBuilder::copyCustomResources(java.lang.String, java.io.File)",
+            "net.masterthought.cucumber.generators.TagsOverviewPage::generateTagValues(java.util.List)",
+            "net.masterthought.cucumber.reducers.ReportFeatureWithRetestMerger::find(net.masterthought.cucumber.json.Element[], net.masterthought.cucumber.json.Element)",
+            "net.masterthought.cucumber.ReportResult::processTag(net.masterthought.cucumber.json.Tag, net.masterthought.cucumber.json.Element, net.masterthought.cucumber.json.support.Status)",
+            "net.masterthought.cucumber.util.StepNameFormatter::surroundArguments(net.masterthought.cucumber.json.support.Argument[], java.lang.String, java.lang.String, java.lang.String[])",
+            "net.masterthought.cucumber.ReportParser::parseJsonFiles(java.util.List)",
+            "net.masterthought.cucumber.ReportBuilder::generateReports()",
+            "net.masterthought.cucumber.generators.TrendsOverviewPage::prepareReport()",
+            "net.masterthought.cucumber.ReportResult::addNewStep(net.masterthought.cucumber.json.Result, java.lang.String)",
+            "net.masterthought.cucumber.json.deserializers.TagsDeserializer::shouldIncludeTag(java.lang.String, java.util.Collection)",
+            "net.masterthought.cucumber.json.deserializers.OutputsDeserializer::deserialize(com.fasterxml.jackson.databind.JsonNode, net.masterthought.cucumber.Configuration)",
+            "net.masterthought.cucumber.ReportResult::countSteps(net.masterthought.cucumber.json.support.Resultsable[])",
+            "net.masterthought.cucumber.json.support.TagObject::addElement(net.masterthought.cucumber.json.Element)",
+            "net.masterthought.cucumber.generators.EscapeHtmlReference::referenceInsert(org.apache.velocity.context.Context, java.lang.String, java.lang.Object)",
+            "net.masterthought.cucumber.json.Result::getErrorMessageTitle()",
+            "net.masterthought.cucumber.ReportResult::<init>(java.util.List, net.masterthought.cucumber.Configuration)",
+            "net.masterthought.cucumber.json.Feature::setMetaData(int, net.masterthought.cucumber.Configuration)",
+            "net.masterthought.cucumber.reducers.ReportFeatureWithRetestMerger::merge(java.util.List)",
+            "net.masterthought.cucumber.json.support.StatusCounter::<init>(net.masterthought.cucumber.json.support.Resultsable[], java.util.Set)",
+            "net.masterthought.cucumber.ReportBuilder::generatePages(net.masterthought.cucumber.Trends)",
+            "net.masterthought.cucumber.reducers.ElementComparator::compare(net.masterthought.cucumber.json.Element, net.masterthought.cucumber.json.Element)",
+            "net.masterthought.cucumber.ReportBuilder::updateAndSaveTrends(net.masterthought.cucumber.Reportable)",
+            "net.masterthought.cucumber.json.support.StatusCounter::incrementFor(net.masterthought.cucumber.json.support.Status)",
+            "net.masterthought.cucumber.ReportBuilder::copyResources(java.lang.String, java.lang.String[])",
+            "net.masterthought.cucumber.reducers.ReportFeatureByIdMerger::merge(java.util.List)"
+        ]
+    },
+    {
+        "strategyName": "SimpleWithSkippingStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "net.masterthought.cucumber.Trends::limitItems(int)",
+            "net.masterthought.cucumber.json.deserializers.TagsDeserializer::deserialize(com.fasterxml.jackson.databind.JsonNode, net.masterthought.cucumber.Configuration)"
+        ]
+    },
+    {
+        "strategyName": "SimpleWithSkippingStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "net.masterthought.cucumber.Trends::limitItems(int)",
+            "net.masterthought.cucumber.json.deserializers.TagsDeserializer::deserialize(com.fasterxml.jackson.databind.JsonNode, net.masterthought.cucumber.Configuration)",
+            "net.masterthought.cucumber.Trends::addBuild(java.lang.String, net.masterthought.cucumber.Reportable)",
+            "net.masterthought.cucumber.generators.StepsOverviewPage::prepareReport()",
+            "net.masterthought.cucumber.generators.AbstractPage::buildGeneralParameters()",
+            "net.masterthought.cucumber.json.deserializers.CommentsDeserializer::deserialize(com.fasterxml.jackson.databind.JsonNode, net.masterthought.cucumber.Configuration)",
+            "net.masterthought.cucumber.ReportParser::parseClassificationsFiles(java.util.List)",
+            "net.masterthought.cucumber.json.Feature::calculateSteps()",
+            "net.masterthought.cucumber.generators.FailuresOverviewPage::collectFailures()",
+            "net.masterthought.cucumber.reducers.ReportFeatureWithRetestMerger::updateElements(net.masterthought.cucumber.json.Feature, net.masterthought.cucumber.json.Element[])"
+        ]
+    },
+    {
+        "strategyName": "SimpleWithSkippingStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "net.masterthought.cucumber.Trends::limitItems(int)",
+            "net.masterthought.cucumber.json.deserializers.TagsDeserializer::deserialize(com.fasterxml.jackson.databind.JsonNode, net.masterthought.cucumber.Configuration)",
+            "net.masterthought.cucumber.Trends::addBuild(java.lang.String, net.masterthought.cucumber.Reportable)",
+            "net.masterthought.cucumber.generators.StepsOverviewPage::prepareReport()",
+            "net.masterthought.cucumber.generators.AbstractPage::buildGeneralParameters()",
+            "net.masterthought.cucumber.json.deserializers.CommentsDeserializer::deserialize(com.fasterxml.jackson.databind.JsonNode, net.masterthought.cucumber.Configuration)",
+            "net.masterthought.cucumber.ReportParser::parseClassificationsFiles(java.util.List)",
+            "net.masterthought.cucumber.json.Feature::calculateSteps()",
+            "net.masterthought.cucumber.generators.FailuresOverviewPage::collectFailures()",
+            "net.masterthought.cucumber.reducers.ReportFeatureWithRetestMerger::updateElements(net.masterthought.cucumber.json.Feature, net.masterthought.cucumber.json.Element[])",
+            "net.masterthought.cucumber.ReportBuilder::saveTrends(net.masterthought.cucumber.Trends, java.io.File)",
+            "net.masterthought.cucumber.generators.AbstractPage::generateReport()",
+            "net.masterthought.cucumber.ReportResult::processFeature(net.masterthought.cucumber.json.Feature)",
+            "net.masterthought.cucumber.ReportBuilder::loadTrends(java.io.File)",
+            "net.masterthought.cucumber.json.Embedding::getExtension()",
+            "net.masterthought.cucumber.ReportParser::parseForFeature(java.lang.String)",
+            "net.masterthought.cucumber.ReportBuilder::copyStaticResources()",
+            "net.masterthought.cucumber.ReportBuilder::copyCustomResources(java.lang.String, java.io.File)",
+            "net.masterthought.cucumber.generators.TagsOverviewPage::generateTagValues(java.util.List)"
+        ]
+    },
+    {
+        "strategyName": "SimpleWithSkippingStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "net.masterthought.cucumber.Trends::limitItems(int)",
+            "net.masterthought.cucumber.json.deserializers.TagsDeserializer::deserialize(com.fasterxml.jackson.databind.JsonNode, net.masterthought.cucumber.Configuration)",
+            "net.masterthought.cucumber.Trends::addBuild(java.lang.String, net.masterthought.cucumber.Reportable)",
+            "net.masterthought.cucumber.generators.StepsOverviewPage::prepareReport()",
+            "net.masterthought.cucumber.generators.AbstractPage::buildGeneralParameters()",
+            "net.masterthought.cucumber.json.deserializers.CommentsDeserializer::deserialize(com.fasterxml.jackson.databind.JsonNode, net.masterthought.cucumber.Configuration)",
+            "net.masterthought.cucumber.ReportParser::parseClassificationsFiles(java.util.List)",
+            "net.masterthought.cucumber.json.Feature::calculateSteps()",
+            "net.masterthought.cucumber.generators.FailuresOverviewPage::collectFailures()",
+            "net.masterthought.cucumber.reducers.ReportFeatureWithRetestMerger::updateElements(net.masterthought.cucumber.json.Feature, net.masterthought.cucumber.json.Element[])",
+            "net.masterthought.cucumber.ReportBuilder::saveTrends(net.masterthought.cucumber.Trends, java.io.File)",
+            "net.masterthought.cucumber.generators.AbstractPage::generateReport()",
+            "net.masterthought.cucumber.ReportResult::processFeature(net.masterthought.cucumber.json.Feature)",
+            "net.masterthought.cucumber.ReportBuilder::loadTrends(java.io.File)",
+            "net.masterthought.cucumber.json.Embedding::getExtension()",
+            "net.masterthought.cucumber.ReportParser::parseForFeature(java.lang.String)",
+            "net.masterthought.cucumber.ReportBuilder::copyStaticResources()",
+            "net.masterthought.cucumber.ReportBuilder::copyCustomResources(java.lang.String, java.io.File)",
+            "net.masterthought.cucumber.generators.TagsOverviewPage::generateTagValues(java.util.List)",
+            "net.masterthought.cucumber.util.StepNameFormatter::surroundArguments(net.masterthought.cucumber.json.support.Argument[], java.lang.String, java.lang.String, java.lang.String[])",
+            "net.masterthought.cucumber.ReportParser::parseJsonFiles(java.util.List)",
+            "net.masterthought.cucumber.ReportBuilder::generateReports()",
+            "net.masterthought.cucumber.json.deserializers.OutputsDeserializer::deserialize(com.fasterxml.jackson.databind.JsonNode, net.masterthought.cucumber.Configuration)",
+            "net.masterthought.cucumber.generators.EscapeHtmlReference::referenceInsert(org.apache.velocity.context.Context, java.lang.String, java.lang.Object)",
+            "net.masterthought.cucumber.json.Result::getErrorMessageTitle()"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "net.masterthought.cucumber.ReportBuilder::generateReports()",
+            "net.masterthought.cucumber.json.deserializers.CommentsDeserializer::deserialize(com.fasterxml.jackson.core.JsonParser, com.fasterxml.jackson.databind.DeserializationContext)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "net.masterthought.cucumber.ReportBuilder::generateReports()",
+            "net.masterthought.cucumber.json.deserializers.CommentsDeserializer::deserialize(com.fasterxml.jackson.core.JsonParser, com.fasterxml.jackson.databind.DeserializationContext)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "net.masterthought.cucumber.ReportBuilder::generateReports()",
+            "net.masterthought.cucumber.json.deserializers.CommentsDeserializer::deserialize(com.fasterxml.jackson.core.JsonParser, com.fasterxml.jackson.databind.DeserializationContext)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "net.masterthought.cucumber.ReportBuilder::generateReports()",
+            "net.masterthought.cucumber.json.deserializers.CommentsDeserializer::deserialize(com.fasterxml.jackson.core.JsonParser, com.fasterxml.jackson.databind.DeserializationContext)",
+            "net.masterthought.cucumber.generators.EscapeHtmlReference::referenceInsert(org.apache.velocity.context.Context, java.lang.String, java.lang.Object)",
+            "net.masterthought.cucumber.json.Result::getErrorMessageTitle()",
+            "net.masterthought.cucumber.util.StepNameFormatter::format(java.lang.String, net.masterthought.cucumber.json.support.Argument[], java.lang.String, java.lang.String)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "net.masterthought.cucumber.json.deserializers.CommentsDeserializer::deserialize(com.fasterxml.jackson.core.JsonParser, com.fasterxml.jackson.databind.DeserializationContext)",
+            "net.masterthought.cucumber.ReportBuilder::generateReports()"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "net.masterthought.cucumber.ReportBuilder::generateReports()",
+            "net.masterthought.cucumber.json.deserializers.CommentsDeserializer::deserialize(com.fasterxml.jackson.core.JsonParser, com.fasterxml.jackson.databind.DeserializationContext)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "net.masterthought.cucumber.ReportBuilder::generateReports()",
+            "net.masterthought.cucumber.json.deserializers.CommentsDeserializer::deserialize(com.fasterxml.jackson.core.JsonParser, com.fasterxml.jackson.databind.DeserializationContext)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "net.masterthought.cucumber.ReportBuilder::generateReports()",
+            "net.masterthought.cucumber.json.Result::getErrorMessageTitle()",
+            "net.masterthought.cucumber.json.deserializers.CommentsDeserializer::deserialize(com.fasterxml.jackson.core.JsonParser, com.fasterxml.jackson.databind.DeserializationContext)",
+            "net.masterthought.cucumber.generators.EscapeHtmlReference::referenceInsert(org.apache.velocity.context.Context, java.lang.String, java.lang.Object)",
+            "net.masterthought.cucumber.util.StepNameFormatter::format(java.lang.String, net.masterthought.cucumber.json.support.Argument[], java.lang.String, java.lang.String)"
+        ]
+    }
+]

@@ -1,0 +1,207 @@
+[
+    {
+        "strategyName": "SimpleStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "util.validation.Validator::validateDeletionInput(storage.Table, java.util.Hashtable, java.util.HashSet)"
+        ]
+    },
+    {
+        "strategyName": "SimpleStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "util.validation.Validator::validateDeletionInput(storage.Table, java.util.Hashtable, java.util.HashSet)",
+            "util.validation.Validator::validateTableCreation(java.util.HashSet, java.lang.String, java.lang.String, java.util.Hashtable, java.util.Hashtable, java.util.Hashtable)",
+            "util.validation.Validator::foundPK(storage.Table, java.util.Hashtable)",
+            "util.TypeParser::typeParser(java.lang.Object, java.lang.String)",
+            "util.search.TableSearch::binarySearchPages(storage.Table, java.lang.Object)",
+            "util.validation.Validator::validDataTypes(java.util.Hashtable)",
+            "util.PagePrinter::createLine()"
+        ]
+    },
+    {
+        "strategyName": "SimpleStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "util.validation.Validator::validateDeletionInput(storage.Table, java.util.Hashtable, java.util.HashSet)",
+            "util.validation.Validator::validateTableCreation(java.util.HashSet, java.lang.String, java.lang.String, java.util.Hashtable, java.util.Hashtable, java.util.Hashtable)",
+            "util.validation.Validator::foundPK(storage.Table, java.util.Hashtable)",
+            "util.TypeParser::typeParser(java.lang.Object, java.lang.String)",
+            "util.search.TableSearch::binarySearchPages(storage.Table, java.lang.Object)",
+            "util.validation.Validator::validDataTypes(java.util.Hashtable)",
+            "util.PagePrinter::createLine()",
+            "util.search.PageSearch::linearSearch(storage.Page, java.util.Hashtable)",
+            "util.validation.Validator::validateInsertionInput(storage.Table, java.util.Hashtable, java.util.HashSet)",
+            "util.validation.Validator::validateUpdateInput(storage.Table, java.util.Hashtable, java.util.HashSet)",
+            "util.validation.Validator::parseMinMax(java.util.Hashtable, java.lang.String, int)",
+            "storage.Table::insertTuple(java.util.Hashtable)",
+            "storage.Table::getNextAvailablePage(int, storage.Page, storage.Tuple)",
+            "util.filecontroller.FileDeleter::deleteFile(java.io.Serializable, util.filecontroller.FileType)",
+            "util.validation.Validator::validTuple(storage.Table, java.util.Hashtable)"
+        ]
+    },
+    {
+        "strategyName": "SimpleStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "util.validation.Validator::validateDeletionInput(storage.Table, java.util.Hashtable, java.util.HashSet)",
+            "util.validation.Validator::validateTableCreation(java.util.HashSet, java.lang.String, java.lang.String, java.util.Hashtable, java.util.Hashtable, java.util.Hashtable)",
+            "util.validation.Validator::foundPK(storage.Table, java.util.Hashtable)",
+            "util.TypeParser::typeParser(java.lang.Object, java.lang.String)",
+            "util.search.TableSearch::binarySearchPages(storage.Table, java.lang.Object)",
+            "util.validation.Validator::validDataTypes(java.util.Hashtable)",
+            "util.PagePrinter::createLine()",
+            "util.search.PageSearch::linearSearch(storage.Page, java.util.Hashtable)",
+            "util.validation.Validator::validateInsertionInput(storage.Table, java.util.Hashtable, java.util.HashSet)",
+            "util.validation.Validator::validateUpdateInput(storage.Table, java.util.Hashtable, java.util.HashSet)",
+            "util.validation.Validator::parseMinMax(java.util.Hashtable, java.lang.String, int)",
+            "storage.Table::insertTuple(java.util.Hashtable)",
+            "storage.Table::getNextAvailablePage(int, storage.Page, storage.Tuple)",
+            "util.filecontroller.FileDeleter::deleteFile(java.io.Serializable, util.filecontroller.FileType)",
+            "util.validation.Validator::validTuple(storage.Table, java.util.Hashtable)",
+            "util.validation.Validator::validTupleUpdate(storage.Table, java.util.Hashtable)",
+            "datamanipulation.CsvWriter::clear()",
+            "app.DBApp::takeAction(app.Action, java.lang.String, java.util.Hashtable)",
+            "util.TypeCaster::castClusteringKey(storage.Table, java.lang.String)",
+            "app.DBApp::createTable(java.lang.String, java.lang.String, java.util.Hashtable, java.util.Hashtable, java.util.Hashtable)",
+            "util.validation.Validator::isTheSameDataType(java.util.Hashtable)",
+            "storage.Table::handleFullPageInsertion(storage.Page, int, storage.Tuple)",
+            "datamanipulation.CsvWriter::writeRecord(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)",
+            "util.validation.Validator::checkPKExistance(storage.Page, int, java.lang.Object)",
+            "view.wrappers.Wrapper::<init>(javafx.geometry.Pos)",
+            "storage.Table::iterateOverPageName(java.lang.String, java.lang.Object)",
+            "util.validation.Validator::checkAttributeExistence(java.lang.String)",
+            "util.validation.Validator::validMinAndMax(java.util.Hashtable, java.util.Hashtable, java.util.Hashtable)",
+            "view.components.AppBorder::<init>(javafx.scene.Node, javafx.scene.Node, javafx.scene.Node)"
+        ]
+    },
+    {
+        "strategyName": "SimpleWithSkippingStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "util.validation.Validator::validateDeletionInput(storage.Table, java.util.Hashtable, java.util.HashSet)"
+        ]
+    },
+    {
+        "strategyName": "SimpleWithSkippingStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "util.validation.Validator::validateDeletionInput(storage.Table, java.util.Hashtable, java.util.HashSet)",
+            "util.validation.Validator::validateTableCreation(java.util.HashSet, java.lang.String, java.lang.String, java.util.Hashtable, java.util.Hashtable, java.util.Hashtable)",
+            "util.validation.Validator::foundPK(storage.Table, java.util.Hashtable)",
+            "util.PagePrinter::createLine()"
+        ]
+    },
+    {
+        "strategyName": "SimpleWithSkippingStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "util.validation.Validator::validateDeletionInput(storage.Table, java.util.Hashtable, java.util.HashSet)",
+            "util.validation.Validator::validateTableCreation(java.util.HashSet, java.lang.String, java.lang.String, java.util.Hashtable, java.util.Hashtable, java.util.Hashtable)",
+            "util.validation.Validator::foundPK(storage.Table, java.util.Hashtable)",
+            "util.PagePrinter::createLine()",
+            "util.search.PageSearch::linearSearch(storage.Page, java.util.Hashtable)",
+            "util.validation.Validator::validateInsertionInput(storage.Table, java.util.Hashtable, java.util.HashSet)",
+            "util.validation.Validator::validateUpdateInput(storage.Table, java.util.Hashtable, java.util.HashSet)",
+            "storage.Table::insertTuple(java.util.Hashtable)",
+            "util.filecontroller.FileDeleter::deleteFile(java.io.Serializable, util.filecontroller.FileType)"
+        ]
+    },
+    {
+        "strategyName": "SimpleWithSkippingStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "util.validation.Validator::validateDeletionInput(storage.Table, java.util.Hashtable, java.util.HashSet)",
+            "util.validation.Validator::validateTableCreation(java.util.HashSet, java.lang.String, java.lang.String, java.util.Hashtable, java.util.Hashtable, java.util.Hashtable)",
+            "util.validation.Validator::foundPK(storage.Table, java.util.Hashtable)",
+            "util.PagePrinter::createLine()",
+            "util.search.PageSearch::linearSearch(storage.Page, java.util.Hashtable)",
+            "util.validation.Validator::validateInsertionInput(storage.Table, java.util.Hashtable, java.util.HashSet)",
+            "util.validation.Validator::validateUpdateInput(storage.Table, java.util.Hashtable, java.util.HashSet)",
+            "storage.Table::insertTuple(java.util.Hashtable)",
+            "util.filecontroller.FileDeleter::deleteFile(java.io.Serializable, util.filecontroller.FileType)",
+            "datamanipulation.CsvWriter::clear()",
+            "app.DBApp::takeAction(app.Action, java.lang.String, java.util.Hashtable)",
+            "app.DBApp::createTable(java.lang.String, java.lang.String, java.util.Hashtable, java.util.Hashtable, java.util.Hashtable)",
+            "view.wrappers.Wrapper::<init>(javafx.geometry.Pos)",
+            "storage.Table::iterateOverPageName(java.lang.String, java.lang.Object)",
+            "view.components.AppBorder::<init>(javafx.scene.Node, javafx.scene.Node, javafx.scene.Node)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "app.DBApp::insertIntoTable(java.lang.String, java.util.Hashtable)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "app.DBApp::insertIntoTable(java.lang.String, java.util.Hashtable)",
+            "app.DBApp::createTable(java.lang.String, java.lang.String, java.util.Hashtable, java.util.Hashtable, java.util.Hashtable)",
+            "storage.Page::print()"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "app.DBApp::updateTable(java.lang.String, java.lang.String, java.util.Hashtable)",
+            "app.DBApp::createTable(java.lang.String, java.lang.String, java.util.Hashtable, java.util.Hashtable, java.util.Hashtable)",
+            "storage.Page::print()"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "app.DBApp::deleteFromTable(java.lang.String, java.util.Hashtable)",
+            "app.DBApp::createTable(java.lang.String, java.lang.String, java.util.Hashtable, java.util.Hashtable, java.util.Hashtable)",
+            "datamanipulation.CsvWriter::clear()",
+            "storage.Table::iterateOverPageName(java.lang.String, java.lang.Object)",
+            "view.DatabaseManager::<init>()",
+            "view.DatabaseManager::start(javafx.stage.Stage)",
+            "storage.Page::print()"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "app.DBApp::deleteFromTable(java.lang.String, java.util.Hashtable)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "app.DBApp::createTable(java.lang.String, java.lang.String, java.util.Hashtable, java.util.Hashtable, java.util.Hashtable)",
+            "app.DBApp::insertIntoTable(java.lang.String, java.util.Hashtable)",
+            "storage.Page::print()"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "app.DBApp::insertIntoTable(java.lang.String, java.util.Hashtable)",
+            "app.DBApp::createTable(java.lang.String, java.lang.String, java.util.Hashtable, java.util.Hashtable, java.util.Hashtable)",
+            "storage.Page::print()"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "app.DBApp::updateTable(java.lang.String, java.lang.String, java.util.Hashtable)",
+            "app.DBApp::createTable(java.lang.String, java.lang.String, java.util.Hashtable, java.util.Hashtable, java.util.Hashtable)",
+            "datamanipulation.CsvWriter::clear()",
+            "view.DatabaseManager::start(javafx.stage.Stage)",
+            "storage.Table::iterateOverPageName(java.lang.String, java.lang.Object)",
+            "storage.Page::print()",
+            "view.DatabaseManager::<init>()"
+        ]
+    }
+]

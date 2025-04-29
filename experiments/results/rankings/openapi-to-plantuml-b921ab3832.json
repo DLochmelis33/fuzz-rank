@@ -1,0 +1,202 @@
+[
+    {
+        "strategyName": "SimpleStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "com.github.davidmoten.oas3.internal.ComponentsHelper::toModel(com.github.davidmoten.oas3.internal.Names)"
+        ]
+    },
+    {
+        "strategyName": "SimpleStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "com.github.davidmoten.oas3.internal.ComponentsHelper::toModel(com.github.davidmoten.oas3.internal.Names)",
+            "com.github.davidmoten.oas3.internal.PathsHelper::toModelResponses(com.github.davidmoten.oas3.internal.Names, io.swagger.v3.oas.models.Operation, java.lang.String)",
+            "com.github.davidmoten.oas3.internal.PathsHelper::toModelRequestBody(java.lang.String, io.swagger.v3.oas.models.Operation, com.github.davidmoten.oas3.internal.Names)",
+            "com.github.davidmoten.oas3.internal.model.ModelTransformerExtract::apply(com.github.davidmoten.oas3.internal.model.Model)",
+            "com.github.davidmoten.oas3.internal.Names.Reference::<init>(java.lang.String, java.util.Set)"
+        ]
+    },
+    {
+        "strategyName": "SimpleStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "com.github.davidmoten.oas3.internal.ComponentsHelper::toModel(com.github.davidmoten.oas3.internal.Names)",
+            "com.github.davidmoten.oas3.internal.PathsHelper::toModelResponses(com.github.davidmoten.oas3.internal.Names, io.swagger.v3.oas.models.Operation, java.lang.String)",
+            "com.github.davidmoten.oas3.internal.PathsHelper::toModelRequestBody(java.lang.String, io.swagger.v3.oas.models.Operation, com.github.davidmoten.oas3.internal.Names)",
+            "com.github.davidmoten.oas3.internal.model.ModelTransformerExtract::apply(com.github.davidmoten.oas3.internal.model.Model)",
+            "com.github.davidmoten.oas3.internal.Names.Reference::<init>(java.lang.String, java.util.Set)",
+            "com.github.davidmoten.oas3.puml.ConverterMain::main(java.lang.String[])",
+            "com.github.davidmoten.oas3.internal.PathsHelper::toModelParameter(com.github.davidmoten.oas3.internal.Names, java.lang.String, io.swagger.v3.oas.models.parameters.Parameter)",
+            "com.github.davidmoten.oas3.internal.model.ModelTransformerExtract::addRelated(com.github.davidmoten.oas3.internal.model.Model, java.util.Set, java.util.Map, java.util.Map, java.util.Map, com.github.davidmoten.oas3.internal.model.Class)",
+            "com.github.davidmoten.oas3.puml.Converter::toPlantUmlInner(com.github.davidmoten.oas3.internal.model.Model)",
+            "com.github.davidmoten.oas3.internal.model.ModelTransformerLinksThreshold::apply(com.github.davidmoten.oas3.internal.model.Model)",
+            "com.github.davidmoten.oas3.internal.Common::addArray(java.lang.String, java.util.List, java.util.List, java.lang.String, io.swagger.v3.oas.models.media.ArraySchema, com.github.davidmoten.oas3.internal.Names)"
+        ]
+    },
+    {
+        "strategyName": "SimpleStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "com.github.davidmoten.oas3.internal.ComponentsHelper::toModel(com.github.davidmoten.oas3.internal.Names)",
+            "com.github.davidmoten.oas3.internal.PathsHelper::toModelResponses(com.github.davidmoten.oas3.internal.Names, io.swagger.v3.oas.models.Operation, java.lang.String)",
+            "com.github.davidmoten.oas3.internal.PathsHelper::toModelRequestBody(java.lang.String, io.swagger.v3.oas.models.Operation, com.github.davidmoten.oas3.internal.Names)",
+            "com.github.davidmoten.oas3.internal.model.ModelTransformerExtract::apply(com.github.davidmoten.oas3.internal.model.Model)",
+            "com.github.davidmoten.oas3.internal.Names.Reference::<init>(java.lang.String, java.util.Set)",
+            "com.github.davidmoten.oas3.puml.ConverterMain::main(java.lang.String[])",
+            "com.github.davidmoten.oas3.internal.PathsHelper::toModelParameter(com.github.davidmoten.oas3.internal.Names, java.lang.String, io.swagger.v3.oas.models.parameters.Parameter)",
+            "com.github.davidmoten.oas3.internal.model.ModelTransformerExtract::addRelated(com.github.davidmoten.oas3.internal.model.Model, java.util.Set, java.util.Map, java.util.Map, java.util.Map, com.github.davidmoten.oas3.internal.model.Class)",
+            "com.github.davidmoten.oas3.puml.Converter::toPlantUmlInner(com.github.davidmoten.oas3.internal.model.Model)",
+            "com.github.davidmoten.oas3.internal.model.ModelTransformerLinksThreshold::apply(com.github.davidmoten.oas3.internal.model.Model)",
+            "com.github.davidmoten.oas3.internal.Common::addArray(java.lang.String, java.util.List, java.util.List, java.lang.String, io.swagger.v3.oas.models.media.ArraySchema, com.github.davidmoten.oas3.internal.Names)",
+            "com.github.davidmoten.oas3.puml.Converter::toMultiplicity(com.github.davidmoten.oas3.internal.model.AssociationType)",
+            "com.github.davidmoten.oas3.internal.Common::addToOne(java.util.List, java.lang.String, java.lang.String, java.lang.String, boolean, boolean)",
+            "com.github.davidmoten.oas3.puml.Converter::toStereotype(com.github.davidmoten.oas3.internal.model.ClassType)",
+            "com.github.davidmoten.oas3.internal.Names::nextClassName(java.util.Set, java.util.List)",
+            "com.github.davidmoten.oas3.internal.model.Association::equals(java.lang.Object)",
+            "com.github.davidmoten.oas3.internal.PathsHelper::toModelPath(java.lang.String, io.swagger.v3.oas.models.PathItem, com.github.davidmoten.oas3.internal.Names)",
+            "com.github.davidmoten.oas3.internal.Names::<init>(io.swagger.v3.oas.models.OpenAPI)",
+            "com.github.davidmoten.oas3.puml.ConverterMain::writeFileFormatFromPuml(java.lang.String, java.lang.String, java.lang.String)",
+            "com.github.davidmoten.oas3.internal.model.Inheritance::equals(java.lang.Object)",
+            "com.github.davidmoten.oas3.internal.model.Association::toString()",
+            "com.github.davidmoten.oas3.puml.Converter::openApiToPuml(java.io.File, com.github.davidmoten.oas3.internal.model.ModelTransformer)"
+        ]
+    },
+    {
+        "strategyName": "SimpleWithSkippingStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "com.github.davidmoten.oas3.internal.ComponentsHelper::toModel(com.github.davidmoten.oas3.internal.Names)"
+        ]
+    },
+    {
+        "strategyName": "SimpleWithSkippingStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "com.github.davidmoten.oas3.internal.ComponentsHelper::toModel(com.github.davidmoten.oas3.internal.Names)",
+            "com.github.davidmoten.oas3.internal.PathsHelper::toModelResponses(com.github.davidmoten.oas3.internal.Names, io.swagger.v3.oas.models.Operation, java.lang.String)",
+            "com.github.davidmoten.oas3.internal.PathsHelper::toModelRequestBody(java.lang.String, io.swagger.v3.oas.models.Operation, com.github.davidmoten.oas3.internal.Names)",
+            "com.github.davidmoten.oas3.internal.model.ModelTransformerExtract::apply(com.github.davidmoten.oas3.internal.model.Model)"
+        ]
+    },
+    {
+        "strategyName": "SimpleWithSkippingStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "com.github.davidmoten.oas3.internal.ComponentsHelper::toModel(com.github.davidmoten.oas3.internal.Names)",
+            "com.github.davidmoten.oas3.internal.PathsHelper::toModelResponses(com.github.davidmoten.oas3.internal.Names, io.swagger.v3.oas.models.Operation, java.lang.String)",
+            "com.github.davidmoten.oas3.internal.PathsHelper::toModelRequestBody(java.lang.String, io.swagger.v3.oas.models.Operation, com.github.davidmoten.oas3.internal.Names)",
+            "com.github.davidmoten.oas3.internal.model.ModelTransformerExtract::apply(com.github.davidmoten.oas3.internal.model.Model)",
+            "com.github.davidmoten.oas3.puml.ConverterMain::main(java.lang.String[])",
+            "com.github.davidmoten.oas3.internal.PathsHelper::toModelParameter(com.github.davidmoten.oas3.internal.Names, java.lang.String, io.swagger.v3.oas.models.parameters.Parameter)",
+            "com.github.davidmoten.oas3.internal.model.ModelTransformerLinksThreshold::apply(com.github.davidmoten.oas3.internal.model.Model)",
+            "com.github.davidmoten.oas3.internal.Common::addArray(java.lang.String, java.util.List, java.util.List, java.lang.String, io.swagger.v3.oas.models.media.ArraySchema, com.github.davidmoten.oas3.internal.Names)"
+        ]
+    },
+    {
+        "strategyName": "SimpleWithSkippingStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "com.github.davidmoten.oas3.internal.ComponentsHelper::toModel(com.github.davidmoten.oas3.internal.Names)",
+            "com.github.davidmoten.oas3.internal.PathsHelper::toModelResponses(com.github.davidmoten.oas3.internal.Names, io.swagger.v3.oas.models.Operation, java.lang.String)",
+            "com.github.davidmoten.oas3.internal.PathsHelper::toModelRequestBody(java.lang.String, io.swagger.v3.oas.models.Operation, com.github.davidmoten.oas3.internal.Names)",
+            "com.github.davidmoten.oas3.internal.model.ModelTransformerExtract::apply(com.github.davidmoten.oas3.internal.model.Model)",
+            "com.github.davidmoten.oas3.puml.ConverterMain::main(java.lang.String[])",
+            "com.github.davidmoten.oas3.internal.PathsHelper::toModelParameter(com.github.davidmoten.oas3.internal.Names, java.lang.String, io.swagger.v3.oas.models.parameters.Parameter)",
+            "com.github.davidmoten.oas3.internal.model.ModelTransformerLinksThreshold::apply(com.github.davidmoten.oas3.internal.model.Model)",
+            "com.github.davidmoten.oas3.internal.Common::addArray(java.lang.String, java.util.List, java.util.List, java.lang.String, io.swagger.v3.oas.models.media.ArraySchema, com.github.davidmoten.oas3.internal.Names)",
+            "com.github.davidmoten.oas3.internal.model.Association::equals(java.lang.Object)",
+            "com.github.davidmoten.oas3.internal.PathsHelper::toModelPath(java.lang.String, io.swagger.v3.oas.models.PathItem, com.github.davidmoten.oas3.internal.Names)",
+            "com.github.davidmoten.oas3.internal.model.Inheritance::equals(java.lang.Object)",
+            "com.github.davidmoten.oas3.internal.model.Association::toString()"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "com.github.davidmoten.oas3.puml.Converter::openApiToPuml(java.lang.String)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "com.github.davidmoten.oas3.internal.PathsHelper::lambda.toModelPath.2(java.lang.String, com.github.davidmoten.oas3.internal.Names, java.util.Map.Entry)",
+            "com.github.davidmoten.oas3.internal.model.ModelTransformerExtract::apply(java.lang.Object)",
+            "com.github.davidmoten.oas3.puml.ConverterMain::main(java.lang.String[])"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "com.github.davidmoten.oas3.puml.ConverterMain::main(java.lang.String[])",
+            "com.github.davidmoten.oas3.internal.PathsHelper::lambda.toModelPath.2(java.lang.String, com.github.davidmoten.oas3.internal.Names, java.util.Map.Entry)",
+            "com.github.davidmoten.oas3.internal.model.ModelTransformerExtract::apply(java.lang.Object)",
+            "com.github.davidmoten.oas3.internal.PathsHelper::lambda.toModelParameters.4(com.github.davidmoten.oas3.internal.Names, java.lang.String, io.swagger.v3.oas.models.parameters.Parameter)",
+            "com.github.davidmoten.oas3.internal.model.ModelTransformerLinksThreshold::apply(java.lang.Object)",
+            "com.github.davidmoten.oas3.internal.Common::lambda.toModelClass.1(java.util.Set, java.util.List, java.util.List, java.lang.String, com.github.davidmoten.oas3.internal.Names, com.github.davidmoten.oas3.internal.model.ClassType, java.util.List, java.util.Map.Entry)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "com.github.davidmoten.oas3.puml.ConverterMain::main(java.lang.String[])",
+            "com.github.davidmoten.oas3.internal.PathsHelper::lambda.toModelPath.2(java.lang.String, com.github.davidmoten.oas3.internal.Names, java.util.Map.Entry)",
+            "com.github.davidmoten.oas3.internal.model.ModelTransformerExtract::apply(java.lang.Object)",
+            "com.github.davidmoten.oas3.internal.model.Association::equals(java.lang.Object)",
+            "com.github.davidmoten.oas3.internal.model.Inheritance::equals(java.lang.Object)",
+            "com.github.davidmoten.oas3.internal.model.Association::toString()",
+            "com.github.davidmoten.oas3.internal.PathsHelper::lambda.toModelParameters.4(com.github.davidmoten.oas3.internal.Names, java.lang.String, io.swagger.v3.oas.models.parameters.Parameter)",
+            "com.github.davidmoten.oas3.internal.model.ModelTransformerLinksThreshold::apply(java.lang.Object)",
+            "com.github.davidmoten.oas3.internal.Common::lambda.toModelClass.1(java.util.Set, java.util.List, java.util.List, java.lang.String, com.github.davidmoten.oas3.internal.Names, com.github.davidmoten.oas3.internal.model.ClassType, java.util.List, java.util.Map.Entry)",
+            "com.github.davidmoten.oas3.internal.PathsHelper::lambda.paths.0(com.github.davidmoten.oas3.internal.Names, java.util.Map.Entry)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "com.github.davidmoten.oas3.puml.Converter::openApiToPuml(java.lang.String)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "com.github.davidmoten.oas3.internal.PathsHelper::lambda.toModelPath.2(java.lang.String, com.github.davidmoten.oas3.internal.Names, java.util.Map.Entry)",
+            "com.github.davidmoten.oas3.internal.model.ModelTransformerExtract::apply(java.lang.Object)",
+            "com.github.davidmoten.oas3.puml.Converter::openApiToPuml(java.lang.String)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "com.github.davidmoten.oas3.puml.Converter::lambda.openApiToPumlSplitByMethod.1(com.github.davidmoten.oas3.internal.model.Model, com.github.davidmoten.oas3.internal.model.Class)",
+            "com.github.davidmoten.oas3.internal.PathsHelper::lambda.toModelPath.2(java.lang.String, com.github.davidmoten.oas3.internal.Names, java.util.Map.Entry)",
+            "com.github.davidmoten.oas3.internal.model.ModelTransformerLinksThreshold::apply(java.lang.Object)",
+            "com.github.davidmoten.oas3.puml.ConverterMain::main(java.lang.String[])",
+            "com.github.davidmoten.oas3.internal.Common::lambda.toModelClass.1(java.util.Set, java.util.List, java.util.List, java.lang.String, com.github.davidmoten.oas3.internal.Names, com.github.davidmoten.oas3.internal.model.ClassType, java.util.List, java.util.Map.Entry)",
+            "com.github.davidmoten.oas3.internal.PathsHelper::lambda.toModelParameters.4(com.github.davidmoten.oas3.internal.Names, java.lang.String, io.swagger.v3.oas.models.parameters.Parameter)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "com.github.davidmoten.oas3.puml.ConverterMain::main(java.lang.String[])",
+            "com.github.davidmoten.oas3.internal.model.Association::equals(java.lang.Object)",
+            "com.github.davidmoten.oas3.internal.model.Inheritance::equals(java.lang.Object)",
+            "com.github.davidmoten.oas3.internal.PathsHelper::lambda.toModelPath.2(java.lang.String, com.github.davidmoten.oas3.internal.Names, java.util.Map.Entry)",
+            "com.github.davidmoten.oas3.internal.model.Association::toString()",
+            "com.github.davidmoten.oas3.puml.Converter::lambda.openApiToPumlSplitByMethod.1(com.github.davidmoten.oas3.internal.model.Model, com.github.davidmoten.oas3.internal.model.Class)",
+            "com.github.davidmoten.oas3.internal.PathsHelper::lambda.paths.0(com.github.davidmoten.oas3.internal.Names, java.util.Map.Entry)",
+            "com.github.davidmoten.oas3.internal.model.ModelTransformerLinksThreshold::apply(java.lang.Object)",
+            "com.github.davidmoten.oas3.internal.Common::lambda.toModelClass.1(java.util.Set, java.util.List, java.util.List, java.lang.String, com.github.davidmoten.oas3.internal.Names, com.github.davidmoten.oas3.internal.model.ClassType, java.util.List, java.util.Map.Entry)",
+            "com.github.davidmoten.oas3.internal.PathsHelper::lambda.toModelParameters.4(com.github.davidmoten.oas3.internal.Names, java.lang.String, io.swagger.v3.oas.models.parameters.Parameter)"
+        ]
+    }
+]

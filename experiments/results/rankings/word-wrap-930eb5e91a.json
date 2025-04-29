@@ -1,0 +1,155 @@
+[
+    {
+        "strategyName": "SimpleStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "org.davidmoten.text.utils.WordWrap::wordWrap(java.io.Reader, java.io.Writer, java.lang.String, java.lang.Number, java.util.function.Function, java.util.Set, boolean, boolean)"
+        ]
+    },
+    {
+        "strategyName": "SimpleStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "org.davidmoten.text.utils.WordWrap::wordWrap(java.io.Reader, java.io.Writer, java.lang.String, java.lang.Number, java.util.function.Function, java.util.Set, boolean, boolean)",
+            "org.davidmoten.text.utils.WordWrap.Builder::wrapToList()",
+            "org.davidmoten.text.utils.WordWrap::isWhitespace(java.lang.CharSequence)"
+        ]
+    },
+    {
+        "strategyName": "SimpleStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "org.davidmoten.text.utils.WordWrap::wordWrap(java.io.Reader, java.io.Writer, java.lang.String, java.lang.Number, java.util.function.Function, java.util.Set, boolean, boolean)",
+            "org.davidmoten.text.utils.WordWrap.Builder::wrapToList()",
+            "org.davidmoten.text.utils.WordWrap::isWhitespace(java.lang.CharSequence)",
+            "org.davidmoten.text.utils.WordWrap::rightTrim(java.lang.CharSequence)",
+            "org.davidmoten.text.utils.WordWrap::writeBrokenWord(org.davidmoten.text.utils.LineConsumer, org.davidmoten.text.utils.StringBuilder2, boolean)",
+            "org.davidmoten.text.utils.WordWrap::leftTrim(org.davidmoten.text.utils.StringBuilder2)",
+            "org.davidmoten.text.utils.WordWrap.Builder::wrap(java.io.Writer)"
+        ]
+    },
+    {
+        "strategyName": "SimpleStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "org.davidmoten.text.utils.WordWrap::wordWrap(java.io.Reader, java.io.Writer, java.lang.String, java.lang.Number, java.util.function.Function, java.util.Set, boolean, boolean)",
+            "org.davidmoten.text.utils.WordWrap.Builder::wrapToList()",
+            "org.davidmoten.text.utils.WordWrap::isWhitespace(java.lang.CharSequence)",
+            "org.davidmoten.text.utils.WordWrap::rightTrim(java.lang.CharSequence)",
+            "org.davidmoten.text.utils.WordWrap::writeBrokenWord(org.davidmoten.text.utils.LineConsumer, org.davidmoten.text.utils.StringBuilder2, boolean)",
+            "org.davidmoten.text.utils.WordWrap::leftTrim(org.davidmoten.text.utils.StringBuilder2)",
+            "org.davidmoten.text.utils.WordWrap.Builder::wrap(java.io.Writer)",
+            "org.davidmoten.text.utils.WordWrap.Builder::wrap(java.io.File, java.nio.charset.Charset)",
+            "org.davidmoten.text.utils.WordWrap::wordWrap(java.io.Reader, org.davidmoten.text.utils.LineConsumer, java.lang.Number, java.util.function.Function, java.util.Set, boolean, boolean)",
+            "org.davidmoten.text.utils.StringBuilder2::append(org.davidmoten.text.utils.StringBuilder2)",
+            "org.davidmoten.text.utils.StringBuilder2::subSequence(int, int)",
+            "org.davidmoten.text.utils.StringBuilder2::delete(int, int)",
+            "org.davidmoten.text.utils.StringBuilder2::checkSize(int)"
+        ]
+    },
+    {
+        "strategyName": "SimpleWithSkippingStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "org.davidmoten.text.utils.WordWrap::wordWrap(java.io.Reader, java.io.Writer, java.lang.String, java.lang.Number, java.util.function.Function, java.util.Set, boolean, boolean)"
+        ]
+    },
+    {
+        "strategyName": "SimpleWithSkippingStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "org.davidmoten.text.utils.WordWrap::wordWrap(java.io.Reader, java.io.Writer, java.lang.String, java.lang.Number, java.util.function.Function, java.util.Set, boolean, boolean)",
+            "org.davidmoten.text.utils.WordWrap.Builder::wrapToList()"
+        ]
+    },
+    {
+        "strategyName": "SimpleWithSkippingStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "org.davidmoten.text.utils.WordWrap::wordWrap(java.io.Reader, java.io.Writer, java.lang.String, java.lang.Number, java.util.function.Function, java.util.Set, boolean, boolean)",
+            "org.davidmoten.text.utils.WordWrap.Builder::wrapToList()",
+            "org.davidmoten.text.utils.WordWrap::rightTrim(java.lang.CharSequence)",
+            "org.davidmoten.text.utils.WordWrap.Builder::wrap(java.io.Writer)"
+        ]
+    },
+    {
+        "strategyName": "SimpleWithSkippingStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "org.davidmoten.text.utils.WordWrap::wordWrap(java.io.Reader, java.io.Writer, java.lang.String, java.lang.Number, java.util.function.Function, java.util.Set, boolean, boolean)",
+            "org.davidmoten.text.utils.WordWrap.Builder::wrapToList()",
+            "org.davidmoten.text.utils.WordWrap::rightTrim(java.lang.CharSequence)",
+            "org.davidmoten.text.utils.WordWrap.Builder::wrap(java.io.Writer)",
+            "org.davidmoten.text.utils.WordWrap.Builder::wrap(java.io.File, java.nio.charset.Charset)",
+            "org.davidmoten.text.utils.StringBuilder2::subSequence(int, int)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "org.davidmoten.text.utils.WordWrap.Builder::wrap()"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "org.davidmoten.text.utils.WordWrap.Builder::wrapToList()",
+            "org.davidmoten.text.utils.WordWrap.Builder::wrap()"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "org.davidmoten.text.utils.WordWrap.Builder::wrap()",
+            "org.davidmoten.text.utils.WordWrap.Builder::wrapToList()",
+            "org.davidmoten.text.utils.WordWrap::rightTrim(java.lang.CharSequence)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "org.davidmoten.text.utils.WordWrap.Builder::wrap(java.lang.String, java.nio.charset.Charset)",
+            "org.davidmoten.text.utils.WordWrap.Builder::wrapToList()",
+            "org.davidmoten.text.utils.WordWrap::rightTrim(java.lang.CharSequence)",
+            "org.davidmoten.text.utils.StringBuilder2::subSequence(int, int)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "org.davidmoten.text.utils.WordWrap.Builder::wrap()"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "org.davidmoten.text.utils.WordWrap.Builder::wrapToList()",
+            "org.davidmoten.text.utils.WordWrap.Builder::wrap()"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "org.davidmoten.text.utils.WordWrap.Builder::wrap()",
+            "org.davidmoten.text.utils.WordWrap::rightTrim(java.lang.CharSequence)",
+            "org.davidmoten.text.utils.WordWrap.Builder::wrapToList()"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "org.davidmoten.text.utils.WordWrap.Builder::wrap(java.lang.String, java.nio.charset.Charset)",
+            "org.davidmoten.text.utils.StringBuilder2::subSequence(int, int)",
+            "org.davidmoten.text.utils.WordWrap::rightTrim(java.lang.CharSequence)",
+            "org.davidmoten.text.utils.WordWrap.Builder::wrapToList()"
+        ]
+    }
+]
