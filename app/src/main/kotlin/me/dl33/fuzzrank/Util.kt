@@ -1,5 +1,7 @@
 package me.dl33.fuzzrank
 
+import kotlin.io.path.Path
+
 data class IntCnt(var value: Int = 0)
 
 class DepthCnt {
@@ -21,3 +23,5 @@ class DepthCnt {
 
     override fun toString() = "DepthCnt(maxValue=$maxValue)"
 }
+
+val PROJECT_DIR = Path(System.getProperty("projectDir")?.toString() ?: error("projectDir not set"))

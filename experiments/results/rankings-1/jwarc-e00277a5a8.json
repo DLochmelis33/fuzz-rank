@@ -1,0 +1,910 @@
+[
+    {
+        "strategyName": "BraindeadWithSkippingStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "org.netpreserve.jwarc.WarcFilterCompiler::accessor(java.lang.String)",
+            "org.netpreserve.jwarc.net.CertificateAuthority::signCertificate(javax.security.auth.x500.X500Principal, java.security.PrivateKey, javax.security.auth.x500.X500Principal, java.security.PublicKey, int, boolean)",
+            "org.netpreserve.jwarc.WarcParser::parse(java.nio.channels.ReadableByteChannel, java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.cdx.CdxRequestEncoder::encode(org.netpreserve.jwarc.HttpRequest)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "org.netpreserve.jwarc.tools.WarcTool::main(java.lang.String[])"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "org.netpreserve.jwarc.net.CertificateAuthority::main(java.lang.String[])",
+            "org.netpreserve.jwarc.tools.WarcTool::main(java.lang.String[])"
+        ]
+    },
+    {
+        "strategyName": "BraindeadWithSkippingStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "org.netpreserve.jwarc.WarcFilterCompiler::accessor(java.lang.String)",
+            "org.netpreserve.jwarc.net.CertificateAuthority::signCertificate(javax.security.auth.x500.X500Principal, java.security.PrivateKey, javax.security.auth.x500.X500Principal, java.security.PublicKey, int, boolean)",
+            "org.netpreserve.jwarc.WarcParser::parse(java.nio.channels.ReadableByteChannel, java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.cdx.CdxRequestEncoder::encode(org.netpreserve.jwarc.HttpRequest)",
+            "org.netpreserve.jwarc.GeminiParser::parse(java.nio.channels.ReadableByteChannel, java.nio.ByteBuffer, java.nio.channels.WritableByteChannel)",
+            "org.netpreserve.jwarc.HttpParser::parse(java.nio.channels.ReadableByteChannel, java.nio.ByteBuffer, java.nio.channels.WritableByteChannel)",
+            "org.netpreserve.jwarc.ChunkedBody::read(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.URIs::toNormalizedSurt(java.lang.String)",
+            "org.netpreserve.jwarc.cdx.CdxFormat::format(org.netpreserve.jwarc.WarcCaptureRecord, java.lang.String, long, long, java.lang.String)",
+            "org.netpreserve.jwarc.net.WarcRecorder::handle(java.net.Socket, java.lang.String, org.netpreserve.jwarc.HttpRequest)",
+            "org.netpreserve.jwarc.tools.ExtractTool::writePayload(java.nio.channels.WritableByteChannel, org.netpreserve.jwarc.WarcRecord)",
+            "org.netpreserve.jwarc.WarcReader::consumeTrailer()",
+            "org.netpreserve.jwarc.tools.ValidateTool::validate(org.netpreserve.jwarc.WarcReader)",
+            "org.netpreserve.jwarc.GunzipChannel::readHeader()",
+            "org.netpreserve.jwarc.WarcDigest::base32Decode(java.lang.String)",
+            "org.netpreserve.jwarc.WarcFilterCompiler::comparison()",
+            "org.netpreserve.jwarc.tools.ListTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.tools.ValidateTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.net.CaptureIndex::<init>(java.util.List)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "org.netpreserve.jwarc.tools.WarcTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.GunzipChannel::read(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.net.HttpServer::lambda.listen.1(java.net.Socket)",
+            "org.netpreserve.jwarc.WarcDigest::base64()"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "org.netpreserve.jwarc.tools.WarcTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.WarcDigest::base64()",
+            "org.netpreserve.jwarc.GunzipChannel::read(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.net.HttpServer::lambda.listen.1(java.net.Socket)"
+        ]
+    },
+    {
+        "strategyName": "BraindeadWithSkippingStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "org.netpreserve.jwarc.WarcFilterCompiler::accessor(java.lang.String)",
+            "org.netpreserve.jwarc.net.CertificateAuthority::signCertificate(javax.security.auth.x500.X500Principal, java.security.PrivateKey, javax.security.auth.x500.X500Principal, java.security.PublicKey, int, boolean)",
+            "org.netpreserve.jwarc.WarcParser::parse(java.nio.channels.ReadableByteChannel, java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.cdx.CdxRequestEncoder::encode(org.netpreserve.jwarc.HttpRequest)",
+            "org.netpreserve.jwarc.GeminiParser::parse(java.nio.channels.ReadableByteChannel, java.nio.ByteBuffer, java.nio.channels.WritableByteChannel)",
+            "org.netpreserve.jwarc.HttpParser::parse(java.nio.channels.ReadableByteChannel, java.nio.ByteBuffer, java.nio.channels.WritableByteChannel)",
+            "org.netpreserve.jwarc.ChunkedBody::read(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.URIs::toNormalizedSurt(java.lang.String)",
+            "org.netpreserve.jwarc.cdx.CdxFormat::format(org.netpreserve.jwarc.WarcCaptureRecord, java.lang.String, long, long, java.lang.String)",
+            "org.netpreserve.jwarc.net.WarcRecorder::handle(java.net.Socket, java.lang.String, org.netpreserve.jwarc.HttpRequest)",
+            "org.netpreserve.jwarc.tools.ExtractTool::writePayload(java.nio.channels.WritableByteChannel, org.netpreserve.jwarc.WarcRecord)",
+            "org.netpreserve.jwarc.WarcReader::consumeTrailer()",
+            "org.netpreserve.jwarc.tools.ValidateTool::validate(org.netpreserve.jwarc.WarcReader)",
+            "org.netpreserve.jwarc.GunzipChannel::readHeader()",
+            "org.netpreserve.jwarc.WarcDigest::base32Decode(java.lang.String)",
+            "org.netpreserve.jwarc.WarcFilterCompiler::comparison()",
+            "org.netpreserve.jwarc.tools.ListTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.tools.ValidateTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.net.CaptureIndex::<init>(java.util.List)",
+            "org.netpreserve.jwarc.InetAddresses::textToNumericFormatV6(java.lang.String)",
+            "org.netpreserve.jwarc.tools.ScreenshotTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.tools.RecorderTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.net.HttpServer::interact(java.net.Socket, java.lang.String)",
+            "org.netpreserve.jwarc.tools.DedupeTool::deduplicateWarcFile(java.nio.file.Path, java.nio.file.Path)",
+            "org.netpreserve.jwarc.tools.ExtractTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.tools.SavebackTool::process(java.lang.String, org.netpreserve.jwarc.WarcWriter)",
+            "org.netpreserve.jwarc.tools.CdxTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.net.WarcServer::mementoLinks(java.util.NavigableSet, org.netpreserve.jwarc.net.Capture)",
+            "org.netpreserve.jwarc.net.WarcServer::timemap(org.netpreserve.jwarc.net.HttpExchange)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "org.netpreserve.jwarc.tools.WarcTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.net.HttpServer::lambda.listen.1(java.net.Socket)",
+            "org.netpreserve.jwarc.net.WarcServer::replay(org.netpreserve.jwarc.net.HttpExchange)",
+            "org.netpreserve.jwarc.net.WarcServer::timemap(org.netpreserve.jwarc.net.HttpExchange)",
+            "org.netpreserve.jwarc.GunzipChannel::read(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.tools.DedupeTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.WarcDigest::base64()",
+            "org.netpreserve.jwarc.InetAddresses::forString(java.lang.String)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "org.netpreserve.jwarc.tools.WarcTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.WarcDigest::base64()",
+            "org.netpreserve.jwarc.net.WarcServer::replay(org.netpreserve.jwarc.net.HttpExchange)",
+            "org.netpreserve.jwarc.net.HttpServer::lambda.listen.1(java.net.Socket)",
+            "org.netpreserve.jwarc.InetAddresses::forString(java.lang.String)",
+            "org.netpreserve.jwarc.GunzipChannel::read(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.tools.DedupeTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.net.WarcServer::timemap(org.netpreserve.jwarc.net.HttpExchange)"
+        ]
+    },
+    {
+        "strategyName": "BraindeadWithSkippingStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "org.netpreserve.jwarc.WarcFilterCompiler::accessor(java.lang.String)",
+            "org.netpreserve.jwarc.net.CertificateAuthority::signCertificate(javax.security.auth.x500.X500Principal, java.security.PrivateKey, javax.security.auth.x500.X500Principal, java.security.PublicKey, int, boolean)",
+            "org.netpreserve.jwarc.WarcParser::parse(java.nio.channels.ReadableByteChannel, java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.cdx.CdxRequestEncoder::encode(org.netpreserve.jwarc.HttpRequest)",
+            "org.netpreserve.jwarc.GeminiParser::parse(java.nio.channels.ReadableByteChannel, java.nio.ByteBuffer, java.nio.channels.WritableByteChannel)",
+            "org.netpreserve.jwarc.HttpParser::parse(java.nio.channels.ReadableByteChannel, java.nio.ByteBuffer, java.nio.channels.WritableByteChannel)",
+            "org.netpreserve.jwarc.ChunkedBody::read(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.URIs::toNormalizedSurt(java.lang.String)",
+            "org.netpreserve.jwarc.cdx.CdxFormat::format(org.netpreserve.jwarc.WarcCaptureRecord, java.lang.String, long, long, java.lang.String)",
+            "org.netpreserve.jwarc.net.WarcRecorder::handle(java.net.Socket, java.lang.String, org.netpreserve.jwarc.HttpRequest)",
+            "org.netpreserve.jwarc.tools.ExtractTool::writePayload(java.nio.channels.WritableByteChannel, org.netpreserve.jwarc.WarcRecord)",
+            "org.netpreserve.jwarc.WarcReader::consumeTrailer()",
+            "org.netpreserve.jwarc.tools.ValidateTool::validate(org.netpreserve.jwarc.WarcReader)",
+            "org.netpreserve.jwarc.GunzipChannel::readHeader()",
+            "org.netpreserve.jwarc.WarcDigest::base32Decode(java.lang.String)",
+            "org.netpreserve.jwarc.WarcFilterCompiler::comparison()",
+            "org.netpreserve.jwarc.tools.ListTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.tools.ValidateTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.net.CaptureIndex::<init>(java.util.List)",
+            "org.netpreserve.jwarc.InetAddresses::textToNumericFormatV6(java.lang.String)",
+            "org.netpreserve.jwarc.tools.ScreenshotTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.tools.RecorderTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.net.HttpServer::interact(java.net.Socket, java.lang.String)",
+            "org.netpreserve.jwarc.tools.DedupeTool::deduplicateWarcFile(java.nio.file.Path, java.nio.file.Path)",
+            "org.netpreserve.jwarc.tools.ExtractTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.tools.SavebackTool::process(java.lang.String, org.netpreserve.jwarc.WarcWriter)",
+            "org.netpreserve.jwarc.tools.CdxTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.net.WarcServer::mementoLinks(java.util.NavigableSet, org.netpreserve.jwarc.net.Capture)",
+            "org.netpreserve.jwarc.net.WarcServer::timemap(org.netpreserve.jwarc.net.HttpExchange)",
+            "org.netpreserve.jwarc.GzipChannel::write(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.InetAddresses::ipStringToBytes(java.lang.String)",
+            "org.netpreserve.jwarc.LengthedBody::read(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.tools.Utils::getJwarcVersion()",
+            "org.netpreserve.jwarc.tools.StatsTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.tools.DedupeTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.net.WarcServer::replay(org.netpreserve.jwarc.net.HttpExchange, java.lang.String, java.time.Instant, boolean)",
+            "org.netpreserve.jwarc.tools.WarcTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.cdx.CdxRecord::<init>(java.lang.String, org.netpreserve.jwarc.cdx.CdxFormat)",
+            "org.netpreserve.jwarc.MessageHeaders::parse(java.nio.channels.ReadableByteChannel)",
+            "org.netpreserve.jwarc.tools.StatsTool.Table::print(java.util.function.Function)",
+            "org.netpreserve.jwarc.InflateChannel::read(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.MessageParser::getErrorContext(java.lang.String, int, int)",
+            "org.netpreserve.jwarc.net.WarcServer::render(org.netpreserve.jwarc.net.HttpExchange)",
+            "org.netpreserve.jwarc.GunzipChannel::read(java.nio.ByteBuffer)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "org.netpreserve.jwarc.tools.WarcTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.tools.DedupeTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.net.WarcServer::replay(org.netpreserve.jwarc.net.HttpExchange)",
+            "org.netpreserve.jwarc.GunzipChannel::read(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.net.HttpServer::lambda.listen.1(java.net.Socket)",
+            "org.netpreserve.jwarc.InetAddresses::forString(java.lang.String)",
+            "org.netpreserve.jwarc.net.WarcServer::timemap(org.netpreserve.jwarc.net.HttpExchange)",
+            "org.netpreserve.jwarc.GzipChannel::write(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.InflateChannel::read(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.MessageParser::getErrorContext(java.lang.String, int, int)",
+            "org.netpreserve.jwarc.net.WarcServer::render(org.netpreserve.jwarc.net.HttpExchange)",
+            "org.netpreserve.jwarc.LengthedBody.1::read(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.cdx.CdxFormat::parse(java.lang.String)",
+            "org.netpreserve.jwarc.Warcinfo::fields()",
+            "org.netpreserve.jwarc.tools.StatsTool::lambda.print.6(java.util.function.Function, org.netpreserve.jwarc.tools.StatsTool.Table)",
+            "org.netpreserve.jwarc.WarcDigest::base64()"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "org.netpreserve.jwarc.tools.WarcTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.GunzipChannel::read(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.net.WarcServer::replay(org.netpreserve.jwarc.net.HttpExchange)",
+            "org.netpreserve.jwarc.tools.DedupeTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.MessageParser::getErrorContext(java.lang.String, int, int)",
+            "org.netpreserve.jwarc.net.HttpServer::lambda.listen.1(java.net.Socket)",
+            "org.netpreserve.jwarc.InetAddresses::forString(java.lang.String)",
+            "org.netpreserve.jwarc.cdx.CdxFormat::parse(java.lang.String)",
+            "org.netpreserve.jwarc.WarcDigest::base64()",
+            "org.netpreserve.jwarc.InflateChannel::read(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.LengthedBody.1::read(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.GzipChannel::write(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.tools.StatsTool::lambda.print.6(java.util.function.Function, org.netpreserve.jwarc.tools.StatsTool.Table)",
+            "org.netpreserve.jwarc.Warcinfo::fields()",
+            "org.netpreserve.jwarc.net.WarcServer::render(org.netpreserve.jwarc.net.HttpExchange)",
+            "org.netpreserve.jwarc.net.WarcServer::timemap(org.netpreserve.jwarc.net.HttpExchange)"
+        ]
+    },
+    {
+        "strategyName": "BraindeadWithSkippingStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "org.netpreserve.jwarc.WarcFilterCompiler::accessor(java.lang.String)",
+            "org.netpreserve.jwarc.net.CertificateAuthority::signCertificate(javax.security.auth.x500.X500Principal, java.security.PrivateKey, javax.security.auth.x500.X500Principal, java.security.PublicKey, int, boolean)",
+            "org.netpreserve.jwarc.WarcParser::parse(java.nio.channels.ReadableByteChannel, java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.cdx.CdxRequestEncoder::encode(org.netpreserve.jwarc.HttpRequest)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "org.netpreserve.jwarc.tools.WarcTool::main(java.lang.String[])"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "org.netpreserve.jwarc.net.CertificateAuthority::main(java.lang.String[])",
+            "org.netpreserve.jwarc.tools.WarcTool::main(java.lang.String[])"
+        ]
+    },
+    {
+        "strategyName": "BraindeadWithSkippingStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "org.netpreserve.jwarc.WarcFilterCompiler::accessor(java.lang.String)",
+            "org.netpreserve.jwarc.net.CertificateAuthority::signCertificate(javax.security.auth.x500.X500Principal, java.security.PrivateKey, javax.security.auth.x500.X500Principal, java.security.PublicKey, int, boolean)",
+            "org.netpreserve.jwarc.WarcParser::parse(java.nio.channels.ReadableByteChannel, java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.cdx.CdxRequestEncoder::encode(org.netpreserve.jwarc.HttpRequest)",
+            "org.netpreserve.jwarc.GeminiParser::parse(java.nio.channels.ReadableByteChannel, java.nio.ByteBuffer, java.nio.channels.WritableByteChannel)",
+            "org.netpreserve.jwarc.HttpParser::parse(java.nio.channels.ReadableByteChannel, java.nio.ByteBuffer, java.nio.channels.WritableByteChannel)",
+            "org.netpreserve.jwarc.ChunkedBody::read(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.URIs::toNormalizedSurt(java.lang.String)",
+            "org.netpreserve.jwarc.cdx.CdxFormat::format(org.netpreserve.jwarc.WarcCaptureRecord, java.lang.String, long, long, java.lang.String)",
+            "org.netpreserve.jwarc.net.WarcRecorder::handle(java.net.Socket, java.lang.String, org.netpreserve.jwarc.HttpRequest)",
+            "org.netpreserve.jwarc.tools.ExtractTool::writePayload(java.nio.channels.WritableByteChannel, org.netpreserve.jwarc.WarcRecord)",
+            "org.netpreserve.jwarc.WarcReader::consumeTrailer()",
+            "org.netpreserve.jwarc.tools.ValidateTool::validate(org.netpreserve.jwarc.WarcReader)",
+            "org.netpreserve.jwarc.GunzipChannel::readHeader()",
+            "org.netpreserve.jwarc.WarcDigest::base32Decode(java.lang.String)",
+            "org.netpreserve.jwarc.WarcFilterCompiler::comparison()",
+            "org.netpreserve.jwarc.tools.ListTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.tools.ValidateTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.net.CaptureIndex::<init>(java.util.List)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "org.netpreserve.jwarc.tools.WarcTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.GunzipChannel::read(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.net.HttpServer::lambda.listen.1(java.net.Socket)",
+            "org.netpreserve.jwarc.WarcDigest::base64()"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "org.netpreserve.jwarc.tools.WarcTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.WarcDigest::base64()",
+            "org.netpreserve.jwarc.GunzipChannel::read(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.net.HttpServer::lambda.listen.1(java.net.Socket)"
+        ]
+    },
+    {
+        "strategyName": "BraindeadWithSkippingStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "org.netpreserve.jwarc.WarcFilterCompiler::accessor(java.lang.String)",
+            "org.netpreserve.jwarc.net.CertificateAuthority::signCertificate(javax.security.auth.x500.X500Principal, java.security.PrivateKey, javax.security.auth.x500.X500Principal, java.security.PublicKey, int, boolean)",
+            "org.netpreserve.jwarc.WarcParser::parse(java.nio.channels.ReadableByteChannel, java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.cdx.CdxRequestEncoder::encode(org.netpreserve.jwarc.HttpRequest)",
+            "org.netpreserve.jwarc.GeminiParser::parse(java.nio.channels.ReadableByteChannel, java.nio.ByteBuffer, java.nio.channels.WritableByteChannel)",
+            "org.netpreserve.jwarc.HttpParser::parse(java.nio.channels.ReadableByteChannel, java.nio.ByteBuffer, java.nio.channels.WritableByteChannel)",
+            "org.netpreserve.jwarc.ChunkedBody::read(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.URIs::toNormalizedSurt(java.lang.String)",
+            "org.netpreserve.jwarc.cdx.CdxFormat::format(org.netpreserve.jwarc.WarcCaptureRecord, java.lang.String, long, long, java.lang.String)",
+            "org.netpreserve.jwarc.net.WarcRecorder::handle(java.net.Socket, java.lang.String, org.netpreserve.jwarc.HttpRequest)",
+            "org.netpreserve.jwarc.tools.ExtractTool::writePayload(java.nio.channels.WritableByteChannel, org.netpreserve.jwarc.WarcRecord)",
+            "org.netpreserve.jwarc.WarcReader::consumeTrailer()",
+            "org.netpreserve.jwarc.tools.ValidateTool::validate(org.netpreserve.jwarc.WarcReader)",
+            "org.netpreserve.jwarc.GunzipChannel::readHeader()",
+            "org.netpreserve.jwarc.WarcDigest::base32Decode(java.lang.String)",
+            "org.netpreserve.jwarc.WarcFilterCompiler::comparison()",
+            "org.netpreserve.jwarc.tools.ListTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.tools.ValidateTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.net.CaptureIndex::<init>(java.util.List)",
+            "org.netpreserve.jwarc.InetAddresses::textToNumericFormatV6(java.lang.String)",
+            "org.netpreserve.jwarc.tools.ScreenshotTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.tools.RecorderTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.net.HttpServer::interact(java.net.Socket, java.lang.String)",
+            "org.netpreserve.jwarc.tools.DedupeTool::deduplicateWarcFile(java.nio.file.Path, java.nio.file.Path)",
+            "org.netpreserve.jwarc.tools.ExtractTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.tools.SavebackTool::process(java.lang.String, org.netpreserve.jwarc.WarcWriter)",
+            "org.netpreserve.jwarc.tools.CdxTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.net.WarcServer::mementoLinks(java.util.NavigableSet, org.netpreserve.jwarc.net.Capture)",
+            "org.netpreserve.jwarc.net.WarcServer::timemap(org.netpreserve.jwarc.net.HttpExchange)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "org.netpreserve.jwarc.tools.WarcTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.net.HttpServer::lambda.listen.1(java.net.Socket)",
+            "org.netpreserve.jwarc.net.WarcServer::replay(org.netpreserve.jwarc.net.HttpExchange)",
+            "org.netpreserve.jwarc.net.WarcServer::timemap(org.netpreserve.jwarc.net.HttpExchange)",
+            "org.netpreserve.jwarc.GunzipChannel::read(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.tools.DedupeTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.WarcDigest::base64()",
+            "org.netpreserve.jwarc.InetAddresses::forString(java.lang.String)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "org.netpreserve.jwarc.tools.WarcTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.WarcDigest::base64()",
+            "org.netpreserve.jwarc.net.WarcServer::replay(org.netpreserve.jwarc.net.HttpExchange)",
+            "org.netpreserve.jwarc.net.HttpServer::lambda.listen.1(java.net.Socket)",
+            "org.netpreserve.jwarc.InetAddresses::forString(java.lang.String)",
+            "org.netpreserve.jwarc.GunzipChannel::read(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.tools.DedupeTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.net.WarcServer::timemap(org.netpreserve.jwarc.net.HttpExchange)"
+        ]
+    },
+    {
+        "strategyName": "BraindeadWithSkippingStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "org.netpreserve.jwarc.WarcFilterCompiler::accessor(java.lang.String)",
+            "org.netpreserve.jwarc.net.CertificateAuthority::signCertificate(javax.security.auth.x500.X500Principal, java.security.PrivateKey, javax.security.auth.x500.X500Principal, java.security.PublicKey, int, boolean)",
+            "org.netpreserve.jwarc.WarcParser::parse(java.nio.channels.ReadableByteChannel, java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.cdx.CdxRequestEncoder::encode(org.netpreserve.jwarc.HttpRequest)",
+            "org.netpreserve.jwarc.GeminiParser::parse(java.nio.channels.ReadableByteChannel, java.nio.ByteBuffer, java.nio.channels.WritableByteChannel)",
+            "org.netpreserve.jwarc.HttpParser::parse(java.nio.channels.ReadableByteChannel, java.nio.ByteBuffer, java.nio.channels.WritableByteChannel)",
+            "org.netpreserve.jwarc.ChunkedBody::read(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.URIs::toNormalizedSurt(java.lang.String)",
+            "org.netpreserve.jwarc.cdx.CdxFormat::format(org.netpreserve.jwarc.WarcCaptureRecord, java.lang.String, long, long, java.lang.String)",
+            "org.netpreserve.jwarc.net.WarcRecorder::handle(java.net.Socket, java.lang.String, org.netpreserve.jwarc.HttpRequest)",
+            "org.netpreserve.jwarc.tools.ExtractTool::writePayload(java.nio.channels.WritableByteChannel, org.netpreserve.jwarc.WarcRecord)",
+            "org.netpreserve.jwarc.WarcReader::consumeTrailer()",
+            "org.netpreserve.jwarc.tools.ValidateTool::validate(org.netpreserve.jwarc.WarcReader)",
+            "org.netpreserve.jwarc.GunzipChannel::readHeader()",
+            "org.netpreserve.jwarc.WarcDigest::base32Decode(java.lang.String)",
+            "org.netpreserve.jwarc.WarcFilterCompiler::comparison()",
+            "org.netpreserve.jwarc.tools.ListTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.tools.ValidateTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.net.CaptureIndex::<init>(java.util.List)",
+            "org.netpreserve.jwarc.InetAddresses::textToNumericFormatV6(java.lang.String)",
+            "org.netpreserve.jwarc.tools.ScreenshotTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.tools.RecorderTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.net.HttpServer::interact(java.net.Socket, java.lang.String)",
+            "org.netpreserve.jwarc.tools.DedupeTool::deduplicateWarcFile(java.nio.file.Path, java.nio.file.Path)",
+            "org.netpreserve.jwarc.tools.ExtractTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.tools.SavebackTool::process(java.lang.String, org.netpreserve.jwarc.WarcWriter)",
+            "org.netpreserve.jwarc.tools.CdxTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.net.WarcServer::mementoLinks(java.util.NavigableSet, org.netpreserve.jwarc.net.Capture)",
+            "org.netpreserve.jwarc.net.WarcServer::timemap(org.netpreserve.jwarc.net.HttpExchange)",
+            "org.netpreserve.jwarc.GzipChannel::write(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.InetAddresses::ipStringToBytes(java.lang.String)",
+            "org.netpreserve.jwarc.LengthedBody::read(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.tools.Utils::getJwarcVersion()",
+            "org.netpreserve.jwarc.tools.StatsTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.tools.DedupeTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.net.WarcServer::replay(org.netpreserve.jwarc.net.HttpExchange, java.lang.String, java.time.Instant, boolean)",
+            "org.netpreserve.jwarc.tools.WarcTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.cdx.CdxRecord::<init>(java.lang.String, org.netpreserve.jwarc.cdx.CdxFormat)",
+            "org.netpreserve.jwarc.MessageHeaders::parse(java.nio.channels.ReadableByteChannel)",
+            "org.netpreserve.jwarc.tools.StatsTool.Table::print(java.util.function.Function)",
+            "org.netpreserve.jwarc.InflateChannel::read(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.MessageParser::getErrorContext(java.lang.String, int, int)",
+            "org.netpreserve.jwarc.net.WarcServer::render(org.netpreserve.jwarc.net.HttpExchange)",
+            "org.netpreserve.jwarc.GunzipChannel::read(java.nio.ByteBuffer)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "org.netpreserve.jwarc.tools.WarcTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.tools.DedupeTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.net.WarcServer::replay(org.netpreserve.jwarc.net.HttpExchange)",
+            "org.netpreserve.jwarc.GunzipChannel::read(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.net.HttpServer::lambda.listen.1(java.net.Socket)",
+            "org.netpreserve.jwarc.InetAddresses::forString(java.lang.String)",
+            "org.netpreserve.jwarc.net.WarcServer::timemap(org.netpreserve.jwarc.net.HttpExchange)",
+            "org.netpreserve.jwarc.GzipChannel::write(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.InflateChannel::read(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.MessageParser::getErrorContext(java.lang.String, int, int)",
+            "org.netpreserve.jwarc.net.WarcServer::render(org.netpreserve.jwarc.net.HttpExchange)",
+            "org.netpreserve.jwarc.LengthedBody.1::read(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.cdx.CdxFormat::parse(java.lang.String)",
+            "org.netpreserve.jwarc.Warcinfo::fields()",
+            "org.netpreserve.jwarc.tools.StatsTool::lambda.print.6(java.util.function.Function, org.netpreserve.jwarc.tools.StatsTool.Table)",
+            "org.netpreserve.jwarc.WarcDigest::base64()"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "org.netpreserve.jwarc.tools.WarcTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.GunzipChannel::read(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.net.WarcServer::replay(org.netpreserve.jwarc.net.HttpExchange)",
+            "org.netpreserve.jwarc.tools.DedupeTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.MessageParser::getErrorContext(java.lang.String, int, int)",
+            "org.netpreserve.jwarc.net.HttpServer::lambda.listen.1(java.net.Socket)",
+            "org.netpreserve.jwarc.InetAddresses::forString(java.lang.String)",
+            "org.netpreserve.jwarc.cdx.CdxFormat::parse(java.lang.String)",
+            "org.netpreserve.jwarc.WarcDigest::base64()",
+            "org.netpreserve.jwarc.InflateChannel::read(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.LengthedBody.1::read(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.GzipChannel::write(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.tools.StatsTool::lambda.print.6(java.util.function.Function, org.netpreserve.jwarc.tools.StatsTool.Table)",
+            "org.netpreserve.jwarc.Warcinfo::fields()",
+            "org.netpreserve.jwarc.net.WarcServer::render(org.netpreserve.jwarc.net.HttpExchange)",
+            "org.netpreserve.jwarc.net.WarcServer::timemap(org.netpreserve.jwarc.net.HttpExchange)"
+        ]
+    },
+    {
+        "strategyName": "BraindeadWithSkippingStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "org.netpreserve.jwarc.WarcFilterCompiler::accessor(java.lang.String)",
+            "org.netpreserve.jwarc.net.CertificateAuthority::signCertificate(javax.security.auth.x500.X500Principal, java.security.PrivateKey, javax.security.auth.x500.X500Principal, java.security.PublicKey, int, boolean)",
+            "org.netpreserve.jwarc.WarcParser::parse(java.nio.channels.ReadableByteChannel, java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.cdx.CdxRequestEncoder::encode(org.netpreserve.jwarc.HttpRequest)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "org.netpreserve.jwarc.tools.WarcTool::main(java.lang.String[])"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "org.netpreserve.jwarc.net.CertificateAuthority::main(java.lang.String[])",
+            "org.netpreserve.jwarc.tools.WarcTool::main(java.lang.String[])"
+        ]
+    },
+    {
+        "strategyName": "BraindeadWithSkippingStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "org.netpreserve.jwarc.WarcFilterCompiler::accessor(java.lang.String)",
+            "org.netpreserve.jwarc.net.CertificateAuthority::signCertificate(javax.security.auth.x500.X500Principal, java.security.PrivateKey, javax.security.auth.x500.X500Principal, java.security.PublicKey, int, boolean)",
+            "org.netpreserve.jwarc.WarcParser::parse(java.nio.channels.ReadableByteChannel, java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.cdx.CdxRequestEncoder::encode(org.netpreserve.jwarc.HttpRequest)",
+            "org.netpreserve.jwarc.GeminiParser::parse(java.nio.channels.ReadableByteChannel, java.nio.ByteBuffer, java.nio.channels.WritableByteChannel)",
+            "org.netpreserve.jwarc.HttpParser::parse(java.nio.channels.ReadableByteChannel, java.nio.ByteBuffer, java.nio.channels.WritableByteChannel)",
+            "org.netpreserve.jwarc.ChunkedBody::read(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.URIs::toNormalizedSurt(java.lang.String)",
+            "org.netpreserve.jwarc.cdx.CdxFormat::format(org.netpreserve.jwarc.WarcCaptureRecord, java.lang.String, long, long, java.lang.String)",
+            "org.netpreserve.jwarc.net.WarcRecorder::handle(java.net.Socket, java.lang.String, org.netpreserve.jwarc.HttpRequest)",
+            "org.netpreserve.jwarc.tools.ExtractTool::writePayload(java.nio.channels.WritableByteChannel, org.netpreserve.jwarc.WarcRecord)",
+            "org.netpreserve.jwarc.WarcReader::consumeTrailer()",
+            "org.netpreserve.jwarc.tools.ValidateTool::validate(org.netpreserve.jwarc.WarcReader)",
+            "org.netpreserve.jwarc.GunzipChannel::readHeader()",
+            "org.netpreserve.jwarc.WarcDigest::base32Decode(java.lang.String)",
+            "org.netpreserve.jwarc.WarcFilterCompiler::comparison()",
+            "org.netpreserve.jwarc.tools.ListTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.tools.ValidateTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.net.CaptureIndex::<init>(java.util.List)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "org.netpreserve.jwarc.tools.WarcTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.GunzipChannel::read(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.net.HttpServer::lambda.listen.1(java.net.Socket)",
+            "org.netpreserve.jwarc.WarcDigest::base64()"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "org.netpreserve.jwarc.tools.WarcTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.WarcDigest::base64()",
+            "org.netpreserve.jwarc.GunzipChannel::read(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.net.HttpServer::lambda.listen.1(java.net.Socket)"
+        ]
+    },
+    {
+        "strategyName": "BraindeadWithSkippingStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "org.netpreserve.jwarc.WarcFilterCompiler::accessor(java.lang.String)",
+            "org.netpreserve.jwarc.net.CertificateAuthority::signCertificate(javax.security.auth.x500.X500Principal, java.security.PrivateKey, javax.security.auth.x500.X500Principal, java.security.PublicKey, int, boolean)",
+            "org.netpreserve.jwarc.WarcParser::parse(java.nio.channels.ReadableByteChannel, java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.cdx.CdxRequestEncoder::encode(org.netpreserve.jwarc.HttpRequest)",
+            "org.netpreserve.jwarc.GeminiParser::parse(java.nio.channels.ReadableByteChannel, java.nio.ByteBuffer, java.nio.channels.WritableByteChannel)",
+            "org.netpreserve.jwarc.HttpParser::parse(java.nio.channels.ReadableByteChannel, java.nio.ByteBuffer, java.nio.channels.WritableByteChannel)",
+            "org.netpreserve.jwarc.ChunkedBody::read(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.URIs::toNormalizedSurt(java.lang.String)",
+            "org.netpreserve.jwarc.cdx.CdxFormat::format(org.netpreserve.jwarc.WarcCaptureRecord, java.lang.String, long, long, java.lang.String)",
+            "org.netpreserve.jwarc.net.WarcRecorder::handle(java.net.Socket, java.lang.String, org.netpreserve.jwarc.HttpRequest)",
+            "org.netpreserve.jwarc.tools.ExtractTool::writePayload(java.nio.channels.WritableByteChannel, org.netpreserve.jwarc.WarcRecord)",
+            "org.netpreserve.jwarc.WarcReader::consumeTrailer()",
+            "org.netpreserve.jwarc.tools.ValidateTool::validate(org.netpreserve.jwarc.WarcReader)",
+            "org.netpreserve.jwarc.GunzipChannel::readHeader()",
+            "org.netpreserve.jwarc.WarcDigest::base32Decode(java.lang.String)",
+            "org.netpreserve.jwarc.WarcFilterCompiler::comparison()",
+            "org.netpreserve.jwarc.tools.ListTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.tools.ValidateTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.net.CaptureIndex::<init>(java.util.List)",
+            "org.netpreserve.jwarc.InetAddresses::textToNumericFormatV6(java.lang.String)",
+            "org.netpreserve.jwarc.tools.ScreenshotTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.tools.RecorderTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.net.HttpServer::interact(java.net.Socket, java.lang.String)",
+            "org.netpreserve.jwarc.tools.DedupeTool::deduplicateWarcFile(java.nio.file.Path, java.nio.file.Path)",
+            "org.netpreserve.jwarc.tools.ExtractTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.tools.SavebackTool::process(java.lang.String, org.netpreserve.jwarc.WarcWriter)",
+            "org.netpreserve.jwarc.tools.CdxTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.net.WarcServer::mementoLinks(java.util.NavigableSet, org.netpreserve.jwarc.net.Capture)",
+            "org.netpreserve.jwarc.net.WarcServer::timemap(org.netpreserve.jwarc.net.HttpExchange)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "org.netpreserve.jwarc.tools.WarcTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.net.HttpServer::lambda.listen.1(java.net.Socket)",
+            "org.netpreserve.jwarc.net.WarcServer::replay(org.netpreserve.jwarc.net.HttpExchange)",
+            "org.netpreserve.jwarc.net.WarcServer::timemap(org.netpreserve.jwarc.net.HttpExchange)",
+            "org.netpreserve.jwarc.GunzipChannel::read(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.tools.DedupeTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.WarcDigest::base64()",
+            "org.netpreserve.jwarc.InetAddresses::forString(java.lang.String)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "org.netpreserve.jwarc.tools.WarcTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.WarcDigest::base64()",
+            "org.netpreserve.jwarc.net.WarcServer::replay(org.netpreserve.jwarc.net.HttpExchange)",
+            "org.netpreserve.jwarc.net.HttpServer::lambda.listen.1(java.net.Socket)",
+            "org.netpreserve.jwarc.InetAddresses::forString(java.lang.String)",
+            "org.netpreserve.jwarc.GunzipChannel::read(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.tools.DedupeTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.net.WarcServer::timemap(org.netpreserve.jwarc.net.HttpExchange)"
+        ]
+    },
+    {
+        "strategyName": "BraindeadWithSkippingStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "org.netpreserve.jwarc.WarcFilterCompiler::accessor(java.lang.String)",
+            "org.netpreserve.jwarc.net.CertificateAuthority::signCertificate(javax.security.auth.x500.X500Principal, java.security.PrivateKey, javax.security.auth.x500.X500Principal, java.security.PublicKey, int, boolean)",
+            "org.netpreserve.jwarc.WarcParser::parse(java.nio.channels.ReadableByteChannel, java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.cdx.CdxRequestEncoder::encode(org.netpreserve.jwarc.HttpRequest)",
+            "org.netpreserve.jwarc.GeminiParser::parse(java.nio.channels.ReadableByteChannel, java.nio.ByteBuffer, java.nio.channels.WritableByteChannel)",
+            "org.netpreserve.jwarc.HttpParser::parse(java.nio.channels.ReadableByteChannel, java.nio.ByteBuffer, java.nio.channels.WritableByteChannel)",
+            "org.netpreserve.jwarc.ChunkedBody::read(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.URIs::toNormalizedSurt(java.lang.String)",
+            "org.netpreserve.jwarc.cdx.CdxFormat::format(org.netpreserve.jwarc.WarcCaptureRecord, java.lang.String, long, long, java.lang.String)",
+            "org.netpreserve.jwarc.net.WarcRecorder::handle(java.net.Socket, java.lang.String, org.netpreserve.jwarc.HttpRequest)",
+            "org.netpreserve.jwarc.tools.ExtractTool::writePayload(java.nio.channels.WritableByteChannel, org.netpreserve.jwarc.WarcRecord)",
+            "org.netpreserve.jwarc.WarcReader::consumeTrailer()",
+            "org.netpreserve.jwarc.tools.ValidateTool::validate(org.netpreserve.jwarc.WarcReader)",
+            "org.netpreserve.jwarc.GunzipChannel::readHeader()",
+            "org.netpreserve.jwarc.WarcDigest::base32Decode(java.lang.String)",
+            "org.netpreserve.jwarc.WarcFilterCompiler::comparison()",
+            "org.netpreserve.jwarc.tools.ListTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.tools.ValidateTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.net.CaptureIndex::<init>(java.util.List)",
+            "org.netpreserve.jwarc.InetAddresses::textToNumericFormatV6(java.lang.String)",
+            "org.netpreserve.jwarc.tools.ScreenshotTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.tools.RecorderTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.net.HttpServer::interact(java.net.Socket, java.lang.String)",
+            "org.netpreserve.jwarc.tools.DedupeTool::deduplicateWarcFile(java.nio.file.Path, java.nio.file.Path)",
+            "org.netpreserve.jwarc.tools.ExtractTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.tools.SavebackTool::process(java.lang.String, org.netpreserve.jwarc.WarcWriter)",
+            "org.netpreserve.jwarc.tools.CdxTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.net.WarcServer::mementoLinks(java.util.NavigableSet, org.netpreserve.jwarc.net.Capture)",
+            "org.netpreserve.jwarc.net.WarcServer::timemap(org.netpreserve.jwarc.net.HttpExchange)",
+            "org.netpreserve.jwarc.GzipChannel::write(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.InetAddresses::ipStringToBytes(java.lang.String)",
+            "org.netpreserve.jwarc.LengthedBody::read(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.tools.Utils::getJwarcVersion()",
+            "org.netpreserve.jwarc.tools.StatsTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.tools.DedupeTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.net.WarcServer::replay(org.netpreserve.jwarc.net.HttpExchange, java.lang.String, java.time.Instant, boolean)",
+            "org.netpreserve.jwarc.tools.WarcTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.cdx.CdxRecord::<init>(java.lang.String, org.netpreserve.jwarc.cdx.CdxFormat)",
+            "org.netpreserve.jwarc.MessageHeaders::parse(java.nio.channels.ReadableByteChannel)",
+            "org.netpreserve.jwarc.tools.StatsTool.Table::print(java.util.function.Function)",
+            "org.netpreserve.jwarc.InflateChannel::read(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.MessageParser::getErrorContext(java.lang.String, int, int)",
+            "org.netpreserve.jwarc.net.WarcServer::render(org.netpreserve.jwarc.net.HttpExchange)",
+            "org.netpreserve.jwarc.GunzipChannel::read(java.nio.ByteBuffer)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "org.netpreserve.jwarc.tools.WarcTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.tools.DedupeTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.net.WarcServer::proxy(org.netpreserve.jwarc.net.HttpExchange)",
+            "org.netpreserve.jwarc.GunzipChannel::read(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.net.HttpServer::lambda.listen.1(java.net.Socket)",
+            "org.netpreserve.jwarc.InetAddresses::forString(java.lang.String)",
+            "org.netpreserve.jwarc.net.WarcServer::timemap(org.netpreserve.jwarc.net.HttpExchange)",
+            "org.netpreserve.jwarc.GzipChannel::write(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.InflateChannel::read(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.MessageParser::getErrorContext(java.lang.String, int, int)",
+            "org.netpreserve.jwarc.net.WarcServer::render(org.netpreserve.jwarc.net.HttpExchange)",
+            "org.netpreserve.jwarc.LengthedBody.1::read(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.cdx.CdxFormat::parse(java.lang.String)",
+            "org.netpreserve.jwarc.Warcinfo::fields()",
+            "org.netpreserve.jwarc.tools.StatsTool::lambda.print.6(java.util.function.Function, org.netpreserve.jwarc.tools.StatsTool.Table)",
+            "org.netpreserve.jwarc.WarcDigest::base64()"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "org.netpreserve.jwarc.tools.WarcTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.GunzipChannel::read(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.net.WarcServer::replay(org.netpreserve.jwarc.net.HttpExchange)",
+            "org.netpreserve.jwarc.tools.DedupeTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.MessageParser::getErrorContext(java.lang.String, int, int)",
+            "org.netpreserve.jwarc.net.HttpServer::lambda.listen.1(java.net.Socket)",
+            "org.netpreserve.jwarc.InetAddresses::forString(java.lang.String)",
+            "org.netpreserve.jwarc.cdx.CdxFormat::parse(java.lang.String)",
+            "org.netpreserve.jwarc.WarcDigest::base64()",
+            "org.netpreserve.jwarc.InflateChannel::read(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.LengthedBody.1::read(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.GzipChannel::write(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.tools.StatsTool::lambda.print.6(java.util.function.Function, org.netpreserve.jwarc.tools.StatsTool.Table)",
+            "org.netpreserve.jwarc.Warcinfo::fields()",
+            "org.netpreserve.jwarc.net.WarcServer::render(org.netpreserve.jwarc.net.HttpExchange)",
+            "org.netpreserve.jwarc.net.WarcServer::timemap(org.netpreserve.jwarc.net.HttpExchange)"
+        ]
+    },
+    {
+        "strategyName": "BraindeadWithSkippingStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "org.netpreserve.jwarc.WarcFilterCompiler::accessor(java.lang.String)",
+            "org.netpreserve.jwarc.net.CertificateAuthority::signCertificate(javax.security.auth.x500.X500Principal, java.security.PrivateKey, javax.security.auth.x500.X500Principal, java.security.PublicKey, int, boolean)",
+            "org.netpreserve.jwarc.WarcParser::parse(java.nio.channels.ReadableByteChannel, java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.cdx.CdxRequestEncoder::encode(org.netpreserve.jwarc.HttpRequest)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "org.netpreserve.jwarc.tools.WarcTool::main(java.lang.String[])"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "org.netpreserve.jwarc.net.CertificateAuthority::main(java.lang.String[])",
+            "org.netpreserve.jwarc.tools.WarcTool::main(java.lang.String[])"
+        ]
+    },
+    {
+        "strategyName": "BraindeadWithSkippingStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "org.netpreserve.jwarc.WarcFilterCompiler::accessor(java.lang.String)",
+            "org.netpreserve.jwarc.net.CertificateAuthority::signCertificate(javax.security.auth.x500.X500Principal, java.security.PrivateKey, javax.security.auth.x500.X500Principal, java.security.PublicKey, int, boolean)",
+            "org.netpreserve.jwarc.WarcParser::parse(java.nio.channels.ReadableByteChannel, java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.cdx.CdxRequestEncoder::encode(org.netpreserve.jwarc.HttpRequest)",
+            "org.netpreserve.jwarc.GeminiParser::parse(java.nio.channels.ReadableByteChannel, java.nio.ByteBuffer, java.nio.channels.WritableByteChannel)",
+            "org.netpreserve.jwarc.HttpParser::parse(java.nio.channels.ReadableByteChannel, java.nio.ByteBuffer, java.nio.channels.WritableByteChannel)",
+            "org.netpreserve.jwarc.ChunkedBody::read(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.URIs::toNormalizedSurt(java.lang.String)",
+            "org.netpreserve.jwarc.cdx.CdxFormat::format(org.netpreserve.jwarc.WarcCaptureRecord, java.lang.String, long, long, java.lang.String)",
+            "org.netpreserve.jwarc.net.WarcRecorder::handle(java.net.Socket, java.lang.String, org.netpreserve.jwarc.HttpRequest)",
+            "org.netpreserve.jwarc.tools.ExtractTool::writePayload(java.nio.channels.WritableByteChannel, org.netpreserve.jwarc.WarcRecord)",
+            "org.netpreserve.jwarc.WarcReader::consumeTrailer()",
+            "org.netpreserve.jwarc.tools.ValidateTool::validate(org.netpreserve.jwarc.WarcReader)",
+            "org.netpreserve.jwarc.GunzipChannel::readHeader()",
+            "org.netpreserve.jwarc.WarcDigest::base32Decode(java.lang.String)",
+            "org.netpreserve.jwarc.WarcFilterCompiler::comparison()",
+            "org.netpreserve.jwarc.tools.ListTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.tools.ValidateTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.net.CaptureIndex::<init>(java.util.List)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "org.netpreserve.jwarc.tools.WarcTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.GunzipChannel::read(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.net.HttpServer::lambda.listen.1(java.net.Socket)",
+            "org.netpreserve.jwarc.WarcDigest::base64()"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "org.netpreserve.jwarc.tools.WarcTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.WarcDigest::base64()",
+            "org.netpreserve.jwarc.GunzipChannel::read(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.net.HttpServer::lambda.listen.1(java.net.Socket)"
+        ]
+    },
+    {
+        "strategyName": "BraindeadWithSkippingStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "org.netpreserve.jwarc.WarcFilterCompiler::accessor(java.lang.String)",
+            "org.netpreserve.jwarc.net.CertificateAuthority::signCertificate(javax.security.auth.x500.X500Principal, java.security.PrivateKey, javax.security.auth.x500.X500Principal, java.security.PublicKey, int, boolean)",
+            "org.netpreserve.jwarc.WarcParser::parse(java.nio.channels.ReadableByteChannel, java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.cdx.CdxRequestEncoder::encode(org.netpreserve.jwarc.HttpRequest)",
+            "org.netpreserve.jwarc.GeminiParser::parse(java.nio.channels.ReadableByteChannel, java.nio.ByteBuffer, java.nio.channels.WritableByteChannel)",
+            "org.netpreserve.jwarc.HttpParser::parse(java.nio.channels.ReadableByteChannel, java.nio.ByteBuffer, java.nio.channels.WritableByteChannel)",
+            "org.netpreserve.jwarc.ChunkedBody::read(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.URIs::toNormalizedSurt(java.lang.String)",
+            "org.netpreserve.jwarc.cdx.CdxFormat::format(org.netpreserve.jwarc.WarcCaptureRecord, java.lang.String, long, long, java.lang.String)",
+            "org.netpreserve.jwarc.net.WarcRecorder::handle(java.net.Socket, java.lang.String, org.netpreserve.jwarc.HttpRequest)",
+            "org.netpreserve.jwarc.tools.ExtractTool::writePayload(java.nio.channels.WritableByteChannel, org.netpreserve.jwarc.WarcRecord)",
+            "org.netpreserve.jwarc.WarcReader::consumeTrailer()",
+            "org.netpreserve.jwarc.tools.ValidateTool::validate(org.netpreserve.jwarc.WarcReader)",
+            "org.netpreserve.jwarc.GunzipChannel::readHeader()",
+            "org.netpreserve.jwarc.WarcDigest::base32Decode(java.lang.String)",
+            "org.netpreserve.jwarc.WarcFilterCompiler::comparison()",
+            "org.netpreserve.jwarc.tools.ListTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.tools.ValidateTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.net.CaptureIndex::<init>(java.util.List)",
+            "org.netpreserve.jwarc.InetAddresses::textToNumericFormatV6(java.lang.String)",
+            "org.netpreserve.jwarc.tools.ScreenshotTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.tools.RecorderTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.net.HttpServer::interact(java.net.Socket, java.lang.String)",
+            "org.netpreserve.jwarc.tools.DedupeTool::deduplicateWarcFile(java.nio.file.Path, java.nio.file.Path)",
+            "org.netpreserve.jwarc.tools.ExtractTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.tools.SavebackTool::process(java.lang.String, org.netpreserve.jwarc.WarcWriter)",
+            "org.netpreserve.jwarc.tools.CdxTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.net.WarcServer::mementoLinks(java.util.NavigableSet, org.netpreserve.jwarc.net.Capture)",
+            "org.netpreserve.jwarc.net.WarcServer::timemap(org.netpreserve.jwarc.net.HttpExchange)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "org.netpreserve.jwarc.tools.WarcTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.net.HttpServer::lambda.listen.1(java.net.Socket)",
+            "org.netpreserve.jwarc.net.WarcServer::replay(org.netpreserve.jwarc.net.HttpExchange)",
+            "org.netpreserve.jwarc.net.WarcServer::timemap(org.netpreserve.jwarc.net.HttpExchange)",
+            "org.netpreserve.jwarc.GunzipChannel::read(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.tools.DedupeTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.WarcDigest::base64()",
+            "org.netpreserve.jwarc.InetAddresses::forString(java.lang.String)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "org.netpreserve.jwarc.tools.WarcTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.WarcDigest::base64()",
+            "org.netpreserve.jwarc.net.WarcServer::replay(org.netpreserve.jwarc.net.HttpExchange)",
+            "org.netpreserve.jwarc.net.HttpServer::lambda.listen.1(java.net.Socket)",
+            "org.netpreserve.jwarc.InetAddresses::forString(java.lang.String)",
+            "org.netpreserve.jwarc.GunzipChannel::read(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.tools.DedupeTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.net.WarcServer::timemap(org.netpreserve.jwarc.net.HttpExchange)"
+        ]
+    },
+    {
+        "strategyName": "BraindeadWithSkippingStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "org.netpreserve.jwarc.WarcFilterCompiler::accessor(java.lang.String)",
+            "org.netpreserve.jwarc.net.CertificateAuthority::signCertificate(javax.security.auth.x500.X500Principal, java.security.PrivateKey, javax.security.auth.x500.X500Principal, java.security.PublicKey, int, boolean)",
+            "org.netpreserve.jwarc.WarcParser::parse(java.nio.channels.ReadableByteChannel, java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.cdx.CdxRequestEncoder::encode(org.netpreserve.jwarc.HttpRequest)",
+            "org.netpreserve.jwarc.GeminiParser::parse(java.nio.channels.ReadableByteChannel, java.nio.ByteBuffer, java.nio.channels.WritableByteChannel)",
+            "org.netpreserve.jwarc.HttpParser::parse(java.nio.channels.ReadableByteChannel, java.nio.ByteBuffer, java.nio.channels.WritableByteChannel)",
+            "org.netpreserve.jwarc.ChunkedBody::read(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.URIs::toNormalizedSurt(java.lang.String)",
+            "org.netpreserve.jwarc.cdx.CdxFormat::format(org.netpreserve.jwarc.WarcCaptureRecord, java.lang.String, long, long, java.lang.String)",
+            "org.netpreserve.jwarc.net.WarcRecorder::handle(java.net.Socket, java.lang.String, org.netpreserve.jwarc.HttpRequest)",
+            "org.netpreserve.jwarc.tools.ExtractTool::writePayload(java.nio.channels.WritableByteChannel, org.netpreserve.jwarc.WarcRecord)",
+            "org.netpreserve.jwarc.WarcReader::consumeTrailer()",
+            "org.netpreserve.jwarc.tools.ValidateTool::validate(org.netpreserve.jwarc.WarcReader)",
+            "org.netpreserve.jwarc.GunzipChannel::readHeader()",
+            "org.netpreserve.jwarc.WarcDigest::base32Decode(java.lang.String)",
+            "org.netpreserve.jwarc.WarcFilterCompiler::comparison()",
+            "org.netpreserve.jwarc.tools.ListTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.tools.ValidateTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.net.CaptureIndex::<init>(java.util.List)",
+            "org.netpreserve.jwarc.InetAddresses::textToNumericFormatV6(java.lang.String)",
+            "org.netpreserve.jwarc.tools.ScreenshotTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.tools.RecorderTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.net.HttpServer::interact(java.net.Socket, java.lang.String)",
+            "org.netpreserve.jwarc.tools.DedupeTool::deduplicateWarcFile(java.nio.file.Path, java.nio.file.Path)",
+            "org.netpreserve.jwarc.tools.ExtractTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.tools.SavebackTool::process(java.lang.String, org.netpreserve.jwarc.WarcWriter)",
+            "org.netpreserve.jwarc.tools.CdxTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.net.WarcServer::mementoLinks(java.util.NavigableSet, org.netpreserve.jwarc.net.Capture)",
+            "org.netpreserve.jwarc.net.WarcServer::timemap(org.netpreserve.jwarc.net.HttpExchange)",
+            "org.netpreserve.jwarc.GzipChannel::write(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.InetAddresses::ipStringToBytes(java.lang.String)",
+            "org.netpreserve.jwarc.LengthedBody::read(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.tools.Utils::getJwarcVersion()",
+            "org.netpreserve.jwarc.tools.StatsTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.tools.DedupeTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.net.WarcServer::replay(org.netpreserve.jwarc.net.HttpExchange, java.lang.String, java.time.Instant, boolean)",
+            "org.netpreserve.jwarc.tools.WarcTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.cdx.CdxRecord::<init>(java.lang.String, org.netpreserve.jwarc.cdx.CdxFormat)",
+            "org.netpreserve.jwarc.MessageHeaders::parse(java.nio.channels.ReadableByteChannel)",
+            "org.netpreserve.jwarc.tools.StatsTool.Table::print(java.util.function.Function)",
+            "org.netpreserve.jwarc.InflateChannel::read(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.MessageParser::getErrorContext(java.lang.String, int, int)",
+            "org.netpreserve.jwarc.net.WarcServer::render(org.netpreserve.jwarc.net.HttpExchange)",
+            "org.netpreserve.jwarc.GunzipChannel::read(java.nio.ByteBuffer)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "org.netpreserve.jwarc.tools.WarcTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.tools.DedupeTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.net.WarcServer::proxy(org.netpreserve.jwarc.net.HttpExchange)",
+            "org.netpreserve.jwarc.GunzipChannel::read(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.net.HttpServer::lambda.listen.1(java.net.Socket)",
+            "org.netpreserve.jwarc.InetAddresses::forString(java.lang.String)",
+            "org.netpreserve.jwarc.net.WarcServer::timemap(org.netpreserve.jwarc.net.HttpExchange)",
+            "org.netpreserve.jwarc.GzipChannel::write(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.InflateChannel::read(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.MessageParser::getErrorContext(java.lang.String, int, int)",
+            "org.netpreserve.jwarc.net.WarcServer::render(org.netpreserve.jwarc.net.HttpExchange)",
+            "org.netpreserve.jwarc.LengthedBody.1::read(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.cdx.CdxFormat::parse(java.lang.String)",
+            "org.netpreserve.jwarc.Warcinfo::fields()",
+            "org.netpreserve.jwarc.tools.StatsTool::lambda.print.6(java.util.function.Function, org.netpreserve.jwarc.tools.StatsTool.Table)",
+            "org.netpreserve.jwarc.WarcDigest::base64()"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "org.netpreserve.jwarc.tools.WarcTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.GunzipChannel::read(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.net.WarcServer::replay(org.netpreserve.jwarc.net.HttpExchange)",
+            "org.netpreserve.jwarc.tools.DedupeTool::main(java.lang.String[])",
+            "org.netpreserve.jwarc.MessageParser::getErrorContext(java.lang.String, int, int)",
+            "org.netpreserve.jwarc.net.HttpServer::lambda.listen.1(java.net.Socket)",
+            "org.netpreserve.jwarc.InetAddresses::forString(java.lang.String)",
+            "org.netpreserve.jwarc.cdx.CdxFormat::parse(java.lang.String)",
+            "org.netpreserve.jwarc.WarcDigest::base64()",
+            "org.netpreserve.jwarc.InflateChannel::read(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.LengthedBody.1::read(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.GzipChannel::write(java.nio.ByteBuffer)",
+            "org.netpreserve.jwarc.tools.StatsTool::lambda.print.6(java.util.function.Function, org.netpreserve.jwarc.tools.StatsTool.Table)",
+            "org.netpreserve.jwarc.Warcinfo::fields()",
+            "org.netpreserve.jwarc.net.WarcServer::render(org.netpreserve.jwarc.net.HttpExchange)",
+            "org.netpreserve.jwarc.net.WarcServer::timemap(org.netpreserve.jwarc.net.HttpExchange)"
+        ]
+    }
+]

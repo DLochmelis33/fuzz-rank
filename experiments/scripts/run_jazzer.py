@@ -1,10 +1,9 @@
 import os
 import subprocess
+import shutil
 
 JAZZER_HOME = os.environ['JAZZ_HOME']
 JACOCO_HOME = os.environ['JACOCO_HOME']
-
-PATH_SEP = ';' # might be different on unix
 
 
 def run_jazzer(
@@ -12,8 +11,9 @@ def run_jazzer(
         cp: list[str], 
         autofuzz_target: str, 
         run_workdir: str,
+        time_limit: int,
 ):
-    cp_str = PATH_SEP.join(cp) # + PATH_SEP + f'{JAZZER_HOME}/jazzer_standalone.jar'
+    cp_str = ';'.join(cp) # + PATH_SEP + f'{JAZZER_HOME}/jazzer_standalone.jar'
     if not os.path.exists(run_workdir):
         os.makedirs(run_workdir)
     
@@ -25,9 +25,10 @@ def run_jazzer(
         f'{JAZZER_HOME}/jazzer_standalone.jar;{cp_str}',
         'com.code_intelligence.jazzer.Jazzer',
         # Jazzer arguments
-        # f'--cp={cp_str}', 
-        f'--autofuzz={autofuzz_target}', 
+        f'--autofuzz={autofuzz_target}',
         '--autofuzz_ignore=java.lang.NullPointerException', # maybe not?
+        f'-max_total_time={time_limit}',
+        '--keep_going=0',
     ]
     print(command)
 
@@ -60,9 +61,14 @@ if __name__=="__main__":
       "C:/Users/dloch/prog/maga/thesis/fuzz-rank/dataset\\assertj-vavr-cd521160aa\\target\\dependency\\vavr-0.10.4.jar",
       "C:/Users/dloch/prog/maga/thesis/fuzz-rank/dataset\\assertj-vavr-cd521160aa\\target\\dependency\\vavr-match-0.10.4.jar"
     ]
-    target = "org.assertj.vavr.api.VavrAssumptions::asAssumption(org.assertj.vavr.api.AbstractVavrAssert)"
+    target = "org.assertj.vavr.api.SeqAssert::isSorted()" # "org.assertj.vavr.api.VavrAssumptions::asAssumption(org.assertj.vavr.api.AbstractVavrAssert)"
+    
+    workdir = 'workdir'
+    if os.path.exists(workdir):
+        shutil.rmtree(workdir)
+    
     run_jazzer(
         cp=cp, 
         autofuzz_target=target, 
-        run_workdir='workdir/',
+        run_workdir=workdir,
     )

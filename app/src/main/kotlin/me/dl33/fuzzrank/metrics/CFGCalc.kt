@@ -14,7 +14,7 @@ import kotlin.io.path.absolutePathString
 
 object CFGCalc {
     fun calc(jar: Path, metricsMap: MetricsMap, skipFQNsStartingWith: Set<String>) {
-        println("\ncalculating CFG metrics for $jar")
+//        println("\ncalculating CFG metrics for $jar")
         val inputLocation = JavaClassPathAnalysisInputLocation(jar.absolutePathString())
         val view = JavaView(inputLocation)
 

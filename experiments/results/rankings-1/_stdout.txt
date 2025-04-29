@@ -1,0 +1,216 @@
+project assertj-vavr................ successfully analyzed in 11.66s
+project ConfigMe................ successfully analyzed in 9.912s
+project event-ruler................ successfully analyzed in 24.46s
+project chesslib................ successfully analyzed in 1m 6.79s
+project whatsapp-business-java-api................ successfully analyzed in 5.58s
+project crawler-commons.warn: did not cover 3 interesting methods
+warn: did not cover 3 interesting methods
+.warn: did not cover 4 interesting methods
+warn: did not cover 4 interesting methods
+.warn: did not cover 13 interesting methods
+warn: did not cover 13 interesting methods
+..warn: did not cover 3 interesting methods
+warn: did not cover 3 interesting methods
+.warn: did not cover 4 interesting methods
+warn: did not cover 4 interesting methods
+.warn: did not cover 13 interesting methods
+warn: did not cover 13 interesting methods
+..warn: did not cover 3 interesting methods
+warn: did not cover 3 interesting methods
+.warn: did not cover 4 interesting methods
+warn: did not cover 4 interesting methods
+.warn: did not cover 13 interesting methods
+warn: did not cover 13 interesting methods
+..warn: did not cover 3 interesting methods
+warn: did not cover 3 interesting methods
+.warn: did not cover 4 interesting methods
+warn: did not cover 4 interesting methods
+.warn: did not cover 13 interesting methods
+warn: did not cover 13 interesting methods
+. successfully analyzed in 11.14s
+project cucumber-reporting................ successfully analyzed in 4.938s
+project openapi-to-plantuml................ successfully analyzed in 6.208s
+project word-wrap................ successfully analyzed in 1.143s
+project jaxb-xew-plugin................ successfully analyzed in 7.671s
+project jansi.......warn: did not cover 1 interesting methods
+warn: did not cover 1 interesting methods
+......... successfully analyzed in 10.321s
+project jwarc.warn: did not cover 1 interesting methods
+warn: did not cover 1 interesting methods
+.warn: did not cover 2 interesting methods
+warn: did not cover 2 interesting methods
+.warn: did not cover 2 interesting methods
+warn: did not cover 2 interesting methods
+..warn: did not cover 1 interesting methods
+warn: did not cover 1 interesting methods
+.warn: did not cover 2 interesting methods
+warn: did not cover 2 interesting methods
+.warn: did not cover 2 interesting methods
+warn: did not cover 2 interesting methods
+..warn: did not cover 1 interesting methods
+warn: did not cover 1 interesting methods
+.warn: did not cover 2 interesting methods
+warn: did not cover 2 interesting methods
+.warn: did not cover 2 interesting methods
+warn: did not cover 2 interesting methods
+..warn: did not cover 1 interesting methods
+warn: did not cover 1 interesting methods
+.warn: did not cover 2 interesting methods
+warn: did not cover 2 interesting methods
+.warn: did not cover 2 interesting methods
+warn: did not cover 2 interesting methods
+. successfully analyzed in 24.79s
+project jsoupwarn: did not cover 1 interesting methods
+warn: did not cover 1 interesting methods
+.warn: did not cover 1 interesting methods
+warn: did not cover 1 interesting methods
+.warn: did not cover 1 interesting methods
+warn: did not cover 1 interesting methods
+.warn: did not cover 1 interesting methods
+warn: did not cover 1 interesting methods
+.warn: did not cover 1 interesting methods
+warn: did not cover 1 interesting methods
+.warn: did not cover 1 interesting methods
+warn: did not cover 1 interesting methods
+.warn: did not cover 1 interesting methods
+warn: did not cover 1 interesting methods
+.warn: did not cover 1 interesting methods
+warn: did not cover 1 interesting methods
+.warn: did not cover 1 interesting methods
+warn: did not cover 1 interesting methods
+.warn: did not cover 1 interesting methods
+warn: did not cover 1 interesting methods
+.warn: did not cover 1 interesting methods
+warn: did not cover 1 interesting methods
+.warn: did not cover 1 interesting methods
+warn: did not cover 1 interesting methods
+.warn: did not cover 1 interesting methods
+warn: did not cover 1 interesting methods
+.warn: did not cover 1 interesting methods
+warn: did not cover 1 interesting methods
+.warn: did not cover 1 interesting methods
+warn: did not cover 1 interesting methods
+.warn: did not cover 1 interesting methods
+warn: did not cover 1 interesting methods
+. successfully analyzed in 49.082s
+project ensembler................ successfully analyzed in 11.043s
+project solarpositioning................ successfully analyzed in 27.042s
+project ByteSkript................ successfully analyzed in 52.353s
+project mcs................ successfully analyzed in 1.827s
+project java-solutionswarn: did not cover 1 interesting methods
+warn: did not cover 1 interesting methods
+.warn: did not cover 2 interesting methods
+warn: did not cover 2 interesting methods
+.warn: did not cover 3 interesting methods
+warn: did not cover 3 interesting methods
+.warn: did not cover 6 interesting methods
+warn: did not cover 6 interesting methods
+.warn: did not cover 1 interesting methods
+warn: did not cover 1 interesting methods
+.warn: did not cover 2 interesting methods
+warn: did not cover 2 interesting methods
+.warn: did not cover 3 interesting methods
+warn: did not cover 3 interesting methods
+.warn: did not cover 6 interesting methods
+warn: did not cover 6 interesting methods
+.warn: did not cover 1 interesting methods
+warn: did not cover 1 interesting methods
+.warn: did not cover 2 interesting methods
+warn: did not cover 2 interesting methods
+.warn: did not cover 3 interesting methods
+warn: did not cover 3 interesting methods
+.warn: did not cover 6 interesting methods
+warn: did not cover 6 interesting methods
+.warn: did not cover 1 interesting methods
+warn: did not cover 1 interesting methods
+.warn: did not cover 2 interesting methods
+warn: did not cover 2 interesting methods
+.warn: did not cover 3 interesting methods
+warn: did not cover 3 interesting methods
+.warn: did not cover 6 interesting methods
+warn: did not cover 6 interesting methods
+. successfully analyzed in 19.063s
+project ari-proxy................ successfully analyzed in 10.672s
+project formatter-maven-plugin................ successfully analyzed in 3.572s
+project grammaticuswarn: did not cover 1 interesting methods
+warn: did not cover 1 interesting methods
+.warn: did not cover 1 interesting methods
+warn: did not cover 1 interesting methods
+.warn: did not cover 1 interesting methods
+warn: did not cover 1 interesting methods
+.warn: did not cover 2 interesting methods
+warn: did not cover 2 interesting methods
+.warn: did not cover 1 interesting methods
+warn: did not cover 1 interesting methods
+.warn: did not cover 1 interesting methods
+warn: did not cover 1 interesting methods
+.warn: did not cover 1 interesting methods
+warn: did not cover 1 interesting methods
+.warn: did not cover 2 interesting methods
+warn: did not cover 2 interesting methods
+.warn: did not cover 1 interesting methods
+warn: did not cover 1 interesting methods
+.warn: did not cover 1 interesting methods
+warn: did not cover 1 interesting methods
+.warn: did not cover 1 interesting methods
+warn: did not cover 1 interesting methods
+.warn: did not cover 2 interesting methods
+warn: did not cover 2 interesting methods
+.warn: did not cover 1 interesting methods
+warn: did not cover 1 interesting methods
+.warn: did not cover 1 interesting methods
+warn: did not cover 1 interesting methods
+.warn: did not cover 1 interesting methods
+warn: did not cover 1 interesting methods
+.warn: did not cover 2 interesting methods
+warn: did not cover 2 interesting methods
+. successfully analyzed in 8m 11.668s
+project semver4j................ successfully analyzed in 4.804s
+project snowflake-jdbc...warn: did not cover 1 interesting methods
+warn: did not cover 1 interesting methods
+....warn: did not cover 1 interesting methods
+warn: did not cover 1 interesting methods
+....warn: did not cover 1 interesting methods
+warn: did not cover 1 interesting methods
+....warn: did not cover 1 interesting methods
+warn: did not cover 1 interesting methods
+. successfully analyzed in 2m 11.957s
+project spring-guice................ successfully analyzed in 3.323s
+project spring-retry................ successfully analyzed in 7.778s
+project Javawarn: did not cover 3 interesting methods
+warn: did not cover 3 interesting methods
+.warn: did not cover 4 interesting methods
+warn: did not cover 4 interesting methods
+.warn: did not cover 5 interesting methods
+warn: did not cover 5 interesting methods
+.warn: did not cover 9 interesting methods
+warn: did not cover 9 interesting methods
+.warn: did not cover 3 interesting methods
+warn: did not cover 3 interesting methods
+.warn: did not cover 4 interesting methods
+warn: did not cover 4 interesting methods
+.warn: did not cover 5 interesting methods
+warn: did not cover 5 interesting methods
+.warn: did not cover 9 interesting methods
+warn: did not cover 9 interesting methods
+.warn: did not cover 3 interesting methods
+warn: did not cover 3 interesting methods
+.warn: did not cover 4 interesting methods
+warn: did not cover 4 interesting methods
+.warn: did not cover 5 interesting methods
+warn: did not cover 5 interesting methods
+.warn: did not cover 9 interesting methods
+warn: did not cover 9 interesting methods
+.warn: did not cover 3 interesting methods
+warn: did not cover 3 interesting methods
+.warn: did not cover 4 interesting methods
+warn: did not cover 4 interesting methods
+.warn: did not cover 5 interesting methods
+warn: did not cover 5 interesting methods
+.warn: did not cover 9 interesting methods
+warn: did not cover 9 interesting methods
+. successfully analyzed in 1m 3.827s
+project dataframe-ec................ successfully analyzed in 1m 20.668s
+project epubcheck................ successfully analyzed in 1m 57.621s
+project nfe................ successfully analyzed in 5m 53.485s
+project database-engine................ successfully analyzed in 3.634s

@@ -1,0 +1,860 @@
+[
+    {
+        "strategyName": "BraindeadWithSkippingStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "org.assertj.vavr.api.VavrAssumptions::asAssumption(org.assertj.vavr.api.AbstractVavrAssert)",
+            "org.assertj.vavr.api.AbstractSeqAssert::contains(java.lang.Object, org.assertj.core.data.Index)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "org.assertj.vavr.api.AbstractSeqAssert::contains(java.lang.Object, org.assertj.core.data.Index)",
+            "org.assertj.vavr.api.VavrAssumptions.AssumptionMethodInterceptor::intercept(org.assertj.vavr.api.AbstractVavrAssert, java.util.concurrent.Callable)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "org.assertj.vavr.api.AbstractSeqAssert::contains(java.lang.Object, org.assertj.core.data.Index)",
+            "org.assertj.vavr.api.VavrAssumptions.AssumptionMethodInterceptor::intercept(org.assertj.vavr.api.AbstractVavrAssert, java.util.concurrent.Callable)"
+        ]
+    },
+    {
+        "strategyName": "BraindeadWithSkippingStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "org.assertj.vavr.api.VavrAssumptions::asAssumption(org.assertj.vavr.api.AbstractVavrAssert)",
+            "org.assertj.vavr.api.AbstractSeqAssert::contains(java.lang.Object, org.assertj.core.data.Index)",
+            "org.assertj.vavr.api.AbstractOptionAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.AbstractTryAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.VavrAssumptions.AssumptionMethodInterceptor::intercept(org.assertj.vavr.api.AbstractVavrAssert, java.util.concurrent.Callable)",
+            "org.assertj.vavr.api.AbstractSeqAssert::isSorted()"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "org.assertj.vavr.api.VavrAssumptions.AssumptionMethodInterceptor::intercept(org.assertj.vavr.api.AbstractVavrAssert, java.util.concurrent.Callable)",
+            "org.assertj.vavr.api.SeqAssert::isSorted()",
+            "org.assertj.vavr.api.AbstractSeqAssert::contains(java.lang.Object, org.assertj.core.data.Index)",
+            "org.assertj.vavr.api.OptionAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.TryAssert::contains(java.lang.Object)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "org.assertj.vavr.api.SeqAssert::isSorted()",
+            "org.assertj.vavr.api.OptionAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.TryAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.VavrAssumptions.AssumptionMethodInterceptor::intercept(org.assertj.vavr.api.AbstractVavrAssert, java.util.concurrent.Callable)",
+            "org.assertj.vavr.api.AbstractSeqAssert::contains(java.lang.Object, org.assertj.core.data.Index)"
+        ]
+    },
+    {
+        "strategyName": "BraindeadWithSkippingStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "org.assertj.vavr.api.VavrAssumptions::asAssumption(org.assertj.vavr.api.AbstractVavrAssert)",
+            "org.assertj.vavr.api.AbstractSeqAssert::contains(java.lang.Object, org.assertj.core.data.Index)",
+            "org.assertj.vavr.api.AbstractOptionAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.AbstractTryAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.VavrAssumptions.AssumptionMethodInterceptor::intercept(org.assertj.vavr.api.AbstractVavrAssert, java.util.concurrent.Callable)",
+            "org.assertj.vavr.api.AbstractSeqAssert::isSorted()",
+            "org.assertj.vavr.api.ClassLoadingStrategyFactory::classLoadingStrategy(java.lang.Class)",
+            "org.assertj.vavr.api.AbstractMapAssert::hasSizeBetween(int, int)",
+            "org.assertj.vavr.api.AbstractMultimapAssert::hasSizeBetween(int, int)",
+            "org.assertj.vavr.api.AbstractOptionAssert::containsSame(java.lang.Object)",
+            "org.assertj.vavr.api.AbstractSeqAssert::doesNotContain(java.lang.Object, org.assertj.core.data.Index)",
+            "org.assertj.vavr.api.AbstractValidationAssert::containsInvalid(java.lang.Object)",
+            "org.assertj.vavr.api.AbstractTryAssert::containsSame(java.lang.Object)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "org.assertj.vavr.api.VavrAssumptions.AssumptionMethodInterceptor::intercept(org.assertj.vavr.api.AbstractVavrAssert, java.util.concurrent.Callable)",
+            "org.assertj.vavr.api.SeqAssert::isSorted()",
+            "org.assertj.vavr.api.AbstractSeqAssert::contains(java.lang.Object, org.assertj.core.data.Index)",
+            "org.assertj.vavr.api.AbstractSeqAssert::doesNotContain(java.lang.Object, org.assertj.core.data.Index)",
+            "org.assertj.vavr.api.OptionAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.TryAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.AbstractMapAssert::hasSizeBetween(int, int)",
+            "org.assertj.vavr.api.AbstractMultimapAssert::hasSizeBetween(int, int)",
+            "org.assertj.vavr.api.OptionAssert::containsSame(java.lang.Object)",
+            "org.assertj.vavr.api.ValidationAssert::containsInvalid(java.lang.Object)",
+            "org.assertj.vavr.api.TryAssert::containsSame(java.lang.Object)",
+            "org.assertj.vavr.api.VavrAssumptions::lambda.createAssumptionClass.0(java.lang.Class)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "org.assertj.vavr.api.SeqAssert::isSorted()",
+            "org.assertj.vavr.api.AbstractMapAssert::hasSizeBetween(int, int)",
+            "org.assertj.vavr.api.AbstractMultimapAssert::hasSizeBetween(int, int)",
+            "org.assertj.vavr.api.VavrAssumptions.AssumptionMethodInterceptor::intercept(org.assertj.vavr.api.AbstractVavrAssert, java.util.concurrent.Callable)",
+            "org.assertj.vavr.api.TryAssert::containsSame(java.lang.Object)",
+            "org.assertj.vavr.api.OptionAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.TryAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.OptionAssert::containsSame(java.lang.Object)",
+            "org.assertj.vavr.api.AbstractSeqAssert::contains(java.lang.Object, org.assertj.core.data.Index)",
+            "org.assertj.vavr.api.AbstractSeqAssert::doesNotContain(java.lang.Object, org.assertj.core.data.Index)",
+            "org.assertj.vavr.api.ValidationAssert::containsInvalid(java.lang.Object)",
+            "org.assertj.vavr.api.VavrAssumptions::lambda.createAssumptionClass.0(java.lang.Class)"
+        ]
+    },
+    {
+        "strategyName": "BraindeadWithSkippingStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "org.assertj.vavr.api.VavrAssumptions::asAssumption(org.assertj.vavr.api.AbstractVavrAssert)",
+            "org.assertj.vavr.api.AbstractSeqAssert::contains(java.lang.Object, org.assertj.core.data.Index)",
+            "org.assertj.vavr.api.AbstractOptionAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.AbstractTryAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.VavrAssumptions.AssumptionMethodInterceptor::intercept(org.assertj.vavr.api.AbstractVavrAssert, java.util.concurrent.Callable)",
+            "org.assertj.vavr.api.AbstractSeqAssert::isSorted()",
+            "org.assertj.vavr.api.ClassLoadingStrategyFactory::classLoadingStrategy(java.lang.Class)",
+            "org.assertj.vavr.api.AbstractMapAssert::hasSizeBetween(int, int)",
+            "org.assertj.vavr.api.AbstractMultimapAssert::hasSizeBetween(int, int)",
+            "org.assertj.vavr.api.AbstractOptionAssert::containsSame(java.lang.Object)",
+            "org.assertj.vavr.api.AbstractSeqAssert::doesNotContain(java.lang.Object, org.assertj.core.data.Index)",
+            "org.assertj.vavr.api.AbstractValidationAssert::containsInvalid(java.lang.Object)",
+            "org.assertj.vavr.api.AbstractTryAssert::containsSame(java.lang.Object)",
+            "org.assertj.vavr.api.AbstractMapAssert::hasSameSizeAs(java.lang.Iterable)",
+            "org.assertj.vavr.api.AbstractMultimapAssert::hasSameSizeAs(java.lang.Iterable)",
+            "org.assertj.vavr.api.EitherShouldContainInstanceOf::shouldContainOnLeftInstanceOf(java.lang.Object, java.lang.Class)",
+            "org.assertj.vavr.api.EitherShouldContainInstanceOf::shouldContainOnRightInstanceOf(java.lang.Object, java.lang.Class)",
+            "org.assertj.vavr.api.OptionShouldContainInstanceOf::shouldContainInstanceOf(java.lang.Object, java.lang.Class)",
+            "org.assertj.vavr.api.TryShouldContainInstanceOf::shouldContainInstanceOf(java.lang.Object, java.lang.Class)",
+            "org.assertj.vavr.api.ValidationShouldContainInstanceOf::shouldContainInvalidInstanceOf(java.lang.Object, java.lang.Class)",
+            "org.assertj.vavr.api.ValidationShouldContainInstanceOf::shouldContainValidInstanceOf(java.lang.Object, java.lang.Class)",
+            "org.assertj.vavr.api.AbstractEitherAssert::containsOnLeft(java.lang.Object)",
+            "org.assertj.vavr.api.AbstractEitherAssert::containsOnRight(java.lang.Object)",
+            "org.assertj.vavr.api.AbstractValidationAssert::containsValid(java.lang.Object)",
+            "org.assertj.vavr.api.TryShouldBeSuccess::asString(java.lang.StackTraceElement[])",
+            "org.assertj.vavr.api.AbstractEitherAssert::containsRightInstanceOf(java.lang.Class)",
+            "org.assertj.vavr.api.AbstractEitherAssert::containsLeftInstanceOf(java.lang.Class)",
+            "org.assertj.vavr.api.AbstractMapAssert::hasSizeGreaterThanOrEqualTo(int)",
+            "org.assertj.vavr.api.AbstractMapAssert::hasSizeLessThan(int)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "org.assertj.vavr.api.VavrAssumptions.AssumptionMethodInterceptor::intercept(org.assertj.vavr.api.AbstractVavrAssert, java.util.concurrent.Callable)",
+            "org.assertj.vavr.api.AbstractSeqAssert::contains(java.lang.Object, org.assertj.core.data.Index)",
+            "org.assertj.vavr.api.SeqAssert::isSorted()",
+            "org.assertj.vavr.api.EitherAssert::containsRightInstanceOf(java.lang.Class)",
+            "org.assertj.vavr.api.EitherAssert::containsLeftInstanceOf(java.lang.Class)",
+            "org.assertj.vavr.api.TryAssert::containsInstanceOf(java.lang.Class)",
+            "org.assertj.vavr.api.AbstractMapAssert::hasSizeBetween(int, int)",
+            "org.assertj.vavr.api.AbstractMultimapAssert::hasSizeBetween(int, int)",
+            "org.assertj.vavr.api.AbstractSeqAssert::doesNotContain(java.lang.Object, org.assertj.core.data.Index)",
+            "org.assertj.vavr.api.AbstractMapAssert::hasSameSizeAs(java.lang.Iterable)",
+            "org.assertj.vavr.api.AbstractMultimapAssert::hasSameSizeAs(java.lang.Iterable)",
+            "org.assertj.vavr.api.OptionAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.TryAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.OptionAssert::containsSame(java.lang.Object)",
+            "org.assertj.vavr.api.ValidationAssert::containsInvalid(java.lang.Object)",
+            "org.assertj.vavr.api.TryAssert::containsSame(java.lang.Object)",
+            "org.assertj.vavr.api.EitherAssert::containsOnLeft(java.lang.Object)",
+            "org.assertj.vavr.api.EitherAssert::containsOnRight(java.lang.Object)",
+            "org.assertj.vavr.api.ValidationAssert::containsValid(java.lang.Object)",
+            "org.assertj.vavr.api.AbstractMapAssert::hasSizeGreaterThanOrEqualTo(int)",
+            "org.assertj.vavr.api.AbstractMapAssert::hasSizeLessThan(int)",
+            "org.assertj.vavr.api.VavrAssumptions::lambda.createAssumptionClass.0(java.lang.Class)",
+            "org.assertj.vavr.api.OptionAssert::containsInstanceOf(java.lang.Class)",
+            "org.assertj.vavr.api.ValidationAssert::containsInvalidInstanceOf(java.lang.Class)",
+            "org.assertj.vavr.api.ValidationAssert::containsValidInstanceOf(java.lang.Class)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "org.assertj.vavr.api.AbstractSeqAssert::contains(java.lang.Object, org.assertj.core.data.Index)",
+            "org.assertj.vavr.api.SeqAssert::isSorted()",
+            "org.assertj.vavr.api.EitherAssert::containsRightInstanceOf(java.lang.Class)",
+            "org.assertj.vavr.api.EitherAssert::containsLeftInstanceOf(java.lang.Class)",
+            "org.assertj.vavr.api.TryAssert::containsInstanceOf(java.lang.Class)",
+            "org.assertj.vavr.api.AbstractMapAssert::hasSizeBetween(int, int)",
+            "org.assertj.vavr.api.AbstractMultimapAssert::hasSizeBetween(int, int)",
+            "org.assertj.vavr.api.AbstractMapAssert::hasSizeGreaterThanOrEqualTo(int)",
+            "org.assertj.vavr.api.AbstractMapAssert::hasSizeLessThan(int)",
+            "org.assertj.vavr.api.VavrAssumptions.AssumptionMethodInterceptor::intercept(org.assertj.vavr.api.AbstractVavrAssert, java.util.concurrent.Callable)",
+            "org.assertj.vavr.api.AbstractSeqAssert::doesNotContain(java.lang.Object, org.assertj.core.data.Index)",
+            "org.assertj.vavr.api.AbstractMapAssert::hasSameSizeAs(java.lang.Iterable)",
+            "org.assertj.vavr.api.AbstractMultimapAssert::hasSameSizeAs(java.lang.Iterable)",
+            "org.assertj.vavr.api.TryAssert::containsSame(java.lang.Object)",
+            "org.assertj.vavr.api.OptionAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.TryAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.OptionAssert::containsSame(java.lang.Object)",
+            "org.assertj.vavr.api.EitherAssert::containsOnLeft(java.lang.Object)",
+            "org.assertj.vavr.api.EitherAssert::containsOnRight(java.lang.Object)",
+            "org.assertj.vavr.api.ValidationAssert::containsValid(java.lang.Object)",
+            "org.assertj.vavr.api.ValidationAssert::containsInvalid(java.lang.Object)",
+            "org.assertj.vavr.api.OptionAssert::containsInstanceOf(java.lang.Class)",
+            "org.assertj.vavr.api.ValidationAssert::containsInvalidInstanceOf(java.lang.Class)",
+            "org.assertj.vavr.api.ValidationAssert::containsValidInstanceOf(java.lang.Class)",
+            "org.assertj.vavr.api.VavrAssumptions::lambda.createAssumptionClass.0(java.lang.Class)"
+        ]
+    },
+    {
+        "strategyName": "BraindeadWithSkippingStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "org.assertj.vavr.api.VavrAssumptions::asAssumption(org.assertj.vavr.api.AbstractVavrAssert)",
+            "org.assertj.vavr.api.AbstractSeqAssert::contains(java.lang.Object, org.assertj.core.data.Index)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "org.assertj.vavr.api.AbstractSeqAssert::contains(java.lang.Object, org.assertj.core.data.Index)",
+            "org.assertj.vavr.api.VavrAssumptions.AssumptionMethodInterceptor::intercept(org.assertj.vavr.api.AbstractVavrAssert, java.util.concurrent.Callable)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "org.assertj.vavr.api.AbstractSeqAssert::contains(java.lang.Object, org.assertj.core.data.Index)",
+            "org.assertj.vavr.api.VavrAssumptions.AssumptionMethodInterceptor::intercept(org.assertj.vavr.api.AbstractVavrAssert, java.util.concurrent.Callable)"
+        ]
+    },
+    {
+        "strategyName": "BraindeadWithSkippingStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "org.assertj.vavr.api.VavrAssumptions::asAssumption(org.assertj.vavr.api.AbstractVavrAssert)",
+            "org.assertj.vavr.api.AbstractSeqAssert::contains(java.lang.Object, org.assertj.core.data.Index)",
+            "org.assertj.vavr.api.AbstractOptionAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.AbstractTryAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.VavrAssumptions.AssumptionMethodInterceptor::intercept(org.assertj.vavr.api.AbstractVavrAssert, java.util.concurrent.Callable)",
+            "org.assertj.vavr.api.AbstractSeqAssert::isSorted()"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "org.assertj.vavr.api.VavrAssumptions.AssumptionMethodInterceptor::intercept(org.assertj.vavr.api.AbstractVavrAssert, java.util.concurrent.Callable)",
+            "org.assertj.vavr.api.SeqAssert::isSorted()",
+            "org.assertj.vavr.api.AbstractSeqAssert::contains(java.lang.Object, org.assertj.core.data.Index)",
+            "org.assertj.vavr.api.OptionAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.TryAssert::contains(java.lang.Object)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "org.assertj.vavr.api.SeqAssert::isSorted()",
+            "org.assertj.vavr.api.OptionAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.TryAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.VavrAssumptions.AssumptionMethodInterceptor::intercept(org.assertj.vavr.api.AbstractVavrAssert, java.util.concurrent.Callable)",
+            "org.assertj.vavr.api.AbstractSeqAssert::contains(java.lang.Object, org.assertj.core.data.Index)"
+        ]
+    },
+    {
+        "strategyName": "BraindeadWithSkippingStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "org.assertj.vavr.api.VavrAssumptions::asAssumption(org.assertj.vavr.api.AbstractVavrAssert)",
+            "org.assertj.vavr.api.AbstractSeqAssert::contains(java.lang.Object, org.assertj.core.data.Index)",
+            "org.assertj.vavr.api.AbstractOptionAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.AbstractTryAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.VavrAssumptions.AssumptionMethodInterceptor::intercept(org.assertj.vavr.api.AbstractVavrAssert, java.util.concurrent.Callable)",
+            "org.assertj.vavr.api.AbstractSeqAssert::isSorted()",
+            "org.assertj.vavr.api.ClassLoadingStrategyFactory::classLoadingStrategy(java.lang.Class)",
+            "org.assertj.vavr.api.AbstractMapAssert::hasSizeBetween(int, int)",
+            "org.assertj.vavr.api.AbstractOptionAssert::containsSame(java.lang.Object)",
+            "org.assertj.vavr.api.AbstractSeqAssert::doesNotContain(java.lang.Object, org.assertj.core.data.Index)",
+            "org.assertj.vavr.api.AbstractValidationAssert::containsInvalid(java.lang.Object)",
+            "org.assertj.vavr.api.AbstractTryAssert::containsSame(java.lang.Object)",
+            "org.assertj.vavr.api.AbstractMapAssert::hasSameSizeAs(java.lang.Iterable)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "org.assertj.vavr.api.VavrAssumptions.AssumptionMethodInterceptor::intercept(org.assertj.vavr.api.AbstractVavrAssert, java.util.concurrent.Callable)",
+            "org.assertj.vavr.api.SeqAssert::isSorted()",
+            "org.assertj.vavr.api.AbstractSeqAssert::contains(java.lang.Object, org.assertj.core.data.Index)",
+            "org.assertj.vavr.api.AbstractSeqAssert::doesNotContain(java.lang.Object, org.assertj.core.data.Index)",
+            "org.assertj.vavr.api.AbstractMapAssert::hasSameSizeAs(java.lang.Iterable)",
+            "org.assertj.vavr.api.OptionAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.TryAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.AbstractMapAssert::hasSizeBetween(int, int)",
+            "org.assertj.vavr.api.OptionAssert::containsSame(java.lang.Object)",
+            "org.assertj.vavr.api.ValidationAssert::containsInvalid(java.lang.Object)",
+            "org.assertj.vavr.api.TryAssert::containsSame(java.lang.Object)",
+            "org.assertj.vavr.api.VavrAssumptions::lambda.createAssumptionClass.0(java.lang.Class)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "org.assertj.vavr.api.SeqAssert::isSorted()",
+            "org.assertj.vavr.api.AbstractMapAssert::hasSizeBetween(int, int)",
+            "org.assertj.vavr.api.VavrAssumptions.AssumptionMethodInterceptor::intercept(org.assertj.vavr.api.AbstractVavrAssert, java.util.concurrent.Callable)",
+            "org.assertj.vavr.api.AbstractMapAssert::hasSameSizeAs(java.lang.Iterable)",
+            "org.assertj.vavr.api.TryAssert::containsSame(java.lang.Object)",
+            "org.assertj.vavr.api.OptionAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.TryAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.OptionAssert::containsSame(java.lang.Object)",
+            "org.assertj.vavr.api.AbstractSeqAssert::contains(java.lang.Object, org.assertj.core.data.Index)",
+            "org.assertj.vavr.api.AbstractSeqAssert::doesNotContain(java.lang.Object, org.assertj.core.data.Index)",
+            "org.assertj.vavr.api.ValidationAssert::containsInvalid(java.lang.Object)",
+            "org.assertj.vavr.api.VavrAssumptions::lambda.createAssumptionClass.0(java.lang.Class)"
+        ]
+    },
+    {
+        "strategyName": "BraindeadWithSkippingStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "org.assertj.vavr.api.VavrAssumptions::asAssumption(org.assertj.vavr.api.AbstractVavrAssert)",
+            "org.assertj.vavr.api.AbstractSeqAssert::contains(java.lang.Object, org.assertj.core.data.Index)",
+            "org.assertj.vavr.api.AbstractOptionAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.AbstractTryAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.VavrAssumptions.AssumptionMethodInterceptor::intercept(org.assertj.vavr.api.AbstractVavrAssert, java.util.concurrent.Callable)",
+            "org.assertj.vavr.api.AbstractSeqAssert::isSorted()",
+            "org.assertj.vavr.api.ClassLoadingStrategyFactory::classLoadingStrategy(java.lang.Class)",
+            "org.assertj.vavr.api.AbstractMapAssert::hasSizeBetween(int, int)",
+            "org.assertj.vavr.api.AbstractOptionAssert::containsSame(java.lang.Object)",
+            "org.assertj.vavr.api.AbstractSeqAssert::doesNotContain(java.lang.Object, org.assertj.core.data.Index)",
+            "org.assertj.vavr.api.AbstractValidationAssert::containsInvalid(java.lang.Object)",
+            "org.assertj.vavr.api.AbstractTryAssert::containsSame(java.lang.Object)",
+            "org.assertj.vavr.api.AbstractMapAssert::hasSameSizeAs(java.lang.Iterable)",
+            "org.assertj.vavr.api.AbstractMultimapAssert::hasSameSizeAs(java.lang.Iterable)",
+            "org.assertj.vavr.api.EitherShouldContainInstanceOf::shouldContainOnLeftInstanceOf(java.lang.Object, java.lang.Class)",
+            "org.assertj.vavr.api.EitherShouldContainInstanceOf::shouldContainOnRightInstanceOf(java.lang.Object, java.lang.Class)",
+            "org.assertj.vavr.api.OptionShouldContainInstanceOf::shouldContainInstanceOf(java.lang.Object, java.lang.Class)",
+            "org.assertj.vavr.api.TryShouldContainInstanceOf::shouldContainInstanceOf(java.lang.Object, java.lang.Class)",
+            "org.assertj.vavr.api.ValidationShouldContainInstanceOf::shouldContainValidInstanceOf(java.lang.Object, java.lang.Class)",
+            "org.assertj.vavr.api.ValidationShouldContainInstanceOf::shouldContainInvalidInstanceOf(java.lang.Object, java.lang.Class)",
+            "org.assertj.vavr.api.AbstractEitherAssert::containsOnLeft(java.lang.Object)",
+            "org.assertj.vavr.api.AbstractEitherAssert::containsOnRight(java.lang.Object)",
+            "org.assertj.vavr.api.AbstractValidationAssert::containsValid(java.lang.Object)",
+            "org.assertj.vavr.api.TryShouldBeSuccess::asString(java.lang.StackTraceElement[])",
+            "org.assertj.vavr.api.AbstractMultimapAssert::hasSizeBetween(int, int)",
+            "org.assertj.vavr.api.AbstractEitherAssert::containsLeftInstanceOf(java.lang.Class)",
+            "org.assertj.vavr.api.AbstractEitherAssert::containsRightInstanceOf(java.lang.Class)",
+            "org.assertj.vavr.api.AbstractMapAssert::hasSizeLessThanOrEqualTo(int)",
+            "org.assertj.vavr.api.AbstractMapAssert::hasSizeGreaterThan(int)",
+            "org.assertj.vavr.api.AbstractMultimapAssert::hasSizeGreaterThan(int)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "org.assertj.vavr.api.VavrAssumptions.AssumptionMethodInterceptor::intercept(org.assertj.vavr.api.AbstractVavrAssert, java.util.concurrent.Callable)",
+            "org.assertj.vavr.api.SeqAssert::isSorted()",
+            "org.assertj.vavr.api.EitherAssert::containsLeftInstanceOf(java.lang.Class)",
+            "org.assertj.vavr.api.EitherAssert::containsRightInstanceOf(java.lang.Class)",
+            "org.assertj.vavr.api.TryAssert::containsInstanceOf(java.lang.Class)",
+            "org.assertj.vavr.api.AbstractSeqAssert::contains(java.lang.Object, org.assertj.core.data.Index)",
+            "org.assertj.vavr.api.AbstractMapAssert::hasSizeBetween(int, int)",
+            "org.assertj.vavr.api.AbstractSeqAssert::doesNotContain(java.lang.Object, org.assertj.core.data.Index)",
+            "org.assertj.vavr.api.AbstractMapAssert::hasSameSizeAs(java.lang.Iterable)",
+            "org.assertj.vavr.api.AbstractMultimapAssert::hasSameSizeAs(java.lang.Iterable)",
+            "org.assertj.vavr.api.AbstractMultimapAssert::hasSizeBetween(int, int)",
+            "org.assertj.vavr.api.OptionAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.TryAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.OptionAssert::containsSame(java.lang.Object)",
+            "org.assertj.vavr.api.ValidationAssert::containsInvalid(java.lang.Object)",
+            "org.assertj.vavr.api.TryAssert::containsSame(java.lang.Object)",
+            "org.assertj.vavr.api.EitherAssert::containsOnLeft(java.lang.Object)",
+            "org.assertj.vavr.api.EitherAssert::containsOnRight(java.lang.Object)",
+            "org.assertj.vavr.api.ValidationAssert::containsValid(java.lang.Object)",
+            "org.assertj.vavr.api.AbstractMapAssert::hasSizeLessThanOrEqualTo(int)",
+            "org.assertj.vavr.api.AbstractMapAssert::hasSizeGreaterThan(int)",
+            "org.assertj.vavr.api.AbstractMultimapAssert::hasSizeGreaterThan(int)",
+            "org.assertj.vavr.api.VavrAssumptions::lambda.createAssumptionClass.0(java.lang.Class)",
+            "org.assertj.vavr.api.OptionAssert::containsInstanceOf(java.lang.Class)",
+            "org.assertj.vavr.api.ValidationAssert::containsValidInstanceOf(java.lang.Class)",
+            "org.assertj.vavr.api.ValidationAssert::containsInvalidInstanceOf(java.lang.Class)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "org.assertj.vavr.api.SeqAssert::isSorted()",
+            "org.assertj.vavr.api.EitherAssert::containsLeftInstanceOf(java.lang.Class)",
+            "org.assertj.vavr.api.EitherAssert::containsRightInstanceOf(java.lang.Class)",
+            "org.assertj.vavr.api.TryAssert::containsInstanceOf(java.lang.Class)",
+            "org.assertj.vavr.api.AbstractMapAssert::hasSizeBetween(int, int)",
+            "org.assertj.vavr.api.AbstractMultimapAssert::hasSizeBetween(int, int)",
+            "org.assertj.vavr.api.AbstractMapAssert::hasSizeLessThanOrEqualTo(int)",
+            "org.assertj.vavr.api.AbstractMapAssert::hasSizeGreaterThan(int)",
+            "org.assertj.vavr.api.AbstractMultimapAssert::hasSizeGreaterThan(int)",
+            "org.assertj.vavr.api.VavrAssumptions.AssumptionMethodInterceptor::intercept(org.assertj.vavr.api.AbstractVavrAssert, java.util.concurrent.Callable)",
+            "org.assertj.vavr.api.AbstractMapAssert::hasSameSizeAs(java.lang.Iterable)",
+            "org.assertj.vavr.api.AbstractMultimapAssert::hasSameSizeAs(java.lang.Iterable)",
+            "org.assertj.vavr.api.TryAssert::containsSame(java.lang.Object)",
+            "org.assertj.vavr.api.OptionAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.TryAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.OptionAssert::containsSame(java.lang.Object)",
+            "org.assertj.vavr.api.EitherAssert::containsOnLeft(java.lang.Object)",
+            "org.assertj.vavr.api.EitherAssert::containsOnRight(java.lang.Object)",
+            "org.assertj.vavr.api.ValidationAssert::containsValid(java.lang.Object)",
+            "org.assertj.vavr.api.AbstractSeqAssert::contains(java.lang.Object, org.assertj.core.data.Index)",
+            "org.assertj.vavr.api.AbstractSeqAssert::doesNotContain(java.lang.Object, org.assertj.core.data.Index)",
+            "org.assertj.vavr.api.ValidationAssert::containsInvalid(java.lang.Object)",
+            "org.assertj.vavr.api.OptionAssert::containsInstanceOf(java.lang.Class)",
+            "org.assertj.vavr.api.ValidationAssert::containsValidInstanceOf(java.lang.Class)",
+            "org.assertj.vavr.api.ValidationAssert::containsInvalidInstanceOf(java.lang.Class)",
+            "org.assertj.vavr.api.VavrAssumptions::lambda.createAssumptionClass.0(java.lang.Class)"
+        ]
+    },
+    {
+        "strategyName": "BraindeadWithSkippingStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "org.assertj.vavr.api.VavrAssumptions::asAssumption(org.assertj.vavr.api.AbstractVavrAssert)",
+            "org.assertj.vavr.api.ClassLoadingStrategyFactory::classLoadingStrategy(java.lang.Class)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "org.assertj.vavr.api.VavrAssumptions.AssumptionMethodInterceptor::intercept(org.assertj.vavr.api.AbstractVavrAssert, java.util.concurrent.Callable)",
+            "org.assertj.vavr.api.VavrAssumptions::lambda.createAssumptionClass.0(java.lang.Class)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "org.assertj.vavr.api.VavrAssumptions::lambda.createAssumptionClass.0(java.lang.Class)",
+            "org.assertj.vavr.api.VavrAssumptions.AssumptionMethodInterceptor::intercept(org.assertj.vavr.api.AbstractVavrAssert, java.util.concurrent.Callable)"
+        ]
+    },
+    {
+        "strategyName": "BraindeadWithSkippingStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "org.assertj.vavr.api.VavrAssumptions::asAssumption(org.assertj.vavr.api.AbstractVavrAssert)",
+            "org.assertj.vavr.api.ClassLoadingStrategyFactory::classLoadingStrategy(java.lang.Class)",
+            "org.assertj.vavr.api.AbstractOptionAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.AbstractTryAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.VavrAssumptions.AssumptionMethodInterceptor::intercept(org.assertj.vavr.api.AbstractVavrAssert, java.util.concurrent.Callable)",
+            "org.assertj.vavr.api.AbstractSeqAssert::isSorted()"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "org.assertj.vavr.api.VavrAssumptions.AssumptionMethodInterceptor::intercept(org.assertj.vavr.api.AbstractVavrAssert, java.util.concurrent.Callable)",
+            "org.assertj.vavr.api.SeqAssert::isSorted()",
+            "org.assertj.vavr.api.OptionAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.TryAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.VavrAssumptions::lambda.createAssumptionClass.0(java.lang.Class)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "org.assertj.vavr.api.SeqAssert::isSorted()",
+            "org.assertj.vavr.api.OptionAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.TryAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.VavrAssumptions.AssumptionMethodInterceptor::intercept(org.assertj.vavr.api.AbstractVavrAssert, java.util.concurrent.Callable)",
+            "org.assertj.vavr.api.VavrAssumptions::lambda.createAssumptionClass.0(java.lang.Class)"
+        ]
+    },
+    {
+        "strategyName": "BraindeadWithSkippingStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "org.assertj.vavr.api.VavrAssumptions::asAssumption(org.assertj.vavr.api.AbstractVavrAssert)",
+            "org.assertj.vavr.api.ClassLoadingStrategyFactory::classLoadingStrategy(java.lang.Class)",
+            "org.assertj.vavr.api.AbstractOptionAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.AbstractTryAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.VavrAssumptions.AssumptionMethodInterceptor::intercept(org.assertj.vavr.api.AbstractVavrAssert, java.util.concurrent.Callable)",
+            "org.assertj.vavr.api.AbstractSeqAssert::isSorted()",
+            "org.assertj.vavr.api.AbstractValidationAssert::containsInvalid(java.lang.Object)",
+            "org.assertj.vavr.api.AbstractMapAssert::hasSizeBetween(int, int)",
+            "org.assertj.vavr.api.AbstractMultimapAssert::hasSizeBetween(int, int)",
+            "org.assertj.vavr.api.AbstractOptionAssert::containsSame(java.lang.Object)",
+            "org.assertj.vavr.api.AbstractSeqAssert::contains(java.lang.Object, org.assertj.core.data.Index)",
+            "org.assertj.vavr.api.AbstractEitherAssert::containsOnLeft(java.lang.Object)",
+            "org.assertj.vavr.api.AbstractEitherAssert::containsOnRight(java.lang.Object)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "org.assertj.vavr.api.VavrAssumptions.AssumptionMethodInterceptor::intercept(org.assertj.vavr.api.AbstractVavrAssert, java.util.concurrent.Callable)",
+            "org.assertj.vavr.api.SeqAssert::isSorted()",
+            "org.assertj.vavr.api.AbstractSeqAssert::contains(java.lang.Object, org.assertj.core.data.Index)",
+            "org.assertj.vavr.api.OptionAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.TryAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.ValidationAssert::containsInvalid(java.lang.Object)",
+            "org.assertj.vavr.api.AbstractMapAssert::hasSizeBetween(int, int)",
+            "org.assertj.vavr.api.AbstractMultimapAssert::hasSizeBetween(int, int)",
+            "org.assertj.vavr.api.OptionAssert::containsSame(java.lang.Object)",
+            "org.assertj.vavr.api.EitherAssert::containsOnLeft(java.lang.Object)",
+            "org.assertj.vavr.api.EitherAssert::containsOnRight(java.lang.Object)",
+            "org.assertj.vavr.api.VavrAssumptions::lambda.createAssumptionClass.0(java.lang.Class)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "org.assertj.vavr.api.SeqAssert::isSorted()",
+            "org.assertj.vavr.api.AbstractMapAssert::hasSizeBetween(int, int)",
+            "org.assertj.vavr.api.AbstractMultimapAssert::hasSizeBetween(int, int)",
+            "org.assertj.vavr.api.VavrAssumptions.AssumptionMethodInterceptor::intercept(org.assertj.vavr.api.AbstractVavrAssert, java.util.concurrent.Callable)",
+            "org.assertj.vavr.api.OptionAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.TryAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.OptionAssert::containsSame(java.lang.Object)",
+            "org.assertj.vavr.api.EitherAssert::containsOnLeft(java.lang.Object)",
+            "org.assertj.vavr.api.EitherAssert::containsOnRight(java.lang.Object)",
+            "org.assertj.vavr.api.AbstractSeqAssert::contains(java.lang.Object, org.assertj.core.data.Index)",
+            "org.assertj.vavr.api.ValidationAssert::containsInvalid(java.lang.Object)",
+            "org.assertj.vavr.api.VavrAssumptions::lambda.createAssumptionClass.0(java.lang.Class)"
+        ]
+    },
+    {
+        "strategyName": "BraindeadWithSkippingStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "org.assertj.vavr.api.VavrAssumptions::asAssumption(org.assertj.vavr.api.AbstractVavrAssert)",
+            "org.assertj.vavr.api.ClassLoadingStrategyFactory::classLoadingStrategy(java.lang.Class)",
+            "org.assertj.vavr.api.AbstractOptionAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.AbstractTryAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.VavrAssumptions.AssumptionMethodInterceptor::intercept(org.assertj.vavr.api.AbstractVavrAssert, java.util.concurrent.Callable)",
+            "org.assertj.vavr.api.AbstractSeqAssert::isSorted()",
+            "org.assertj.vavr.api.AbstractValidationAssert::containsInvalid(java.lang.Object)",
+            "org.assertj.vavr.api.AbstractMapAssert::hasSizeBetween(int, int)",
+            "org.assertj.vavr.api.AbstractMultimapAssert::hasSizeBetween(int, int)",
+            "org.assertj.vavr.api.AbstractOptionAssert::containsSame(java.lang.Object)",
+            "org.assertj.vavr.api.AbstractSeqAssert::contains(java.lang.Object, org.assertj.core.data.Index)",
+            "org.assertj.vavr.api.AbstractEitherAssert::containsOnLeft(java.lang.Object)",
+            "org.assertj.vavr.api.AbstractEitherAssert::containsOnRight(java.lang.Object)",
+            "org.assertj.vavr.api.AbstractValidationAssert::containsValid(java.lang.Object)",
+            "org.assertj.vavr.api.AbstractTryAssert::containsSame(java.lang.Object)",
+            "org.assertj.vavr.api.AbstractSeqAssert::doesNotContain(java.lang.Object, org.assertj.core.data.Index)",
+            "org.assertj.vavr.api.AbstractEitherAssert::containsLeftInstanceOf(java.lang.Class)",
+            "org.assertj.vavr.api.AbstractEitherAssert::containsRightInstanceOf(java.lang.Class)",
+            "org.assertj.vavr.api.AbstractMapAssert::hasSizeLessThan(int)",
+            "org.assertj.vavr.api.AbstractMapAssert::hasSizeLessThanOrEqualTo(int)",
+            "org.assertj.vavr.api.AbstractMapAssert::hasSizeGreaterThan(int)",
+            "org.assertj.vavr.api.AbstractMapAssert::hasSize(int)",
+            "org.assertj.vavr.api.AbstractMultimapAssert::hasSizeLessThan(int)",
+            "org.assertj.vavr.api.AbstractMultimapAssert::hasSizeGreaterThan(int)",
+            "org.assertj.vavr.api.AbstractMultimapAssert::hasSizeLessThanOrEqualTo(int)",
+            "org.assertj.vavr.api.AbstractMultimapAssert::hasSizeGreaterThanOrEqualTo(int)",
+            "org.assertj.vavr.api.AbstractOptionAssert::containsInstanceOf(java.lang.Class)",
+            "org.assertj.vavr.api.AbstractTryAssert::containsInstanceOf(java.lang.Class)",
+            "org.assertj.vavr.api.AbstractValidationAssert::containsInvalidInstanceOf(java.lang.Class)",
+            "org.assertj.vavr.api.AbstractValidationAssert::containsValidInstanceOf(java.lang.Class)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "org.assertj.vavr.api.VavrAssumptions.AssumptionMethodInterceptor::intercept(org.assertj.vavr.api.AbstractVavrAssert, java.util.concurrent.Callable)",
+            "org.assertj.vavr.api.SeqAssert::isSorted()",
+            "org.assertj.vavr.api.AbstractMapAssert::hasSizeBetween(int, int)",
+            "org.assertj.vavr.api.AbstractMultimapAssert::hasSizeBetween(int, int)",
+            "org.assertj.vavr.api.AbstractSeqAssert::contains(java.lang.Object, org.assertj.core.data.Index)",
+            "org.assertj.vavr.api.AbstractSeqAssert::doesNotContain(java.lang.Object, org.assertj.core.data.Index)",
+            "org.assertj.vavr.api.OptionAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.TryAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.ValidationAssert::containsInvalid(java.lang.Object)",
+            "org.assertj.vavr.api.OptionAssert::containsSame(java.lang.Object)",
+            "org.assertj.vavr.api.EitherAssert::containsOnLeft(java.lang.Object)",
+            "org.assertj.vavr.api.EitherAssert::containsOnRight(java.lang.Object)",
+            "org.assertj.vavr.api.ValidationAssert::containsValid(java.lang.Object)",
+            "org.assertj.vavr.api.TryAssert::containsSame(java.lang.Object)",
+            "org.assertj.vavr.api.EitherAssert::containsLeftInstanceOf(java.lang.Class)",
+            "org.assertj.vavr.api.EitherAssert::containsRightInstanceOf(java.lang.Class)",
+            "org.assertj.vavr.api.AbstractMapAssert::hasSizeLessThan(int)",
+            "org.assertj.vavr.api.AbstractMapAssert::hasSizeLessThanOrEqualTo(int)",
+            "org.assertj.vavr.api.AbstractMapAssert::hasSizeGreaterThan(int)",
+            "org.assertj.vavr.api.AbstractMapAssert::hasSize(int)",
+            "org.assertj.vavr.api.AbstractMultimapAssert::hasSizeLessThan(int)",
+            "org.assertj.vavr.api.AbstractMultimapAssert::hasSizeGreaterThan(int)",
+            "org.assertj.vavr.api.AbstractMultimapAssert::hasSizeLessThanOrEqualTo(int)",
+            "org.assertj.vavr.api.AbstractMultimapAssert::hasSizeGreaterThanOrEqualTo(int)",
+            "org.assertj.vavr.api.OptionAssert::containsInstanceOf(java.lang.Class)",
+            "org.assertj.vavr.api.TryAssert::containsInstanceOf(java.lang.Class)",
+            "org.assertj.vavr.api.ValidationAssert::containsInvalidInstanceOf(java.lang.Class)",
+            "org.assertj.vavr.api.ValidationAssert::containsValidInstanceOf(java.lang.Class)",
+            "org.assertj.vavr.api.VavrAssumptions::lambda.createAssumptionClass.0(java.lang.Class)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "org.assertj.vavr.api.SeqAssert::isSorted()",
+            "org.assertj.vavr.api.AbstractMapAssert::hasSizeBetween(int, int)",
+            "org.assertj.vavr.api.AbstractMultimapAssert::hasSizeBetween(int, int)",
+            "org.assertj.vavr.api.AbstractMapAssert::hasSizeLessThan(int)",
+            "org.assertj.vavr.api.AbstractMapAssert::hasSizeLessThanOrEqualTo(int)",
+            "org.assertj.vavr.api.AbstractMapAssert::hasSizeGreaterThan(int)",
+            "org.assertj.vavr.api.AbstractMapAssert::hasSize(int)",
+            "org.assertj.vavr.api.AbstractMultimapAssert::hasSizeLessThan(int)",
+            "org.assertj.vavr.api.AbstractMultimapAssert::hasSizeGreaterThan(int)",
+            "org.assertj.vavr.api.AbstractMultimapAssert::hasSizeLessThanOrEqualTo(int)",
+            "org.assertj.vavr.api.AbstractMultimapAssert::hasSizeGreaterThanOrEqualTo(int)",
+            "org.assertj.vavr.api.VavrAssumptions.AssumptionMethodInterceptor::intercept(org.assertj.vavr.api.AbstractVavrAssert, java.util.concurrent.Callable)",
+            "org.assertj.vavr.api.TryAssert::containsSame(java.lang.Object)",
+            "org.assertj.vavr.api.OptionAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.TryAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.OptionAssert::containsSame(java.lang.Object)",
+            "org.assertj.vavr.api.EitherAssert::containsOnLeft(java.lang.Object)",
+            "org.assertj.vavr.api.EitherAssert::containsOnRight(java.lang.Object)",
+            "org.assertj.vavr.api.ValidationAssert::containsValid(java.lang.Object)",
+            "org.assertj.vavr.api.AbstractSeqAssert::contains(java.lang.Object, org.assertj.core.data.Index)",
+            "org.assertj.vavr.api.AbstractSeqAssert::doesNotContain(java.lang.Object, org.assertj.core.data.Index)",
+            "org.assertj.vavr.api.ValidationAssert::containsInvalid(java.lang.Object)",
+            "org.assertj.vavr.api.EitherAssert::containsLeftInstanceOf(java.lang.Class)",
+            "org.assertj.vavr.api.EitherAssert::containsRightInstanceOf(java.lang.Class)",
+            "org.assertj.vavr.api.OptionAssert::containsInstanceOf(java.lang.Class)",
+            "org.assertj.vavr.api.ValidationAssert::containsInvalidInstanceOf(java.lang.Class)",
+            "org.assertj.vavr.api.ValidationAssert::containsValidInstanceOf(java.lang.Class)",
+            "org.assertj.vavr.api.TryAssert::containsInstanceOf(java.lang.Class)",
+            "org.assertj.vavr.api.VavrAssumptions::lambda.createAssumptionClass.0(java.lang.Class)"
+        ]
+    },
+    {
+        "strategyName": "BraindeadWithSkippingStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "org.assertj.vavr.api.VavrAssumptions::asAssumption(org.assertj.vavr.api.AbstractVavrAssert)",
+            "org.assertj.vavr.api.AbstractMultimapAssert::hasSameSizeAs(java.lang.Iterable)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "org.assertj.vavr.api.AbstractMultimapAssert::hasSameSizeAs(java.lang.Iterable)",
+            "org.assertj.vavr.api.VavrAssumptions.AssumptionMethodInterceptor::intercept(org.assertj.vavr.api.AbstractVavrAssert, java.util.concurrent.Callable)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "org.assertj.vavr.api.AbstractMultimapAssert::hasSameSizeAs(java.lang.Iterable)",
+            "org.assertj.vavr.api.VavrAssumptions.AssumptionMethodInterceptor::intercept(org.assertj.vavr.api.AbstractVavrAssert, java.util.concurrent.Callable)"
+        ]
+    },
+    {
+        "strategyName": "BraindeadWithSkippingStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "org.assertj.vavr.api.VavrAssumptions::asAssumption(org.assertj.vavr.api.AbstractVavrAssert)",
+            "org.assertj.vavr.api.AbstractMultimapAssert::hasSameSizeAs(java.lang.Iterable)",
+            "org.assertj.vavr.api.ClassLoadingStrategyFactory::classLoadingStrategy(java.lang.Class)",
+            "org.assertj.vavr.api.AbstractOptionAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.AbstractTryAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.VavrAssumptions.AssumptionMethodInterceptor::intercept(org.assertj.vavr.api.AbstractVavrAssert, java.util.concurrent.Callable)",
+            "org.assertj.vavr.api.AbstractSeqAssert::isSorted()"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "org.assertj.vavr.api.VavrAssumptions.AssumptionMethodInterceptor::intercept(org.assertj.vavr.api.AbstractVavrAssert, java.util.concurrent.Callable)",
+            "org.assertj.vavr.api.AbstractMultimapAssert::hasSameSizeAs(java.lang.Iterable)",
+            "org.assertj.vavr.api.OptionAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.TryAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.SeqAssert::isSorted()",
+            "org.assertj.vavr.api.VavrAssumptions::lambda.createAssumptionClass.0(java.lang.Class)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "org.assertj.vavr.api.AbstractMultimapAssert::hasSameSizeAs(java.lang.Iterable)",
+            "org.assertj.vavr.api.OptionAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.TryAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.VavrAssumptions.AssumptionMethodInterceptor::intercept(org.assertj.vavr.api.AbstractVavrAssert, java.util.concurrent.Callable)",
+            "org.assertj.vavr.api.SeqAssert::isSorted()",
+            "org.assertj.vavr.api.VavrAssumptions::lambda.createAssumptionClass.0(java.lang.Class)"
+        ]
+    },
+    {
+        "strategyName": "BraindeadWithSkippingStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "org.assertj.vavr.api.VavrAssumptions::asAssumption(org.assertj.vavr.api.AbstractVavrAssert)",
+            "org.assertj.vavr.api.AbstractMultimapAssert::hasSameSizeAs(java.lang.Iterable)",
+            "org.assertj.vavr.api.ClassLoadingStrategyFactory::classLoadingStrategy(java.lang.Class)",
+            "org.assertj.vavr.api.AbstractOptionAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.AbstractTryAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.VavrAssumptions.AssumptionMethodInterceptor::intercept(org.assertj.vavr.api.AbstractVavrAssert, java.util.concurrent.Callable)",
+            "org.assertj.vavr.api.AbstractSeqAssert::isSorted()",
+            "org.assertj.vavr.api.AbstractValidationAssert::containsInvalid(java.lang.Object)",
+            "org.assertj.vavr.api.AbstractMultimapAssert::hasSizeBetween(int, int)",
+            "org.assertj.vavr.api.AbstractOptionAssert::containsSame(java.lang.Object)",
+            "org.assertj.vavr.api.AbstractSeqAssert::contains(java.lang.Object, org.assertj.core.data.Index)",
+            "org.assertj.vavr.api.AbstractEitherAssert::containsOnRight(java.lang.Object)",
+            "org.assertj.vavr.api.AbstractEitherAssert::containsOnLeft(java.lang.Object)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "org.assertj.vavr.api.VavrAssumptions.AssumptionMethodInterceptor::intercept(org.assertj.vavr.api.AbstractVavrAssert, java.util.concurrent.Callable)",
+            "org.assertj.vavr.api.SeqAssert::isSorted()",
+            "org.assertj.vavr.api.AbstractMultimapAssert::hasSameSizeAs(java.lang.Iterable)",
+            "org.assertj.vavr.api.AbstractSeqAssert::contains(java.lang.Object, org.assertj.core.data.Index)",
+            "org.assertj.vavr.api.OptionAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.TryAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.ValidationAssert::containsInvalid(java.lang.Object)",
+            "org.assertj.vavr.api.AbstractMultimapAssert::hasSizeBetween(int, int)",
+            "org.assertj.vavr.api.OptionAssert::containsSame(java.lang.Object)",
+            "org.assertj.vavr.api.EitherAssert::containsOnRight(java.lang.Object)",
+            "org.assertj.vavr.api.EitherAssert::containsOnLeft(java.lang.Object)",
+            "org.assertj.vavr.api.VavrAssumptions::lambda.createAssumptionClass.0(java.lang.Class)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "org.assertj.vavr.api.SeqAssert::isSorted()",
+            "org.assertj.vavr.api.AbstractMultimapAssert::hasSizeBetween(int, int)",
+            "org.assertj.vavr.api.VavrAssumptions.AssumptionMethodInterceptor::intercept(org.assertj.vavr.api.AbstractVavrAssert, java.util.concurrent.Callable)",
+            "org.assertj.vavr.api.AbstractMultimapAssert::hasSameSizeAs(java.lang.Iterable)",
+            "org.assertj.vavr.api.OptionAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.TryAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.OptionAssert::containsSame(java.lang.Object)",
+            "org.assertj.vavr.api.EitherAssert::containsOnRight(java.lang.Object)",
+            "org.assertj.vavr.api.EitherAssert::containsOnLeft(java.lang.Object)",
+            "org.assertj.vavr.api.AbstractSeqAssert::contains(java.lang.Object, org.assertj.core.data.Index)",
+            "org.assertj.vavr.api.ValidationAssert::containsInvalid(java.lang.Object)",
+            "org.assertj.vavr.api.VavrAssumptions::lambda.createAssumptionClass.0(java.lang.Class)"
+        ]
+    },
+    {
+        "strategyName": "BraindeadWithSkippingStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "org.assertj.vavr.api.VavrAssumptions::asAssumption(org.assertj.vavr.api.AbstractVavrAssert)",
+            "org.assertj.vavr.api.AbstractMultimapAssert::hasSameSizeAs(java.lang.Iterable)",
+            "org.assertj.vavr.api.ClassLoadingStrategyFactory::classLoadingStrategy(java.lang.Class)",
+            "org.assertj.vavr.api.AbstractOptionAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.AbstractTryAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.VavrAssumptions.AssumptionMethodInterceptor::intercept(org.assertj.vavr.api.AbstractVavrAssert, java.util.concurrent.Callable)",
+            "org.assertj.vavr.api.AbstractSeqAssert::isSorted()",
+            "org.assertj.vavr.api.AbstractValidationAssert::containsInvalid(java.lang.Object)",
+            "org.assertj.vavr.api.AbstractMultimapAssert::hasSizeBetween(int, int)",
+            "org.assertj.vavr.api.AbstractOptionAssert::containsSame(java.lang.Object)",
+            "org.assertj.vavr.api.AbstractSeqAssert::contains(java.lang.Object, org.assertj.core.data.Index)",
+            "org.assertj.vavr.api.AbstractEitherAssert::containsOnRight(java.lang.Object)",
+            "org.assertj.vavr.api.AbstractEitherAssert::containsOnLeft(java.lang.Object)",
+            "org.assertj.vavr.api.AbstractValidationAssert::containsValid(java.lang.Object)",
+            "org.assertj.vavr.api.AbstractTryAssert::containsSame(java.lang.Object)",
+            "org.assertj.vavr.api.AbstractSeqAssert::doesNotContain(java.lang.Object, org.assertj.core.data.Index)",
+            "org.assertj.vavr.api.AbstractEitherAssert::containsRightInstanceOf(java.lang.Class)",
+            "org.assertj.vavr.api.AbstractEitherAssert::containsLeftInstanceOf(java.lang.Class)",
+            "org.assertj.vavr.api.AbstractMapAssert::hasSizeGreaterThanOrEqualTo(int)",
+            "org.assertj.vavr.api.AbstractMultimapAssert::hasSizeGreaterThanOrEqualTo(int)",
+            "org.assertj.vavr.api.AbstractMultimapAssert::hasSizeGreaterThan(int)",
+            "org.assertj.vavr.api.AbstractMultimapAssert::hasSize(int)",
+            "org.assertj.vavr.api.AbstractOptionAssert::containsInstanceOf(java.lang.Class)",
+            "org.assertj.vavr.api.AbstractTryAssert::containsInstanceOf(java.lang.Class)",
+            "org.assertj.vavr.api.AbstractValidationAssert::containsValidInstanceOf(java.lang.Class)",
+            "org.assertj.vavr.api.AbstractValidationAssert::containsInvalidSame(java.lang.Object)",
+            "org.assertj.vavr.api.AbstractValidationAssert::containsInvalidInstanceOf(java.lang.Class)",
+            "org.assertj.vavr.api.AbstractMapAssert::hasSameSizeAs(java.lang.Iterable)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "org.assertj.vavr.api.VavrAssumptions.AssumptionMethodInterceptor::intercept(org.assertj.vavr.api.AbstractVavrAssert, java.util.concurrent.Callable)",
+            "org.assertj.vavr.api.SeqAssert::isSorted()",
+            "org.assertj.vavr.api.EitherAssert::containsLeftInstanceOf(java.lang.Class)",
+            "org.assertj.vavr.api.TryAssert::containsInstanceOf(java.lang.Class)",
+            "org.assertj.vavr.api.AbstractMultimapAssert::hasSameSizeAs(java.lang.Iterable)",
+            "org.assertj.vavr.api.AbstractMultimapAssert::hasSizeBetween(int, int)",
+            "org.assertj.vavr.api.AbstractSeqAssert::contains(java.lang.Object, org.assertj.core.data.Index)",
+            "org.assertj.vavr.api.AbstractSeqAssert::doesNotContain(java.lang.Object, org.assertj.core.data.Index)",
+            "org.assertj.vavr.api.AbstractMapAssert::hasSameSizeAs(java.lang.Iterable)",
+            "org.assertj.vavr.api.OptionAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.TryAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.ValidationAssert::containsInvalid(java.lang.Object)",
+            "org.assertj.vavr.api.OptionAssert::containsSame(java.lang.Object)",
+            "org.assertj.vavr.api.EitherAssert::containsOnRight(java.lang.Object)",
+            "org.assertj.vavr.api.EitherAssert::containsOnLeft(java.lang.Object)",
+            "org.assertj.vavr.api.ValidationAssert::containsValid(java.lang.Object)",
+            "org.assertj.vavr.api.TryAssert::containsSame(java.lang.Object)",
+            "org.assertj.vavr.api.EitherAssert::containsRightInstanceOf(java.lang.Class)",
+            "org.assertj.vavr.api.AbstractMapAssert::hasSizeGreaterThanOrEqualTo(int)",
+            "org.assertj.vavr.api.AbstractMultimapAssert::hasSizeGreaterThanOrEqualTo(int)",
+            "org.assertj.vavr.api.AbstractMultimapAssert::hasSizeGreaterThan(int)",
+            "org.assertj.vavr.api.AbstractMultimapAssert::hasSize(int)",
+            "org.assertj.vavr.api.OptionAssert::containsInstanceOf(java.lang.Class)",
+            "org.assertj.vavr.api.ValidationAssert::containsValidInstanceOf(java.lang.Class)",
+            "org.assertj.vavr.api.ValidationAssert::containsInvalidSame(java.lang.Object)",
+            "org.assertj.vavr.api.ValidationAssert::containsInvalidInstanceOf(java.lang.Class)",
+            "org.assertj.vavr.api.VavrAssumptions::lambda.createAssumptionClass.0(java.lang.Class)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "org.assertj.vavr.api.SeqAssert::isSorted()",
+            "org.assertj.vavr.api.EitherAssert::containsLeftInstanceOf(java.lang.Class)",
+            "org.assertj.vavr.api.TryAssert::containsInstanceOf(java.lang.Class)",
+            "org.assertj.vavr.api.AbstractMultimapAssert::hasSizeBetween(int, int)",
+            "org.assertj.vavr.api.AbstractMapAssert::hasSizeGreaterThanOrEqualTo(int)",
+            "org.assertj.vavr.api.AbstractMultimapAssert::hasSizeGreaterThanOrEqualTo(int)",
+            "org.assertj.vavr.api.AbstractMultimapAssert::hasSizeGreaterThan(int)",
+            "org.assertj.vavr.api.AbstractMultimapAssert::hasSize(int)",
+            "org.assertj.vavr.api.VavrAssumptions.AssumptionMethodInterceptor::intercept(org.assertj.vavr.api.AbstractVavrAssert, java.util.concurrent.Callable)",
+            "org.assertj.vavr.api.AbstractMultimapAssert::hasSameSizeAs(java.lang.Iterable)",
+            "org.assertj.vavr.api.AbstractMapAssert::hasSameSizeAs(java.lang.Iterable)",
+            "org.assertj.vavr.api.TryAssert::containsSame(java.lang.Object)",
+            "org.assertj.vavr.api.OptionAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.TryAssert::contains(java.lang.Object)",
+            "org.assertj.vavr.api.OptionAssert::containsSame(java.lang.Object)",
+            "org.assertj.vavr.api.EitherAssert::containsOnRight(java.lang.Object)",
+            "org.assertj.vavr.api.EitherAssert::containsOnLeft(java.lang.Object)",
+            "org.assertj.vavr.api.ValidationAssert::containsValid(java.lang.Object)",
+            "org.assertj.vavr.api.AbstractSeqAssert::contains(java.lang.Object, org.assertj.core.data.Index)",
+            "org.assertj.vavr.api.AbstractSeqAssert::doesNotContain(java.lang.Object, org.assertj.core.data.Index)",
+            "org.assertj.vavr.api.ValidationAssert::containsInvalidSame(java.lang.Object)",
+            "org.assertj.vavr.api.ValidationAssert::containsInvalid(java.lang.Object)",
+            "org.assertj.vavr.api.EitherAssert::containsRightInstanceOf(java.lang.Class)",
+            "org.assertj.vavr.api.OptionAssert::containsInstanceOf(java.lang.Class)",
+            "org.assertj.vavr.api.ValidationAssert::containsValidInstanceOf(java.lang.Class)",
+            "org.assertj.vavr.api.ValidationAssert::containsInvalidInstanceOf(java.lang.Class)",
+            "org.assertj.vavr.api.VavrAssumptions::lambda.createAssumptionClass.0(java.lang.Class)"
+        ]
+    }
+]

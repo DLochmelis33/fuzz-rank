@@ -1,5 +1,6 @@
 [versions]
 sootup = "2.0.0"
+serialization = "1.8.1"
 
 [libraries]
 sootup-core = { group = "org.soot-oss", name = "sootup.core", version.ref = "sootup" }
@@ -13,6 +14,8 @@ sootup-qilin = { group = "org.soot-oss", name = "sootup.qilin", version.ref = "s
 slf4j-api = { group = "org.slf4j", name = "slf4j-api", version = "2.0.12" }
 logback-classic = { group = "ch.qos.logback", name = "logback-classic", version = "1.5.0" }
 javaparser = { group = "com.github.javaparser", name = "javaparser-symbol-solver-core", version = "3.26.3" }
+kotlin-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "serialization"  }
 
 [plugins]
-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version = "2.0.21" }
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version = "2.1.20" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version = "2.1.20"}

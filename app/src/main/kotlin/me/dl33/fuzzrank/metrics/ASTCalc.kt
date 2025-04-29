@@ -32,7 +32,7 @@ import kotlin.math.max
 object ASTCalc {
 
     fun calc(sourcesDir: Path, jar: Path, metricsMap: MetricsMap, skipFQNsStartingWith: Set<String>) {
-        println("\ncalculating AST metrics for $sourcesDir")
+//        println("\ncalculating AST metrics for $sourcesDir")
 
         val typeSolver = CombinedTypeSolver().apply {
             add(ReflectionTypeSolver())

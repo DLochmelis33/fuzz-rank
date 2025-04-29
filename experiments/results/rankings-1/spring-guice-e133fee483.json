@@ -1,0 +1,486 @@
+[
+    {
+        "strategyName": "BraindeadWithSkippingStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "org.springframework.guice.annotation.GuiceModuleRegistrar::registerBeanDefinitions(org.springframework.core.type.AnnotationMetadata, org.springframework.beans.factory.support.BeanDefinitionRegistry)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "org.springframework.guice.annotation.GuiceModuleRegistrar::registerBeanDefinitions(org.springframework.core.type.AnnotationMetadata, org.springframework.beans.factory.support.BeanDefinitionRegistry)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "org.springframework.guice.annotation.GuiceModuleRegistrar::registerBeanDefinitions(org.springframework.core.type.AnnotationMetadata, org.springframework.beans.factory.support.BeanDefinitionRegistry)"
+        ]
+    },
+    {
+        "strategyName": "BraindeadWithSkippingStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "org.springframework.guice.annotation.GuiceModuleRegistrar::registerBeanDefinitions(org.springframework.core.type.AnnotationMetadata, org.springframework.beans.factory.support.BeanDefinitionRegistry)",
+            "org.springframework.guice.module.SpringModule.StageTypeKey::equals(java.lang.Object)",
+            "org.springframework.guice.module.SpringModule.CompositeTypeMatcher::matches(java.lang.String, java.lang.reflect.Type)",
+            "org.springframework.guice.module.GuiceAutowireCandidateResolver::buildLazyResolutionProxy(org.springframework.beans.factory.config.DependencyDescriptor, java.lang.String)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "org.springframework.guice.annotation.GuiceModuleRegistrar::registerBeanDefinitions(org.springframework.core.type.AnnotationMetadata, org.springframework.beans.factory.support.BeanDefinitionRegistry)",
+            "org.springframework.guice.module.SpringModule.StageTypeKey::equals(java.lang.Object)",
+            "org.springframework.guice.module.GuiceAutowireCandidateResolver::getLazyResolutionProxyIfNecessary(org.springframework.beans.factory.config.DependencyDescriptor, java.lang.String)",
+            "org.springframework.guice.module.SpringModule::configure()"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "org.springframework.guice.module.SpringModule.StageTypeKey::equals(java.lang.Object)",
+            "org.springframework.guice.module.GuiceAutowireCandidateResolver::getLazyResolutionProxyIfNecessary(org.springframework.beans.factory.config.DependencyDescriptor, java.lang.String)",
+            "org.springframework.guice.annotation.GuiceModuleRegistrar::registerBeanDefinitions(org.springframework.core.type.AnnotationMetadata, org.springframework.beans.factory.support.BeanDefinitionRegistry)",
+            "org.springframework.guice.module.SpringModule::configure()"
+        ]
+    },
+    {
+        "strategyName": "BraindeadWithSkippingStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "org.springframework.guice.annotation.GuiceModuleRegistrar::registerBeanDefinitions(org.springframework.core.type.AnnotationMetadata, org.springframework.beans.factory.support.BeanDefinitionRegistry)",
+            "org.springframework.guice.module.SpringModule.StageTypeKey::equals(java.lang.Object)",
+            "org.springframework.guice.module.SpringModule.CompositeTypeMatcher::matches(java.lang.String, java.lang.reflect.Type)",
+            "org.springframework.guice.module.GuiceAutowireCandidateResolver::buildLazyResolutionProxy(org.springframework.beans.factory.config.DependencyDescriptor, java.lang.String)",
+            "org.springframework.guice.module.SpringModule::getFactoryMethod(org.springframework.beans.factory.config.BeanDefinition, java.lang.Class)",
+            "org.springframework.guice.module.SpringModule::configure()"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "org.springframework.guice.module.SpringModule::configure()",
+            "org.springframework.guice.annotation.GuiceModuleRegistrar::registerBeanDefinitions(org.springframework.core.type.AnnotationMetadata, org.springframework.beans.factory.support.BeanDefinitionRegistry)",
+            "org.springframework.guice.module.SpringModule.StageTypeKey::equals(java.lang.Object)",
+            "org.springframework.guice.module.GuiceAutowireCandidateResolver::getLazyResolutionProxyIfNecessary(org.springframework.beans.factory.config.DependencyDescriptor, java.lang.String)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "org.springframework.guice.module.SpringModule.StageTypeKey::equals(java.lang.Object)",
+            "org.springframework.guice.module.SpringModule::configure()",
+            "org.springframework.guice.module.GuiceAutowireCandidateResolver::getLazyResolutionProxyIfNecessary(org.springframework.beans.factory.config.DependencyDescriptor, java.lang.String)",
+            "org.springframework.guice.annotation.GuiceModuleRegistrar::registerBeanDefinitions(org.springframework.core.type.AnnotationMetadata, org.springframework.beans.factory.support.BeanDefinitionRegistry)"
+        ]
+    },
+    {
+        "strategyName": "BraindeadWithSkippingStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "org.springframework.guice.annotation.GuiceModuleRegistrar::registerBeanDefinitions(org.springframework.core.type.AnnotationMetadata, org.springframework.beans.factory.support.BeanDefinitionRegistry)",
+            "org.springframework.guice.module.SpringModule.StageTypeKey::equals(java.lang.Object)",
+            "org.springframework.guice.module.SpringModule.CompositeTypeMatcher::matches(java.lang.String, java.lang.reflect.Type)",
+            "org.springframework.guice.module.GuiceAutowireCandidateResolver::buildLazyResolutionProxy(org.springframework.beans.factory.config.DependencyDescriptor, java.lang.String)",
+            "org.springframework.guice.module.SpringModule::getFactoryMethod(org.springframework.beans.factory.config.BeanDefinition, java.lang.Class)",
+            "org.springframework.guice.module.SpringModule::configure()",
+            "org.springframework.guice.annotation.ModuleRegistryConfiguration.GuiceInjectorInitializer::createInjector()",
+            "org.springframework.guice.module.SpringModule.BeanFactoryProvider::get()"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "org.springframework.guice.module.SpringModule::configure()",
+            "org.springframework.guice.annotation.GuiceModuleRegistrar::registerBeanDefinitions(org.springframework.core.type.AnnotationMetadata, org.springframework.beans.factory.support.BeanDefinitionRegistry)",
+            "org.springframework.guice.module.SpringModule.StageTypeKey::equals(java.lang.Object)",
+            "org.springframework.guice.module.SpringModule.BeanFactoryProvider::get()",
+            "org.springframework.guice.module.GuiceAutowireCandidateResolver::getLazyResolutionProxyIfNecessary(org.springframework.beans.factory.config.DependencyDescriptor, java.lang.String)",
+            "org.springframework.guice.annotation.ModuleRegistryConfiguration.GuiceInjectorInitializer::postProcessAfterInitialization(java.lang.Object, java.lang.String)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "org.springframework.guice.module.SpringModule::configure()",
+            "org.springframework.guice.module.SpringModule.StageTypeKey::equals(java.lang.Object)",
+            "org.springframework.guice.annotation.GuiceModuleRegistrar::registerBeanDefinitions(org.springframework.core.type.AnnotationMetadata, org.springframework.beans.factory.support.BeanDefinitionRegistry)",
+            "org.springframework.guice.annotation.ModuleRegistryConfiguration.GuiceInjectorInitializer::postProcessAfterInitialization(java.lang.Object, java.lang.String)",
+            "org.springframework.guice.module.SpringModule.BeanFactoryProvider::get()",
+            "org.springframework.guice.module.GuiceAutowireCandidateResolver::getLazyResolutionProxyIfNecessary(org.springframework.beans.factory.config.DependencyDescriptor, java.lang.String)"
+        ]
+    },
+    {
+        "strategyName": "BraindeadWithSkippingStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "org.springframework.guice.annotation.GuiceModuleRegistrar::registerBeanDefinitions(org.springframework.core.type.AnnotationMetadata, org.springframework.beans.factory.support.BeanDefinitionRegistry)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "org.springframework.guice.annotation.GuiceModuleRegistrar::registerBeanDefinitions(org.springframework.core.type.AnnotationMetadata, org.springframework.beans.factory.support.BeanDefinitionRegistry)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "org.springframework.guice.annotation.GuiceModuleRegistrar::registerBeanDefinitions(org.springframework.core.type.AnnotationMetadata, org.springframework.beans.factory.support.BeanDefinitionRegistry)"
+        ]
+    },
+    {
+        "strategyName": "BraindeadWithSkippingStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "org.springframework.guice.annotation.GuiceModuleRegistrar::registerBeanDefinitions(org.springframework.core.type.AnnotationMetadata, org.springframework.beans.factory.support.BeanDefinitionRegistry)",
+            "org.springframework.guice.module.SpringModule.StageTypeKey::equals(java.lang.Object)",
+            "org.springframework.guice.module.SpringModule.CompositeTypeMatcher::matches(java.lang.String, java.lang.reflect.Type)",
+            "org.springframework.guice.module.GuiceAutowireCandidateResolver::buildLazyResolutionProxy(org.springframework.beans.factory.config.DependencyDescriptor, java.lang.String)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "org.springframework.guice.annotation.GuiceModuleRegistrar::registerBeanDefinitions(org.springframework.core.type.AnnotationMetadata, org.springframework.beans.factory.support.BeanDefinitionRegistry)",
+            "org.springframework.guice.module.SpringModule.StageTypeKey::equals(java.lang.Object)",
+            "org.springframework.guice.module.GuiceAutowireCandidateResolver::getLazyResolutionProxyIfNecessary(org.springframework.beans.factory.config.DependencyDescriptor, java.lang.String)",
+            "org.springframework.guice.module.SpringModule::configure()"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "org.springframework.guice.module.SpringModule.StageTypeKey::equals(java.lang.Object)",
+            "org.springframework.guice.module.GuiceAutowireCandidateResolver::getLazyResolutionProxyIfNecessary(org.springframework.beans.factory.config.DependencyDescriptor, java.lang.String)",
+            "org.springframework.guice.annotation.GuiceModuleRegistrar::registerBeanDefinitions(org.springframework.core.type.AnnotationMetadata, org.springframework.beans.factory.support.BeanDefinitionRegistry)",
+            "org.springframework.guice.module.SpringModule::configure()"
+        ]
+    },
+    {
+        "strategyName": "BraindeadWithSkippingStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "org.springframework.guice.annotation.GuiceModuleRegistrar::registerBeanDefinitions(org.springframework.core.type.AnnotationMetadata, org.springframework.beans.factory.support.BeanDefinitionRegistry)",
+            "org.springframework.guice.module.SpringModule.StageTypeKey::equals(java.lang.Object)",
+            "org.springframework.guice.module.SpringModule.CompositeTypeMatcher::matches(java.lang.String, java.lang.reflect.Type)",
+            "org.springframework.guice.module.GuiceAutowireCandidateResolver::buildLazyResolutionProxy(org.springframework.beans.factory.config.DependencyDescriptor, java.lang.String)",
+            "org.springframework.guice.module.SpringModule::getFactoryMethod(org.springframework.beans.factory.config.BeanDefinition, java.lang.Class)",
+            "org.springframework.guice.module.SpringModule::configure()"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "org.springframework.guice.module.SpringModule::configure()",
+            "org.springframework.guice.annotation.GuiceModuleRegistrar::registerBeanDefinitions(org.springframework.core.type.AnnotationMetadata, org.springframework.beans.factory.support.BeanDefinitionRegistry)",
+            "org.springframework.guice.module.SpringModule.StageTypeKey::equals(java.lang.Object)",
+            "org.springframework.guice.module.GuiceAutowireCandidateResolver::getLazyResolutionProxyIfNecessary(org.springframework.beans.factory.config.DependencyDescriptor, java.lang.String)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "org.springframework.guice.module.SpringModule.StageTypeKey::equals(java.lang.Object)",
+            "org.springframework.guice.module.SpringModule::configure()",
+            "org.springframework.guice.module.GuiceAutowireCandidateResolver::getLazyResolutionProxyIfNecessary(org.springframework.beans.factory.config.DependencyDescriptor, java.lang.String)",
+            "org.springframework.guice.annotation.GuiceModuleRegistrar::registerBeanDefinitions(org.springframework.core.type.AnnotationMetadata, org.springframework.beans.factory.support.BeanDefinitionRegistry)"
+        ]
+    },
+    {
+        "strategyName": "BraindeadWithSkippingStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "org.springframework.guice.annotation.GuiceModuleRegistrar::registerBeanDefinitions(org.springframework.core.type.AnnotationMetadata, org.springframework.beans.factory.support.BeanDefinitionRegistry)",
+            "org.springframework.guice.module.SpringModule.StageTypeKey::equals(java.lang.Object)",
+            "org.springframework.guice.module.SpringModule.CompositeTypeMatcher::matches(java.lang.String, java.lang.reflect.Type)",
+            "org.springframework.guice.module.GuiceAutowireCandidateResolver::buildLazyResolutionProxy(org.springframework.beans.factory.config.DependencyDescriptor, java.lang.String)",
+            "org.springframework.guice.module.SpringModule::getFactoryMethod(org.springframework.beans.factory.config.BeanDefinition, java.lang.Class)",
+            "org.springframework.guice.module.SpringModule::configure()",
+            "org.springframework.guice.annotation.ModuleRegistryConfiguration.GuiceInjectorInitializer::createInjector()",
+            "org.springframework.guice.module.SpringModule.BeanFactoryProvider::get()"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "org.springframework.guice.module.SpringModule::configure()",
+            "org.springframework.guice.annotation.GuiceModuleRegistrar::registerBeanDefinitions(org.springframework.core.type.AnnotationMetadata, org.springframework.beans.factory.support.BeanDefinitionRegistry)",
+            "org.springframework.guice.module.SpringModule.StageTypeKey::equals(java.lang.Object)",
+            "org.springframework.guice.module.SpringModule.BeanFactoryProvider::get()",
+            "org.springframework.guice.module.GuiceAutowireCandidateResolver::getLazyResolutionProxyIfNecessary(org.springframework.beans.factory.config.DependencyDescriptor, java.lang.String)",
+            "org.springframework.guice.annotation.ModuleRegistryConfiguration.GuiceInjectorInitializer::postProcessAfterInitialization(java.lang.Object, java.lang.String)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "org.springframework.guice.module.SpringModule::configure()",
+            "org.springframework.guice.module.SpringModule.StageTypeKey::equals(java.lang.Object)",
+            "org.springframework.guice.annotation.GuiceModuleRegistrar::registerBeanDefinitions(org.springframework.core.type.AnnotationMetadata, org.springframework.beans.factory.support.BeanDefinitionRegistry)",
+            "org.springframework.guice.annotation.ModuleRegistryConfiguration.GuiceInjectorInitializer::postProcessAfterInitialization(java.lang.Object, java.lang.String)",
+            "org.springframework.guice.module.SpringModule.BeanFactoryProvider::get()",
+            "org.springframework.guice.module.GuiceAutowireCandidateResolver::getLazyResolutionProxyIfNecessary(org.springframework.beans.factory.config.DependencyDescriptor, java.lang.String)"
+        ]
+    },
+    {
+        "strategyName": "BraindeadWithSkippingStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "org.springframework.guice.annotation.GuiceModuleRegistrar::registerBeanDefinitions(org.springframework.core.type.AnnotationMetadata, org.springframework.beans.factory.support.BeanDefinitionRegistry)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "org.springframework.guice.annotation.GuiceModuleRegistrar::registerBeanDefinitions(org.springframework.core.type.AnnotationMetadata, org.springframework.beans.factory.support.BeanDefinitionRegistry)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "org.springframework.guice.annotation.GuiceModuleRegistrar::registerBeanDefinitions(org.springframework.core.type.AnnotationMetadata, org.springframework.beans.factory.support.BeanDefinitionRegistry)"
+        ]
+    },
+    {
+        "strategyName": "BraindeadWithSkippingStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "org.springframework.guice.annotation.GuiceModuleRegistrar::registerBeanDefinitions(org.springframework.core.type.AnnotationMetadata, org.springframework.beans.factory.support.BeanDefinitionRegistry)",
+            "org.springframework.guice.module.BeanFactoryProvider::get()",
+            "org.springframework.guice.module.SpringModule.CompositeTypeMatcher::matches(java.lang.String, java.lang.reflect.Type)",
+            "org.springframework.guice.module.GuiceAutowireCandidateResolver::buildLazyResolutionProxy(org.springframework.beans.factory.config.DependencyDescriptor, java.lang.String)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "org.springframework.guice.annotation.GuiceModuleRegistrar::registerBeanDefinitions(org.springframework.core.type.AnnotationMetadata, org.springframework.beans.factory.support.BeanDefinitionRegistry)",
+            "org.springframework.guice.module.BeanFactoryProvider::get()",
+            "org.springframework.guice.module.GuiceAutowireCandidateResolver::getLazyResolutionProxyIfNecessary(org.springframework.beans.factory.config.DependencyDescriptor, java.lang.String)",
+            "org.springframework.guice.module.SpringModule::configure()"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "org.springframework.guice.module.BeanFactoryProvider::get()",
+            "org.springframework.guice.module.GuiceAutowireCandidateResolver::getLazyResolutionProxyIfNecessary(org.springframework.beans.factory.config.DependencyDescriptor, java.lang.String)",
+            "org.springframework.guice.annotation.GuiceModuleRegistrar::registerBeanDefinitions(org.springframework.core.type.AnnotationMetadata, org.springframework.beans.factory.support.BeanDefinitionRegistry)",
+            "org.springframework.guice.module.SpringModule::configure()"
+        ]
+    },
+    {
+        "strategyName": "BraindeadWithSkippingStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "org.springframework.guice.annotation.GuiceModuleRegistrar::registerBeanDefinitions(org.springframework.core.type.AnnotationMetadata, org.springframework.beans.factory.support.BeanDefinitionRegistry)",
+            "org.springframework.guice.module.BeanFactoryProvider::get()",
+            "org.springframework.guice.module.SpringModule.CompositeTypeMatcher::matches(java.lang.String, java.lang.reflect.Type)",
+            "org.springframework.guice.module.GuiceAutowireCandidateResolver::buildLazyResolutionProxy(org.springframework.beans.factory.config.DependencyDescriptor, java.lang.String)",
+            "org.springframework.guice.module.SpringModule::getFactoryMethod(org.springframework.beans.factory.config.BeanDefinition, java.lang.Class)",
+            "org.springframework.guice.module.SpringModule::configure()"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "org.springframework.guice.module.SpringModule::configure()",
+            "org.springframework.guice.annotation.GuiceModuleRegistrar::registerBeanDefinitions(org.springframework.core.type.AnnotationMetadata, org.springframework.beans.factory.support.BeanDefinitionRegistry)",
+            "org.springframework.guice.module.BeanFactoryProvider::get()",
+            "org.springframework.guice.module.GuiceAutowireCandidateResolver::getLazyResolutionProxyIfNecessary(org.springframework.beans.factory.config.DependencyDescriptor, java.lang.String)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "org.springframework.guice.module.SpringModule::configure()",
+            "org.springframework.guice.module.BeanFactoryProvider::get()",
+            "org.springframework.guice.module.GuiceAutowireCandidateResolver::getLazyResolutionProxyIfNecessary(org.springframework.beans.factory.config.DependencyDescriptor, java.lang.String)",
+            "org.springframework.guice.annotation.GuiceModuleRegistrar::registerBeanDefinitions(org.springframework.core.type.AnnotationMetadata, org.springframework.beans.factory.support.BeanDefinitionRegistry)"
+        ]
+    },
+    {
+        "strategyName": "BraindeadWithSkippingStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "org.springframework.guice.annotation.GuiceModuleRegistrar::registerBeanDefinitions(org.springframework.core.type.AnnotationMetadata, org.springframework.beans.factory.support.BeanDefinitionRegistry)",
+            "org.springframework.guice.module.BeanFactoryProvider::get()",
+            "org.springframework.guice.module.SpringModule.CompositeTypeMatcher::matches(java.lang.String, java.lang.reflect.Type)",
+            "org.springframework.guice.module.GuiceAutowireCandidateResolver::buildLazyResolutionProxy(org.springframework.beans.factory.config.DependencyDescriptor, java.lang.String)",
+            "org.springframework.guice.module.SpringModule::getFactoryMethod(org.springframework.beans.factory.config.BeanDefinition, java.lang.Class)",
+            "org.springframework.guice.module.SpringModule::configure()",
+            "org.springframework.guice.annotation.ModuleRegistryConfiguration.GuiceInjectorInitializer::createInjector()",
+            "org.springframework.guice.module.SpringModule.BeanFactoryProvider::get()"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "org.springframework.guice.module.SpringModule::configure()",
+            "org.springframework.guice.annotation.GuiceModuleRegistrar::registerBeanDefinitions(org.springframework.core.type.AnnotationMetadata, org.springframework.beans.factory.support.BeanDefinitionRegistry)",
+            "org.springframework.guice.module.BeanFactoryProvider::get()",
+            "org.springframework.guice.module.SpringModule.BeanFactoryProvider::get()",
+            "org.springframework.guice.module.GuiceAutowireCandidateResolver::getLazyResolutionProxyIfNecessary(org.springframework.beans.factory.config.DependencyDescriptor, java.lang.String)",
+            "org.springframework.guice.annotation.ModuleRegistryConfiguration.GuiceInjectorInitializer::postProcessAfterInitialization(java.lang.Object, java.lang.String)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "org.springframework.guice.module.SpringModule::configure()",
+            "org.springframework.guice.annotation.GuiceModuleRegistrar::registerBeanDefinitions(org.springframework.core.type.AnnotationMetadata, org.springframework.beans.factory.support.BeanDefinitionRegistry)",
+            "org.springframework.guice.annotation.ModuleRegistryConfiguration.GuiceInjectorInitializer::postProcessAfterInitialization(java.lang.Object, java.lang.String)",
+            "org.springframework.guice.module.SpringModule.BeanFactoryProvider::get()",
+            "org.springframework.guice.module.BeanFactoryProvider::get()",
+            "org.springframework.guice.module.GuiceAutowireCandidateResolver::getLazyResolutionProxyIfNecessary(org.springframework.beans.factory.config.DependencyDescriptor, java.lang.String)"
+        ]
+    },
+    {
+        "strategyName": "BraindeadWithSkippingStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "org.springframework.guice.annotation.GuiceModuleRegistrar::registerBeanDefinitions(org.springframework.core.type.AnnotationMetadata, org.springframework.beans.factory.support.BeanDefinitionRegistry)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "org.springframework.guice.annotation.GuiceModuleRegistrar::registerBeanDefinitions(org.springframework.core.type.AnnotationMetadata, org.springframework.beans.factory.support.BeanDefinitionRegistry)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "org.springframework.guice.annotation.GuiceModuleRegistrar::registerBeanDefinitions(org.springframework.core.type.AnnotationMetadata, org.springframework.beans.factory.support.BeanDefinitionRegistry)"
+        ]
+    },
+    {
+        "strategyName": "BraindeadWithSkippingStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "org.springframework.guice.annotation.GuiceModuleRegistrar::registerBeanDefinitions(org.springframework.core.type.AnnotationMetadata, org.springframework.beans.factory.support.BeanDefinitionRegistry)",
+            "org.springframework.guice.module.BeanFactoryProvider::get()",
+            "org.springframework.guice.module.SpringModule.CompositeTypeMatcher::matches(java.lang.String, java.lang.reflect.Type)",
+            "org.springframework.guice.module.GuiceAutowireCandidateResolver::buildLazyResolutionProxy(org.springframework.beans.factory.config.DependencyDescriptor, java.lang.String)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "org.springframework.guice.annotation.GuiceModuleRegistrar::registerBeanDefinitions(org.springframework.core.type.AnnotationMetadata, org.springframework.beans.factory.support.BeanDefinitionRegistry)",
+            "org.springframework.guice.module.BeanFactoryProvider::get()",
+            "org.springframework.guice.module.GuiceAutowireCandidateResolver::getLazyResolutionProxyIfNecessary(org.springframework.beans.factory.config.DependencyDescriptor, java.lang.String)",
+            "org.springframework.guice.module.SpringModule::configure()"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "org.springframework.guice.module.BeanFactoryProvider::get()",
+            "org.springframework.guice.module.GuiceAutowireCandidateResolver::getLazyResolutionProxyIfNecessary(org.springframework.beans.factory.config.DependencyDescriptor, java.lang.String)",
+            "org.springframework.guice.annotation.GuiceModuleRegistrar::registerBeanDefinitions(org.springframework.core.type.AnnotationMetadata, org.springframework.beans.factory.support.BeanDefinitionRegistry)",
+            "org.springframework.guice.module.SpringModule::configure()"
+        ]
+    },
+    {
+        "strategyName": "BraindeadWithSkippingStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "org.springframework.guice.annotation.GuiceModuleRegistrar::registerBeanDefinitions(org.springframework.core.type.AnnotationMetadata, org.springframework.beans.factory.support.BeanDefinitionRegistry)",
+            "org.springframework.guice.module.BeanFactoryProvider::get()",
+            "org.springframework.guice.module.SpringModule.CompositeTypeMatcher::matches(java.lang.String, java.lang.reflect.Type)",
+            "org.springframework.guice.module.GuiceAutowireCandidateResolver::buildLazyResolutionProxy(org.springframework.beans.factory.config.DependencyDescriptor, java.lang.String)",
+            "org.springframework.guice.module.SpringModule::getFactoryMethod(org.springframework.beans.factory.config.BeanDefinition, java.lang.Class)",
+            "org.springframework.guice.module.SpringModule::configure()"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "org.springframework.guice.module.SpringModule::configure()",
+            "org.springframework.guice.annotation.GuiceModuleRegistrar::registerBeanDefinitions(org.springframework.core.type.AnnotationMetadata, org.springframework.beans.factory.support.BeanDefinitionRegistry)",
+            "org.springframework.guice.module.BeanFactoryProvider::get()",
+            "org.springframework.guice.module.GuiceAutowireCandidateResolver::getLazyResolutionProxyIfNecessary(org.springframework.beans.factory.config.DependencyDescriptor, java.lang.String)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "org.springframework.guice.module.SpringModule::configure()",
+            "org.springframework.guice.module.BeanFactoryProvider::get()",
+            "org.springframework.guice.module.GuiceAutowireCandidateResolver::getLazyResolutionProxyIfNecessary(org.springframework.beans.factory.config.DependencyDescriptor, java.lang.String)",
+            "org.springframework.guice.annotation.GuiceModuleRegistrar::registerBeanDefinitions(org.springframework.core.type.AnnotationMetadata, org.springframework.beans.factory.support.BeanDefinitionRegistry)"
+        ]
+    },
+    {
+        "strategyName": "BraindeadWithSkippingStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "org.springframework.guice.annotation.GuiceModuleRegistrar::registerBeanDefinitions(org.springframework.core.type.AnnotationMetadata, org.springframework.beans.factory.support.BeanDefinitionRegistry)",
+            "org.springframework.guice.module.BeanFactoryProvider::get()",
+            "org.springframework.guice.module.SpringModule.CompositeTypeMatcher::matches(java.lang.String, java.lang.reflect.Type)",
+            "org.springframework.guice.module.GuiceAutowireCandidateResolver::buildLazyResolutionProxy(org.springframework.beans.factory.config.DependencyDescriptor, java.lang.String)",
+            "org.springframework.guice.module.SpringModule::getFactoryMethod(org.springframework.beans.factory.config.BeanDefinition, java.lang.Class)",
+            "org.springframework.guice.module.SpringModule::configure()",
+            "org.springframework.guice.annotation.ModuleRegistryConfiguration.GuiceInjectorInitializer::createInjector()",
+            "org.springframework.guice.module.SpringModule.BeanFactoryProvider::get()"
+        ]
+    },
+    {
+        "strategyName": "MinCoverStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "org.springframework.guice.module.SpringModule::configure()",
+            "org.springframework.guice.annotation.GuiceModuleRegistrar::registerBeanDefinitions(org.springframework.core.type.AnnotationMetadata, org.springframework.beans.factory.support.BeanDefinitionRegistry)",
+            "org.springframework.guice.module.BeanFactoryProvider::get()",
+            "org.springframework.guice.module.SpringModule.BeanFactoryProvider::get()",
+            "org.springframework.guice.module.GuiceAutowireCandidateResolver::getLazyResolutionProxyIfNecessary(org.springframework.beans.factory.config.DependencyDescriptor, java.lang.String)",
+            "org.springframework.guice.annotation.ModuleRegistryConfiguration.GuiceInjectorInitializer::postProcessAfterInitialization(java.lang.Object, java.lang.String)"
+        ]
+    },
+    {
+        "strategyName": "MinCoverWeightedStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "org.springframework.guice.module.SpringModule::configure()",
+            "org.springframework.guice.annotation.GuiceModuleRegistrar::registerBeanDefinitions(org.springframework.core.type.AnnotationMetadata, org.springframework.beans.factory.support.BeanDefinitionRegistry)",
+            "org.springframework.guice.annotation.ModuleRegistryConfiguration.GuiceInjectorInitializer::postProcessAfterInitialization(java.lang.Object, java.lang.String)",
+            "org.springframework.guice.module.SpringModule.BeanFactoryProvider::get()",
+            "org.springframework.guice.module.BeanFactoryProvider::get()",
+            "org.springframework.guice.module.GuiceAutowireCandidateResolver::getLazyResolutionProxyIfNecessary(org.springframework.beans.factory.config.DependencyDescriptor, java.lang.String)"
+        ]
+    }
+]

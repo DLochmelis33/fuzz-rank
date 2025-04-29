@@ -2,14 +2,13 @@ package me.dl33.fuzzrank.callgraph
 
 import me.dl33.fuzzrank.metrics.UnifiedMethodDescriptor
 import me.dl33.fuzzrank.metrics.sootSignature
-import me.dl33.fuzzrank.metrics.unifiedMethodDescriptor
 import sootup.callgraph.CallGraph
 import sootup.core.signatures.MethodSignature
 
 /**
  * Simply return the interesting methods themselves.
  */
-object BraindeadStrategy : CallgraphAnalysisStrategy {
+object SimpleStrategy : CallgraphAnalysisStrategy {
     override fun computeBestEntryPoints(
         callgraph: CallGraph,
         interestingMethods: List<UnifiedMethodDescriptor>
@@ -21,7 +20,7 @@ object BraindeadStrategy : CallgraphAnalysisStrategy {
 /**
  * Return the interesting methods themselves, except skip methods reachable from previous ones.
  */
-object BraindeadWithSkippingStrategy : CallgraphAnalysisStrategy {
+object SimpleWithSkippingStrategy : CallgraphAnalysisStrategy {
     override fun computeBestEntryPoints(
         callgraph: CallGraph,
         interestingMethods: List<UnifiedMethodDescriptor>

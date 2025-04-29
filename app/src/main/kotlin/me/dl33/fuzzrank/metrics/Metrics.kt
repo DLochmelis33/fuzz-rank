@@ -12,15 +12,12 @@ import kotlin.reflect.full.primaryConstructor
  * @param maxNestingOfLoops Maximum nesting level of loops.
  *
  * @param parameters Number of parameters of this function.
- * TODO: "the number of variables prepared by the function as parameters of function calls" is is this same?
  * @param calleeParameters Total number of parameters of other functions called from this function.
- * TODO: currently does not include constructors
  * @param nestedControlStructuresPairs The number of nested control structures **pairs**
  * (as in, count each pair where one structure is nested in the other).
  * @param maxNestingOfControlStructures Maximum nesting level of control structures.
- * @param maxControlDependentControlStructures TODO ????? not explained in Leopard
- * @param maxDataDependentControlStructures TODO ????? anything that depends on function params OR captured vars?
- * also what does 'max' mean? does poisoning of expressions count?
+ * @param maxControlDependentControlStructures Number of control structures that may or may not be executed depending on code path.
+ * @param maxDataDependentControlStructures **Approximation**: almost all control structures are data-dependent, so this is just their total number.
  * @param ifWithoutElseCount How many `if`-s are missing `else`.
  * @param variablesInControlPredicates How many of the declared variables are used in predicates of control structures.
  */
@@ -82,27 +79,6 @@ data class Metrics(
                 + variablesInControlPredicates)
             .takeUnless { it < 0 }
             ?: error("some metrics for vulnerability score are missing!\n$this")
-}
-
-/**
- * Uniquely describes a method in the following format:
- *
- * `classFQN::methodName(paramFQN, paramFQN)`
- *
- * In case of generic types and other nonsense where paramFQN is unavailable, anything goes :D
- */
-@JvmInline
-value class UnifiedMethodDescriptor(val fqnSig: String) {
-    init {
-        // not fool-proof, but better than nothing
-        require(regex.matches(fqnSig)) { "$fqnSig does not match regex" }
-    }
-
-    override fun toString(): String = fqnSig
-
-    companion object {
-        private val regex = Regex(".+::.+\\(.*\\)")
-    }
 }
 
 data class MethodWithMetrics(val method: UnifiedMethodDescriptor, val metrics: Metrics)
