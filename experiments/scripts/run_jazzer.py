@@ -1,6 +1,7 @@
 import os
 import subprocess
 import multiprocessing
+import math
 from my_util import *
 
 def single_autofuzz(
@@ -21,7 +22,7 @@ def single_autofuzz(
         f'{JAZZER_HOME}/jazzer_standalone.jar;{cp_str}',
         'com.code_intelligence.jazzer.Jazzer',
         # Jazzer arguments
-        f'--autofuzz={autofuzz_target}',
+        f'--autofuzz={autofuzz_target.replace(" ", "")}',
         '--autofuzz_ignore=java.lang.NullPointerException', # maybe not?
         f'-max_total_time={time_limit_seconds}',
         '--keep_going=0',
@@ -44,7 +45,10 @@ def parallel_autofuzz(
     parallelism: int,
     total_time_limit_seconds: int,
 ):
-    single_time_limit_seconds = int(total_time_limit_seconds / len(targets) * parallelism)
+    task_waves = math.ceil(len(targets) / parallelism)
+    single_time_limit_seconds = total_time_limit_seconds // task_waves
+    
+    print(f'time per target: {single_time_limit_seconds}')
     
     # escape ':' on windows
     single_workdir = lambda target: workdir + '/' + target.replace(':', '_')

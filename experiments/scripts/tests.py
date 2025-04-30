@@ -4,6 +4,7 @@ import pathlib
 
 from run_jazzer import *
 from run_jacoco import *
+from run_exp import *
 
 _cp = [
     "C:/Users/dloch/prog/maga/thesis/fuzz-rank/dataset\\assertj-vavr-cd521160aa\\target\\classes",
@@ -95,8 +96,19 @@ def test_jacoco_report():
     )
 
 
+def test_run_one_project():
+    rankings_file = 'results/rankings/ari-proxy-f9fde350e2.json'
+    
+    workdir = 'workdir'
+    if os.path.exists(workdir):
+        shutil.rmtree(workdir)
+    
+    run_one_project(rankings_file, workdir, 4, 60)
+
+
 if __name__=="__main__":
     # test_single_autofuzz()
     # test_parallel_autofuzz()
     # test_jacoco_merge()
-    test_jacoco_report()
+    # test_jacoco_report()
+    test_run_one_project()
