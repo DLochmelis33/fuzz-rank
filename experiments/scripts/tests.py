@@ -103,7 +103,7 @@ def test_run_one_project():
     if os.path.exists(workdir):
         shutil.rmtree(workdir)
     
-    run_one_project(rankings_file, workdir, 4, 60)
+    run_one_project(rankings_file, workdir, 4, 2)
 
 
 if __name__=="__main__":

@@ -1,5 +1,6 @@
 import os
 import json
+import pathlib
 
 JAZZER_HOME = os.environ['JAZZ_HOME']
 JACOCO_HOME = os.environ['JACOCO_HOME']
