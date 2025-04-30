@@ -1,17 +1,18 @@
 import os
 import subprocess
 import shutil
+import multiprocessing
+import itertools
 
 JAZZER_HOME = os.environ['JAZZ_HOME']
 JACOCO_HOME = os.environ['JACOCO_HOME']
 
 
-def run_jazzer(
-        *,
+def single_autofuzz(
         cp: list[str], 
         autofuzz_target: str, 
         run_workdir: str,
-        time_limit: int,
+        time_limit_seconds: int,
 ):
     cp_str = ';'.join(cp) # + PATH_SEP + f'{JAZZER_HOME}/jazzer_standalone.jar'
     if not os.path.exists(run_workdir):
@@ -27,10 +28,10 @@ def run_jazzer(
         # Jazzer arguments
         f'--autofuzz={autofuzz_target}',
         '--autofuzz_ignore=java.lang.NullPointerException', # maybe not?
-        f'-max_total_time={time_limit}',
+        f'-max_total_time={time_limit_seconds}',
         '--keep_going=0',
     ]
-    print(command)
+    print(f'running target {autofuzz_target}')
 
     subprocess.run(
         args=command,
@@ -38,37 +39,25 @@ def run_jazzer(
         stderr=open(f'{run_workdir}/stderr.txt', 'w'),
         cwd=run_workdir,
     )
-
-
-if __name__=="__main__":
-    cp = [
-      "C:/Users/dloch/prog/maga/thesis/fuzz-rank/dataset\\assertj-vavr-cd521160aa\\target\\classes",
-      "C:/Users/dloch/prog/maga/thesis/fuzz-rank/dataset\\assertj-vavr-cd521160aa\\target\\dependency\\apiguardian-api-1.1.2.jar",
-      "C:/Users/dloch/prog/maga/thesis/fuzz-rank/dataset\\assertj-vavr-cd521160aa\\target\\dependency\\assertj-core-3.24.1.jar",
-      "C:/Users/dloch/prog/maga/thesis/fuzz-rank/dataset\\assertj-vavr-cd521160aa\\target\\dependency\\byte-buddy-1.12.21.jar",
-      "C:/Users/dloch/prog/maga/thesis/fuzz-rank/dataset\\assertj-vavr-cd521160aa\\target\\dependency\\byte-buddy-agent-1.12.9.jar",
-      "C:/Users/dloch/prog/maga/thesis/fuzz-rank/dataset\\assertj-vavr-cd521160aa\\target\\dependency\\hamcrest-core-1.3.jar",
-      "C:/Users/dloch/prog/maga/thesis/fuzz-rank/dataset\\assertj-vavr-cd521160aa\\target\\dependency\\junit-4.13.2.jar",
-      "C:/Users/dloch/prog/maga/thesis/fuzz-rank/dataset\\assertj-vavr-cd521160aa\\target\\dependency\\junit-jupiter-5.9.1.jar",
-      "C:/Users/dloch/prog/maga/thesis/fuzz-rank/dataset\\assertj-vavr-cd521160aa\\target\\dependency\\junit-jupiter-api-5.9.1.jar",
-      "C:/Users/dloch/prog/maga/thesis/fuzz-rank/dataset\\assertj-vavr-cd521160aa\\target\\dependency\\junit-jupiter-engine-5.9.1.jar",
-      "C:/Users/dloch/prog/maga/thesis/fuzz-rank/dataset\\assertj-vavr-cd521160aa\\target\\dependency\\junit-jupiter-params-5.9.1.jar",
-      "C:/Users/dloch/prog/maga/thesis/fuzz-rank/dataset\\assertj-vavr-cd521160aa\\target\\dependency\\junit-platform-commons-1.9.1.jar",
-      "C:/Users/dloch/prog/maga/thesis/fuzz-rank/dataset\\assertj-vavr-cd521160aa\\target\\dependency\\junit-platform-engine-1.9.1.jar",
-      "C:/Users/dloch/prog/maga/thesis/fuzz-rank/dataset\\assertj-vavr-cd521160aa\\target\\dependency\\mockito-core-4.5.1.jar",
-      "C:/Users/dloch/prog/maga/thesis/fuzz-rank/dataset\\assertj-vavr-cd521160aa\\target\\dependency\\objenesis-3.2.jar",
-      "C:/Users/dloch/prog/maga/thesis/fuzz-rank/dataset\\assertj-vavr-cd521160aa\\target\\dependency\\opentest4j-1.2.0.jar",
-      "C:/Users/dloch/prog/maga/thesis/fuzz-rank/dataset\\assertj-vavr-cd521160aa\\target\\dependency\\vavr-0.10.4.jar",
-      "C:/Users/dloch/prog/maga/thesis/fuzz-rank/dataset\\assertj-vavr-cd521160aa\\target\\dependency\\vavr-match-0.10.4.jar"
-    ]
-    target = "org.assertj.vavr.api.SeqAssert::isSorted()" # "org.assertj.vavr.api.VavrAssumptions::asAssumption(org.assertj.vavr.api.AbstractVavrAssert)"
+  
+  
+def parallel_autofuzz(
+    *,
+    cp: list[str],
+    targets: list[str],
+    workdir: str,
+    parallelism: int,
+    total_time_limit_seconds: int,
+):
+    single_time_limit_seconds = int(total_time_limit_seconds / len(targets) * parallelism)
     
-    workdir = 'workdir'
-    if os.path.exists(workdir):
-        shutil.rmtree(workdir)
+    # escape ':' on windows
+    single_workdir = lambda target: workdir + '/' + target.replace(':', '_')
     
-    run_jazzer(
-        cp=cp, 
-        autofuzz_target=target, 
-        run_workdir=workdir,
-    )
+    # cp, target, workdir, time_limit
+    args = [
+        [cp, t, single_workdir(t), single_time_limit_seconds]
+    for t in targets]
+    
+    with multiprocessing.Pool(processes=parallelism) as pool:
+        pool.starmap(single_autofuzz, args)
