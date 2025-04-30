@@ -1,12 +1,7 @@
 import os
 import subprocess
-import shutil
 import multiprocessing
-import itertools
-
-JAZZER_HOME = os.environ['JAZZ_HOME']
-JACOCO_HOME = os.environ['JACOCO_HOME']
-
+from my_util import *
 
 def single_autofuzz(
         cp: list[str], 
@@ -14,7 +9,7 @@ def single_autofuzz(
         run_workdir: str,
         time_limit_seconds: int,
 ):
-    cp_str = ';'.join(cp) # + PATH_SEP + f'{JAZZER_HOME}/jazzer_standalone.jar'
+    cp_str = ';'.join(cp)
     if not os.path.exists(run_workdir):
         os.makedirs(run_workdir)
     
