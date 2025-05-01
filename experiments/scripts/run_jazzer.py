@@ -62,19 +62,19 @@ def parallel_autofuzz(
     targets: list[str],
     workdir: str,
     parallelism: int,
-    total_time_limit_seconds: int,
+    time_per_ranking_seconds: int,
 ):
     task_waves = math.ceil(len(targets) / parallelism)
-    single_time_limit_seconds = total_time_limit_seconds // task_waves
+    time_per_target_seconds = time_per_ranking_seconds // task_waves
     
-    print(f'time per target: {single_time_limit_seconds}')
+    print(f'time per target: {time_per_target_seconds}')
     
     # escape ':' on windows
     single_workdir = lambda target: workdir + '/' + target.replace(':', '_')
     
     # cp, target, workdir, time_limit
     args = [
-        [cp, t, single_workdir(t), single_time_limit_seconds]
+        [cp, t, single_workdir(t), time_per_target_seconds]
     for t in targets]
     
     start_time = time.time()
@@ -82,4 +82,4 @@ def parallel_autofuzz(
     with multiprocessing.Pool(parallelism) as pool:
         pool.starmap(single_autofuzz, args)
     end_time = time.time()
-    print(f'one ranking done, took {end_time - start_time} instead of {total_time_limit_seconds}')
+    print(f'one ranking done, took {end_time - start_time} instead of {time_per_ranking_seconds}')

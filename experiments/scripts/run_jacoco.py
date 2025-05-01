@@ -19,6 +19,7 @@ def jacoco_merge(exec_files: list[str], output: str):
 
 
 def jacoco_report(exec_file: str, project_cp: list[str], output_dir: str):
+    os.makedirs(output_dir)
     classpath_args = [
         a
         for c in project_cp

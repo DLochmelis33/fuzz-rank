@@ -73,7 +73,7 @@ def test_parallel_autofuzz():
         targets=targets,
         workdir=workdir,
         parallelism=4,
-        total_time_limit_seconds=40
+        time_per_ranking_seconds=40
     )    
     
 
@@ -106,9 +106,20 @@ def test_run_one_project():
     run_one_project(rankings_file, workdir, 4, 2)
 
 
+# use a mock dataset in env var and mock rankings
+def test_run_dataset():
+    rankings_dir = '../tmp/rankings'
+    workdir = str(Path('workdir').absolute())
+    if os.path.exists(workdir):
+        shutil.rmtree(workdir)
+        
+    run_dataset(rankings_dir, workdir, 8, 60 * 10)
+
+
 if __name__=="__main__":
     # test_single_autofuzz()
     # test_parallel_autofuzz()
     # test_jacoco_merge()
     # test_jacoco_report()
-    test_run_one_project()
+    # test_run_one_project()
+    test_run_dataset()
