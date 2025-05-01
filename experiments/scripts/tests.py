@@ -99,7 +99,7 @@ def test_jacoco_report():
 def test_run_one_project():
     rankings_file = 'results/rankings/ari-proxy-f9fde350e2.json'
     
-    workdir = 'workdir'
+    workdir = str(Path('workdir').absolute())
     if os.path.exists(workdir):
         shutil.rmtree(workdir)
     

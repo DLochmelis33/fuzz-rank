@@ -24,6 +24,7 @@ def run_one_project(
     cp: list[str] = dataset_entry['classPath']
 
     rankings = _read_rankings(rankings_file)
+    ranking_workdir_list = []
     for ranking in rankings:
         strategy_name: str = ranking['strategyName']
         topK: float = ranking['topK']
@@ -32,6 +33,7 @@ def run_one_project(
         ranking_name = f'{strategy_name}_{topK}'
         ranking_workdir = f'{project_workdir}/{ranking_name}'
         os.makedirs(ranking_workdir)
+        ranking_workdir_list.append(ranking_workdir)
         
         print(f'running {ranking_name}, has {len(entry_points)} entry points')
         run_jazzer.parallel_autofuzz(
@@ -41,4 +43,8 @@ def run_one_project(
             parallelism=parallelism,
             total_time_limit_seconds=total_time_limit_seconds,
         )
-        
+    
+        os.listdir()
+        exec_files = [ f'{ranking_workdir}/{target_dir}/jazzer_workdir/jacoco.exec' 
+                      for target_dir in os.listdir(ranking_workdir) ]
+        run_jacoco.jacoco_merge(exec_files, f'{ranking_workdir}/jacoco_merged.exec')

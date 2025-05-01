@@ -4,6 +4,8 @@ import multiprocessing
 import math
 import time
 import tempfile
+import shutil
+import sys
 
 from my_util import *
 
@@ -32,17 +34,26 @@ def single_autofuzz(
     ]
     print(f'running target {autofuzz_target}')
     
-    # bc of Windows, subprocess cmd cannot handle long dir names. this is dumb AF but a workaround is easy.
+    # bc of Windows, subprocess cwd cannot handle long dir names. this is dumb AF but a workaround is easy.
     cwd_dir = tempfile.mkdtemp()
-    with open(f'{run_workdir}/jazzer_workdir_ref.txt', 'w') as f:
+    cwd_ref_file = f'{run_workdir}/jazzer_workdir_ref.txt' 
+    with open(cwd_ref_file, 'w') as f:
         f.write(cwd_dir)
 
-    subprocess.run(
+    retcode = subprocess.run(
         args=command,
         stdout=open(f'{run_workdir}/stdout.txt', 'w'),
         stderr=open(f'{run_workdir}/stderr.txt', 'w'),
         cwd=cwd_dir,
-    )
+    ).returncode
+    
+    shutil.copytree(src=cwd_dir, dst=f'{run_workdir}/jazzer_workdir')
+    shutil.rmtree(cwd_dir)
+    os.remove(cwd_ref_file)
+    
+    if retcode != 0:
+        # something was wrong, but not a critical error
+        print(f'WARN: jazzer returned {retcode} when running {autofuzz_target}', file=sys.stderr)
   
   
 def parallel_autofuzz(

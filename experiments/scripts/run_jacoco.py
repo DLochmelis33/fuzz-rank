@@ -13,7 +13,9 @@ def jacoco_merge(exec_files: list[str], output: str):
         output,
         '--quiet',
     ]
-    subprocess.run(command)
+    retcode = subprocess.run(command).returncode
+    if retcode != 0:
+        raise ValueError(f'jacoco returned {retcode}')
 
 
 def jacoco_report(exec_file: str, project_cp: list[str], output_dir: str):
@@ -37,4 +39,6 @@ def jacoco_report(exec_file: str, project_cp: list[str], output_dir: str):
         f'{output_dir}/report.xml',
         '--quiet',
     ]
-    subprocess.run(command)
+    retcode = subprocess.run(command).returncode
+    if retcode != 0:
+        raise ValueError(f'jacoco returned {retcode}')
