@@ -135,7 +135,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="run main experiment")
     parser.add_argument("rankings_dir", type=str, help="Path to the rankings directory")
     parser.add_argument("workdir", type=str, help="Working directory")
-    parser.add_argument("parallelism", type=int, help="Number of parallel processes to run", default=os.cpu_count(), required=False)
+    parser.add_argument("parallelism", type=int, help="Number of parallel processes to run")
     parser.add_argument("time_per_ranking_seconds", type=int, help="Time per ranking in seconds")
     
     args = parser.parse_args()
