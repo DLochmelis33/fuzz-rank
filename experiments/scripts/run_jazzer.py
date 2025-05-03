@@ -15,7 +15,7 @@ def single_autofuzz(
         run_workdir: str,
         time_per_target_seconds: int,
 ):
-    cp_str = ';'.join(cp)
+    cp_str = os.pathsep.join(cp)
     os.makedirs(run_workdir)
     run_workdir = str(pathlib.Path(run_workdir).absolute())
     
@@ -69,7 +69,7 @@ def make_ranking_autofuzz_args(
 ) -> list[list[str]]:
     if len(targets) == 0:
         print(f'WARN: empty targets list')
-        return
+        return []
         
     time_per_target_seconds = time_per_ranking_seconds // len(targets)
     
