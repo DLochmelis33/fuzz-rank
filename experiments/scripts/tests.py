@@ -42,60 +42,6 @@ def test_single_autofuzz():
     )
     
 
-def test_parallel_autofuzz():
-    targets = [
-        "org.assertj.vavr.api.VavrAssumptions::asAssumption(org.assertj.vavr.api.AbstractVavrAssert)",
-        "org.assertj.vavr.api.AbstractMultimapAssert::hasSameSizeAs(java.lang.Iterable)",
-        "org.assertj.vavr.api.ClassLoadingStrategyFactory::classLoadingStrategy(java.lang.Class)",
-        "org.assertj.vavr.api.AbstractOptionAssert::contains(java.lang.Object)",
-        "org.assertj.vavr.api.AbstractTryAssert::contains(java.lang.Object)",
-        "org.assertj.vavr.api.VavrAssumptions::asAssumption(java.lang.Class, java.lang.Class[], java.lang.Object[])",
-        "org.assertj.vavr.api.VavrAssumptions.AssumptionMethodInterceptor::intercept(org.assertj.vavr.api.AbstractVavrAssert, java.util.concurrent.Callable)",
-        "org.assertj.vavr.api.AbstractSeqAssert::isSorted()",
-        "org.assertj.vavr.api.AbstractSeqAssert::assertIsSortedAccordingToComparator(java.util.Comparator)",
-        "org.assertj.vavr.api.VavrAssumptions::assumptionNotMet(java.lang.AssertionError)",
-        "org.assertj.vavr.api.AbstractValidationAssert::containsInvalid(java.lang.Object)",
-        "org.assertj.vavr.api.AbstractMapAssert::hasSizeBetween(int, int)",
-        "org.assertj.vavr.api.AbstractOptionAssert::containsSame(java.lang.Object)",
-        "org.assertj.vavr.api.AbstractSeqAssert::contains(java.lang.Object, org.assertj.core.data.Index)",
-        "org.assertj.vavr.api.AbstractEitherAssert::containsOnLeft(java.lang.Object)",
-        "org.assertj.vavr.api.AbstractEitherAssert::containsOnRight(java.lang.Object)"
-    ]
-    # 16 targets
-    # 4 in parallel, 10 seconds per each = 40 seconds total
-    
-    workdir = 'workdir'
-    if os.path.exists(workdir):
-        shutil.rmtree(workdir)
-        
-    parallel_autofuzz(
-        cp=_cp,
-        targets=targets,
-        workdir=workdir,
-        parallelism=4,
-        time_per_ranking_seconds=40
-    )    
-    
-
-def test_jacoco_merge():
-    workdir = pathlib.Path('workdir')
-    exec_files = [
-        workdir / d / 'jacoco.exec'
-        for d in os.listdir(workdir)]
-    output = workdir / 'jacoco_merged.exec'
-    jacoco_merge(exec_files, output)
-
-
-def test_jacoco_report():
-    output_dir = 'workdir/report'
-    os.makedirs(output_dir)
-    jacoco_report(
-        'workdir/jacoco_merged.exec', 
-        ["C:/Users/dloch/prog/maga/thesis/fuzz-rank/dataset\\assertj-vavr-cd521160aa\\target\\classes"], 
-        output_dir
-    )
-
-
 def test_run_one_project():
     rankings_file = 'results/rankings/ari-proxy-f9fde350e2.json'
     
@@ -117,9 +63,9 @@ def test_run_dataset():
 
 
 if __name__=="__main__":
-    # test_single_autofuzz()
-    # test_parallel_autofuzz()
-    # test_jacoco_merge()
-    # test_jacoco_report()
-    # test_run_one_project()
-    test_run_dataset()
+    test_single_autofuzz()
+    print('single autofuzz ok')
+    test_run_one_project()
+    print('one project ok')
+    if input('continue with dataset test? (y/n)') == 'y':
+        test_run_dataset()

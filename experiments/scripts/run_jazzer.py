@@ -22,7 +22,7 @@ def single_autofuzz(
     if time_per_target_seconds < 1:
         # print('too little time per target! set to 1 second')
         time_per_target_seconds = 1
-    print(f'running {autofuzz_target} for {time_per_target_seconds} sec')
+    # print(f'running {autofuzz_target} for {time_per_target_seconds} sec')
 
     command = [
         'java',
@@ -67,6 +67,10 @@ def make_ranking_autofuzz_args(
     workdir: str,
     time_per_ranking_seconds: int,
 ) -> list[list[str]]:
+    if len(targets) == 0:
+        print(f'WARN: empty targets list')
+        return
+        
     time_per_target_seconds = time_per_ranking_seconds // len(targets)
     
     # escape ':' on windows
