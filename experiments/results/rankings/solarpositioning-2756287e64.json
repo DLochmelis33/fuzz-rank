@@ -122,5 +122,42 @@
             "net.e175.klaus.solarpositioning.AzimuthZenithAngle::equals(java.lang.Object)",
             "net.e175.klaus.solarpositioning.Grena3::calculateSolarPosition(java.time.ZonedDateTime, double, double, double)"
         ]
+    },
+    {
+        "strategyName": "RandomStrategy",
+        "topK": 0.01,
+        "entryPoints": []
+    },
+    {
+        "strategyName": "RandomStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "net.e175.klaus.solarpositioning.SPA::calculateNutationTerms(double)",
+            "net.e175.klaus.solarpositioning.SunriseTransitSet::<init>(net.e175.klaus.solarpositioning.SunriseTransitSet.Type, java.time.ZonedDateTime, java.time.ZonedDateTime, java.time.ZonedDateTime)"
+        ]
+    },
+    {
+        "strategyName": "RandomStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "net.e175.klaus.solarpositioning.SPA::limitDegreesTo360(double)",
+            "net.e175.klaus.solarpositioning.DeltaT::decimalYear(java.time.LocalDate)",
+            "net.e175.klaus.solarpositioning.JulianDate::<init>(java.time.ZonedDateTime)",
+            "net.e175.klaus.solarpositioning.JulianDate::<init>(double, double)"
+        ]
+    },
+    {
+        "strategyName": "RandomStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "net.e175.klaus.solarpositioning.Grena3::calcT(java.time.ZonedDateTime)",
+            "net.e175.klaus.solarpositioning.SPA::startOfDayUT(java.time.ZonedDateTime)",
+            "net.e175.klaus.solarpositioning.AzimuthZenithAngle::toString()",
+            "net.e175.klaus.solarpositioning.SPA::calculateLBRTerms(double, double[][][])",
+            "net.e175.klaus.solarpositioning.AzimuthZenithAngle::equals(java.lang.Object)",
+            "net.e175.klaus.solarpositioning.SPA::calculateSunriseTransitSet(java.time.ZonedDateTime, double, double, double)",
+            "net.e175.klaus.solarpositioning.SunriseTransitSet::<init>(net.e175.klaus.solarpositioning.SunriseTransitSet.Type, java.time.ZonedDateTime, java.time.ZonedDateTime, java.time.ZonedDateTime)",
+            "net.e175.klaus.solarpositioning.DeltaT::decimalYear(java.time.LocalDate)"
+        ]
     }
 ]

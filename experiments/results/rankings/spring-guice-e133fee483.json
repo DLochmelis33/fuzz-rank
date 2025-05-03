@@ -169,5 +169,55 @@
             "org.springframework.guice.module.BeanFactoryProvider::get()",
             "org.springframework.guice.module.GuiceAutowireCandidateResolver::getLazyResolutionProxyIfNecessary(org.springframework.beans.factory.config.DependencyDescriptor, java.lang.String)"
         ]
+    },
+    {
+        "strategyName": "RandomStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "org.springframework.guice.module.GuiceAutowireCandidateResolver::getLazyResolutionProxyIfNecessary(org.springframework.beans.factory.config.DependencyDescriptor, java.lang.String)"
+        ]
+    },
+    {
+        "strategyName": "RandomStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "org.springframework.guice.injector.SpringInjector::getInstance(java.lang.Class)",
+            "org.springframework.guice.annotation.ModuleRegistryConfiguration::postProcessBeanDefinitionRegistry(org.springframework.beans.factory.support.BeanDefinitionRegistry)",
+            "org.springframework.guice.annotation.ModuleRegistryConfiguration.GuiceInjectorInitializer::onApplicationEvent(org.springframework.guice.annotation.ModuleRegistryConfiguration.GuiceInjectorInitializer.CreateInjectorEvent)",
+            "org.springframework.guice.annotation.ModuleRegistryConfiguration.GuiceInjectorInitializer::<init>(java.util.List, org.springframework.context.ConfigurableApplicationContext)"
+        ]
+    },
+    {
+        "strategyName": "RandomStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "org.springframework.guice.annotation.ModuleRegistryConfiguration.GuiceInjectorInitializer::<init>(java.util.List, org.springframework.context.ConfigurableApplicationContext)",
+            "org.springframework.guice.annotation.GuiceModuleRegistrar::setResourceLoader(org.springframework.core.io.ResourceLoader)",
+            "org.springframework.guice.module.SpringModule::getFactoryMethod(org.springframework.beans.factory.config.BeanDefinition, java.lang.Class)",
+            "org.springframework.guice.module.GuiceAutowireCandidateResolver::isCollectionType(java.lang.Class)",
+            "org.springframework.guice.annotation.GuiceModuleRegistrar::parsePatterns(org.springframework.core.type.AnnotationMetadata, java.lang.String)",
+            "org.springframework.guice.module.SpringModule::getNameFromBindingAnnotation(java.util.Optional)",
+            "org.springframework.guice.injector.SpringInjector::getBinding(java.lang.Class)"
+        ]
+    },
+    {
+        "strategyName": "RandomStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "org.springframework.guice.module.BeanFactoryProvider::<init>(java.lang.Class[], java.lang.String[])",
+            "org.springframework.guice.injector.SpringInjector::<init>(org.springframework.context.ApplicationContext)",
+            "org.springframework.guice.annotation.ModuleRegistryConfiguration.GuiceInjectorInitializer::createInjector()",
+            "org.springframework.guice.injector.SpringInjector::injectMembers(java.lang.Object)",
+            "org.springframework.guice.module.SpringModule::<init>(org.springframework.context.ApplicationContext, boolean)",
+            "org.springframework.guice.module.SpringModule::configure()",
+            "org.springframework.guice.annotation.ModuleRegistryConfiguration::postProcessBeanFactory(org.springframework.beans.factory.config.ConfigurableListableBeanFactory)",
+            "org.springframework.guice.module.SpringModule::shouldConsiderNonPublicMethods(org.springframework.beans.factory.config.BeanDefinition)",
+            "org.springframework.guice.module.BeanFactoryProvider::from(java.lang.Class[])",
+            "org.springframework.guice.module.BeanFactoryProvider.ContextRefreshingProvisionListener::<init>(org.springframework.guice.module.BeanFactoryProvider.PartiallyRefreshableApplicationContext)",
+            "org.springframework.guice.module.GuiceModuleMetadata::matches(java.lang.reflect.Type)",
+            "org.springframework.guice.module.GuiceAutowireCandidateResolver::buildLazyResolutionProxy(org.springframework.beans.factory.config.DependencyDescriptor, java.lang.String)",
+            "org.springframework.guice.module.SpringModule.BeanFactoryProvider::typed(org.springframework.beans.factory.config.ConfigurableListableBeanFactory, java.lang.reflect.Type, java.util.Optional)",
+            "org.springframework.guice.annotation.GuiceModuleRegistrar.GuiceModuleMetadataFactory::setExcludeNames(java.util.Collection)"
+        ]
     }
 ]

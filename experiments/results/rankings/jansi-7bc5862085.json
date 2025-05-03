@@ -15,8 +15,8 @@
             "org.fusesource.jansi.io.AnsiProcessor::optionInt(java.util.ArrayList, int)",
             "org.fusesource.jansi.internal.OSInfo::translateOSNameToFolderName(java.lang.String)",
             "org.fusesource.jansi.AnsiRenderer::render(java.lang.String, java.lang.Appendable)",
-            "org.fusesource.jansi.io.WindowsAnsiProcessor::processEraseScreen(int)",
             "org.fusesource.jansi.io.WindowsAnsiProcessor::processEraseLine(int)",
+            "org.fusesource.jansi.io.WindowsAnsiProcessor::processEraseScreen(int)",
             "org.fusesource.jansi.Ansi::_appendEscapeSequence(char, java.lang.Object[])",
             "org.fusesource.jansi.AnsiRenderer::render(org.fusesource.jansi.Ansi, java.lang.String[])",
             "org.fusesource.jansi.io.WindowsAnsiProcessor::processSetAttribute(int)",
@@ -35,8 +35,8 @@
             "org.fusesource.jansi.io.AnsiProcessor::optionInt(java.util.ArrayList, int)",
             "org.fusesource.jansi.internal.OSInfo::translateOSNameToFolderName(java.lang.String)",
             "org.fusesource.jansi.AnsiRenderer::render(java.lang.String, java.lang.Appendable)",
-            "org.fusesource.jansi.io.WindowsAnsiProcessor::processEraseScreen(int)",
             "org.fusesource.jansi.io.WindowsAnsiProcessor::processEraseLine(int)",
+            "org.fusesource.jansi.io.WindowsAnsiProcessor::processEraseScreen(int)",
             "org.fusesource.jansi.Ansi::_appendEscapeSequence(char, java.lang.Object[])",
             "org.fusesource.jansi.AnsiRenderer::render(org.fusesource.jansi.Ansi, java.lang.String[])",
             "org.fusesource.jansi.io.WindowsAnsiProcessor::processSetAttribute(int)",
@@ -68,8 +68,8 @@
             "org.fusesource.jansi.io.AnsiProcessor::optionInt(java.util.ArrayList, int)",
             "org.fusesource.jansi.internal.OSInfo::translateOSNameToFolderName(java.lang.String)",
             "org.fusesource.jansi.AnsiRenderer::render(java.lang.String, java.lang.Appendable)",
-            "org.fusesource.jansi.io.WindowsAnsiProcessor::processEraseScreen(int)",
             "org.fusesource.jansi.io.WindowsAnsiProcessor::processEraseLine(int)",
+            "org.fusesource.jansi.io.WindowsAnsiProcessor::processEraseScreen(int)",
             "org.fusesource.jansi.Ansi::_appendEscapeSequence(char, java.lang.Object[])",
             "org.fusesource.jansi.AnsiRenderer::render(org.fusesource.jansi.Ansi, java.lang.String[])",
             "org.fusesource.jansi.io.WindowsAnsiProcessor::processSetAttribute(int)",
@@ -100,8 +100,8 @@
             "org.fusesource.jansi.io.Colors::roundColor(int, int[], int)",
             "org.fusesource.jansi.io.AnsiOutputStream::uninstall()",
             "org.fusesource.jansi.AnsiMain::diagnoseTty(boolean)",
-            "org.fusesource.jansi.io.AnsiOutputStream::processOperatingSystemCommand()",
             "org.fusesource.jansi.io.AnsiOutputStream::processCharsetSelect()",
+            "org.fusesource.jansi.io.AnsiOutputStream::processOperatingSystemCommand()",
             "org.fusesource.jansi.io.WindowsAnsiProcessor::processCursorTo(int, int)",
             "org.fusesource.jansi.internal.JansiLoader::loadNativeLibrary(java.io.File)",
             "org.fusesource.jansi.io.AnsiProcessor::getNextOptionInt(java.util.Iterator)",
@@ -113,12 +113,12 @@
             "org.fusesource.jansi.io.WindowsAnsiProcessor::processSetBackgroundColorExt(int, int, int)",
             "org.fusesource.jansi.io.WindowsAnsiProcessor::processSetForegroundColorExt(int, int, int)",
             "org.fusesource.jansi.internal.JansiLoader::getVersion()",
-            "org.fusesource.jansi.Ansi::bgRgb(int, int, int)",
             "org.fusesource.jansi.Ansi::fgRgb(int, int, int)",
+            "org.fusesource.jansi.Ansi::bgRgb(int, int, int)",
             "org.fusesource.jansi.WindowsSupport::getErrorMessage(int)",
             "org.fusesource.jansi.io.WindowsAnsiProcessor::applyAttribute()",
             "org.fusesource.jansi.io.WindowsAnsiProcessor::getConsoleInfo()",
-            "org.fusesource.jansi.Ansi::cursorLeft(int)"
+            "org.fusesource.jansi.Ansi::cursorDown(int)"
         ]
     },
     {
@@ -137,8 +137,8 @@
             "org.fusesource.jansi.io.AnsiProcessor::optionInt(java.util.ArrayList, int)",
             "org.fusesource.jansi.internal.OSInfo::translateOSNameToFolderName(java.lang.String)",
             "org.fusesource.jansi.AnsiRenderer::render(java.lang.String, java.lang.Appendable)",
-            "org.fusesource.jansi.io.WindowsAnsiProcessor::processEraseScreen(int)",
             "org.fusesource.jansi.io.WindowsAnsiProcessor::processEraseLine(int)",
+            "org.fusesource.jansi.io.WindowsAnsiProcessor::processEraseScreen(int)",
             "org.fusesource.jansi.io.WindowsAnsiProcessor::processSetAttribute(int)",
             "org.fusesource.jansi.AnsiConsole::getBoolean(java.lang.String)",
             "org.fusesource.jansi.internal.Kernel32::readConsoleKeyInput(long, int, boolean)",
@@ -153,8 +153,8 @@
             "org.fusesource.jansi.io.AnsiProcessor::optionInt(java.util.ArrayList, int)",
             "org.fusesource.jansi.internal.OSInfo::translateOSNameToFolderName(java.lang.String)",
             "org.fusesource.jansi.AnsiRenderer::render(java.lang.String, java.lang.Appendable)",
-            "org.fusesource.jansi.io.WindowsAnsiProcessor::processEraseScreen(int)",
             "org.fusesource.jansi.io.WindowsAnsiProcessor::processEraseLine(int)",
+            "org.fusesource.jansi.io.WindowsAnsiProcessor::processEraseScreen(int)",
             "org.fusesource.jansi.io.WindowsAnsiProcessor::processSetAttribute(int)",
             "org.fusesource.jansi.AnsiConsole::getBoolean(java.lang.String)",
             "org.fusesource.jansi.internal.Kernel32::readConsoleKeyInput(long, int, boolean)",
@@ -172,8 +172,8 @@
             "org.fusesource.jansi.io.AnsiProcessor::optionInt(java.util.ArrayList, int)",
             "org.fusesource.jansi.internal.OSInfo::translateOSNameToFolderName(java.lang.String)",
             "org.fusesource.jansi.AnsiRenderer::render(java.lang.String, java.lang.Appendable)",
-            "org.fusesource.jansi.io.WindowsAnsiProcessor::processEraseScreen(int)",
             "org.fusesource.jansi.io.WindowsAnsiProcessor::processEraseLine(int)",
+            "org.fusesource.jansi.io.WindowsAnsiProcessor::processEraseScreen(int)",
             "org.fusesource.jansi.io.WindowsAnsiProcessor::processSetAttribute(int)",
             "org.fusesource.jansi.AnsiConsole::getBoolean(java.lang.String)",
             "org.fusesource.jansi.internal.Kernel32::readConsoleKeyInput(long, int, boolean)",
@@ -184,7 +184,7 @@
             "org.fusesource.jansi.internal.OSInfo::main(java.lang.String[])",
             "org.fusesource.jansi.io.FastBufferedOutputStream::write(byte[], int, int)",
             "org.fusesource.jansi.Ansi::cursor(int, int)",
-            "org.fusesource.jansi.Ansi::cursorLeft(int)"
+            "org.fusesource.jansi.Ansi::cursorDown(int)"
         ]
     },
     {
@@ -192,7 +192,7 @@
         "topK": 0.01,
         "entryPoints": [
             "org.fusesource.jansi.io.AnsiOutputStream::write(int)",
-            "org.fusesource.jansi.Ansi::render(java.lang.String)"
+            "org.fusesource.jansi.Ansi::render(java.lang.String, java.lang.Object[])"
         ]
     },
     {
@@ -202,7 +202,7 @@
             "org.fusesource.jansi.io.AnsiOutputStream::write(int)",
             "org.fusesource.jansi.AnsiMain::main(java.lang.String[])",
             "org.fusesource.jansi.internal.Kernel32::readConsoleKeyInput(long, int, boolean)",
-            "org.fusesource.jansi.Ansi::render(java.lang.String)"
+            "org.fusesource.jansi.Ansi::render(java.lang.String, java.lang.Object[])"
         ]
     },
     {
@@ -272,6 +272,128 @@
             "org.fusesource.jansi.Ansi::cursorMove(int, int)",
             "org.fusesource.jansi.Ansi::render(java.lang.String)",
             "org.fusesource.jansi.internal.OSInfo::main(java.lang.String[])"
+        ]
+    },
+    {
+        "strategyName": "RandomStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "org.fusesource.jansi.internal.OSInfo::resolveArmArchType()",
+            "org.fusesource.jansi.AnsiRenderer::render(java.lang.String, java.lang.String[])",
+            "org.fusesource.jansi.WindowsSupport::getErrorMessage(int)"
+        ]
+    },
+    {
+        "strategyName": "RandomStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "org.fusesource.jansi.internal.OSInfo::translateArchNameToFolderName(java.lang.String)",
+            "org.fusesource.jansi.io.AnsiOutputStream::setResetAtUninstall(boolean)",
+            "org.fusesource.jansi.io.AnsiProcessor::processSetForegroundColor(int, boolean)",
+            "org.fusesource.jansi.io.AnsiProcessor::processSetForegroundColorExt(int, int, int)",
+            "org.fusesource.jansi.Ansi::a(java.lang.CharSequence)",
+            "org.fusesource.jansi.internal.Kernel32::readConsoleInputHelper(long, int, boolean)",
+            "org.fusesource.jansi.Ansi::a(char[], int, int)",
+            "org.fusesource.jansi.io.AnsiOutputStream::<init>(java.io.OutputStream, org.fusesource.jansi.io.AnsiOutputStream.WidthSupplier, org.fusesource.jansi.AnsiMode, org.fusesource.jansi.io.AnsiProcessor, org.fusesource.jansi.AnsiType, org.fusesource.jansi.AnsiColors, java.nio.charset.Charset, org.fusesource.jansi.io.AnsiOutputStream.IoRunnable, org.fusesource.jansi.io.AnsiOutputStream.IoRunnable, boolean)",
+            "org.fusesource.jansi.io.AnsiOutputStream::processEscapeCommand(int)",
+            "org.fusesource.jansi.io.WindowsAnsiProcessor::processDeleteLine(int)",
+            "org.fusesource.jansi.io.AnsiProcessor::processDeleteLine(int)",
+            "org.fusesource.jansi.Ansi::bgRgb(int, int, int)",
+            "org.fusesource.jansi.Ansi::bgDefault()",
+            "org.fusesource.jansi.Ansi.NoAnsi::fgRgb(int, int, int)"
+        ]
+    },
+    {
+        "strategyName": "RandomStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "org.fusesource.jansi.io.AnsiProcessor::processCursorRight(int)",
+            "org.fusesource.jansi.AnsiPrintStream::setMode(org.fusesource.jansi.AnsiMode)",
+            "org.fusesource.jansi.AnsiRenderer::render(java.lang.String, java.lang.Appendable)",
+            "org.fusesource.jansi.Ansi::a(java.lang.StringBuffer)",
+            "org.fusesource.jansi.Ansi::bgYellow()",
+            "org.fusesource.jansi.Ansi::format(java.lang.String, java.lang.Object[])",
+            "org.fusesource.jansi.io.FastBufferedOutputStream::write(byte[], int, int)",
+            "org.fusesource.jansi.io.FastBufferedOutputStream::flushBuffer()",
+            "org.fusesource.jansi.Ansi::fgBrightGreen()",
+            "org.fusesource.jansi.io.Colors::rgb2xyz(double[])",
+            "org.fusesource.jansi.internal.OSInfo::isAndroid()",
+            "org.fusesource.jansi.Ansi::a(long)",
+            "org.fusesource.jansi.Ansi.NoAnsi::a(org.fusesource.jansi.Ansi.Attribute)",
+            "org.fusesource.jansi.internal.JansiLoader::randomUUID()",
+            "org.fusesource.jansi.io.AnsiProcessor::optionInt(java.util.ArrayList, int)",
+            "org.fusesource.jansi.Ansi::setDetector(java.util.concurrent.Callable)",
+            "org.fusesource.jansi.io.AnsiProcessor::processCursorLeft(int)",
+            "org.fusesource.jansi.Ansi::appendEscapeSequence(char, int)",
+            "org.fusesource.jansi.io.AnsiProcessor::processSetForegroundColorExt(int, int, int)",
+            "org.fusesource.jansi.io.Colors::pivotRgb(double)",
+            "org.fusesource.jansi.Ansi::a(float)",
+            "org.fusesource.jansi.Ansi.NoAnsi::bgRgb(int, int, int)",
+            "org.fusesource.jansi.Ansi::bgRgb(int)",
+            "org.fusesource.jansi.io.AnsiOutputStream::processEscapeCommand(int)",
+            "org.fusesource.jansi.Ansi::cursorMove(int, int)",
+            "org.fusesource.jansi.io.AnsiProcessor::processCursorTo(int, int)",
+            "org.fusesource.jansi.internal.JansiLoader::loadJansiNativeLibrary()"
+        ]
+    },
+    {
+        "strategyName": "RandomStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "org.fusesource.jansi.internal.OSInfo::isAndroid()",
+            "org.fusesource.jansi.Ansi::render(java.lang.String)",
+            "org.fusesource.jansi.AnsiConsole::systemInstall()",
+            "org.fusesource.jansi.AnsiConsole::getTerminalWidth()",
+            "org.fusesource.jansi.io.WindowsAnsiProcessor::processEraseScreen(int)",
+            "org.fusesource.jansi.Ansi.NoAnsi::scrollUp(int)",
+            "org.fusesource.jansi.AnsiRenderer::render(java.lang.String)",
+            "org.fusesource.jansi.io.WindowsAnsiProcessor::processCursorDownLine(int)",
+            "org.fusesource.jansi.Ansi::fgYellow()",
+            "org.fusesource.jansi.io.WindowsAnsiProcessor::processInsertLine(int)",
+            "org.fusesource.jansi.Ansi::cursorUpLine(int)",
+            "org.fusesource.jansi.io.Colors::pivotXyz(double)",
+            "org.fusesource.jansi.WindowsSupport::getErrorMessage(int)",
+            "org.fusesource.jansi.internal.JansiLoader::contentsEquals(java.io.InputStream, java.io.InputStream)",
+            "org.fusesource.jansi.Ansi::fg(org.fusesource.jansi.Ansi.Color)",
+            "org.fusesource.jansi.Ansi::cursorDownLine()",
+            "org.fusesource.jansi.AnsiPrintStream::<init>(org.fusesource.jansi.io.AnsiOutputStream, boolean)",
+            "org.fusesource.jansi.Ansi.NoAnsi::bgRgb(int, int, int)",
+            "org.fusesource.jansi.Ansi::fgBrightDefault()",
+            "org.fusesource.jansi.Ansi.NoAnsi::a(org.fusesource.jansi.Ansi.Attribute)",
+            "org.fusesource.jansi.io.AnsiProcessor::optionInt(java.util.ArrayList, int, int)",
+            "org.fusesource.jansi.Ansi::bold()",
+            "org.fusesource.jansi.internal.OSInfo::getOSName()",
+            "org.fusesource.jansi.io.AnsiProcessor::processChangeWindowTitle(java.lang.String)",
+            "org.fusesource.jansi.internal.OSInfo::translateArchNameToFolderName(java.lang.String)",
+            "org.fusesource.jansi.Ansi::eraseLine(org.fusesource.jansi.Ansi.Erase)",
+            "org.fusesource.jansi.io.AnsiProcessor::processCharsetSelect(java.util.ArrayList)",
+            "org.fusesource.jansi.Ansi::setDetector(java.util.concurrent.Callable)",
+            "org.fusesource.jansi.Ansi::fg(int)",
+            "org.fusesource.jansi.internal.Kernel32::readConsoleKeyInput(long, int, boolean)",
+            "org.fusesource.jansi.internal.JansiLoader::extractAndLoadLibraryFile(java.lang.String, java.lang.String, java.lang.String)",
+            "org.fusesource.jansi.Ansi::format(java.lang.String, java.lang.Object[])",
+            "org.fusesource.jansi.AnsiMain::writeFileContent(java.io.File)",
+            "org.fusesource.jansi.io.AnsiProcessor::processCursorToColumn(int)",
+            "org.fusesource.jansi.io.WindowsAnsiProcessor::processSetBackgroundColor(int, boolean)",
+            "org.fusesource.jansi.AnsiConsole::initStreams()",
+            "org.fusesource.jansi.io.AnsiProcessor::processInsertLine(int)",
+            "org.fusesource.jansi.Ansi::cursorUp(int)",
+            "org.fusesource.jansi.io.AnsiProcessor::processChangeIconName(java.lang.String)",
+            "org.fusesource.jansi.Ansi::ansi(int)",
+            "org.fusesource.jansi.io.WindowsAnsiProcessor::<init>(java.io.OutputStream)",
+            "org.fusesource.jansi.internal.JansiLoader::getMajorVersion()",
+            "org.fusesource.jansi.Ansi.NoAnsi::scrollDown(int)",
+            "org.fusesource.jansi.Ansi::appendEscapeSequence(char, java.lang.Object[])",
+            "org.fusesource.jansi.io.AnsiProcessor::processCursorUpLine(int)",
+            "org.fusesource.jansi.Ansi.NoAnsi::cursorRight(int)",
+            "org.fusesource.jansi.Ansi.NoAnsi::cursorDownLine(int)",
+            "org.fusesource.jansi.io.FastBufferedOutputStream::write(byte[], int, int)",
+            "org.fusesource.jansi.io.AnsiProcessor::processScrollUp(int)",
+            "org.fusesource.jansi.io.WindowsAnsiProcessor::getConsoleInfo()",
+            "org.fusesource.jansi.internal.JansiLoader::initialize()",
+            "org.fusesource.jansi.Ansi::bg(org.fusesource.jansi.Ansi.Color)",
+            "org.fusesource.jansi.io.AnsiProcessor::processCursorTo(int, int)",
+            "org.fusesource.jansi.Ansi::ansi(java.lang.StringBuilder)"
         ]
     }
 ]

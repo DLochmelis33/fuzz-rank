@@ -34,10 +34,10 @@
             "util.validation.Validator::validateInsertionInput(storage.Table, java.util.Hashtable, java.util.HashSet)",
             "util.validation.Validator::validateUpdateInput(storage.Table, java.util.Hashtable, java.util.HashSet)",
             "util.validation.Validator::parseMinMax(java.util.Hashtable, java.lang.String, int)",
-            "storage.Table::insertTuple(java.util.Hashtable)",
             "storage.Table::getNextAvailablePage(int, storage.Page, storage.Tuple)",
+            "storage.Table::insertTuple(java.util.Hashtable)",
             "util.filecontroller.FileDeleter::deleteFile(java.io.Serializable, util.filecontroller.FileType)",
-            "util.validation.Validator::validTuple(storage.Table, java.util.Hashtable)"
+            "util.validation.Validator::validTupleUpdate(storage.Table, java.util.Hashtable)"
         ]
     },
     {
@@ -55,11 +55,11 @@
             "util.validation.Validator::validateInsertionInput(storage.Table, java.util.Hashtable, java.util.HashSet)",
             "util.validation.Validator::validateUpdateInput(storage.Table, java.util.Hashtable, java.util.HashSet)",
             "util.validation.Validator::parseMinMax(java.util.Hashtable, java.lang.String, int)",
-            "storage.Table::insertTuple(java.util.Hashtable)",
             "storage.Table::getNextAvailablePage(int, storage.Page, storage.Tuple)",
+            "storage.Table::insertTuple(java.util.Hashtable)",
             "util.filecontroller.FileDeleter::deleteFile(java.io.Serializable, util.filecontroller.FileType)",
-            "util.validation.Validator::validTuple(storage.Table, java.util.Hashtable)",
             "util.validation.Validator::validTupleUpdate(storage.Table, java.util.Hashtable)",
+            "util.validation.Validator::validTuple(storage.Table, java.util.Hashtable)",
             "datamanipulation.CsvWriter::clear()",
             "app.DBApp::takeAction(app.Action, java.lang.String, java.util.Hashtable)",
             "util.TypeCaster::castClusteringKey(storage.Table, java.lang.String)",
@@ -103,6 +103,7 @@
             "util.search.PageSearch::linearSearch(storage.Page, java.util.Hashtable)",
             "util.validation.Validator::validateInsertionInput(storage.Table, java.util.Hashtable, java.util.HashSet)",
             "util.validation.Validator::validateUpdateInput(storage.Table, java.util.Hashtable, java.util.HashSet)",
+            "storage.Table::getNextAvailablePage(int, storage.Page, storage.Tuple)",
             "storage.Table::insertTuple(java.util.Hashtable)",
             "util.filecontroller.FileDeleter::deleteFile(java.io.Serializable, util.filecontroller.FileType)"
         ]
@@ -118,6 +119,7 @@
             "util.search.PageSearch::linearSearch(storage.Page, java.util.Hashtable)",
             "util.validation.Validator::validateInsertionInput(storage.Table, java.util.Hashtable, java.util.HashSet)",
             "util.validation.Validator::validateUpdateInput(storage.Table, java.util.Hashtable, java.util.HashSet)",
+            "storage.Table::getNextAvailablePage(int, storage.Page, storage.Tuple)",
             "storage.Table::insertTuple(java.util.Hashtable)",
             "util.filecontroller.FileDeleter::deleteFile(java.io.Serializable, util.filecontroller.FileType)",
             "datamanipulation.CsvWriter::clear()",
@@ -132,14 +134,14 @@
         "strategyName": "MinCoverStrategy",
         "topK": 0.01,
         "entryPoints": [
-            "app.DBApp::insertIntoTable(java.lang.String, java.util.Hashtable)"
+            "app.DBApp::deleteFromTable(java.lang.String, java.util.Hashtable)"
         ]
     },
     {
         "strategyName": "MinCoverStrategy",
         "topK": 0.05,
         "entryPoints": [
-            "app.DBApp::insertIntoTable(java.lang.String, java.util.Hashtable)",
+            "app.DBApp::deleteFromTable(java.lang.String, java.util.Hashtable)",
             "app.DBApp::createTable(java.lang.String, java.lang.String, java.util.Hashtable, java.util.Hashtable, java.util.Hashtable)",
             "storage.Page::print()"
         ]
@@ -157,7 +159,7 @@
         "strategyName": "MinCoverStrategy",
         "topK": 0.2,
         "entryPoints": [
-            "app.DBApp::deleteFromTable(java.lang.String, java.util.Hashtable)",
+            "app.DBApp::insertIntoTable(java.lang.String, java.util.Hashtable)",
             "app.DBApp::createTable(java.lang.String, java.lang.String, java.util.Hashtable, java.util.Hashtable, java.util.Hashtable)",
             "datamanipulation.CsvWriter::clear()",
             "storage.Table::iterateOverPageName(java.lang.String, java.lang.Object)",
@@ -170,7 +172,7 @@
         "strategyName": "MinCoverWeightedStrategy",
         "topK": 0.01,
         "entryPoints": [
-            "app.DBApp::deleteFromTable(java.lang.String, java.util.Hashtable)"
+            "app.DBApp::insertIntoTable(java.lang.String, java.util.Hashtable)"
         ]
     },
     {
@@ -178,7 +180,7 @@
         "topK": 0.05,
         "entryPoints": [
             "app.DBApp::createTable(java.lang.String, java.lang.String, java.util.Hashtable, java.util.Hashtable, java.util.Hashtable)",
-            "app.DBApp::insertIntoTable(java.lang.String, java.util.Hashtable)",
+            "app.DBApp::updateTable(java.lang.String, java.lang.String, java.util.Hashtable)",
             "storage.Page::print()"
         ]
     },
@@ -186,7 +188,7 @@
         "strategyName": "MinCoverWeightedStrategy",
         "topK": 0.1,
         "entryPoints": [
-            "app.DBApp::insertIntoTable(java.lang.String, java.util.Hashtable)",
+            "app.DBApp::deleteFromTable(java.lang.String, java.util.Hashtable)",
             "app.DBApp::createTable(java.lang.String, java.lang.String, java.util.Hashtable, java.util.Hashtable, java.util.Hashtable)",
             "storage.Page::print()"
         ]
@@ -195,13 +197,89 @@
         "strategyName": "MinCoverWeightedStrategy",
         "topK": 0.2,
         "entryPoints": [
-            "app.DBApp::updateTable(java.lang.String, java.lang.String, java.util.Hashtable)",
+            "app.DBApp::deleteFromTable(java.lang.String, java.util.Hashtable)",
             "app.DBApp::createTable(java.lang.String, java.lang.String, java.util.Hashtable, java.util.Hashtable, java.util.Hashtable)",
             "datamanipulation.CsvWriter::clear()",
             "view.DatabaseManager::start(javafx.stage.Stage)",
             "storage.Table::iterateOverPageName(java.lang.String, java.lang.Object)",
             "storage.Page::print()",
             "view.DatabaseManager::<init>()"
+        ]
+    },
+    {
+        "strategyName": "RandomStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "storage.Page::handleEmptyPage()"
+        ]
+    },
+    {
+        "strategyName": "RandomStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "storage.TupleBuilder::buildTuple(java.util.Hashtable)",
+            "util.PagePrinter::printData()",
+            "util.PagePrinter::createLine()",
+            "storage.Page::deletePageFile()",
+            "util.validation.Validator::validDataTypes(java.util.Hashtable)",
+            "util.PagePrinter::getColOrder()",
+            "storage.Table::getPrototype()"
+        ]
+    },
+    {
+        "strategyName": "RandomStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "storage.Cell::setValue(java.lang.Object)",
+            "util.validation.Validator::checkMinMax(java.util.Hashtable)",
+            "datamanipulation.CsvWriter::writeRecord(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)",
+            "storage.Table::newLastPage(storage.Page, storage.Tuple)",
+            "util.search.PageSearch::linearSearch(storage.Page, java.lang.String, java.lang.Object)",
+            "view.components.DefaultButton::<init>(java.lang.String)",
+            "util.filecontroller.Serializer::deserializeTable(java.lang.String)",
+            "storage.Table::atLastPage(int)",
+            "exceptions.DBAppException::<init>(java.lang.Exception)",
+            "util.filecontroller.FileCreator::createTableFolder(storage.Table)",
+            "storage.Table::setPKColumn(java.lang.String)",
+            "util.TypeParser::typeParser(java.lang.Object, java.lang.String)",
+            "util.filecontroller.Serializer::getPath(java.lang.String, java.lang.String)",
+            "storage.Page::isEmpty()",
+            "storage.Table::getPrototype()"
+        ]
+    },
+    {
+        "strategyName": "RandomStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "util.filecontroller.Serializer::serializeTable(storage.Table)",
+            "storage.Table::iterateOverPageName(java.lang.String, java.lang.Object)",
+            "storage.Cell::setValue(java.lang.Object)",
+            "storage.Table::getNextAvailablePage(int, storage.Page, storage.Tuple)",
+            "storage.Table::createTableFiles()",
+            "util.PagePrinter::printcell(java.lang.String, storage.Tuple)",
+            "util.filecontroller.Serializer::getInputStream(java.lang.String, java.lang.String)",
+            "storage.Page::isFull()",
+            "storage.Table::atLastPage(int)",
+            "storage.Table::createTuple(java.util.Hashtable)",
+            "storage.Table::setName(java.lang.String)",
+            "storage.Table::initializePage()",
+            "view.components.QueryArea::<init>()",
+            "util.validation.Validator::initializeAttributes(int)",
+            "util.filecontroller.Serializer::deserializeTable(java.lang.String)",
+            "app.DBApp::insertIntoTable(java.lang.String, java.util.Hashtable)",
+            "util.PagePrinter::completeString(java.lang.String)",
+            "util.validation.Validator::validateDeletionInput(storage.Table, java.util.Hashtable, java.util.HashSet)",
+            "storage.Table::handleFullPageInsertion(storage.Page, int, storage.Tuple)",
+            "storage.Table::removeEmptyPages()",
+            "util.PagePrinter::printDataOrdered(storage.Tuple)",
+            "util.validation.Validator::foundPK(storage.Table, java.util.Hashtable)",
+            "storage.Table::setColNameMax(java.util.Hashtable)",
+            "view.components.AppBorder::<init>(javafx.scene.Node, javafx.scene.Node, javafx.scene.Node)",
+            "datamanipulation.CsvReader::readAll()",
+            "app.DBApp::deleteFromTable(java.lang.String, java.util.Hashtable)",
+            "storage.Page::setMinPK(java.lang.Object)",
+            "util.validation.Validator::validClusteringKey(java.lang.String, java.util.Hashtable)",
+            "util.validation.Validator::validTupleDelete(java.util.Hashtable)"
         ]
     }
 ]

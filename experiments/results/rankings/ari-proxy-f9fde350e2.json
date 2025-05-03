@@ -214,7 +214,7 @@
             "io.retel.ariproxy.health.HealthService::healthReportToHttpResponse(io.retel.ariproxy.health.api.HealthReport)",
             "io.retel.ariproxy.Main::lambda.main.1c6a8549.1(com.typesafe.config.Config, akka.actor.typed.javadsl.ActorContext)",
             "io.retel.ariproxy.boundary.commandsandresponses.AriCommandResponseKafkaProcessor::lambda.commandResponseProcessing.0(io.vavr.Tuple2, java.time.Instant, akka.http.javadsl.model.HttpResponse, java.lang.Throwable)",
-            "io.retel.ariproxy.boundary.callcontext.CallContextProvider::lambda.create.5b2fa92e.4(io.retel.ariproxy.persistence.KeyValueStore, akka.actor.typed.PostStop)",
+            "io.retel.ariproxy.boundary.callcontext.CallContextProvider::lambda.create.5b2fa92e.5(io.retel.ariproxy.persistence.KeyValueStore, akka.actor.typed.PreRestart)",
             "io.retel.ariproxy.health.KafkaConnectionCheck::lambda.create.5d700c6d.1(com.typesafe.config.Config, java.util.List, io.retel.ariproxy.health.KafkaConnectionCheck.ReportKafkaConnectionHealth)",
             "io.retel.ariproxy.boundary.callcontext.CallContextProvider::lambda.create.5b2fa92e.2(io.retel.ariproxy.persistence.KeyValueStore, io.retel.ariproxy.boundary.callcontext.api.ProvideCallContext)",
             "io.retel.ariproxy.health.HealthService::fetchHealthReport(java.util.function.Supplier)",
@@ -225,6 +225,72 @@
             "io.retel.ariproxy.boundary.callcontext.CallContextProvider::lambda.create.5b2fa92e.1(io.retel.ariproxy.persistence.KeyValueStore, io.retel.ariproxy.boundary.callcontext.api.RegisterCallContext)",
             "io.retel.ariproxy.boundary.commandsandresponses.AriCommandResponseKafkaProcessor::lambda.toHttpRequest.12(java.lang.String, java.lang.String, java.lang.String, io.retel.ariproxy.boundary.commandsandresponses.auxiliary.AriCommand, akka.http.javadsl.model.HttpMethod)",
             "io.retel.ariproxy.boundary.commandsandresponses.AriCommandResponseKafkaProcessor::lambda.commandResponseProcessing.b6558de5.1(java.lang.String, java.lang.String, akka.kafka.ConsumerMessage.CommittableMessage, io.vavr.Tuple2)"
+        ]
+    },
+    {
+        "strategyName": "RandomStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "io.retel.ariproxy.boundary.commandsandresponses.auxiliary.AriCommand::extractResourceRelations()"
+        ]
+    },
+    {
+        "strategyName": "RandomStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "io.retel.ariproxy.health.KafkaConnectionCheck::createKafkaConsumer(com.typesafe.config.Config)",
+            "io.retel.ariproxy.boundary.commandsandresponses.auxiliary.AriMessageResource::toString()",
+            "io.retel.ariproxy.boundary.commandsandresponses.auxiliary.AriMessageResource::<init>(io.retel.ariproxy.boundary.commandsandresponses.auxiliary.AriMessageResource.ResourceType, java.lang.String)",
+            "io.retel.ariproxy.boundary.commandsandresponses.auxiliary.CallContextAndResourceId::<init>(java.lang.String, java.lang.String, java.lang.String)",
+            "io.retel.ariproxy.boundary.callcontext.CallContextProvider::handleReportHealth(io.retel.ariproxy.persistence.KeyValueStore, io.retel.ariproxy.boundary.callcontext.api.ReportHealth)",
+            "io.retel.ariproxy.boundary.commandsandresponses.auxiliary.AriResponse::<init>(int, com.fasterxml.jackson.databind.JsonNode)"
+        ]
+    },
+    {
+        "strategyName": "RandomStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "io.retel.ariproxy.boundary.commandsandresponses.auxiliary.AriResource::toString()",
+            "io.retel.ariproxy.boundary.callcontext.CallContextProvider::provideCallContextHandler(io.retel.ariproxy.persistence.KeyValueStore, io.retel.ariproxy.boundary.callcontext.api.ProvideCallContext)",
+            "io.retel.ariproxy.persistence.PersistentKeyValueStore::put(java.lang.String, java.lang.String)",
+            "io.retel.ariproxy.boundary.commandsandresponses.auxiliary.CallContextAndCommandRequestContext::<init>(java.lang.String, java.lang.String, io.retel.ariproxy.boundary.commandsandresponses.auxiliary.AriCommand)",
+            "io.retel.ariproxy.boundary.commandsandresponses.auxiliary.AriMessageResource::equals(java.lang.Object)",
+            "io.retel.ariproxy.metrics.Metrics::getAriEventCounter(io.retel.ariproxy.boundary.commandsandresponses.auxiliary.AriMessageType)",
+            "io.retel.ariproxy.health.api.HealthReport::error(java.lang.String)",
+            "io.retel.ariproxy.boundary.events.WebsocketMessageToProducerRecordTranslator::gatherMetrics(akka.http.javadsl.model.ws.Message)",
+            "io.retel.ariproxy.persistence.plugin.RedisPersistenceStore::create(io.lettuce.core.RedisClient)",
+            "io.retel.ariproxy.persistence.plugin.CassandraPersistenceStore::set(java.lang.String, java.lang.String)",
+            "io.retel.ariproxy.persistence.CachedKeyValueStore::<init>(io.retel.ariproxy.persistence.KeyValueStore)",
+            "io.retel.ariproxy.persistence.plugin.RedisPersistenceStore::<init>(io.lettuce.core.RedisClient)"
+        ]
+    },
+    {
+        "strategyName": "RandomStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "io.retel.ariproxy.persistence.CachedKeyValueStore::<init>(io.retel.ariproxy.persistence.KeyValueStore)",
+            "io.retel.ariproxy.boundary.commandsandresponses.auxiliary.AriMessageEnvelope::toString()",
+            "io.retel.ariproxy.persistence.PersistentKeyValueStore::checkHealth()",
+            "io.retel.ariproxy.health.api.HealthReport::hashCode()",
+            "io.retel.ariproxy.boundary.commandsandresponses.auxiliary.AriResourceRelation::<init>(io.retel.ariproxy.boundary.commandsandresponses.auxiliary.AriResource, boolean)",
+            "io.retel.ariproxy.boundary.callcontext.api.CallContextRegistered::equals(java.lang.Object)",
+            "io.retel.ariproxy.boundary.commandsandresponses.auxiliary.AriResource::<init>(io.retel.ariproxy.boundary.commandsandresponses.auxiliary.AriResourceType, java.lang.String)",
+            "io.retel.ariproxy.persistence.plugin.RedisPersistenceStore::<init>(io.lettuce.core.RedisClient)",
+            "io.retel.ariproxy.health.AriConnectionCheck::create(com.typesafe.config.Config)",
+            "io.retel.ariproxy.health.api.HealthResponse::fromErrors(java.util.List)",
+            "io.retel.ariproxy.health.api.HealthReport::merge(io.retel.ariproxy.health.api.HealthReport)",
+            "io.retel.ariproxy.boundary.commandsandresponses.auxiliary.AriCommand::extractCommandType()",
+            "io.retel.ariproxy.boundary.commandsandresponses.auxiliary.AriMessageResource::equals(java.lang.Object)",
+            "io.retel.ariproxy.boundary.callcontext.api.CallContextRegistered::<init>(java.lang.String, java.lang.String)",
+            "io.retel.ariproxy.Main::main(java.lang.String[])",
+            "io.retel.ariproxy.health.api.HealthResponse::<init>(boolean, java.util.List)",
+            "io.retel.ariproxy.boundary.callcontext.CallContextProvider::exceptionallyCompose(java.util.concurrent.CompletionStage, java.util.function.Function)",
+            "io.retel.ariproxy.health.KafkaConnectionCheck::provideHealthReport(java.lang.String, java.util.List)",
+            "io.retel.ariproxy.boundary.callcontext.CallContextProvider::withKeyPrefix(java.lang.String)",
+            "io.retel.ariproxy.boundary.commandsandresponses.auxiliary.CallContextAndResourceId::toString()",
+            "io.retel.ariproxy.boundary.commandsandresponses.auxiliary.AriMessageEnvelope::<init>(io.retel.ariproxy.boundary.commandsandresponses.auxiliary.AriMessageType, java.lang.String, java.lang.Object, java.lang.String, java.util.List)",
+            "io.retel.ariproxy.boundary.commandsandresponses.auxiliary.AriResourceRelation::hashCode()",
+            "io.retel.ariproxy.boundary.callcontext.CallContextProvider::create(io.retel.ariproxy.persistence.KeyValueStore)"
         ]
     }
 ]

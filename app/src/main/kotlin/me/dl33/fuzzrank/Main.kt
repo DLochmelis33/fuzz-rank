@@ -85,5 +85,13 @@ fun analyzeProject(
             val entryPoints = CallgraphAnalyzer.applyStrategy(classesDir, interesting.map { it.method }, s)
             AnalysisResult(s.name, topK, entryPoints)
         }
+    } + topKs.map { topK ->
+        // random pseudo-strategy as baseline
+        val randomMethods = ranked.asSequence()
+            .shuffled()
+            .take((ranked.size * topK).roundToInt())
+            .map { it.method }
+            .toList()
+        AnalysisResult("RandomStrategy", topK, randomMethods)
     }
 }

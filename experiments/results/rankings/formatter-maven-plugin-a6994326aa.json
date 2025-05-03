@@ -140,5 +140,49 @@
         "entryPoints": [
             "net.revelc.code.formatter.ValidateMojo::execute()"
         ]
+    },
+    {
+        "strategyName": "RandomStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "net.revelc.code.formatter.FormatterMojo::getOptionsFromPropertiesFile(java.lang.String)"
+        ]
+    },
+    {
+        "strategyName": "RandomStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "net.revelc.code.formatter.FormatterMojo::formatFile(java.io.File, net.revelc.code.formatter.FormatterMojo.ResultCollector, java.util.Properties, java.lang.String)",
+            "net.revelc.code.formatter.css.CssFormatter::init(java.util.Map, net.revelc.code.formatter.ConfigurationSource)",
+            "net.revelc.code.formatter.xml.XMLFormatter::doFormat(java.lang.String, net.revelc.code.formatter.LineEnding)"
+        ]
+    },
+    {
+        "strategyName": "RandomStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "net.revelc.code.formatter.java.JavaFormatter::setExclusionPattern(java.lang.String)",
+            "net.revelc.code.formatter.css.CssFormatter::doFormat(java.lang.String, net.revelc.code.formatter.LineEnding)",
+            "net.revelc.code.formatter.jsoup.JsoupBasedFormatter::isInitialized()",
+            "net.revelc.code.formatter.FormatterMojo::getEncoding()",
+            "net.revelc.code.formatter.FormatterMojo::execute()"
+        ]
+    },
+    {
+        "strategyName": "RandomStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "net.revelc.code.formatter.model.ConfigReadException::<init>(java.lang.String)",
+            "net.revelc.code.formatter.FormatterMojo::execute()",
+            "net.revelc.code.formatter.xml.XMLFormatter::doFormat(java.lang.String, net.revelc.code.formatter.LineEnding)",
+            "net.revelc.code.formatter.FormatterMojo::getSkippedTypes()",
+            "net.revelc.code.formatter.model.Profile::setKind(java.lang.String)",
+            "net.revelc.code.formatter.model.Profile::addSetting(net.revelc.code.formatter.model.Setting)",
+            "net.revelc.code.formatter.FormatterMojo::getEncoding()",
+            "net.revelc.code.formatter.java.JavaFormatter::setExclusionPattern(java.lang.String)",
+            "net.revelc.code.formatter.json.JsonFormatter::doFormat(java.lang.String, net.revelc.code.formatter.LineEnding)",
+            "net.revelc.code.formatter.javascript.JavascriptFormatter::init(java.util.Map, net.revelc.code.formatter.ConfigurationSource)",
+            "net.revelc.code.formatter.FormatterMojo::doFormatFile(java.io.File, net.revelc.code.formatter.FormatterMojo.ResultCollector, java.util.Properties, java.lang.String, boolean)"
+        ]
     }
 ]

@@ -139,7 +139,7 @@
         "entryPoints": [
             "it.mulders.mcs.search.SearchCommandHandler::lambda.search.1(it.mulders.mcs.search.SearchQuery, it.mulders.mcs.search.SearchResponse.Response)",
             "it.mulders.mcs.common.SearchResponseBodyHandler::toSearchResponse(java.io.InputStream)",
-            "it.mulders.mcs.search.SearchCommandHandler::lambda.search.0(it.mulders.mcs.search.SearchQuery, it.mulders.mcs.search.SearchResponse.Response)"
+            "it.mulders.mcs.search.SearchCommandHandler::lambda.performAdditionalSearch.3(it.mulders.mcs.search.SearchQuery, it.mulders.mcs.search.SearchResponse.Response)"
         ]
     },
     {
@@ -151,8 +151,53 @@
             "it.mulders.mcs.search.SearchCommandHandler::lambda.performAdditionalSearch.2(it.mulders.mcs.search.SearchResponse.Response, it.mulders.mcs.search.SearchResponse.Response)",
             "it.mulders.mcs.cli.ClasspathVersionProvider::getVersion()",
             "it.mulders.mcs.common.SearchResponseBodyHandler::toSearchResponse(java.io.InputStream)",
-            "it.mulders.mcs.search.SearchCommandHandler::lambda.performAdditionalSearch.3(it.mulders.mcs.search.SearchQuery, it.mulders.mcs.search.SearchResponse.Response)",
+            "it.mulders.mcs.search.SearchCommandHandler::lambda.search.0(it.mulders.mcs.search.SearchQuery, it.mulders.mcs.search.SearchResponse.Response)",
             "it.mulders.mcs.cli.Cli.SearchCommand::call()"
+        ]
+    },
+    {
+        "strategyName": "RandomStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "it.mulders.mcs.cli.CommandClassFactory::<init>(it.mulders.mcs.cli.Cli)"
+        ]
+    },
+    {
+        "strategyName": "RandomStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "it.mulders.mcs.search.printer.DelegatingOutputPrinter::<init>(it.mulders.mcs.search.printer.OutputPrinter)",
+            "it.mulders.mcs.App::doMain(java.lang.String[])",
+            "it.mulders.mcs.search.printer.NoOutputPrinter::print(it.mulders.mcs.search.SearchQuery, it.mulders.mcs.search.SearchResponse.Response, java.io.PrintStream)"
+        ]
+    },
+    {
+        "strategyName": "RandomStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "it.mulders.mcs.search.printer.CoordinatePrinter::first(java.lang.String[])",
+            "it.mulders.mcs.search.printer.LeiningenOutput::provideCoordinates(java.lang.String, java.lang.String, java.lang.String)",
+            "it.mulders.mcs.search.SearchQuery::classSearch(java.lang.String)",
+            "it.mulders.mcs.common.SearchResponseBodyHandler::toSearchResponse(java.io.InputStream)",
+            "it.mulders.mcs.common.SearchResponseBodyHandler::constructDoc(java.util.Map)",
+            "it.mulders.mcs.search.printer.GradleKotlinOutput::provideCoordinates(java.lang.String, java.lang.String, java.lang.String)"
+        ]
+    },
+    {
+        "strategyName": "RandomStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "it.mulders.mcs.search.printer.CoordinatePrinter::first(java.lang.String[])",
+            "it.mulders.mcs.search.SearchQuery::search(java.lang.String)",
+            "it.mulders.mcs.search.printer.BuildrOutput::provideCoordinates(java.lang.String, java.lang.String, java.lang.String)",
+            "it.mulders.mcs.App::doMain(java.lang.String[])",
+            "it.mulders.mcs.search.CoordinateQuery.Builder::<init>(java.lang.String, java.lang.String)",
+            "it.mulders.mcs.search.WildcardSearchQuery.Builder::withStart(java.lang.Integer)",
+            "it.mulders.mcs.search.ClassnameQuery.Builder::<init>(java.lang.String)",
+            "it.mulders.mcs.common.SearchResponseBodyHandler::apply(java.net.http.HttpResponse.ResponseInfo)",
+            "it.mulders.mcs.cli.Cli.ClassSearchCommand::call()",
+            "it.mulders.mcs.search.SearchCommandHandler::<init>(it.mulders.mcs.search.printer.OutputPrinter, it.mulders.mcs.search.SearchClient)",
+            "it.mulders.mcs.common.SearchResponseBodyHandler::constructResponse(java.util.Map)"
         ]
     }
 ]

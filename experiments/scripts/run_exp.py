@@ -1,6 +1,8 @@
 import json
 from pathlib import Path
 import os
+import multiprocessing
+import datetime
 
 from my_util import *
 import run_jazzer
@@ -12,11 +14,61 @@ def _read_rankings(rankings_file: str) -> list:
         return json.loads(f.read())
 
 
+def _make_one_project_tasks(
+        rankings: list,
+        project_workdir: str,
+        cp: list[str],
+        time_per_ranking_seconds: int,
+) -> list[list[str]]:
+    
+    tasks_list = []
+    for ranking in rankings:
+        # WARNING: code duplication
+        strategy_name: str = ranking['strategyName']
+        topK: float = ranking['topK']
+        entry_points: list[str] = ranking['entryPoints']
+        
+        ranking_name = f'{strategy_name}_{topK}'
+        ranking_workdir = f'{project_workdir}/{ranking_name}'
+        os.makedirs(ranking_workdir)
+        
+        print(f'strategy {ranking_name} has {len(entry_points)} entry points')
+        single_target_tasks = run_jazzer.make_ranking_autofuzz_args(
+            cp=cp,
+            targets=entry_points,
+            workdir=ranking_workdir,
+            time_per_ranking_seconds=time_per_ranking_seconds,
+        )
+        tasks_list.extend(single_target_tasks)
+    return tasks_list
+
+
+def _merge_stats(
+    rankings: list,
+    project_workdir: str,
+    cp: list[str],
+):
+    for ranking in rankings:
+        # WARNING: code duplication
+        strategy_name: str = ranking['strategyName']
+        topK: float = ranking['topK']
+        
+        ranking_name = f'{strategy_name}_{topK}'
+        ranking_workdir = f'{project_workdir}/{ranking_name}'
+        
+        exec_files = [ f'{ranking_workdir}/{target_dir}/jazzer_workdir/jacoco.exec' 
+                      for target_dir in os.listdir(ranking_workdir) ]
+        exec_merged = f'{ranking_workdir}/jacoco_merged.exec'
+        run_jacoco.jacoco_merge(exec_files, exec_merged)
+        # note: only collect cov on `target/classes`, which is always the first element in dataset
+        run_jacoco.jacoco_report(exec_merged, cp[:1], f'{ranking_workdir}/cov_reports')
+
+
 def run_one_project(
     rankings_file: str, 
     global_workdir: Path,
     parallelism: int,
-    time_per_project_seconds: int,
+    time_per_ranking_seconds: int,
 ):
     build_id = rankings_file.removesuffix('.json').rsplit('/')[-1]
     
@@ -25,50 +77,53 @@ def run_one_project(
     project_workdir = f'{global_workdir}/{build_id}'
 
     rankings = _read_rankings(rankings_file)
-    ranking_workdir_list = []
-    time_per_ranking_seconds = time_per_project_seconds // len(rankings)
-    print(f'== time per ranking: {time_per_ranking_seconds} ==')
-    for ranking in rankings:
-        strategy_name: str = ranking['strategyName']
-        topK: float = ranking['topK']
-        entry_points: list[str] = ranking['entryPoints']
-        
-        ranking_name = f'{strategy_name}_{topK}'
-        ranking_workdir = f'{project_workdir}/{ranking_name}'
-        os.makedirs(ranking_workdir)
-        ranking_workdir_list.append(ranking_workdir)
-        
-        print(f'running {ranking_name}, has {len(entry_points)} entry points')
-        run_jazzer.parallel_autofuzz(
-            cp=cp,
-            targets=entry_points,
-            workdir=ranking_workdir,
-            parallelism=parallelism,
-            time_per_ranking_seconds=time_per_ranking_seconds,
-        )
     
-        os.listdir()
-        exec_files = [ f'{ranking_workdir}/{target_dir}/jazzer_workdir/jacoco.exec' 
-                      for target_dir in os.listdir(ranking_workdir) ]
-        exec_merged = f'{ranking_workdir}/jacoco_merged.exec'
-        run_jacoco.jacoco_merge(exec_files, exec_merged)
-        # note: only collect cov on target/classes, which is always the first element in dataset
-        run_jacoco.jacoco_report(exec_merged, cp[:1], f'{ranking_workdir}/cov_reports')
+    tasks = _make_one_project_tasks(
+        rankings=rankings,
+        project_workdir=project_workdir,
+        cp=cp,
+        time_per_ranking_seconds=time_per_ranking_seconds,
+    )
         
-    print(f'== project {build_id} completed ==')
+    # runs all tasks in the pool, wasting as little time as possible
+    with multiprocessing.Pool(parallelism) as pool:
+        pool.starmap(run_jazzer.single_autofuzz, tasks)
+    
+    _merge_stats(
+        rankings=rankings, 
+        project_workdir=project_workdir, 
+        cp=cp
+    )
+    
+    print(f'== project {build_id} completed at {datetime.datetime.now()}==')
 
 
 def run_dataset(
     rankings_dir: str,
     workdir: str,
     parallelism: int,
-    time_for_all_projects_seconds: int,
+    time_per_ranking_seconds: int,
 ):
     rankings_files = [f'{rankings_dir}/{r}' for r in os.listdir(rankings_dir)]
-    time_per_project = time_for_all_projects_seconds // len(rankings_files)
-    print(f'=== time per project: {time_per_project} ===')
+    projects_num = len(rankings_files)
+    projects_cnt = 0
+    
+    estimate_time_per_project = datetime.timedelta(
+        seconds=time_per_ranking_seconds * 20
+    )
+    estimate_time_total = estimate_time_per_project * projects_num
+    print(f"===== experiment starting at {datetime.datetime.now()} =====")
+    print(f"=== time per ranking: {time_per_ranking_seconds}")
+    print(f"=== estimated time per project: {estimate_time_per_project}")
+    print(f"=== estimated total time: {estimate_time_total}")
         
     for rankings_file in rankings_files:
-        run_one_project(rankings_file, workdir, parallelism, time_per_project)
-    
-    print("=== dataset experiment complete ===")
+        run_one_project(
+            rankings_file=rankings_file, 
+            global_workdir=workdir, 
+            parallelism=parallelism, 
+            time_per_ranking_seconds=time_per_ranking_seconds,
+        )
+        projects_cnt += 1
+        print(f'progress: {projects_cnt} / {projects_num} projects')
+    print("===== experiment end =====")

@@ -13,7 +13,7 @@ def single_autofuzz(
         cp: list[str], 
         autofuzz_target: str, 
         run_workdir: str,
-        time_limit_seconds: int,
+        time_per_target_seconds: int,
 ):
     cp_str = ';'.join(cp)
     os.makedirs(run_workdir)
@@ -29,7 +29,7 @@ def single_autofuzz(
         # Jazzer arguments
         f'--autofuzz={autofuzz_target.replace(" ", "")}',
         '--autofuzz_ignore=java.lang.NullPointerException', # maybe not?
-        f'-max_total_time={time_limit_seconds}',
+        f'-max_total_time={time_per_target_seconds}',
         '--keep_going=0',
     ]
     print(f'running target {autofuzz_target}')
@@ -56,30 +56,20 @@ def single_autofuzz(
         print(f'WARN: jazzer returned {retcode} when running {autofuzz_target}', file=sys.stderr)
   
   
-def parallel_autofuzz(
+def make_ranking_autofuzz_args(
     *,
     cp: list[str],
     targets: list[str],
     workdir: str,
-    parallelism: int,
     time_per_ranking_seconds: int,
-):
-    task_waves = math.ceil(len(targets) / parallelism)
-    time_per_target_seconds = time_per_ranking_seconds // task_waves
-    
-    print(f'time per target: {time_per_target_seconds}')
+) -> list[list[str]]:
+    time_per_target_seconds = time_per_ranking_seconds / len(targets)
     
     # escape ':' on windows
     single_workdir = lambda target: workdir + '/' + target.replace(':', '_')
     
-    # cp, target, workdir, time_limit
-    args = [
+    return [
+        # cp, target, workdir, time_limit
         [cp, t, single_workdir(t), time_per_target_seconds]
     for t in targets]
     
-    start_time = time.time()
-    # omfg python can't interrupt pool BRUH
-    with multiprocessing.Pool(parallelism) as pool:
-        pool.starmap(single_autofuzz, args)
-    end_time = time.time()
-    print(f'one ranking done, took {end_time - start_time} instead of {time_per_ranking_seconds}')

@@ -192,5 +192,65 @@
             "org.semver4j.Semver::nextMinor()",
             "org.semver4j.Semver::diff(java.lang.String)"
         ]
+    },
+    {
+        "strategyName": "RandomStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "org.semver4j.Semver::isStable()"
+        ]
+    },
+    {
+        "strategyName": "RandomStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "org.semver4j.internal.Modifier::withIncPatch(int)",
+            "org.semver4j.Semver::withIncPatch(int)",
+            "org.semver4j.internal.range.RangeProcessorPipeline::startWith(org.semver4j.internal.range.processor.Processor)",
+            "org.semver4j.internal.range.processor.GreaterThanOrEqualZeroProcessor::process(java.lang.String)",
+            "org.semver4j.RangesList::isSatisfiedByAny()"
+        ]
+    },
+    {
+        "strategyName": "RandomStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "org.semver4j.internal.Comparator::getString(int, java.util.List)",
+            "org.semver4j.internal.Modifier::withIncMajor(int)",
+            "org.semver4j.RangesList::isSingleSetOfRangesIsSatisfied(java.util.List, org.semver4j.Semver)",
+            "org.semver4j.Semver::isLowerThanOrEqualTo(java.lang.String)",
+            "org.semver4j.internal.StrictParser::parseInt(java.lang.String)",
+            "org.semver4j.Semver::satisfies(java.lang.String)",
+            "org.semver4j.RangesListFactory::addRanges(java.lang.String)",
+            "org.semver4j.internal.range.processor.RangesUtils::isNotBlank(java.lang.String)",
+            "org.semver4j.Range::isSatisfiedBy(org.semver4j.Semver)",
+            "org.semver4j.internal.StrictParser.Version::equals(java.lang.Object)"
+        ]
+    },
+    {
+        "strategyName": "RandomStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "org.semver4j.internal.Modifier::withClearedPreReleaseAndBuild()",
+            "org.semver4j.Semver::satisfies(org.semver4j.RangesList)",
+            "org.semver4j.Range::isSatisfiedBy(org.semver4j.Semver)",
+            "org.semver4j.Semver::isGreaterThanOrEqualTo(org.semver4j.Semver)",
+            "org.semver4j.internal.range.processor.RangesUtils::isX(java.lang.Integer)",
+            "org.semver4j.internal.range.processor.CaretProcessor::process(java.lang.String)",
+            "org.semver4j.internal.StrictParser::parse(java.lang.String)",
+            "org.semver4j.internal.Modifier::withClearedBuild()",
+            "org.semver4j.internal.Comparator::preReleaseCompare(org.semver4j.Semver)",
+            "org.semver4j.internal.Modifier::withClearedPreRelease()",
+            "org.semver4j.RangesList::add(java.util.List)",
+            "org.semver4j.RangesList::formatRanges(java.util.List)",
+            "org.semver4j.RangesList::isSingleSetOfRangesIsSatisfied(java.util.List, org.semver4j.Semver)",
+            "org.semver4j.RangesListFactory::stripWhitespacesBetweenRangeOperator(java.lang.String)",
+            "org.semver4j.Range::isSatisfiedByAny()",
+            "org.semver4j.Semver::isLowerThanOrEqualTo(org.semver4j.Semver)",
+            "org.semver4j.internal.Comparator::<init>(org.semver4j.Semver)",
+            "org.semver4j.internal.StrictParser.Version::<init>(int, int, int, java.util.List, java.util.List)",
+            "org.semver4j.internal.Modifier::withPreRelease(java.lang.String)",
+            "org.semver4j.RangesList::isSatisfiedByAny()"
+        ]
     }
 ]

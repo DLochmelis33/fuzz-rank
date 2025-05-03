@@ -38,7 +38,7 @@ def test_single_autofuzz():
         cp=_cp, 
         autofuzz_target=target, 
         run_workdir=workdir,
-        time_limit_seconds=10,
+        time_per_target_seconds=10,
     )
     
 
@@ -106,14 +106,14 @@ def test_run_one_project():
     run_one_project(rankings_file, workdir, 4, 2)
 
 
-# use a mock dataset in env var and mock rankings
 def test_run_dataset():
+    print("don't forget to set mock dataset envvar!")
     rankings_dir = '../tmp/rankings'
     workdir = str(Path('workdir').absolute())
     if os.path.exists(workdir):
         shutil.rmtree(workdir)
         
-    run_dataset(rankings_dir, workdir, 8, 60 * 10)
+    run_dataset(rankings_dir, workdir, 8, 10)
 
 
 if __name__=="__main__":

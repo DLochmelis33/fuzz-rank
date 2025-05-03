@@ -48,8 +48,8 @@
             "com.jitterted.mobreg.adapter.out.mobtimer.MobTimerMessageSender::send(java.lang.String)",
             "com.jitterted.mobreg.adapter.in.web.admin.AdminDashboardController::ensembleDetailView(org.springframework.ui.Model, java.lang.Long)",
             "com.jitterted.mobreg.application.EnsembleService::deleteVideoConferenceMeeting(com.jitterted.mobreg.domain.Ensemble)",
-            "com.jitterted.mobreg.adapter.out.zoom.ZoomScheduler::createMeeting(com.jitterted.mobreg.domain.Ensemble)",
             "com.jitterted.mobreg.adapter.out.zoom.ZoomScheduler::deleteMeeting(com.jitterted.mobreg.domain.ConferenceDetails)",
+            "com.jitterted.mobreg.adapter.out.zoom.ZoomScheduler::createMeeting(com.jitterted.mobreg.domain.Ensemble)",
             "com.jitterted.mobreg.application.port.InMemoryMemberRepository::save(com.jitterted.mobreg.domain.Member)"
         ]
     },
@@ -77,8 +77,8 @@
             "com.jitterted.mobreg.adapter.out.mobtimer.MobTimerMessageSender::send(java.lang.String)",
             "com.jitterted.mobreg.adapter.in.web.admin.AdminDashboardController::ensembleDetailView(org.springframework.ui.Model, java.lang.Long)",
             "com.jitterted.mobreg.application.EnsembleService::deleteVideoConferenceMeeting(com.jitterted.mobreg.domain.Ensemble)",
-            "com.jitterted.mobreg.adapter.out.zoom.ZoomScheduler::createMeeting(com.jitterted.mobreg.domain.Ensemble)",
             "com.jitterted.mobreg.adapter.out.zoom.ZoomScheduler::deleteMeeting(com.jitterted.mobreg.domain.ConferenceDetails)",
+            "com.jitterted.mobreg.adapter.out.zoom.ZoomScheduler::createMeeting(com.jitterted.mobreg.domain.Ensemble)",
             "com.jitterted.mobreg.application.port.InMemoryMemberRepository::save(com.jitterted.mobreg.domain.Member)",
             "com.jitterted.mobreg.adapter.in.web.member.MemberProfileController::updateProfileFromForm(com.jitterted.mobreg.adapter.in.web.member.MemberProfileForm, org.springframework.security.core.AuthenticatedPrincipal, org.springframework.web.servlet.mvc.support.RedirectAttributes)",
             "com.jitterted.mobreg.adapter.in.web.admin.AdminDashboardController::scheduleEnsemble(com.jitterted.mobreg.adapter.in.web.admin.ScheduleEnsembleForm)",
@@ -98,8 +98,8 @@
             "com.jitterted.mobreg.adapter.out.email.EmailNotifier::ensembleCompleted(com.jitterted.mobreg.domain.Ensemble)",
             "com.jitterted.mobreg.adapter.out.email.EmailNotifier::ensembleScheduled(com.jitterted.mobreg.domain.Ensemble, java.net.URI)",
             "com.jitterted.mobreg.adapter.out.notification.pushover.PushoverNotifier::send(java.lang.String)",
-            "com.jitterted.mobreg.application.EnsembleService::completeWith(com.jitterted.mobreg.domain.EnsembleId, java.lang.String)",
             "com.jitterted.mobreg.application.EnsembleService::saveAndNotifyEnsembleScheduled(com.jitterted.mobreg.domain.Ensemble)",
+            "com.jitterted.mobreg.application.EnsembleService::completeWith(com.jitterted.mobreg.domain.EnsembleId, java.lang.String)",
             "com.jitterted.mobreg.MobRegConfiguration::commandLineRunner(com.jitterted.mobreg.application.MemberService, com.jitterted.mobreg.application.port.MemberRepository)",
             "com.jitterted.mobreg.adapter.out.jdbc.MemberDbo::from(com.jitterted.mobreg.domain.Member)"
         ]
@@ -198,7 +198,7 @@
         "topK": 0.01,
         "entryPoints": [
             "com.jitterted.mobreg.adapter.in.web.member.InviteProcessController::processInvitation(java.lang.String, org.springframework.security.core.AuthenticatedPrincipal, org.springframework.ui.Model)",
-            "com.jitterted.mobreg.adapter.in.web.admin.AdminDashboardController::registerParticipant(com.jitterted.mobreg.adapter.in.web.admin.AdminRegistrationForm)"
+            "com.jitterted.mobreg.application.EnsembleService::scheduleEnsemble(java.lang.String, java.time.ZonedDateTime)"
         ]
     },
     {
@@ -235,7 +235,7 @@
             "com.jitterted.mobreg.adapter.in.web.admin.AdminDashboardController::ensembleDetailView(org.springframework.ui.Model, java.lang.Long)",
             "com.jitterted.mobreg.adapter.in.web.admin.AdminDashboardController::scheduleEnsemble(com.jitterted.mobreg.adapter.in.web.admin.ScheduleEnsembleForm)",
             "com.jitterted.mobreg.adapter.in.web.GitHubGrantedAuthoritiesMapper::lambda.mapAuthorities.0(java.util.Set, org.springframework.security.core.GrantedAuthority)",
-            "com.jitterted.mobreg.adapter.out.mobtimer.MobTimerMessageSender::updateParticipantsTo(com.jitterted.mobreg.domain.Ensemble)"
+            "com.jitterted.mobreg.adapter.out.mobtimer.MobTimerMessageSender::sendStandardTimerSettings()"
         ]
     },
     {
@@ -341,6 +341,111 @@
             "com.jitterted.mobreg.adapter.in.web.admin.AdminDashboardController::dashboardView(org.springframework.ui.Model, org.springframework.security.core.AuthenticatedPrincipal)",
             "com.jitterted.mobreg.adapter.in.web.member.MemberController::showEnsemblesForUser(org.springframework.ui.Model, org.springframework.security.core.AuthenticatedPrincipal)",
             "com.jitterted.mobreg.adapter.in.web.admin.AdminDashboardController::ensembleDetailView(org.springframework.ui.Model, java.lang.Long)"
+        ]
+    },
+    {
+        "strategyName": "RandomStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "com.jitterted.mobreg.application.GoogleCalendarLinkCreator::formattedStartDateTimeOf(com.jitterted.mobreg.domain.Ensemble)",
+            "com.jitterted.mobreg.domain.Ensemble::isBetweenExclusive(java.time.ZonedDateTime, java.time.ZonedDateTime, java.time.ZonedDateTime)"
+        ]
+    },
+    {
+        "strategyName": "RandomStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "com.jitterted.mobreg.adapter.in.web.admin.AdminDashboardController::cancelEnsemble(long)",
+            "com.jitterted.mobreg.adapter.in.web.admin.ScheduleEnsembleForm::setName(java.lang.String)",
+            "com.jitterted.mobreg.adapter.in.web.member.MemberProfileForm::setFirstName(java.lang.String)",
+            "com.jitterted.mobreg.domain.EnsembleCanceled::<init>(java.lang.String)",
+            "com.jitterted.mobreg.adapter.in.web.admin.AddMemberForm::setGithubUsername(java.lang.String)",
+            "com.jitterted.mobreg.adapter.in.web.admin.AdminDashboardController::registerParticipant(com.jitterted.mobreg.adapter.in.web.admin.AdminRegistrationForm)",
+            "com.jitterted.mobreg.adapter.out.jdbc.MemberDbo::from(com.jitterted.mobreg.domain.Member)",
+            "com.jitterted.mobreg.application.DefaultMemberService::changeEmail(com.jitterted.mobreg.domain.Member, java.lang.String)",
+            "com.jitterted.mobreg.adapter.out.jdbc.EnsembleDbo::setConferenceMeetingId(java.lang.String)",
+            "com.jitterted.mobreg.adapter.out.mobtimer.MobParticipantsDto::from(com.jitterted.mobreg.domain.Ensemble, com.jitterted.mobreg.application.MemberService)",
+            "com.jitterted.mobreg.adapter.out.jdbc.InviteDbo::setDateCreatedUtc(java.time.LocalDateTime)"
+        ]
+    },
+    {
+        "strategyName": "RandomStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "com.jitterted.mobreg.adapter.out.email.EmailNotifier::bodyForCompletedEnsemble(com.jitterted.mobreg.domain.Ensemble, com.jitterted.mobreg.domain.Member)",
+            "com.jitterted.mobreg.domain.Member::changeTimeZoneTo(java.time.ZoneId)",
+            "com.jitterted.mobreg.adapter.in.web.member.MemberController::accept(com.jitterted.mobreg.adapter.in.web.member.MemberRegisterForm)",
+            "com.jitterted.mobreg.adapter.out.zoom.ZoomScheduler::createMeeting(com.jitterted.mobreg.domain.Ensemble)",
+            "com.jitterted.mobreg.domain.Member::changeEmailTo(java.lang.String)",
+            "com.jitterted.mobreg.adapter.out.jdbc.MemberDbo::asMember()",
+            "com.jitterted.mobreg.adapter.out.jdbc.EnsembleRepositoryDataJdbcAdapter::findById(com.jitterted.mobreg.domain.EnsembleId)",
+            "com.jitterted.mobreg.MobRegConfiguration::commandLineRunner(com.jitterted.mobreg.application.MemberService, com.jitterted.mobreg.application.port.MemberRepository)",
+            "com.jitterted.mobreg.adapter.out.jdbc.EnsembleDbo::setId(java.lang.Long)",
+            "com.jitterted.mobreg.domain.EnsembleCompleted::<init>(java.lang.String)",
+            "com.jitterted.mobreg.domain.Ensemble::isCanceled()",
+            "com.jitterted.mobreg.adapter.in.web.admin.AdminRegistrationForm::setGithubUsername(java.lang.String)",
+            "com.jitterted.mobreg.adapter.out.jdbc.EnsembleRepositoryDataJdbcAdapter::findAll()",
+            "com.jitterted.mobreg.domain.Ensemble::statusFor(com.jitterted.mobreg.domain.MemberId, java.time.ZonedDateTime)",
+            "com.jitterted.mobreg.adapter.in.web.admin.ScheduleEnsembleForm::from(com.jitterted.mobreg.domain.Ensemble)",
+            "com.jitterted.mobreg.adapter.in.web.admin.AdminRegistrationForm::setEnsembleId(long)",
+            "com.jitterted.mobreg.adapter.out.jdbc.AcceptedMember::toEntityId(com.jitterted.mobreg.domain.MemberId)",
+            "com.jitterted.mobreg.application.MemberNotFoundByGitHubUsernameException::<init>(java.lang.String)",
+            "com.jitterted.mobreg.adapter.in.web.admin.AddMemberForm::setGithubUsername(java.lang.String)",
+            "com.jitterted.mobreg.adapter.out.jdbc.InviteDbo::setDateUsedUtc(java.time.LocalDateTime)",
+            "com.jitterted.mobreg.adapter.in.web.admin.ScheduleEnsembleForm::<init>(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)",
+            "com.jitterted.mobreg.adapter.out.jdbc.EnsembleRepositoryDataJdbcAdapter::save(com.jitterted.mobreg.domain.Ensemble)",
+            "com.jitterted.mobreg.domain.Ensemble::acceptedMembers()"
+        ]
+    },
+    {
+        "strategyName": "RandomStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "com.jitterted.mobreg.application.EnsembleService::registerMember(com.jitterted.mobreg.domain.EnsembleId, com.jitterted.mobreg.domain.MemberId)",
+            "com.jitterted.mobreg.domain.Ensemble::requireNotNull(java.lang.Object)",
+            "com.jitterted.mobreg.domain.Member::changeEmailTo(java.lang.String)",
+            "com.jitterted.mobreg.application.port.InMemoryEnsembleRepository::findAll()",
+            "com.jitterted.mobreg.application.DefaultMemberService::changeTimeZone(com.jitterted.mobreg.domain.Member, java.lang.String)",
+            "com.jitterted.mobreg.adapter.out.jdbc.MemberDbo::asMember()",
+            "com.jitterted.mobreg.MobRegApplication::main(java.lang.String[])",
+            "com.jitterted.mobreg.adapter.in.web.admin.AdminRegistrationForm::setDiscordUsername(java.lang.String)",
+            "com.jitterted.mobreg.adapter.in.web.member.MemberProfileForm::<init>(java.lang.String, java.lang.String, java.lang.String, java.lang.String)",
+            "com.jitterted.mobreg.adapter.in.web.admin.AdminDashboardController::notifyEnsembleScheduled(java.lang.Long)",
+            "com.jitterted.mobreg.adapter.in.web.admin.ScheduleEnsembleForm::from(com.jitterted.mobreg.domain.Ensemble)",
+            "com.jitterted.mobreg.adapter.out.jdbc.InviteDbo::setWasUsed(boolean)",
+            "com.jitterted.mobreg.adapter.in.web.member.MemberLookup::<init>(com.jitterted.mobreg.application.MemberService)",
+            "com.jitterted.mobreg.adapter.in.web.member.MemberProfileForm::setEmail(java.lang.String)",
+            "com.jitterted.mobreg.application.EnsembleService::deleteVideoConferenceMeeting(com.jitterted.mobreg.domain.Ensemble)",
+            "com.jitterted.mobreg.domain.Member::<init>(java.lang.String, java.lang.String, java.lang.String[])",
+            "com.jitterted.mobreg.application.port.InMemoryEnsembleRepository::save(com.jitterted.mobreg.domain.Ensemble)",
+            "com.jitterted.mobreg.domain.Ensemble::<init>(java.lang.String, java.net.URI, java.time.ZonedDateTime)",
+            "com.jitterted.mobreg.adapter.in.web.member.MemberDeniedRedirectToUserOnboardingHandler::handle(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse, org.springframework.security.access.AccessDeniedException)",
+            "com.jitterted.mobreg.adapter.out.jdbc.EnsembleDbo::asEnsemble()",
+            "com.jitterted.mobreg.adapter.out.mobtimer.MobTimerMessageSender::updateParticipantsTo(com.jitterted.mobreg.domain.Ensemble)",
+            "com.jitterted.mobreg.application.port.FailedToScheduleMeeting::<init>(java.lang.String, java.lang.Throwable)",
+            "com.jitterted.mobreg.application.DefaultMemberService::findById(com.jitterted.mobreg.domain.MemberId)",
+            "com.jitterted.mobreg.application.EnsembleService::triggerEnsembleScheduledNotification(com.jitterted.mobreg.domain.Ensemble)",
+            "com.jitterted.mobreg.adapter.out.jdbc.EnsembleRepositoryDataJdbcAdapter::findAll()",
+            "com.jitterted.mobreg.domain.Ensemble::<init>(java.lang.String, java.time.ZonedDateTime)",
+            "com.jitterted.mobreg.domain.Ensemble::setId(com.jitterted.mobreg.domain.EnsembleId)",
+            "com.jitterted.mobreg.domain.Ensemble::isCompleted()",
+            "com.jitterted.mobreg.domain.Ensemble::acceptedMembers()",
+            "com.jitterted.mobreg.adapter.in.web.GitHubUsernamePrincipalExtractor::usernameFrom(org.springframework.security.core.AuthenticatedPrincipal)",
+            "com.jitterted.mobreg.domain.Member::setId(com.jitterted.mobreg.domain.MemberId)",
+            "com.jitterted.mobreg.adapter.out.jdbc.MemberDbo::from(com.jitterted.mobreg.domain.Member)",
+            "com.jitterted.mobreg.adapter.out.mobtimer.MobTimerMessageSender::sendNewTimer()",
+            "com.jitterted.mobreg.adapter.out.email.EmailNotifier::ensembleScheduled(com.jitterted.mobreg.domain.Ensemble, java.net.URI)",
+            "com.jitterted.mobreg.adapter.out.jdbc.MemberRepositoryDataJdbcAdapter::findByGithubUsername(java.lang.String)",
+            "com.jitterted.mobreg.adapter.in.web.admin.AdminRegistrationForm::setGithubUsername(java.lang.String)",
+            "com.jitterted.mobreg.application.EnsembleService::declineMember(com.jitterted.mobreg.domain.EnsembleId, com.jitterted.mobreg.domain.MemberId)",
+            "com.jitterted.mobreg.adapter.out.email.EmailNotifier::bodyForCompletedEnsemble(com.jitterted.mobreg.domain.Ensemble, com.jitterted.mobreg.domain.Member)",
+            "com.jitterted.mobreg.adapter.in.web.admin.AdminDashboardController::ensembleDetailView(org.springframework.ui.Model, java.lang.Long)",
+            "com.jitterted.mobreg.domain.Member::<init>(com.jitterted.mobreg.domain.MemberSnapshot)",
+            "com.jitterted.mobreg.application.DefaultMemberService::findByGithubUsername(java.lang.String)",
+            "com.jitterted.mobreg.adapter.in.web.admin.ScheduleEnsembleForm::setTimezone(java.lang.String)",
+            "com.jitterted.mobreg.adapter.in.web.admin.InviteEditor::viewAllInvites(org.springframework.ui.Model)",
+            "com.jitterted.mobreg.adapter.out.jdbc.EnsembleRepositoryDataJdbcAdapter::<init>(com.jitterted.mobreg.adapter.out.jdbc.EnsembleJdbcRepository)",
+            "com.jitterted.mobreg.adapter.out.email.EmailNotifier::<init>(com.jitterted.mobreg.application.MemberService, com.jitterted.mobreg.adapter.out.email.Emailer)"
         ]
     }
 ]

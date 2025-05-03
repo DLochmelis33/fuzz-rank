@@ -155,5 +155,55 @@
             "com.sun.tools.xjc.addon.xew.config.AbstractConfigurablePlugin::run(com.sun.tools.xjc.outline.Outline, com.sun.tools.xjc.Options, org.xml.sax.ErrorHandler)",
             "com.sun.tools.xjc.addon.xew.config.AbstractConfigurablePlugin::parseArgument(com.sun.tools.xjc.Options, java.lang.String[], int)"
         ]
+    },
+    {
+        "strategyName": "RandomStrategy",
+        "topK": 0.01,
+        "entryPoints": [
+            "com.sun.tools.xjc.addon.xew.config.CommonConfiguration::setLogger(org.apache.commons.logging.Log)"
+        ]
+    },
+    {
+        "strategyName": "RandomStrategy",
+        "topK": 0.05,
+        "entryPoints": [
+            "com.sun.tools.xjc.addon.xew.XmlElementWrapperPlugin::runInternal(com.sun.tools.xjc.outline.Outline)",
+            "com.sun.tools.xjc.addon.xew.ScopedMethodInfo::toString()",
+            "com.sun.tools.xjc.addon.xew.XmlElementWrapperPlugin::moveInnerClassToParent(com.sun.tools.xjc.outline.Outline, com.sun.tools.xjc.addon.xew.Candidate)",
+            "com.sun.tools.xjc.addon.xew.config.CommonConfiguration::setLogger(org.apache.commons.logging.Log)"
+        ]
+    },
+    {
+        "strategyName": "RandomStrategy",
+        "topK": 0.1,
+        "entryPoints": [
+            "com.sun.tools.xjc.addon.xew.config.ClassConfiguration::appendProperties(org.apache.commons.lang3.builder.ToStringBuilder)",
+            "com.sun.tools.xjc.addon.xew.CommonUtils::isHiddenClass(com.sun.codemodel.JClass)",
+            "com.sun.tools.xjc.addon.xew.config.CommonConfiguration::getInstantiationMode()",
+            "com.sun.tools.xjc.addon.xew.CommonUtils::getXsdDeclaration(com.sun.tools.xjc.model.CPropertyInfo)",
+            "com.sun.tools.xjc.addon.xew.config.GlobalConfiguration.ControlEntry::<init>(java.util.regex.Pattern, com.sun.tools.xjc.addon.xew.config.CommonConfiguration.ControlMode)",
+            "com.sun.tools.xjc.addon.xew.config.AbstractConfigurablePlugin::toString()",
+            "com.sun.tools.xjc.addon.xew.config.ClassConfiguration::isAnnotatable()"
+        ]
+    },
+    {
+        "strategyName": "RandomStrategy",
+        "topK": 0.2,
+        "entryPoints": [
+            "com.sun.tools.xjc.addon.xew.CommonUtils::setPrivateField(java.lang.Object, java.lang.String, java.lang.Object)",
+            "com.sun.tools.xjc.addon.xew.CommonUtils::generableToString(com.sun.codemodel.JGenerable)",
+            "com.sun.tools.xjc.addon.xew.XmlElementWrapperPlugin::renameFactoryMethod(com.sun.codemodel.JDefinedClass, java.lang.String, java.lang.String)",
+            "com.sun.tools.xjc.addon.xew.config.GlobalConfiguration::initSummaryWriter(java.lang.String)",
+            "com.sun.tools.xjc.addon.xew.config.CommonConfiguration::setCollectionInterfaceClass(java.lang.Class)",
+            "com.sun.tools.xjc.addon.xew.XmlElementWrapperPlugin::runInternal(com.sun.tools.xjc.outline.Outline)",
+            "com.sun.tools.xjc.addon.xew.CommonUtils::copyAnnotationMemberValue(com.sun.codemodel.JAnnotationUse, java.lang.String, java.lang.String, com.sun.codemodel.JAnnotationUse)",
+            "com.sun.tools.xjc.addon.xew.config.CommonConfiguration::setApplyPluralForm(boolean)",
+            "com.sun.tools.xjc.addon.xew.CommonUtils::isHiddenClass(com.sun.codemodel.JClass)",
+            "com.sun.tools.xjc.addon.xew.config.CommonConfiguration::setInstantiationMode(com.sun.tools.xjc.addon.xew.config.CommonConfiguration.InstantiationMode)",
+            "com.sun.tools.xjc.addon.xew.config.CommonConfiguration::isApplyPluralForm()",
+            "com.sun.tools.xjc.addon.xew.config.GlobalConfiguration.ControlEntry::<init>(java.util.regex.Pattern, com.sun.tools.xjc.addon.xew.config.CommonConfiguration.ControlMode)",
+            "com.sun.tools.xjc.addon.xew.config.AbstractConfigurablePlugin::getArgumentName(java.lang.String)",
+            "com.sun.tools.xjc.addon.xew.config.AbstractConfigurablePlugin::run(com.sun.tools.xjc.outline.Outline, com.sun.tools.xjc.Options, org.xml.sax.ErrorHandler)"
+        ]
     }
 ]
