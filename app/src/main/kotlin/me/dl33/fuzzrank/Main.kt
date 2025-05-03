@@ -29,7 +29,7 @@ val strategies = listOf(
 fun main() {
     val datasetDescriptionFile = PROJECT_DIR.resolve("dataset/benchmarks.json")
     val dataset = readDataset(datasetDescriptionFile)
-    val outputDir = PROJECT_DIR.resolve("experiments/results/rankings")
+    val outputDir = PROJECT_DIR.resolve("experiments/workdir/rankings")
     outputDir.createDirectories()
 
     val doneProjectsNames = mutableSetOf<String>()
