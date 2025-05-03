@@ -17,7 +17,12 @@ def single_autofuzz(
 ):
     cp_str = ';'.join(cp)
     os.makedirs(run_workdir)
-    # run_workdir = str(pathlib.Path(run_workdir).absolute())
+    run_workdir = str(pathlib.Path(run_workdir).absolute())
+    
+    if time_per_target_seconds < 1:
+        # print('too little time per target! set to 1 second')
+        time_per_target_seconds = 1
+    print(f'running {autofuzz_target} for {time_per_target_seconds} sec')
 
     command = [
         'java',
@@ -32,7 +37,6 @@ def single_autofuzz(
         f'-max_total_time={time_per_target_seconds}',
         '--keep_going=0',
     ]
-    print(f'running target {autofuzz_target}')
     
     # bc of Windows, subprocess cwd cannot handle long dir names. this is dumb AF but a workaround is easy.
     cwd_dir = tempfile.mkdtemp()
@@ -63,7 +67,7 @@ def make_ranking_autofuzz_args(
     workdir: str,
     time_per_ranking_seconds: int,
 ) -> list[list[str]]:
-    time_per_target_seconds = time_per_ranking_seconds / len(targets)
+    time_per_target_seconds = time_per_ranking_seconds // len(targets)
     
     # escape ':' on windows
     single_workdir = lambda target: workdir + '/' + target.replace(':', '_')

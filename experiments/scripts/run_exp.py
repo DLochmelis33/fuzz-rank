@@ -32,7 +32,6 @@ def _make_one_project_tasks(
         ranking_workdir = f'{project_workdir}/{ranking_name}'
         os.makedirs(ranking_workdir)
         
-        print(f'strategy {ranking_name} has {len(entry_points)} entry points')
         single_target_tasks = run_jazzer.make_ranking_autofuzz_args(
             cp=cp,
             targets=entry_points,
@@ -71,6 +70,7 @@ def run_one_project(
     time_per_ranking_seconds: int,
 ):
     build_id = rankings_file.removesuffix('.json').rsplit('/')[-1]
+    print(f'== starting project {build_id} ==')
     
     dataset_entry = next(entry for entry in dataset if entry['build_id'] == build_id)
     cp: list[str] = dataset_entry['classPath']
@@ -84,11 +84,12 @@ def run_one_project(
         cp=cp,
         time_per_ranking_seconds=time_per_ranking_seconds,
     )
-        
+
     # runs all tasks in the pool, wasting as little time as possible
     with multiprocessing.Pool(parallelism) as pool:
         pool.starmap(run_jazzer.single_autofuzz, tasks)
     
+    print("finished fuzzing, merging jacoco reports")
     _merge_stats(
         rankings=rankings, 
         project_workdir=project_workdir, 
@@ -125,5 +126,5 @@ def run_dataset(
             time_per_ranking_seconds=time_per_ranking_seconds,
         )
         projects_cnt += 1
-        print(f'progress: {projects_cnt} / {projects_num} projects')
+        print(f'== progress: {projects_cnt} / {projects_num} projects')
     print("===== experiment end =====")
