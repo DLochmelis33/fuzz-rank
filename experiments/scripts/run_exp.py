@@ -1,3 +1,4 @@
+import argparse
 import json
 from pathlib import Path
 import os
@@ -128,3 +129,15 @@ def run_dataset(
         projects_cnt += 1
         print(f'== progress: {projects_cnt} / {projects_num} projects')
     print("===== experiment end =====")
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="run main experiment")
+    parser.add_argument("rankings_file", type=str, help="Path to the rankings file")
+    parser.add_argument("workdir", type=str, help="Working directory")
+    parser.add_argument("parallelism", type=int, help="Number of parallel processes to run", default=os.cpu_count())
+    parser.add_argument("time_per_ranking_seconds", type=int, help="Time per ranking in seconds")
+    
+    args = parser.parse_args()
+    
+    run_dataset(args.rankings_file, args.workdir, args.parallelism, args.time_per_ranking_seconds)
