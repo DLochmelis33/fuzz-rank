@@ -29,7 +29,7 @@ def single_autofuzz(
         # JVM arguments
         f'-javaagent:{JACOCO_HOME}/jacocoagent.jar=excludes=com.code_intelligence.jazzer.*',
         '-cp',
-        f'{JAZZER_HOME}/jazzer_standalone.jar;{cp_str}',
+        f'{JAZZER_HOME}/jazzer_standalone.jar{os.pathsep}{cp_str}',
         'com.code_intelligence.jazzer.Jazzer',
         # Jazzer arguments
         f'--autofuzz={autofuzz_target.replace(" ", "")}',
