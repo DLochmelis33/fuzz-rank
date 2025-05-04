@@ -66,13 +66,13 @@ def make_ranking_autofuzz_args(
     cp: list[str],
     targets: list[str],
     workdir: str,
-    time_per_ranking_seconds: int,
+    time_per_strategy_seconds: int,
 ) -> list[list[str]]:
     if len(targets) == 0:
         logging.warning(f'empty targets list')
         return []
         
-    time_per_target_seconds = time_per_ranking_seconds // len(targets)
+    time_per_target_seconds = time_per_strategy_seconds // len(targets)
     
     def get_workdir_name(target: str) -> str:
         if len(target) < 100:

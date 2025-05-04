@@ -59,10 +59,10 @@ def test_run_dataset():
     if os.path.exists(workdir):
         shutil.rmtree(workdir)
         
-    run_dataset(rankings_dir, workdir, 8, 10)
+    run_dataset(rankings_dir, workdir, 8, 10, False)
 
 
 if __name__=="__main__":
     # test_single_autofuzz()
-    test_run_one_project()
-    # test_run_dataset()
+    # test_run_one_project()
+    test_run_dataset()

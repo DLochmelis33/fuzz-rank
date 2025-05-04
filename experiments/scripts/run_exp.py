@@ -20,7 +20,7 @@ def _make_one_project_tasks(
         rankings: list,
         project_workdir: str,
         cp: list[str],
-        time_per_ranking_seconds: int,
+        time_per_strategy_seconds: int,
 ) -> list[list[str]]:
     
     tasks_list = []
@@ -38,7 +38,7 @@ def _make_one_project_tasks(
             cp=cp,
             targets=entry_points,
             workdir=ranking_workdir,
-            time_per_ranking_seconds=time_per_ranking_seconds,
+            time_per_strategy_seconds=time_per_strategy_seconds,
         )
         tasks_list.extend(single_target_tasks)
     return tasks_list
@@ -69,7 +69,7 @@ def run_one_project(
     rankings_file: str, 
     global_workdir: Path,
     parallelism: int,
-    time_per_ranking_seconds: int,
+    time_per_strategy_seconds: int,
 ):
     build_id = rankings_file.removesuffix('.json').rsplit('/')[-1]
     logging.info(f'== starting project {build_id} ==')
@@ -84,7 +84,7 @@ def run_one_project(
         rankings=rankings,
         project_workdir=project_workdir,
         cp=cp,
-        time_per_ranking_seconds=time_per_ranking_seconds,
+        time_per_strategy_seconds=time_per_strategy_seconds,
     )
 
     # runs all tasks in the pool, wasting as little time as possible
@@ -98,37 +98,60 @@ def run_one_project(
         cp=cp
     )
     
-    logging.info(f'== project {build_id} ==')
+    logging.info(f'== finished project {build_id} ==')
 
 
 def run_dataset(
     rankings_dir: str,
     workdir: str,
     parallelism: int,
-    time_per_ranking_seconds: int,
+    total_real_time_seconds: int,
+    dry_run: bool,
 ):
     rankings_files = [f'{rankings_dir}/{r}' for r in os.listdir(rankings_dir)]
     projects_num = len(rankings_files)
     projects_cnt = 0
     
-    estimate_time_per_project = datetime.timedelta(
-        seconds=time_per_ranking_seconds * 20 / parallelism
-    )
-    estimate_time_total = estimate_time_per_project * projects_num
-    logging.info(f"===== experiment starting at {datetime.datetime.now()} =====")
-    logging.info(f"=== time per ranking: {time_per_ranking_seconds}")
-    logging.info(f"=== estimated time per project: {estimate_time_per_project}")
-    logging.info(f"=== estimated total time: {estimate_time_total}")
-        
+    total_strategies_num = 0
+    entry_points_num_s: list[int] = []
+    for ranking_file in rankings_files:
+        with open(ranking_file, 'r') as f:
+            strategies = json.loads(f.read())
+            total_strategies_num += len(strategies)
+            for s in strategies:
+                entry_points_num_s.append(len(s["entryPoints"]))
+    
+    time_per_strategy_seconds = total_real_time_seconds * parallelism / total_strategies_num
+    
+    percentage_of_strategies_with_over_15min_per_entrypoint = sum((
+        1 for ep_num in entry_points_num_s if time_per_strategy_seconds / ep_num > 15 * 60
+    )) / total_strategies_num
+    
+    percentage_of_entry_points_with_over_15mins_time = sum((
+        ep_num for ep_num in entry_points_num_s if time_per_strategy_seconds / ep_num > 15 * 60
+    )) / sum(entry_points_num_s)
+    
+    logging.info(f"===== experiment starting =====")
+    logging.info(f"=== total time: {datetime.timedelta(seconds=total_real_time_seconds)}")
+    logging.info(f"=== # strategies in total: {total_strategies_num}")
+    logging.info(f"=== time per strategy: {datetime.timedelta(seconds=time_per_strategy_seconds)}")
+    logging.info(f"=== % of targets with over 15mins: {percentage_of_entry_points_with_over_15mins_time}")
+    logging.info(f"=== % of strategies with over 15mins per target: {percentage_of_strategies_with_over_15min_per_entrypoint}")
+    
+    if dry_run:
+        logging.warning('dry run! stopping')
+        return
+    
     for rankings_file in rankings_files:
         run_one_project(
             rankings_file=rankings_file, 
             global_workdir=workdir, 
             parallelism=parallelism, 
-            time_per_ranking_seconds=time_per_ranking_seconds,
+            time_per_strategy_seconds=time_per_strategy_seconds,
         )
         projects_cnt += 1
-        logging.info(f'== progress: {projects_cnt} / {projects_num} projects')
+        logging.info(f'== global progress: {projects_cnt} / {projects_num} projects')
+    
     logging.info("===== experiment end =====")
     
     
@@ -143,8 +166,9 @@ if __name__ == "__main__":
     parser.add_argument("rankings_dir", type=str, help="Path to the rankings directory")
     parser.add_argument("workdir", type=str, help="Working directory")
     parser.add_argument("parallelism", type=int, help="Number of parallel processes to run")
-    parser.add_argument("time_per_ranking_seconds", type=int, help="Time per ranking in seconds")
+    parser.add_argument("total_time_seconds", type=int, help="Approximate total experiment time in seconds")
+    parser.add_argument("dry_run", type=bool, help="if true, only calculate time limits")
     
     args = parser.parse_args()
     
-    run_dataset(args.rankings_dir, args.workdir, args.parallelism, args.time_per_ranking_seconds)
+    run_dataset(args.rankings_dir, args.workdir, args.parallelism, args.total_time_seconds, args.dry_run)
