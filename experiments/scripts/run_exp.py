@@ -111,7 +111,7 @@ def run_dataset(
     projects_cnt = 0
     
     estimate_time_per_project = datetime.timedelta(
-        seconds=time_per_ranking_seconds * 20
+        seconds=time_per_ranking_seconds * 20 / parallelism
     )
     estimate_time_total = estimate_time_per_project * projects_num
     print(f"===== experiment starting at {datetime.datetime.now()} =====")
