@@ -58,7 +58,7 @@ def single_autofuzz(
     
     if retcode != 0:
         # something was wrong, but not a critical error
-        logging.warning(f'WARN: jazzer returned {retcode} when running {run_workdir}')
+        logging.warning(f'jazzer returned {retcode} when running {run_workdir}')
   
   
 def make_ranking_autofuzz_args(
@@ -69,7 +69,7 @@ def make_ranking_autofuzz_args(
     time_per_ranking_seconds: int,
 ) -> list[list[str]]:
     if len(targets) == 0:
-        logging.warning(f'WARN: empty targets list')
+        logging.warning(f'empty targets list')
         return []
         
     time_per_target_seconds = time_per_ranking_seconds // len(targets)
