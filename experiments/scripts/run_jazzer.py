@@ -58,7 +58,7 @@ def single_autofuzz(
     
     if retcode != 0:
         # something was wrong, but not a critical error
-        logging.warning(f'WARN: jazzer returned {retcode} when running {autofuzz_target}', file=sys.stderr)
+        logging.warning(f'WARN: jazzer returned {retcode} when running {autofuzz_target}')
   
   
 def make_ranking_autofuzz_args(
