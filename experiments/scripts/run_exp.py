@@ -124,11 +124,11 @@ def run_dataset(
     time_per_strategy_seconds = total_real_time_seconds * parallelism / total_strategies_num
     
     percentage_of_strategies_with_over_15min_per_entrypoint = sum((
-        1 for ep_num in entry_points_num_s if time_per_strategy_seconds / ep_num > 15 * 60
+        1 for ep_num in entry_points_num_s if ep_num > 0 and time_per_strategy_seconds / ep_num > 15 * 60
     )) / total_strategies_num
     
     percentage_of_entry_points_with_over_15mins_time = sum((
-        ep_num for ep_num in entry_points_num_s if time_per_strategy_seconds / ep_num > 15 * 60
+        ep_num for ep_num in entry_points_num_s if ep_num > 0 and time_per_strategy_seconds / ep_num > 15 * 60
     )) / sum(entry_points_num_s)
     
     logging.info(f"===== experiment starting =====")
