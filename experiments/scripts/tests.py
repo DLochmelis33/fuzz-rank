@@ -30,7 +30,7 @@ _cp = [
 def test_single_autofuzz():
     target = "org.assertj.vavr.api.SeqAssert::isSorted()" # "org.assertj.vavr.api.VavrAssumptions::asAssumption(org.assertj.vavr.api.AbstractVavrAssert)"
     
-    workdir = 'workdir'
+    workdir = 'workdir/tests'
     if os.path.exists(workdir):
         shutil.rmtree(workdir)
     
@@ -45,7 +45,7 @@ def test_single_autofuzz():
 def test_run_one_project():
     rankings_file = 'results/rankings/ari-proxy-f9fde350e2.json'
     
-    workdir = str(Path('workdir').absolute())
+    workdir = str(Path('workdir/tests').absolute())
     if os.path.exists(workdir):
         shutil.rmtree(workdir)
     
@@ -55,7 +55,7 @@ def test_run_one_project():
 def test_run_dataset():
     print("don't forget to set mock dataset envvar!")
     rankings_dir = '../tmp/rankings'
-    workdir = str(Path('workdir').absolute())
+    workdir = str(Path('workdir/tests').absolute())
     if os.path.exists(workdir):
         shutil.rmtree(workdir)
         
@@ -64,8 +64,5 @@ def test_run_dataset():
 
 if __name__=="__main__":
     test_single_autofuzz()
-    print('single autofuzz ok')
-    test_run_one_project()
-    print('one project ok')
-    if input('continue with dataset test? (y/n)') == 'y':
-        test_run_dataset()
+    # test_run_one_project()
+    # test_run_dataset()
