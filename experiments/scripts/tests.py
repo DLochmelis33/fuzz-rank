@@ -43,7 +43,7 @@ def test_single_autofuzz():
     
 
 def test_run_one_project():
-    rankings_file = 'results/rankings/ari-proxy-f9fde350e2.json'
+    rankings_file = '../tmp/rankings/assertj-vavr-cd521160aa.json'
     
     workdir = str(Path('workdir/tests').absolute())
     if os.path.exists(workdir):
@@ -63,6 +63,6 @@ def test_run_dataset():
 
 
 if __name__=="__main__":
-    test_single_autofuzz()
-    # test_run_one_project()
+    # test_single_autofuzz()
+    test_run_one_project()
     # test_run_dataset()

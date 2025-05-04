@@ -1,11 +1,10 @@
 import os
 import subprocess
-import multiprocessing
-import math
-import time
 import tempfile
 import shutil
 import sys
+import logging
+import hashlib
 
 from my_util import *
 
@@ -16,13 +15,15 @@ def single_autofuzz(
         time_per_target_seconds: int,
 ):
     cp_str = os.pathsep.join(cp)
-    os.makedirs(run_workdir)
     run_workdir = str(pathlib.Path(run_workdir).absolute())
+    os.makedirs(run_workdir)
+    
+    with open(f'{run_workdir}/target_name.txt', 'w') as f:
+        f.write(autofuzz_target)
     
     if time_per_target_seconds < 1:
-        # print('too little time per target! set to 1 second')
         time_per_target_seconds = 1
-    # print(f'running {autofuzz_target} for {time_per_target_seconds} sec')
+    # logging.debug(f'running {autofuzz_target} for {time_per_target_seconds} sec')
 
     command = [
         'java',
@@ -57,7 +58,7 @@ def single_autofuzz(
     
     if retcode != 0:
         # something was wrong, but not a critical error
-        print(f'WARN: jazzer returned {retcode} when running {autofuzz_target}', file=sys.stderr)
+        logging.warning(f'WARN: jazzer returned {retcode} when running {autofuzz_target}', file=sys.stderr)
   
   
 def make_ranking_autofuzz_args(
@@ -68,16 +69,19 @@ def make_ranking_autofuzz_args(
     time_per_ranking_seconds: int,
 ) -> list[list[str]]:
     if len(targets) == 0:
-        print(f'WARN: empty targets list')
+        logging.warning(f'WARN: empty targets list')
         return []
         
     time_per_target_seconds = time_per_ranking_seconds // len(targets)
     
-    # escape ':' on windows
-    single_workdir = lambda target: workdir + '/' + target.replace(':', '_')
+    def get_workdir_name(target: str) -> str:
+        if len(target) < 100:
+            return workdir + '/' + target.replace(':', '_')
+        else:
+            return workdir + '/' + hashlib.sha256(target.encode()).hexdigest()
     
     return [
         # cp, target, workdir, time_limit
-        [cp, t, single_workdir(t), time_per_target_seconds]
+        [cp, t, get_workdir_name(t), time_per_target_seconds]
     for t in targets]
     

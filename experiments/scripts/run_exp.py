@@ -4,6 +4,7 @@ from pathlib import Path
 import os
 import multiprocessing
 import datetime
+import logging
 
 from my_util import *
 import run_jazzer
@@ -71,7 +72,7 @@ def run_one_project(
     time_per_ranking_seconds: int,
 ):
     build_id = rankings_file.removesuffix('.json').rsplit('/')[-1]
-    print(f'== starting project {build_id} ==')
+    logging.info(f'== starting project {build_id} ==')
     
     dataset_entry = next(entry for entry in dataset if entry['build_id'] == build_id)
     cp: list[str] = dataset_entry['classPath']
@@ -90,14 +91,14 @@ def run_one_project(
     with multiprocessing.Pool(parallelism) as pool:
         pool.starmap(run_jazzer.single_autofuzz, tasks)
     
-    print("finished fuzzing, merging jacoco reports")
+    logging.info("finished fuzzing, merging jacoco reports")
     _merge_stats(
         rankings=rankings, 
         project_workdir=project_workdir, 
         cp=cp
     )
     
-    print(f'== project {build_id} completed at {datetime.datetime.now()}==')
+    logging.info(f'== project {build_id} ==')
 
 
 def run_dataset(
@@ -114,10 +115,10 @@ def run_dataset(
         seconds=time_per_ranking_seconds * 20 / parallelism
     )
     estimate_time_total = estimate_time_per_project * projects_num
-    print(f"===== experiment starting at {datetime.datetime.now()} =====")
-    print(f"=== time per ranking: {time_per_ranking_seconds}")
-    print(f"=== estimated time per project: {estimate_time_per_project}")
-    print(f"=== estimated total time: {estimate_time_total}")
+    logging.info(f"===== experiment starting at {datetime.datetime.now()} =====")
+    logging.info(f"=== time per ranking: {time_per_ranking_seconds}")
+    logging.info(f"=== estimated time per project: {estimate_time_per_project}")
+    logging.info(f"=== estimated total time: {estimate_time_total}")
         
     for rankings_file in rankings_files:
         run_one_project(
@@ -127,8 +128,14 @@ def run_dataset(
             time_per_ranking_seconds=time_per_ranking_seconds,
         )
         projects_cnt += 1
-        print(f'== progress: {projects_cnt} / {projects_num} projects')
-    print("===== experiment end =====")
+        logging.info(f'== progress: {projects_cnt} / {projects_num} projects')
+    logging.info("===== experiment end =====")
+    
+    
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s %(levelname)s: %(message)s"
+)
 
 
 if __name__ == "__main__":
