@@ -33,7 +33,7 @@ def single_autofuzz(
         f'{JAZZER_HOME}/jazzer_standalone.jar{os.pathsep}{cp_str}',
         'com.code_intelligence.jazzer.Jazzer',
         # Jazzer arguments
-        f'--autofuzz={autofuzz_target.replace(" ", "")}',
+        f'--autofuzz={autofuzz_target.replace(" ", "").replace("<init>", "new")}',
         '--autofuzz_ignore=java.lang.NullPointerException', # maybe not?
         f'-max_total_time={time_per_target_seconds}',
         '--keep_going=0',
@@ -58,7 +58,7 @@ def single_autofuzz(
     
     if retcode != 0:
         # something was wrong, but not a critical error
-        logging.warning(f'WARN: jazzer returned {retcode} when running {autofuzz_target}')
+        logging.warning(f'WARN: jazzer returned {retcode} when running {run_workdir}')
   
   
 def make_ranking_autofuzz_args(
