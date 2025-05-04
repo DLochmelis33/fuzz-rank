@@ -167,7 +167,7 @@ if __name__ == "__main__":
     parser.add_argument("workdir", type=str, help="Working directory")
     parser.add_argument("parallelism", type=int, help="Number of parallel processes to run")
     parser.add_argument("total_time_seconds", type=int, help="Approximate total experiment time in seconds")
-    parser.add_argument("dry_run", type=bool, help="if true, only calculate time limits")
+    parser.add_argument("-d", "--dry-run", action="store_true", help="only calculate time limits")
     
     args = parser.parse_args()
     
