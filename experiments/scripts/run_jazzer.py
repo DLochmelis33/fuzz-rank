@@ -36,7 +36,7 @@ def single_autofuzz(
         f'--autofuzz={autofuzz_target.replace(" ", "").replace("<init>", "new")}',
         '--autofuzz_ignore=java.lang.NullPointerException', # maybe not?
         f'-max_total_time={time_per_target_seconds}',
-        '--keep_going=0',
+        '--keep_going=1000', # too many exceptions can flood disk space
     ]
     
     # bc of Windows, subprocess cwd cannot handle long dir names. this is dumb AF but a workaround is easy.
@@ -47,8 +47,8 @@ def single_autofuzz(
 
     retcode = subprocess.run(
         args=command,
-        stdout=open(f'{run_workdir}/stdout.txt', 'w'),
-        stderr=open(f'{run_workdir}/stderr.txt', 'w'),
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
         cwd=cwd_dir,
     ).returncode
     
