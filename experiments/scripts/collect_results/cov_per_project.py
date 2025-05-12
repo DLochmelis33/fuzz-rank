@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 """
-Summarize JaCoCo coverage reports across multiple subdirectories into a CSV (only instructions and branches with percentages).
+Summarize JaCoCo coverage reports across multiple strategy subdirectories into a CSV (only instructions and branches with percentages).
+Provides reusable functions `summarize_coverage`, `process_experiment`, and a CLI entrypoint that processes an experiment directory.
 """
 import os
 import xml.etree.ElementTree as ET
 import csv
 import argparse
+
 
 def parse_report(xml_path):
     """Parse a JaCoCo report.xml file and return a dict of counters."""
@@ -19,38 +21,31 @@ def parse_report(xml_path):
         counters[t] = {'covered': covered, 'missed': missed}
     return counters
 
-def main():
-    parser = argparse.ArgumentParser(
-        description='Summarize JaCoCo coverage reports into CSV (instructions & branches).'
-    )
-    parser.add_argument(
-        'root_dir',
-        help='Root directory containing subdirectories with cov_reports/report.xml'
-    )
-    parser.add_argument(
-        '-o', '--output',
-        default='coverage_summary.csv',
-        help='Output CSV file path'
-    )
-    args = parser.parse_args()
 
+def summarize_coverage(project_dir, output_path):
+    """
+    Walk through each strategy_dir in `project_dir`, parse cov_reports/report.xml,
+    and write a CSV summary of INSTRUCTION and BRANCH metrics, including percentages,
+    into `output_path`.
+    """
     types = ['INSTRUCTION', 'BRANCH']
     headers = [
-        'name',
+        'strategy_dir',
         'INSTRUCTION_covered', 'BRANCH_covered',
-        'INSTRUCTION_missed', 'BRANCH_missed',
-        'INSTRUCTION_rate', 'BRANCH_rate'
+        'INSTRUCTION_missed',  'BRANCH_missed',
+        'INSTRUCTION_pct',     'BRANCH_pct'
     ]
 
-    with open(args.output, 'w', newline='') as csvfile:
+    with open(output_path, 'w', newline='') as csvfile:
         writer = csv.writer(csvfile)
         writer.writerow(headers)
 
-        for entry in sorted(os.listdir(args.root_dir)):
-            entry_path = os.path.join(args.root_dir, entry)
-            if not os.path.isdir(entry_path):
+        for entry in sorted(os.listdir(project_dir)):
+            strategy_path = os.path.join(project_dir, entry)
+            if not os.path.isdir(strategy_path):
                 continue
-            report_path = os.path.join(entry_path, 'cov_reports', 'report.xml')
+
+            report_path = os.path.join(strategy_path, 'cov_reports', 'report.xml')
             data = {t: {'covered': 0, 'missed': 0} for t in types}
 
             if os.path.isfile(report_path):
@@ -80,7 +75,34 @@ def main():
 
             writer.writerow(row)
 
-    print(f"Summary written to {args.output}")
+
+def process_experiment(experiment_dir):
+    """
+    For each project_dir within `experiment_dir`, call `summarize_coverage`,
+    writing its summary to `project_dir/coverage_summary.csv`.
+    """
+    for project in sorted(os.listdir(experiment_dir)):
+        project_path = os.path.join(experiment_dir, project)
+        if not os.path.isdir(project_path):
+            continue
+        output_file = os.path.join(project_path, 'coverage_summary.csv')
+        print(f"Processing project: {project_path}")
+        summarize_coverage(project_path, output_file)
+        print(f"Written summary to {output_file}")
+
+
+def main():
+    parser = argparse.ArgumentParser(
+        description='Process an experiment directory of projects, summarizing each to CSV.'
+    )
+    parser.add_argument(
+        'experiment_dir',
+        help='Directory containing project subdirectories to process'
+    )
+    args = parser.parse_args()
+
+    process_experiment(args.experiment_dir)
+
 
 if __name__ == '__main__':
     main()
