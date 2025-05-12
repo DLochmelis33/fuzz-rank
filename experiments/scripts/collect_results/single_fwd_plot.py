@@ -2,7 +2,6 @@
 import os
 import pandas as pd
 import matplotlib.pyplot as plt
-import colorsys
 
 
 def load_all_data(experiment_dir):
@@ -35,76 +34,44 @@ def load_all_data(experiment_dir):
     return pd.concat(records, ignore_index=True)
 
 
-def parse_strategy_colors(df):
+def assign_prefix_colors(df):
     """
-    Assign a base hue to each known strategy prefix and adjust brightness by suffix (top-K value).
+    Assign a distinct color to each strategy prefix:
+    RandomStrategy, SimpleStrategy, SimpleWithSkippingStrategy,
+    MinCoverStrategy, MinCoverWeightedStrategy.
     Returns:
-      - colors: list of RGB tuples corresponding to each row in df
-      - prefix_to_rgb: mapping of prefix -> base RGB (mid brightness)
-      - suffixes: sorted list of unique suffix strings
+      - colors: list of RGB tuples for each row in df
+      - prefix_to_rgb: mapping of prefix -> RGB tuple
     """
-    # known prefixes
-    known_prefixes = [
-        'RandomStrategy',
-        'SimpleStrategy',
-        'SimpleWithSkippingStrategy',
-        'MinCoverStrategy',
-        'MinCoverWeightedStrategy'
+    prefixes = df['strategy_dir'].str.rsplit(pat='_', n=1).str[0]
+    known = [
+        'RandomStrategy', 'SimpleStrategy', 'SimpleWithSkippingStrategy',
+        'MinCoverStrategy', 'MinCoverWeightedStrategy'
     ]
-    # split prefix and suffix
-    parts = df['strategy_dir'].str.rsplit('_', n=1)
-    prefixes = parts.str[0]
-    suffixes = parts.str[1]
-
-    # choose base colors for prefixes from tab10
-    base_cmap = plt.get_cmap('tab10')
-    prefix_to_rgb = {
-        pref: base_cmap(i % base_cmap.N)[:3]
-        for i, pref in enumerate(known_prefixes)
-    }
-
-    # sorted suffix values
-    unique_suffixes = sorted(suffixes.unique(), key=lambda x: float(x))
-
-    # brightness range for shading
-    min_v, max_v = 0.5, 1.0
-
-    # build colors list
-    colors = []
-    for pref, suf in zip(prefixes, suffixes):
-        base_rgb = prefix_to_rgb.get(pref, (0.5, 0.5, 0.5))
-        # convert to HSV
-        h, s, v0 = colorsys.rgb_to_hsv(*base_rgb)
-        # normalized position of this suffix
-        idx = unique_suffixes.index(suf)
-        t = idx / (len(unique_suffixes) - 1) if len(unique_suffixes) > 1 else 0.5
-        # compute brightness
-        v = min_v + t * (max_v - min_v)
-        # back to RGB
-        rgb = colorsys.hsv_to_rgb(h, s, v)
-        colors.append(rgb)
-
-    return colors, prefix_to_rgb, unique_suffixes
+    cmap = plt.get_cmap('tab10')
+    prefix_to_rgb = {pref: cmap(i % cmap.N)[:3] for i, pref in enumerate(known)}
+    colors = [prefix_to_rgb.get(pref, (0.5, 0.5, 0.5)) for pref in prefixes]
+    return colors, prefix_to_rgb
 
 
 def plot_all_projects(experiment_dir: str, output_path: str):
     """
     Generate a combined dot chart of branch coverage for all projects.
-    Each project is a horizontal line; dots are strategies colored by prefix hue and suffix brightness.
+    Each project is a horizontal line; dots are colored by strategy type only.
     Best strategy per project is annotated at the end of the line.
-    Legend shows strategy types (prefix colors) and top-K shading (suffix values).
+    Legend shows strategy types, placed above the plot for clarity.
     """
-    # load and prepare data
     df = load_all_data(experiment_dir)
-    df['suffix'] = df['strategy_dir'].str.rsplit('_', n=1).str[1]
-    colors, prefix_to_rgb, suffixes = parse_strategy_colors(df)
+    df['suffix'] = df['strategy_dir'].str.rsplit(pat='_', n=1).str[1]
+    colors, prefix_to_rgb = assign_prefix_colors(df)
 
     # map projects to y positions
     projects = sorted(df['project'].unique())
     y_positions = {proj: idx for idx, proj in enumerate(projects)}
     n_projects = len(projects)
 
-    fig, ax = plt.subplots(figsize=(10, max(2, 0.5 * n_projects)))
+    # wider figure and extra top margin
+    fig, ax = plt.subplots(figsize=(14, max(2, 0.5 * n_projects)))
 
     # draw horizontal guide lines
     for y in y_positions.values():
@@ -132,30 +99,15 @@ def plot_all_projects(experiment_dir: str, output_path: str):
     for spine in ['left', 'right', 'top']:
         ax.spines[spine].set_visible(False)
 
-    # legend for strategy prefixes
+    # legend for strategy prefixes above plot
     from matplotlib.lines import Line2D
-    prefix_handles = []
-    for pref, rgb in prefix_to_rgb.items():
-        prefix_handles.append(Line2D([0], [0], marker='o', color=rgb,
-                                     linestyle='None', markersize=8, label=pref))
-    l1 = ax.legend(handles=prefix_handles, title='Strategy Type', bbox_to_anchor=(1.02, 1), loc='upper left')
-    ax.add_artist(l1)
+    handles = [Line2D([0], [0], marker='o', color=rgb, linestyle='None', markersize=6, label=pref)
+               for pref, rgb in prefix_to_rgb.items()]
+    ax.legend(handles=handles, title='Strategy Type', loc='upper center',
+              bbox_to_anchor=(0.5, 1.15), ncol=len(handles), frameon=False)
 
-    # legend for top-K suffix shading
-    suffix_handles = []
-    # pick a neutral prefix for demonstration (e.g. SimpleStrategy)
-    demo_rgb = prefix_to_rgb.get('SimpleStrategy', (0.5, 0.5, 0.5))
-    h_demo, s_demo, _ = colorsys.rgb_to_hsv(*demo_rgb)
-    for suf in suffixes:
-        idx = suffixes.index(suf)
-        t = idx / (len(suffixes) - 1) if len(suffixes) > 1 else 0.5
-        v = 0.5 + t * 0.5
-        shade_rgb = colorsys.hsv_to_rgb(h_demo, s_demo, v)
-        suffix_handles.append(Line2D([0], [0], marker='o', color=shade_rgb,
-                                     linestyle='None', markersize=6, label=suf))
-    ax.legend(handles=suffix_handles, title='Top-K Value', bbox_to_anchor=(1.02, 0.5), loc='upper left')
-
-    plt.tight_layout()
+    # adjust layout to accommodate legend
+    fig.tight_layout(rect=[0, 0, 1, 0.90])
     plt.savefig(output_path)
     plt.close(fig)
     print(f"Combined dot chart saved to {output_path}")
